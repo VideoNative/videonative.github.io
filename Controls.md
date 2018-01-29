@@ -294,6 +294,13 @@ Property | password | Boolean | false | 是否为密码输入
 Property | placeholder | String | "" | 当没有文字输入时的提示文案
 Property | placeholder-color | color | #888888FF | 取值格式为#RGBA
 Property | keep-focus | Boolean | false | 当点击非本input输入的区域时是否保持焦点
+Method | int getCursorStart() |  |  | 当前输入框的光标开始位置
+Method | int getCursorEnd() |  |  | 当前输入框的光标结束位置
+Method | String getValue() |  |  | 当前输入框的文本
+Method | Boolean hasFocus() |  |  | 当前输入框是否获取了焦点
+Method | void setCursorRange(int start, int end) |  |  | 设置当前输入框光标起始和结束位置
+Method | void setCursorStart(int start) |  |  | 设置当前输入框光标起始位置
+Method | void setFocus(boolean focus) |  |  | 设置当前输入框的焦点属性
 
 ## list
 + `<list>` 组件是提供垂直列表功能的核心组件。非常适合用于长列表的展示
@@ -374,6 +381,11 @@ EventHandle | bindHeaderRefreshing | | | 列表发生了下拉刷新
 EventHandle | bindFooterRefreshing | | | 列表发生了上拉加载
 EventHandle | bindScroll | Integer; Integer | | 列表滚动，deltaX;deltaY（正数为下滑，负数为上滑）
 EventHandle | bindScrollState | Integer | | 列表滚动状态切换，newState，0:空闲;1:拖拽;2:滑动;
+Method | void scrollToPosition(int position) |  |  | list滚动到指定的位置
+Method | void smoothScrollToPosition(int position) |  |  | 有动画的滚动到指定的位置
+Method | void setFooterRefreshingEnabled(boolean enable) |  |  | 是否允许上拉加载更多
+Method | void setHeaderRefreshingEnabled(boolean enable) |  |  | 是否允许下拉刷新
+Method | void setRefreshing(boolean enable) |  |  | 下拉刷新是否开始(如果已经开始下拉刷新可以靠这个值结束下拉刷新，若果没有下拉刷新也可以通过代码触发，前提是setHeaderRefreshingEnabled(true))
 
 ## header
 
@@ -506,8 +518,9 @@ page({
 --- | --- | --- | --- | ---
 Property | direction | Enum | column | column/row
 EventHandle | bindScroll | | | 滚动时触发，deltaX，deltaY，单位为px
-Method | scrollTo | Float, Boolean | 0, false | 滚动到指定位置，单位为rpx；参数 animation 指定是否带动画效果
-Method | getOffset | Float | | 获取当前的偏移，单位为rpx
+Method | scrollTo(Float, Boolean) | | 0, false | 滚动到指定位置，单位为rpx；参数 animation 指定是否带动画效果
+Method | Float getOffset() | | | 获取当前的偏移，单位为rpx
+
 
 
 ## view-pager
@@ -583,5 +596,5 @@ Property | page-gap | rpx | 0rpx | 分页间距
 EventHandle | bindScroll | | | 滚动时触发， delta, offset, offsetPercent, scrollState, pageIndex
 EventHandle | bindScrollStateChange | | | 0:空闲;1:拖拽;2:滑动
 EventHandle | bindPageChange | | | 滑动停止时指向的分页，pageIndex
-Method | setPageIndex | Integer | | 设置当前的分页编号
-Method | getPageIndex | Integer | | 获取当前的分页编号
+Method | void setPageIndex(Integer index) | Integer | | 设置当前的分页编号
+Method | Integer getPageIndex() | Integer | | 获取当前的分页编号
