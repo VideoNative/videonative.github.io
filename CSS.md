@@ -10,7 +10,7 @@ VNSS 用来决定 VNML 的组件应该怎么显示。
 
 ### 尺寸单位
 
-+rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。
+-rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。
 
 设备 | rpx换算px (屏幕宽度/750) |px换算rpx (750/屏幕宽度)
 --- | --- | ---
@@ -19,20 +19,21 @@ iPhone6 | 1rpx = 0.5px | 1px = 2rpx
 iPhone6 Plus | 1rpx = 0.552px | 1px = 1.81rpx
 
 **建议：** 开发微信小程序时设计师可以用 iPhone6 作为视觉稿的标准。
+
 **注意：**在较小的屏幕上不可避免的会有一些毛刺，请在开发时尽量避免这种情况。
 
 ### 内联样式
 
 框架组件上支持使用 style、class 属性来控制组件的样式。
 
-+style：静态的样式统一写到 class 中。style 接收动态的样式，在运行时会进行解析，请尽量避免将静态的样式写进 style 中，以免影响渲染速度。
+-style：静态的样式统一写到 class 中。style 接收动态的样式，在运行时会进行解析，请尽量避免将静态的样式写进 style 中，以免影响渲染速度。
 
 ```html
 <!--test.vnml-->
 <view style="color:{{color}};" />
 ```
 
-+class：用于指定样式规则，其属性值是样式规则中类选择器名(样式类名)的集合，样式类名不需要带上.，样式类名之间用空格分隔。
+-class：用于指定样式规则，其属性值是样式规则中类选择器名(样式类名)的集合，样式类名不需要带上.，样式类名之间用空格分隔。
 
 ```html
 <!--test.vnml-->
@@ -53,6 +54,9 @@ element | view | 选择所有 view 组件
 element, element | view, checkbox | 选择所有文档的 view 组件和所有的 checkbox 组件
 
 **注意：**选择器还可以使用集联操作如:"#id1 text"可以匹配id1下面左右的text组件(包含嵌套多层的子组件)
+
 **注意：**选择器的优先集为 #id > .class > element > *
+
 更多CSS的规范请参看[W3C标准](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
 更多Flex属性介绍清参看[Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
