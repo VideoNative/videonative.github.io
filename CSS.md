@@ -45,7 +45,6 @@ iPhone6 Plus | 1rpx = 0.552px | 1px = 1.81rpx
 
 选择器 | 样例 | 样例描述
 --- | --- | ---
-选择器 | 样例 | 样例描述
 .class | .intro | 选择所有拥有 class="intro" 的组件
 \#id | #firstname | 选择拥有 id="firstname" 的组件
 \* | \* | 选择所有组件
