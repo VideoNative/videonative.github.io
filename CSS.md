@@ -45,11 +45,11 @@ iPhone6 Plus | 1rpx = 0.552px | 1px = 1.81rpx
 
 选择器 | 样例 | 样例描述
 --- | --- | ---
-.class | .intro | 选择所有拥有 class="intro" 的组件
-\#id | #firstname | 选择拥有 id="firstname" 的组件
 \* | \* | 选择所有组件
 element | view | 选择所有 view 组件
+.class | .intro | 选择所有拥有 class="intro" 的组件
 :pseudoclass | :active | 伪类选择器，目前普通组件只支持:active伪类，input组件还支持:focus,:disable
+\#id | #firstname | 选择拥有 id="firstname" 的组件
 element, element | view, checkbox | 选择所有文档的 view 组件和所有的 checkbox 组件
 
 **注意：**选择器还可以使用集联操作如:"#id1 text"可以匹配id1下面左右的text组件(包含嵌套多层的子组件)
