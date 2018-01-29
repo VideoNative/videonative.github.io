@@ -2,6 +2,6 @@
 
 ### VNDom
 
-Object findElementByID(String)
+<font size=4>**Object findElementByID(String)**<font>
 
-获取Dom对象
+<font size=4>**获取Dom对象**</font>
