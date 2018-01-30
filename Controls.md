@@ -41,7 +41,7 @@ onLaunch(Object params) | 当前页面启动 | 页面 | 上个页面传递过来
 onStart() | 当前页面进入前台 | 页面 |  | 
 onStop() | 当前页面进入后台 | 页面 |  | 
 onDestroy() | 当前页面即将销毁 | 页面 |  | 
-onOrientationChange(int orientation) |  当前页面方向改变 | 页面 | 选项的角度如：0,-90,90 | Integer
+onOrientationChange(int orientation) |  当前页面方向改变 | 页面 | 选项的角度如：portrait， landscape， reverse-landscape | String
  
 
 ## 通用属性
