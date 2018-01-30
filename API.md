@@ -2,7 +2,7 @@
 
 ### VNDom
 
-+**Object findElementByID(String id)**
++ **Object findElementByID(String id)**
 
 获取Dom对象
 
@@ -20,7 +20,7 @@ Object |  Dom对象
 
 ### Dom对象
 
-+**Object getParentElement()**
++ **Object getParentElement()**
 
 获取父Dom对象
 
@@ -30,7 +30,7 @@ Object |  Dom对象
 --- |  ---
 Object |  父Dom对象
 
-+**Array getChildrenElement()**
++ **Array getChildrenElement()**
 
 获取子Dom对象数组
 
@@ -40,7 +40,7 @@ Object |  父Dom对象
 --- |  ---
 Array |  子Dom对象数组
 
-+**String getID()**
++ **String getID()**
 
 获取Dom对象的ID属性
 
@@ -50,7 +50,7 @@ Array |  子Dom对象数组
 --- |  ---
 String |  ID属性
 
-+**String getClasses()**
++ **String getClasses()**
 
 获取Dom对象的类属性列表
 
@@ -60,7 +60,7 @@ String |  ID属性
 --- |  ---
 Array |  类属性列表
 
-+**String getType()**
++ **String getType()**
 
 获取Dom对象类型
 
@@ -70,7 +70,7 @@ Array |  类属性列表
 --- |  ---
 String | 类型名称如:"text"
 
-+**Array getPropertyKeyList()**
++ **Array getPropertyKeyList()**
 
 获取Dom对象的属性名称列表
 
@@ -80,7 +80,7 @@ String | 类型名称如:"text"
 --- |  ---
 Array | 属性名称列表如：["margin-left","margin-top","background-color"]
 
-+**setEnabled(boolean enable)**
++ **setEnabled(boolean enable)**
 
 设置节点是否可用
 
@@ -91,7 +91,7 @@ Array | 属性名称列表如：["margin-left","margin-top","background-color"]
 enable | boolean | 是 | Dom节点是否可用
 
 
-+**boolean isEnabled()**
++ **boolean isEnabled()**
 
 返回Dom节点是否可用
 
@@ -101,7 +101,7 @@ enable | boolean | 是 | Dom节点是否可用
 --- |  ---
 boolean | Dom节点是否可用
 
-+**Object findElementByID(String id)**
++ **Object findElementByID(String id)**
 
 获取子孙Dom对象
 
@@ -117,7 +117,7 @@ id | String | 是 | Dom对象的id，注意id属性必须唯一
 --- |  ---
 Object |  Dom对象
 
-+**setProperty(String propertyKey, Object propertyValue)**
++ **setProperty(String propertyKey, Object propertyValue)**
 
 获取Dom对象
 
@@ -128,7 +128,7 @@ Object |  Dom对象
 propertyKey | String | 是 | CSS的属性名称如："margin-left"
 propertyValue | Object | 是 | CSS的属性值如："15rpx"
 
-+**Object getProperty(String propertyKey)**
++ **Object getProperty(String propertyKey)**
 
 
 **参数说明:**
@@ -143,7 +143,7 @@ propertyKey | String | 是 | CSS的属性名称如："margin-left"
 --- |  ---
 Object | Dom对象的属性值如：15rpx
 
-+**Object getDataSet()**
++ **Object getDataSet()**
 
 获取Dom节点的所有data-属性
 
@@ -153,7 +153,7 @@ Object | Dom对象的属性值如：15rpx
 --- |  ---
 Object | 所有data-属性都会在返回的对象的属性中如：有个一属性是data-index=3,则返回为json {"index":3}
 
-+**Array getPositionRect()**
++ **Array getPositionRect()**
 
 获取节点相对于父节点的位置属性
 
@@ -165,7 +165,7 @@ Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，�
 
 ### VNWindow
 
-+**Float getScreenWidth()**
++ **Float getScreenWidth()**
 
 获取屏幕的宽度
 
@@ -175,7 +175,7 @@ Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，�
 --- |  ---
 Float | 屏幕的宽度
 
-+**Float getScreenHeight()**
++ **Float getScreenHeight()**
 
 获取屏幕的高度
 
@@ -185,7 +185,7 @@ Float | 屏幕的宽度
 --- |  ---
 Float | 屏幕的高度
 
-+**String getOrientationSetting()**
++ **String getOrientationSetting()**
 
 获取屏幕方向设置
 
@@ -195,7 +195,7 @@ Float | 屏幕的高度
 --- |  ---
 String | 获取屏幕方向"portrait":竖向，"landscape":横向，"reverse-landscape":逆横向，"auto":根据屏幕位置自动旋转，
 
-+**String getCurOrientation()**
++ **String getCurOrientation()**
 
 获取当前屏幕方向
 
@@ -205,7 +205,7 @@ String | 获取屏幕方向"portrait":竖向，"landscape":横向，"reverse-lan
 --- |  ---
 String | 获取屏幕方向"portrait":竖向，"landscape":横向，"reverse-landscape":逆横向
 
-+**setOrientation(String orientation)**
++ **setOrientation(String orientation)**
 
 设置屏幕方向
 
@@ -215,7 +215,7 @@ String | 获取屏幕方向"portrait":竖向，"landscape":横向，"reverse-lan
 --- | --- | --- | ---
 orientation | String | 是 | 屏幕方向"portrait":竖向，"landscape":横向，"reverse-landscape":逆横向，"auto":根据屏幕位置自动旋转，
 
-+**Boolean isDialog()**
++ **Boolean isDialog()**
 
 当前页面是否为弹框样式
 
@@ -227,7 +227,7 @@ Boolean | 当前页面是否为弹框样式
 
 ### console
 
-+**log(Object message)**
++ **log(Object message)**
 
 打印日志
 
@@ -239,7 +239,7 @@ message | Object | 是 | 日志的内容
 
 ### VNData
 
-+**Object query(String kayPath)**
++ **Object query(String kayPath)**
 
 查询数据
 
@@ -255,7 +255,7 @@ kayPath | String | 是 | 内存中数据存储的路径
 --- |  ---
 Object | 查询获取的数据
 
-+**Boolean insert(String kayPath, Object data)**
++ **Boolean insert(String kayPath, Object data)**
 
 插入新数据
 
@@ -272,7 +272,7 @@ data | Object | 是 | 新数据
 --- |  ---
 boolean | 插入是否成功
 
-+**Boolean delete(String kayPath)**
++ **Boolean delete(String kayPath)**
 
 删除数据
 
@@ -288,7 +288,7 @@ kayPath | String | 是 | 内存中数据存储的路径
 --- |  ---
 boolean | 删除是否成功
 
-+**Boolean update(String kayPath, Object data)**
++ **Boolean update(String kayPath, Object data)**
 
 更新数据
 
@@ -307,7 +307,7 @@ boolean | 更新是否成功
 
 ### VNRequest
 
-+**int request(Object requestOrigin)**
++ **int request(Object requestOrigin)**
 
 删除数据
 
@@ -331,7 +331,7 @@ complete | Function | 否 | 接口调用结束的回调函数（调用成功、�
 --- | --- |  ---
 data| Object/String | 开发者服务器返回的数据
 
-+**cancel(int requstId)**
++ **cancel(int requstId)**
 
 取消请求
 
@@ -343,7 +343,7 @@ requstId | int | 是 | 要取消的请求id
 
 ### VNStorage
 
-+**setStorage(Object object)**
++ **setStorage(Object object)**
 
 将数据存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个异步接口。
 
@@ -357,7 +357,7 @@ success | Function | 否 | 接口调用成功的回调函数
 fail | Function | 否 | 接口调用失败的回调函数
 complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
 
-+**setStorageSync(String key, Object data, long expires)**
++ **setStorageSync(String key, Object data, long expires)**
 
 将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口。
 
@@ -369,7 +369,7 @@ key | String | 是 | 本地缓存中的指定的 key
 data | Object/String | 是 | 需要存储的内容
 expires | Long | 否 | 存储过期事件
 
-+**getStorage(Object object)**
++ **getStorage(Object object)**
 
 从本地缓存中异步获取指定 key 对应的内容。
 **object内的参数说明:**
@@ -387,7 +387,7 @@ complete | Function | 否 | 接口调用结束的回调函数（调用成功、�
 --- | --- |  ---
 data| Object/String | key对应的内容
 
-+**Object getStorageSync(String key)**
++ **Object getStorageSync(String key)**
 
 从本地缓存中同步获取指定 key 对应的内容。
 **参数说明:**
@@ -402,7 +402,7 @@ key | String | 是 | 本地缓存中的指定的key
 --- |  ---
 Object/String | key对应的内容
 
-+**removeStorage(Object obect)**
++ **removeStorage(Object obect)**
 
 从本地缓存中异步移除指定 key 。
 **object内的参数说明:**
@@ -420,7 +420,7 @@ complete | Function | 否 | 接口调用结束的回调函数（调用成功、�
 --- |  ---
 Object/String | key对应的内容
 
-+**removeStorage(String key)**
++ **removeStorage(String key)**
 
 从本地缓存中同步移除指定 key 。
 **参数说明:**
@@ -429,17 +429,17 @@ Object/String | key对应的内容
 --- | --- | --- | ---
 key | String | 是 | 本地缓存中的指定的 key
 
-+**clearStorage()**
++ **clearStorage()**
 
 清理本地数据缓存。
 
-+**clearStorageSync()**
++ **clearStorageSync()**
 
 同步清理本地数据缓存。
 
 ### VNNavigateManager
 
-+**navigateTo(String pageUrl,Object params)**
++ **navigateTo(String pageUrl,Object params)**
 
 新页面打开对应的Url。
 **参数说明:**
@@ -449,7 +449,7 @@ key | String | 是 | 本地缓存中的指定的 key
 pageUrl | String | 是 | 页面Url
 params | String/Object | 否 | 页面传递的参数
 
-+**redirectTo(String pageUrl)**
++ **redirectTo(String pageUrl)**
 
 当前页面刷新URL。
 **参数说明:**
@@ -458,7 +458,7 @@ params | String/Object | 否 | 页面传递的参数
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url
 
-+**navigateBack(int deltaLevel, String params)**
++ **navigateBack(int deltaLevel, String params)**
 
 回退URL。
 **参数说明:**
@@ -468,7 +468,7 @@ pageUrl | String | 是 | 页面Url
 deltaLevel | Integer | 否 | 回退的页面个数
 params | String | 否 | 页面返回参数
 
-+**relaunch(String pageUrl)**
++ **relaunch(String pageUrl)**
 
 关闭当前页面再打开一个新页面。
 **参数说明:**
@@ -476,3 +476,57 @@ params | String | 否 | 页面返回参数
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url
+
+### VNApp
+
++ **String getSDKVersionName()**
+
+获取SDK版本名称。
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+String | SDK版本名称如:"1.0.0"
+
++ **Integer getSDKVersionCode()**
+
+获取SDK版本号。
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+Integer | SDK版本号，从1开始不断增加。如:1
+
++ **Integer getAppVersion()**
+
+获取App版本号。
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+Integer | App版本号，从1开始不断增加。如:1
+
++ **void setSession(String key, String value)**
+
+设置App内共享的数据。
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | String | 是 | sessionKey
+value | String | 否 | sessionValue,为null的时候相当于清除sessionValue
+
++ **Object getSession(String key)**
+
+过去App内共享的数据。
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | String | 是 | sessionKey
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+Object | 返回Session数据。

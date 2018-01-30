@@ -1,6 +1,6 @@
 ## 文件结构
+
 1. VideoNative 的一个页面文件主要有四个文件，文件命名规则是文件名相同，后缀不同。 其中:
-    
     + vnml 文件用于表达页面结构，基于 XML 格式
     + json 文件用于表示页面数据，基于 JSON 格式
     + vnss 文件用于表达公共样式表，基于 CSS 格式
@@ -10,6 +10,7 @@
     > 举例说明，页面文件路径是: `/vn_demo/index/index.*`，则最终对应的 pageUrl 就是: `vn://vn_demo/index/index`
 
 ## 脚本示例
+
 1. 先来看一个简单的Demo示例
 
     ```html
@@ -18,11 +19,10 @@
         <text width="100%" height="auto" bindTap="onTextTap">{{userInfo.nickName}}</text>
     </view>
     ```
-    
     ```json
     /** Demo.json **/
     {
-        "userInfo": 
+        "userInfo":
         {
             "nickName": "Video"
         }
@@ -30,8 +30,8 @@
     ```
 
     ```css
-    /** Demo.vnss **/ 
-    .container 
+    /** Demo.vnss **/
+    .container
     {
         height: 100%;
         width: 100%;
@@ -58,7 +58,6 @@
 ## vnml 页面脚本
 
 1. vnml 页面脚本支持的组件标签目前主要有:
-    
     + view
     + text
     + image
@@ -71,6 +70,7 @@
     + view-pager
 
 ## json 数据脚本
+
 1. json 数据脚本里面主要是用来放数据:
 
     + 数据内容是基于 Json 格式的，由 KEY-VALUE 和数组组成
@@ -100,7 +100,9 @@
     ```
 
 ### 控制语句
+
 #### vn:for语句
+
 1. 在组件标签上使用 `vn:for` 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件
 2. 默认情况下，数组的当前项下标变量名为 `index`，数组当前项的变量名为 `item`
 3. 使用 `vn:for-index` 可以指定数组当前下标的变量名
@@ -128,6 +130,7 @@
 ```
 
 #### vn:if语句
+
 1. `vn:if` 条件语句用于判断当前组件标签是否需要渲染
 2. 也可以用 `vn:elif` 或 `vn:else` 来添加 else 块
 3. 脚本示例:
@@ -145,12 +148,11 @@
 ```
 
 ## vnss 样式表
+
 1. 样式表用于定义页面组件属性，页面组件有多种方式匹配定义好的样式表 
 2. 各组件可用属性会各不相同。详情请参见控件页
 3. 样式表的匹配方式有标签选择器，类选择器，ID 选择器，后代选择器。详细说明如下：
-    
     + 标签选择器示例：
-    
     ```css
     /** LabelSelector.vnss **/
     /* 匹配class="title"的标签 */
@@ -159,14 +161,12 @@
         color:#222222FF;
     }
     ```
-
     ```html
     <!--LabelSelector.vnml-->
     <text class="title" width="100%" height="auto">匹配文本</text>
     ```
 
     + 类选择器示例：
-    
     ```css
     /** ClassSelector.vnss **/
     /* 匹配布局中所有的text标签 */
@@ -183,7 +183,6 @@
     ```
 
     + ID选择器示例：
-    
     ```css
     /** IDSelector.vnss **/
     /* 匹配id="container"的标签 */
@@ -203,7 +202,6 @@
     ```
 
     + 后代选择器示例：
-    
     ```css
     /** DescendantSelector.vnss **/
     /* 匹配id="container"的标签下的文本标签 */
@@ -223,9 +221,8 @@
     <text>不匹配文本</text>
     ```
 
-
 4. 尺寸单位：rpx(responsive pixel)。根据屏幕宽度进行自适应。默认规定屏幕宽为 750rpx
-    
+
     > 如在 iPhone6 上，屏幕宽度为 375px，共有 750 个物理像素，则 750rpx = 375px = 750 物理像素，1rpx = 0.5px = 1 物理像素
 
 设备 | rpx 换算 px（屏幕宽度/750） | px 换算 rpx（750/屏幕宽度）
@@ -235,11 +232,11 @@ iPhone6 | 1rpx=0.5px | 1px=2rpx
 iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 
 ## js 文件脚本
+
 目前的脚本文件里面主要定义的是 JavaScript 函数。VideoNative 封装了一部分接口，供 js 脚本调用，接口分为全局接口和非全局接口。主要差别在于全局接口是注册在JS引擎上的。调用非全局接口需要加上`this.`，目前的接口有：
 
 + VNData：对数据源的增删查改，非全局接口
     + 代码示例如下：
-
     ```js
     /**VNData.js**/
     Page({
@@ -273,7 +270,6 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 
 + VNNavigate：执行页面跳转， 全局接口
     + 代码示例如下：
-    
     ```js
     /**VNNavigate.js**/
     Page({
@@ -304,7 +300,6 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 
 + VNRequest：执行网络请求， 全局接口
     + 代码示例如下：
-    
     ```js
     /**VNRequest.js**/
     Page({
@@ -339,7 +334,6 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 + VNDom: Dom树对象，非全局接口
 
     + 代码示例如下：
-    
     ```js
     /**VNDom.js**/
     page({
