@@ -36,7 +36,7 @@ Page ({
 事件 Key | 事件类型 | 适用范围 | 参数 Key | 参数类型
 --- | --- | --- | --- | ---
 bindTap | 点击 | 所有控件 | |
-onPageResult | 从前一个页面返回 | 页面 | | Object
+onPageResult(Object params) | 从前一个页面返回 | 页面 | 拉起的页面传递过来的参数 | Object
 onLaunch(Object params) | 当前页面启动 | 页面 | 上个页面传递过来的参数 | Object/String
 onStart() | 当前页面进入前台 | 页面 |  | 
 onStop() | 当前页面进入后台 | 页面 |  | 
@@ -212,7 +212,7 @@ Page ({
 Property | checked | 胡子语句 | | 必填项，绑定 data 里的一个布尔值
 Property | checked-src | String | | 选中时图片 url
 Property | uncheck-src | String | | 未选中时图片 url
-EventHandle | bindChange | | | checkbox 状态切换
+EventHandle | bindChange | function() | | checkbox 状态切换
 
 ## input
 
@@ -380,11 +380,11 @@ Property | vn:for-index | String | index |
 Property | vn:for-item | String | item |
 Property | vn:cell-key | String | cellType |
 Property | direction | Enum | column | column/row
-EventHandle | bindItemTap | Integer | | 列表 Item 点击，参数为 position
-EventHandle | bindHeaderRefreshing | | | 列表发生了下拉刷新
-EventHandle | bindFooterRefreshing | | | 列表发生了上拉加载
-EventHandle | bindScroll | Integer; Integer | | 列表滚动，deltaX;deltaY（正数为下滑，负数为上滑）
-EventHandle | bindScrollState | Integer | | 列表滚动状态切换，newState，0:空闲;1:拖拽;2:滑动;
+EventHandle | bindItemTap | function(Integer position) | | 列表 Item 点击，参数为 position
+EventHandle | bindHeaderRefreshing | function() | | 列表发生了下拉刷新
+EventHandle | bindFooterRefreshing | function() | | 列表发生了上拉加载
+EventHandle | bindScroll | function(Float deltaX, Float deltaY) | | 列表滚动，deltaX;deltaY（正数为下滑，负数为上滑）
+EventHandle | bindScrollState | function(Integer newState) | | 列表滚动状态切换，newState，0:空闲;1:拖拽;2:滑动;
 Method | void scrollToPosition(int position) |  |  | list滚动到指定的位置
 Method | void smoothScrollToPosition(int position) |  |  | 有动画的滚动到指定的位置
 Method | void setFooterRefreshingEnabled(boolean enable) |  |  | 是否允许上拉加载更多
@@ -484,8 +484,8 @@ header 主要用于实现下拉刷新，目前只能作为 list 的子控件
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-EventHandle | bindHeaderStateChange | Integer <br> Boolean <br> Float | state <br> isAutomatic <br> maxOffset | 当下拉刷新状态发生变化时<br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否为自动触发 <br> maxOffset 达到下拉刷新的偏移量 
-EventHandle | bindHeaderMove | Boolean <br> Boolean <br> Float |hasRefreshed <br> isAutomatic <br> offset | 当下拉刷新视图发生移动时 <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否为自动触发 <br> offset 当前下拉的偏移
+EventHandle | bindHeaderStateChange | function(Integer state, Boolean isAutomatic, Float maxOffset) | 当下拉刷新状态发生变化时<br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否为自动触发 <br> maxOffset 达到下拉刷新的偏移量 
+EventHandle | bindHeaderMove | function(Boolean hasRefreshed, Boolean isAutomatic, Float offset) | 当下拉刷新视图发生移动时 <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否为自动触发 <br> offset 当前下拉的偏移
 
 ## scroll-view
 
@@ -521,8 +521,8 @@ page({
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 Property | direction | Enum | column | column/row
-EventHandle | bindScroll | | | 滚动时触发，deltaX，deltaY，单位为px
-Method | scrollTo(Float, Boolean) | | 0, false | 滚动到指定位置，单位为rpx；参数 animation 指定是否带动画效果
+EventHandle | bindScroll | function(Float deltaX,Float deltaY) | | 滚动时触发，deltaX，deltaY，单位为px
+Method | scrollTo(Float delta, Boolean animation) | | 0, false | 滚动到指定位置，单位为rpx；参数 animation 指定是否带动画效果
 Method | Float getOffset() | | | 获取当前的偏移，单位为rpx
 
 
@@ -597,8 +597,8 @@ Property | vn:for-index | String | index | 数组下标
 Property | vn:for-item | String | item | 数组项
 Property | vn:cell-key | String | cellType | 数组项类型
 Property | page-gap | rpx | 0rpx | 分页间距
-EventHandle | bindScroll | | | 滚动时触发， delta, offset, offsetPercent, scrollState, pageIndex
-EventHandle | bindScrollStateChange | | | 0:空闲;1:拖拽;2:滑动
-EventHandle | bindPageChange | | | 滑动停止时指向的分页，pageIndex
+EventHandle | bindScroll | function(Float delta, Float offset, Float offsetPercent, Integer scrollState, Integer pageIndex) | | 滚动时触发， delta, offset, offsetPercent, scrollState, pageIndex
+EventHandle | bindScrollStateChange | function(int scrollState) | | 0:空闲;1:拖拽;2:滑动
+EventHandle | bindPageChange | function(int pageIndex) | | 滑动停止时指向的分页，pageIndex
 Method | void setPageIndex(Integer index) | Integer | | 设置当前的分页编号
 Method | Integer getPageIndex() | Integer | | 获取当前的分页编号
