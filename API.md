@@ -439,7 +439,7 @@ key | String | 是 | 本地缓存中的指定的 key
 
 ### VNNavigateManager
 
-+**navigateTo(String pageUrl)**
++**navigateTo(String pageUrl,Object params)**
 
 新页面打开对应的Url。
 **参数说明:**
@@ -447,6 +447,7 @@ key | String | 是 | 本地缓存中的指定的 key
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url
+params | String/Object | 否 | 页面传递的参数
 
 +**redirectTo(String pageUrl)**
 
