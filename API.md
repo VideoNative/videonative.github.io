@@ -439,10 +439,10 @@ key | String | 是 | 本地缓存中的指定的 key
 
 ### VNNavigateManager
 
-+ **navigateTo(String pageUrl,Object params)**
++ **navigateTo(Object obj)**
 
 新页面打开对应的Url。
-**参数说明:**
+**obj的内部参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
@@ -458,10 +458,10 @@ params | String/Object | 否 | 页面传递的参数
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url
 
-+ **navigateBack(int deltaLevel, String params)**
++ **navigateBack(Object obj)**
 
 回退URL。
-**参数说明:**
+**obj的内部参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
