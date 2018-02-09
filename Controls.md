@@ -219,7 +219,7 @@ EventHandle | bindChange | function() | | checkbox 状态切换
 + 代码示例如下：
 ```html
 <!--input.vnml-->
-<input id="eventText" placeholder="响应事件" max-line="10" confirm-type="done" margin="10rpx" padding="5rpx" width="100%"
+<input id="eventText" placeholder="响应事件" confirm-type="done" margin="10rpx" padding="5rpx" width="100%"
             height="auto" font-size="30rpx" bindInput="onInput" bindFocus="onFocus" bindBlur="onBlur" bindConfirm="onConfirm"
             keep-focus="true">{{editdata}}
 </input>
@@ -291,10 +291,99 @@ Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | color | color | #000000FF | 取值格式为#RGBA
 Property | text-align | Enum(可组合) | left/top | left/top/right/bottom/center/center_horizontal/center_vertical
 Property | ellipsize | Enum | none | none;start;middle;end
-Property | max-line | Integer | 0 | 0代表不限行数
 Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
 Property | confirm-type | Enum | done | send(发送)/search(搜索)/next(下一个)/go(去)/done(完成)
 Property | password | Boolean | false | 是否为密码输入
+Property | placeholder | String | "" | 当没有文字输入时的提示文案
+Property | placeholder-color | color | #888888FF | 取值格式为#RGBA
+Property | keep-focus | Boolean | false | 当点击非本input输入的区域时是否保持焦点
+Method | int getCursorStart() |  |  | 当前输入框的光标开始位置
+Method | int getCursorEnd() |  |  | 当前输入框的光标结束位置
+Method | String getValue() |  |  | 当前输入框的文本
+Method | Boolean hasFocus() |  |  | 当前输入框是否获取了焦点
+Method | void setCursorRange(int start, int end) |  |  | 设置当前输入框光标起始和结束位置
+Method | void setCursorStart(int start) |  |  | 设置当前输入框光标起始位置
+Method | void setFocus(boolean focus) |  |  | 设置当前输入框的焦点属性
+
+## textarea
+
++ 代码示例如下：
+```html
+<!--textarea.vnml-->
+<textarea id="eventText" placeholder="响应事件" max-line="10" confirm-type="done" margin="10rpx" padding="5rpx" width="100%"
+            height="auto" font-size="30rpx" bindInput="onTextArea" bindFocus="onFocus" bindBlur="onBlur" bindConfirm="onConfirm"
+            keep-focus="true">{{editdata}}
+</textarea>
+```
+
+```json
+/** textarea.json **/
+{
+  "focusState": "未获取焦点",
+  "textCount": 0,
+  "confirmCount": 0,
+  "editdata": ""
+}
+```
+
+```js
+/**textarea.js**/
+var eventTextarea;
+
+page({
+  onLaunch: function () {
+    eventTextarea = VNDom.findElementByID('eventText');
+  },
+  onTextArea: function (params) {
+    var text = params.event.value;
+    VNData.update('textCount', text.length);
+
+    var orginText = origintextarea.getValue();
+    if (orginText.length > 0) {
+      var replaceText = replacetextarea.getValue();
+      text = text.replaceAll(orginText, replaceText);
+      return text;
+    }
+  },
+  onFocus: function (params) {
+    VNData.update('focusState', '获取焦点');
+  },
+  onBlur: function (params) {
+    VNData.update('focusState', '未获取焦点');
+  },
+  onConfirm: function (params) {
+    confirmCount = VNData.query('confirmCount');
+    confirmCount += 1;
+    VNData.update('confirmCount', confirmCount);
+  },
+  onLeftClick: function (params) {
+    var cursor = eventtextarea.getCursorStart();
+    eventtextarea.setCursorStart(cursor - 1);
+  },
+  onRightClick: function (params) {
+    var cursor = eventtextarea.getCursorStart();
+    eventtextarea.setCursorStart(cursor + 1);
+  },
+  onThreeClick: function (params) {
+    eventtextarea.setCursorRange(0, 3);
+  },
+  onAllClick: function (params) {
+    var cursorLength = eventtextarea.getValue().length;
+    eventtextarea.setCursorRange(0, cursorLength);
+  }
+
+});
+```
+
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+Property | font-size | rpx | 手机系统默认 | 文本 size
+Property | font-style | Enum | normal | normal/bold/italic/bold_italic
+Property | color | color | #000000FF | 取值格式为#RGBA
+Property | text-align | Enum(可组合) | left/top | left/top/right/bottom/center/center_horizontal/center_vertical
+Property | ellipsize | Enum | none | none;start;middle;end
+Property | max-line | Integer | 0 | 0代表不限行数
+Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
 Property | placeholder | String | "" | 当没有文字输入时的提示文案
 Property | placeholder-color | color | #888888FF | 取值格式为#RGBA
 Property | keep-focus | Boolean | false | 当点击非本input输入的区域时是否保持焦点
