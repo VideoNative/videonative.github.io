@@ -690,4 +690,49 @@ EventHandle | bindScroll | function(Float delta, Float offset, Float offsetPerce
 EventHandle | bindScrollStateChange | function(int scrollState) | | 0:空闲;1:拖拽;2:滑动
 EventHandle | bindPageChange | function(int pageIndex) | | 滑动停止时指向的分页，pageIndex
 Method | void setPageIndex(Integer index) | Integer | | 设置当前的分页编号
-Method | Integer getPageIndex() | Integer | | 获取当前的分页编号
+Method | Integer getPageIndex() | | | 获取当前的分页编号
+
+## video
+
++ 代码示例如下：
+```html
+<!--video.vnml-->
+<video width="100%" aspect-ratio="1.78" video-id="{{vid}}" controls="true" object-fit="fill" initial-time="10"/>
+```
+
+
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+Property | src | String | | 视频资源地址
+Property | video-id | String | | 视频id
+Property | controls | Boolean | true | 是否显示自带控件
+Property | show-fullscreen-btn | Boolean | true | 是否显示全屏按钮
+Property | show-progress | Boolean | true | 是否显示进度条
+Property | object-fit | Enum | contain | contain/fill/cover
+Property | initial-time | Integer | 0 | 指定视频初始播放位置
+Property | auto-play | Boolean | false | 是否自动播放
+Property | loop | Boolean | false | 是否循环播放
+Property | loop | Boolean | false | 是否循环播放
+EventHandle | bindPlay | function() | | 当开始/继续播放时触发play事件
+EventHandle | bindPause | function() | | 当暂停播放时触发 pause 事件
+EventHandle | bindEnded | function() | | 当播放到末尾时触发 ended 事件
+EventHandle | bindTimeUpdate | function(int currentTime, int duration) | | 播放进度变化时触发。触发频率250ms一次
+EventHandle | bindWaiting | function() | | 视频出现缓冲时触发
+EventHandle | bindError | function() | | 视频播放出错时触发
+Method | Integer getCurrentTime() | | | 获取当前播放位置
+Method | void setCurrentTime() | Integer | | 从指定毫秒开始播放
+Method | void start() | | | 从暂停位置继续播放
+Method | void resume() | | | 重头开始播放
+Method | void pause() | | | 暂停
+Method | void stop() | | | 停止播放，并释放资源
+Method | Boolean isPlaying() | | | 是否正在播放
+Method | Integer getDuration() | | | 获取当前播放视频的总长度
+
+其中 object-fit 的有效值为
+
+ 值 | 说明
+ --- | ---
+ fill | 填充。不保持原始的尺寸比例，使视频的宽高完全拉伸至填满 video 元素。
+ cover | 覆盖。保持原始的尺寸比例，保证内容区域被填满。视频可能不能完整展示。
+ contain | 包含。保持原始的尺寸比例，保证视频完整展示。部分内容区域会空白。
+ 
