@@ -697,7 +697,7 @@ Method | Integer getPageIndex() | | | 获取当前的分页编号
 + 代码示例如下：
 ```html
 <!--video.vnml-->
-<video width="100%" aspect-ratio="1.78" video-id="{{vid}}" controls="true" object-fit="fill" initial-time="10"/>
+<video width="100%" aspect-ratio="1.78" vid="{{vid}}" controls="true" object-fit="fill" initial-time="10"/>
 ```
 
 
@@ -719,7 +719,7 @@ EventHandle | bindTimeUpdate | function(int currentTime, int duration) | | 播�
 EventHandle | bindWaiting | function() | | 视频出现缓冲时触发
 EventHandle | bindError | function(int errorCode, String errorInfo) | | 视频播放出错时触发
 Method | Integer getCurrentTime() | | | 获取当前播放位置，时长单位为毫秒
-Method | void seekTo() | Integer | | 从指定毫秒开始播放，时长单位为毫秒
+Method | void seekTo(Integer time) | Integer | | 从指定毫秒开始播放，时长单位为毫秒
 Method | void start() | | | 从暂停位置继续播放
 Method | void resume() | | | 重头开始播放
 Method | void pause() | | | 暂停
@@ -733,5 +733,5 @@ Method | Integer getDuration() | | | 获取当前播放视频的总长度，时�
  --- | ---
  fill | 填充。不保持原始的尺寸比例，使视频的宽高完全拉伸至填满 video 元素。
  cover | 覆盖。保持原始的尺寸比例，保证内容区域被填满。视频可能不能完整展示。
- contain | 包含。保持原始的尺寸比例，保证视频完整展示。部分内容区域会空白。
+ contain | 包含。保持原始的尺寸比例，保证视频完整展示。部分内容区域可能会空白。
  
