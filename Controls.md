@@ -704,29 +704,28 @@ Method | Integer getPageIndex() | | | 获取当前的分页编号
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 Property | src | String | | 视频资源地址
-Property | video-id | String | | 视频id
+Property | vid | String | | 视频id
 Property | controls | Boolean | true | 是否显示自带控件
-Property | show-fullscreen-btn | Boolean | true | 是否显示全屏按钮
-Property | show-progress | Boolean | true | 是否显示进度条
+Property | show-fullscreen-btn | Boolean | true | 是否显示全屏按钮，controls为false时不生效
+Property | show-progress | Boolean | true | 是否显示进度条，controls为false时不生效
 Property | object-fit | Enum | contain | contain/fill/cover
-Property | initial-time | Integer | 0 | 指定视频初始播放位置
+Property | initial-time | Integer | 0 | 指定视频初始播放位置，时长单位为毫秒
 Property | auto-play | Boolean | false | 是否自动播放
-Property | loop | Boolean | false | 是否循环播放
 Property | loop | Boolean | false | 是否循环播放
 EventHandle | bindPlay | function() | | 当开始/继续播放时触发play事件
 EventHandle | bindPause | function() | | 当暂停播放时触发 pause 事件
 EventHandle | bindEnded | function() | | 当播放到末尾时触发 ended 事件
-EventHandle | bindTimeUpdate | function(int currentTime, int duration) | | 播放进度变化时触发。触发频率250ms一次
+EventHandle | bindTimeUpdate | function(int currentTime, int duration) | | 播放进度变化时触发。触发频率250ms一次，时长单位为毫秒
 EventHandle | bindWaiting | function() | | 视频出现缓冲时触发
-EventHandle | bindError | function() | | 视频播放出错时触发
-Method | Integer getCurrentTime() | | | 获取当前播放位置
-Method | void setCurrentTime() | Integer | | 从指定毫秒开始播放
+EventHandle | bindError | function(int errorCode, String errorInfo) | | 视频播放出错时触发
+Method | Integer getCurrentTime() | | | 获取当前播放位置，时长单位为毫秒
+Method | void seekTo() | Integer | | 从指定毫秒开始播放，时长单位为毫秒
 Method | void start() | | | 从暂停位置继续播放
 Method | void resume() | | | 重头开始播放
 Method | void pause() | | | 暂停
 Method | void stop() | | | 停止播放，并释放资源
 Method | Boolean isPlaying() | | | 是否正在播放
-Method | Integer getDuration() | | | 获取当前播放视频的总长度
+Method | Integer getDuration() | | | 获取当前播放视频的总长度，时长单位为毫秒。收到play事件以后才能获取准确值。
 
 其中 object-fit 的有效值为
 
