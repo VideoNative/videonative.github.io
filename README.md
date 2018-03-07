@@ -229,7 +229,7 @@
     ```css
     /** DescendantSelector.vnss **/
     /* 匹配所有标签 */
-    * {
+    \* {
         width:100%;
         height:auto;
         font-size:20rpx;
