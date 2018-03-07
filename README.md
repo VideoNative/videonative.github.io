@@ -255,7 +255,7 @@ iPhone5 | 1rpx=0.42px | 1px=2.34rpx
 iPhone6 | 1rpx=0.5px | 1px=2rpx
 iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 
-**注：**关于css更佳详细的说明参看[CSS](https://videonative.github.io/VideoNative/#/CSS?id=%E9%80%89%E6%8B%A9%E5%99%A8)
+**注：**关于css更佳详细的说明参看[CSS](https://videonative.github.io/VideoNative/#/CSS)
 
 ## js 文件脚本
 
