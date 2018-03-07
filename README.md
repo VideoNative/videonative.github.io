@@ -151,7 +151,7 @@
 
 1. 样式表用于定义页面组件属性，页面组件有多种方式匹配定义好的样式表 
 2. 各组件可用属性会各不相同。详情请参见控件页
-3. 样式表的匹配方式有标签选择器，类选择器，ID 选择器，后代选择器。详细说明如下：
+3. 样式表的匹配方式有标签选择器，类选择器，ID 选择器，后代选择器，伪类选择器，通配符选择器 。详细说明如下：
     + 标签选择器示例：
     ```css
     /** LabelSelector.vnss **/
@@ -213,6 +213,30 @@
     }
     ```
 
+    + 伪类选择器示例：
+    ```css
+    /** DescendantSelector.vnss **/
+    /* 匹配id="container"的标签下的被用户点击的文本标签 */
+    #container text:active {
+        width:100%;
+        height:auto;
+        font-size:20rpx;
+        color:#FFFFFFFF;
+    }
+    ```
+
+    + 通配符选择器示例：
+    ```css
+    /** DescendantSelector.vnss **/
+    /* 匹配所有标签 */
+    * {
+        width:100%;
+        height:auto;
+        font-size:20rpx;
+        color:#FFFFFFFF;
+    }
+    ```
+
     ```html
     <!--DescendantSelector.vnml-->
     <view id="mainContainer">
@@ -220,6 +244,7 @@
     </view>
     <text>不匹配文本</text>
     ```
+    **注：**关于css更佳详细的说明参看[CSS](https://videonative.github.io/VideoNative/#/CSS?id=%E9%80%89%E6%8B%A9%E5%99%A8)
 
 4. 尺寸单位：rpx(responsive pixel)。根据屏幕宽度进行自适应。默认规定屏幕宽为 750rpx
 
