@@ -506,7 +506,7 @@ Integer | SDK版本号，从1开始不断增加。如:1
 --- |  ---
 Integer | App版本号，从1开始不断增加。如:1
 
-+ **void setSession(String key, String value)**
++ **void setSession(String key, Object value)**
 
 设置App内共享的数据。
 **参数说明:**
@@ -523,7 +523,7 @@ value | String | 否 | sessionValue,为null的时候相当于清除sessionValue
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-key | String | 是 | sessionKey
+key | Object/String | 是 | sessionKey
 
 **返回参数说明:**
 
