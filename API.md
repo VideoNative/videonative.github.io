@@ -2,7 +2,7 @@
 
 ### VNDom
 
-+ **Object findElementByID(String id)**
++ **Object getElementById(String id)**
 
 获取Dom对象
 
@@ -101,7 +101,7 @@ enable | boolean | 是 | Dom节点是否可用
 --- |  ---
 boolean | Dom节点是否可用
 
-+ **Object findElementByID(String id)**
++ **Object getElementById(String id)**
 
 获取子孙Dom对象
 

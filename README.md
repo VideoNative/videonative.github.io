@@ -338,7 +338,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     /**VNDom.js**/
     page({
         scrollTop: function (params) {
-            scrollView = VNDom.findElementByID("scrollID");
+            scrollView = VNDom.getElementById("scrollID");
             scrollView.scrollTo(0, false);
         }
     });
@@ -357,7 +357,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 
     函数名 |  参数列表 | 参数详情 | 返回值 | 说明
     --- | --- | --- | ---| ---
-    findElementByID | String | id | Object Widget对象 | 根据ID查找widget对象
+    getElementById | String | id | Object Widget对象 | 根据ID查找widget对象
 
 + VNWidget: Widget控件，通常从VNDom里面获取，非全局接口
    </br> 不同类型的Widget控件提供的函数是不一样的，详情请参见控件页
@@ -365,7 +365,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 
     函数名 |  参数列表 | 参数详情 | 返回值 | 说明
     --- | --- | --- | ---| ---
-    findElementByID | String | id | Object Widget对象 | 根据ID查找widget对象
+    getElementById | String | id | Object Widget对象 | 根据ID查找widget对象
     setProperty | String</br> Object | key</br>value | 空 | 设置控件属性
     getParentElement | | | Object widget对象 | 获取父控件
     getChilcrenElement | | | Array | 获取子控件数组

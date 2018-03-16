@@ -241,7 +241,7 @@ var eventinput;
 
 page({
   onLaunch: function () {
-    eventinput = VNDom.findElementByID('eventText');
+    eventinput = VNDom.getElementById('eventText');
   },
   onInput: function (params) {
     var text = params.event.value;
@@ -332,7 +332,7 @@ var eventTextarea;
 
 page({
   onLaunch: function () {
-    eventTextarea = VNDom.findElementByID('eventText');
+    eventTextarea = VNDom.getElementById('eventText');
   },
   onTextArea: function (params) {
     var text = params.event.value;
@@ -600,7 +600,7 @@ page({
         this.printLog("滑动速度:" + deltaY + "rpx");
     },
     getOffset: function (params) {
-        scrollView = this.VNDom.findElementByID("scroll");
+        scrollView = this.VNDom.getElementById("scroll");
         var offset = scrollView.getOffset();
         this.printLog("当前位移为：" + offset);
     }
@@ -666,14 +666,14 @@ Method | Float getOffset() | | | 获取当前的偏移，单位为rpx
 page({     
     onChannelItemClick: function (params){
         console.log(JSON.stringify(params));
-        pager = this.VNDom.findElementByID('mainPager');
+        pager = this.VNDom.getElementById('mainPager');
         pager.setPageIndex(params.event.position);
     },
     onPageChange: function (param) {
         var cellData = this.VNData.query('pageData[' + param.event.pageIndex + ']');
         this.VNData.update('pageIndex', param.event.pageIndex);
 
-        channelList = this.VNDom.findElementByID('chennelTitleList');
+        channelList = this.VNDom.getElementById('chennelTitleList');
         channelList.smoothScrollToPosition(param.event.pageIndex);
     }
     });
