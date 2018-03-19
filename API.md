@@ -449,7 +449,7 @@ key | String | 是 | 本地缓存中的指定的 key
 pageUrl | String | 是 | 页面Url
 params | String/Object | 否 | 页面传递的参数
 
-+ **redirectTo(String pageUrl)**
++ **redirectTo(Object obj)**
 
 当前页面刷新URL。
 **参数说明:**
@@ -468,7 +468,7 @@ params | String/Object | 否 | 页面传递的参数
 --- | --- | --- | ---
 deltaLevel | Integer | 否 | 回退的页面个数
 
-+ **relaunch(String pageUrl)**
++ **relaunch(Object obj)**
 
 关闭当前页面再打开一个新页面。
 **参数说明:**
