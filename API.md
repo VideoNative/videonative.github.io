@@ -40,15 +40,15 @@ Object |  父Dom对象
 --- |  ---
 Array |  子Dom对象数组
 
-+ **String getID()**
++ **String getId()**
 
-获取Dom对象的ID属性
+获取Dom对象的Id属性
 
 **返回参数说明:**
 
 类型 | 说明
 --- |  ---
-String |  ID属性
+String |  Id属性
 
 + **String getClasses()**
 
