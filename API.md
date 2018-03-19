@@ -467,7 +467,6 @@ params | String/Object | 否 | 页面传递的参数
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 deltaLevel | Integer | 否 | 回退的页面个数
-params | String | 否 | 页面返回参数
 
 + **relaunch(String pageUrl)**
 
