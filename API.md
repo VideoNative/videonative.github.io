@@ -457,6 +457,7 @@ params | String/Object | 否 | 页面传递的参数
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url
+params | String/Object | 否 | 页面传递的参数
 
 + **navigateBack(Object obj)**
 
@@ -476,6 +477,7 @@ params | String | 否 | 页面返回参数
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url
+params | String/Object | 否 | 页面传递的参数
 
 ### VNApp
 
