@@ -117,7 +117,7 @@ id | String | 是 | Dom对象的id，注意id属性必须唯一
 --- |  ---
 Object |  Dom对象
 
-+ **setProperty(String propertyKey, Object propertyValue)**
++ **setProperty(String propertyKey, String propertyValue)**
 
 获取Dom对象
 
@@ -126,9 +126,9 @@ Object |  Dom对象
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 propertyKey | String | 是 | CSS的属性名称如："margin-left"
-propertyValue | Object | 是 | CSS的属性值如："15rpx"
+propertyValue | String | 是 | CSS的属性值如："15rpx"
 
-+ **Object getProperty(String propertyKey)**
++ **String getProperty(String propertyKey)**
 
 
 **参数说明:**
@@ -141,7 +141,7 @@ propertyKey | String | 是 | CSS的属性名称如："margin-left"
 
 类型 | 说明
 --- |  ---
-Object | Dom对象的属性值如：15rpx
+String | Dom对象的属性值如："15rpx"
 
 + **Object getDataSet()**
 
