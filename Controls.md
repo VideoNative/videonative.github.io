@@ -241,11 +241,11 @@ var eventinput;
 
 page({
   onLaunch: function () {
-    eventinput = VNDom.getElementById('eventText');
+    eventinput = vn.dom.getElementById('eventText');
   },
   onInput: function (params) {
     var text = params.event.value;
-    VNData.update('textCount', text.length);
+    vn.data.update('textCount', text.length);
 
     var orginText = origininput.getValue();
     if (orginText.length > 0) {
@@ -255,15 +255,15 @@ page({
     }
   },
   onFocus: function (params) {
-    VNData.update('focusState', '获取焦点');
+    vn.data.update('focusState', '获取焦点');
   },
   onBlur: function (params) {
-    VNData.update('focusState', '未获取焦点');
+    vn.data.update('focusState', '未获取焦点');
   },
   onConfirm: function (params) {
-    confirmCount = VNData.query('confirmCount');
+    confirmCount = vn.data.query('confirmCount');
     confirmCount += 1;
-    VNData.update('confirmCount', confirmCount);
+    vn.data.update('confirmCount', confirmCount);
   },
   onLeftClick: function (params) {
     var cursor = eventinput.getCursorStart();
@@ -332,11 +332,11 @@ var eventTextarea;
 
 page({
   onLaunch: function () {
-    eventTextarea = VNDom.getElementById('eventText');
+    eventTextarea = vn.dom.getElementById('eventText');
   },
   onTextArea: function (params) {
     var text = params.event.value;
-    VNData.update('textCount', text.length);
+    vn.data.update('textCount', text.length);
 
     var orginText = origintextarea.getValue();
     if (orginText.length > 0) {
@@ -346,15 +346,15 @@ page({
     }
   },
   onFocus: function (params) {
-    VNData.update('focusState', '获取焦点');
+    vn.data.update('focusState', '获取焦点');
   },
   onBlur: function (params) {
-    VNData.update('focusState', '未获取焦点');
+    vn.data.update('focusState', '未获取焦点');
   },
   onConfirm: function (params) {
-    confirmCount = VNData.query('confirmCount');
+    confirmCount = vn.data.query('confirmCount');
     confirmCount += 1;
-    VNData.update('confirmCount', confirmCount);
+    vn.data.update('confirmCount', confirmCount);
   },
   onLeftClick: function (params) {
     var cursor = eventtextarea.getCursorStart();
@@ -456,7 +456,7 @@ page({
     onItemClick: function(jsonObject) {
         var position = jsonObject.event.position;
         var path = 'listData[' + position + '].cellType'; 
-        var curType = this.VNData.query(path);
+        var curType = this.vn.data.query(path);
         console.log("被点击Item的type为：" + curType);
     }
 });
@@ -600,7 +600,7 @@ page({
         this.printLog("滑动速度:" + deltaY + "rpx");
     },
     getOffset: function (params) {
-        scrollView = this.VNDom.getElementById("scroll");
+        scrollView = this.vn.dom.getElementById("scroll");
         var offset = scrollView.getOffset();
         this.printLog("当前位移为：" + offset);
     }
@@ -666,14 +666,14 @@ Method | Float getOffset() | | | 获取当前的偏移，单位为rpx
 page({     
     onChannelItemClick: function (params){
         console.log(JSON.stringify(params));
-        pager = this.VNDom.getElementById('mainPager');
+        pager = this.vn.dom.getElementById('mainPager');
         pager.setPageIndex(params.event.position);
     },
     onPageChange: function (param) {
-        var cellData = this.VNData.query('pageData[' + param.event.pageIndex + ']');
-        this.VNData.update('pageIndex', param.event.pageIndex);
+        var cellData = this.vn.data.query('pageData[' + param.event.pageIndex + ']');
+        this.vn.data.update('pageIndex', param.event.pageIndex);
 
-        channelList = this.VNDom.getElementById('chennelTitleList');
+        channelList = this.vn.dom.getElementById('chennelTitleList');
         channelList.smoothScrollToPosition(param.event.pageIndex);
     }
     });
