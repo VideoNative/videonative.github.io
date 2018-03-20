@@ -471,12 +471,12 @@ params | String/Object | 否 | 页面传递的参数
 
 + **relaunch(Object obj)**
 
-关闭当前页面再打开一个新页面。
+关闭当前APP所有页面，再打开一个新页面。
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-pageUrl | String | 是 | 页面Url
+pageUrl | String | 是 | 页面Url，只能为绝对路径
 params | String/Object | 否 | 页面传递的参数
 
 ### vn.app
