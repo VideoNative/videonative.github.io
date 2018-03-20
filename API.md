@@ -40,15 +40,15 @@ Object |  父Dom对象
 --- |  ---
 Array |  子Dom对象数组
 
-+ **String getID()**
++ **String getId()**
 
-获取Dom对象的ID属性
+获取Dom对象的Id属性
 
 **返回参数说明:**
 
 类型 | 说明
 --- |  ---
-String |  ID属性
+String |  Id属性
 
 + **String getClasses()**
 
@@ -117,7 +117,7 @@ id | String | 是 | Dom对象的id，注意id属性必须唯一
 --- |  ---
 Object |  Dom对象
 
-+ **setProperty(String propertyKey, Object propertyValue)**
++ **setProperty(String propertyKey, String propertyValue)**
 
 获取Dom对象
 
@@ -126,9 +126,9 @@ Object |  Dom对象
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 propertyKey | String | 是 | CSS的属性名称如："margin-left"
-propertyValue | Object | 是 | CSS的属性值如："15rpx"
+propertyValue | String | 是 | CSS的属性值如："15rpx"
 
-+ **Object getProperty(String propertyKey)**
++ **String getProperty(String propertyKey)**
 
 
 **参数说明:**
@@ -141,7 +141,7 @@ propertyKey | String | 是 | CSS的属性名称如："margin-left"
 
 类型 | 说明
 --- |  ---
-Object | Dom对象的属性值如：15rpx
+String | Dom对象的属性值如："15rpx"
 
 + **Object getDataSet()**
 
@@ -161,7 +161,7 @@ Object | 所有data-属性都会在返回的对象的属性中如：有个一属
 
 类型 | 说明
 --- |  ---
-Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，右，下，左
+Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，右，下，左，单位是 rpx
 
 ### VNWindow
 
@@ -173,7 +173,7 @@ Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，�
 
 类型 | 说明
 --- |  ---
-Float | 屏幕的宽度
+Float | 屏幕的宽度，单位是 rpx
 
 + **Float getScreenHeight()**
 
@@ -183,7 +183,7 @@ Float | 屏幕的宽度
 
 类型 | 说明
 --- |  ---
-Float | 屏幕的高度
+Float | 屏幕的高度，单位是 rpx
 
 + **String getOrientationSetting()**
 
@@ -449,7 +449,7 @@ key | String | 是 | 本地缓存中的指定的 key
 pageUrl | String | 是 | 页面Url
 params | String/Object | 否 | 页面传递的参数
 
-+ **redirectTo(String pageUrl)**
++ **redirectTo(Object obj)**
 
 当前页面刷新URL。
 **参数说明:**
@@ -457,6 +457,7 @@ params | String/Object | 否 | 页面传递的参数
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url
+params | String/Object | 否 | 页面传递的参数
 
 + **navigateBack(Object obj)**
 
@@ -465,10 +466,10 @@ pageUrl | String | 是 | 页面Url
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-deltaLevel | Integer | 否 | 回退的页面个数
-params | String | 否 | 页面返回参数
+deltaLevel | Integer | 否 | 回退的页面个数，默认为1
+params | String/Object | 否 | 页面传递的参数
 
-+ **relaunch(String pageUrl)**
++ **relaunch(Object obj)**
 
 关闭当前页面再打开一个新页面。
 **参数说明:**
@@ -476,6 +477,7 @@ params | String | 否 | 页面返回参数
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url
+params | String/Object | 否 | 页面传递的参数
 
 ### VNApp
 

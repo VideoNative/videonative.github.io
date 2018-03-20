@@ -397,7 +397,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     getChilcrenElement | | | Array | 获取子控件数组
     getDataSet | | | Object | 获取数据集对象
     getClasses | | | List<String> | 获取class属性列表
-    getID | | | String | 获取控件ID
+    getId | | | String | 获取控件ID
     getType | | | String | 获取控件类型
     getPropertyKeyList | | | Set<String> | 获取属性Key集合
     getPropertyValue | String | 属性Key | String | 根据属性Key获取属性值

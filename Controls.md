@@ -36,7 +36,7 @@ Page ({
 事件 Key | 事件类型 | 适用范围 | 参数 Key | 参数类型
 --- | --- | --- | --- | ---
 bindTap | 点击 | 所有控件 | |
-onPageResult(Object params) | 从前一个页面返回 | 页面 | 拉起的页面传递过来的参数 | Object
+onPageResult(Object params) | 从前一个页面返回 | 页面 | 拉起的页面传递过来的参数 | Object/String
 onLaunch(Object params) | 当前页面启动 | 页面 | 上个页面传递过来的参数 | Object/String
 onStart() | 当前页面进入前台 | 页面 |  | 
 onStop() | 当前页面进入后台 | 页面 |  | 
