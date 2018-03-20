@@ -1,6 +1,6 @@
-## VNDom
 
-### VNDom
+
+### vn.dom
 
 + **Object getElementById(String id)**
 
@@ -163,7 +163,7 @@ Object | 所有data-属性都会在返回的对象的属性中如：有个一属
 --- |  ---
 Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，右，下，左，单位是 rpx
 
-### VNWindow
+### vn.window
 
 + **Float getScreenWidth()**
 
@@ -237,7 +237,7 @@ Boolean | 当前页面是否为弹框样式
 --- | --- | --- | ---
 message | Object | 是 | 日志的内容
 
-### VNData
+### vn.data
 
 + **Object query(String kayPath)**
 
@@ -305,7 +305,7 @@ data | Object | 是 | 新数据
 --- |  ---
 boolean | 更新是否成功
 
-### VNRequest
+### vn.request
 
 + **int request(Object requestOrigin)**
 
@@ -341,7 +341,7 @@ data| Object/String | 开发者服务器返回的数据
 --- | --- | --- | ---
 requstId | int | 是 | 要取消的请求id
 
-### VNStorage
+### vn.storage
 
 + **setStorage(Object object)**
 
@@ -437,7 +437,7 @@ key | String | 是 | 本地缓存中的指定的 key
 
 同步清理本地数据缓存。
 
-### VNNavigateManager
+### vn.navigate
 
 + **navigateTo(Object obj)**
 
@@ -479,7 +479,7 @@ params | String/Object | 否 | 页面传递的参数
 pageUrl | String | 是 | 页面Url
 params | String/Object | 否 | 页面传递的参数
 
-### VNApp
+### vn.app
 
 + **String getSDKVersionName()**
 
