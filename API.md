@@ -356,6 +356,7 @@ data | Object/String | 是 | 需要存储的内容
 success | Function | 否 | 接口调用成功的回调函数
 fail | Function | 否 | 接口调用失败的回调函数
 complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
+expires | Long | 否 | 存储过期事件
 
 + **setStorageSync(Object object)**
 
@@ -532,3 +533,16 @@ key | Object/String | 是 | sessionKey
 类型 | 说明
 --- |  ---
 Object | 返回Session数据。
+
+### vn.scanCode
+
++ **void scan(Object object)**
+
+开启扫描。
+**object内的参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+success | Function | 是 | 接口调用的回调函数
+fail | Function | 否 | 接口调用失败的回调函数
+complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
