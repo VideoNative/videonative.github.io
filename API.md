@@ -534,9 +534,9 @@ key | Object/String | 是 | sessionKey
 --- |  ---
 Object | 返回Session数据。
 
-### vn.scanCode
+### vn
 
-+ **void scan(Object object)**
++ **void scanCode(Object object)**
 
 开启扫描。
 **object内的参数说明:**
