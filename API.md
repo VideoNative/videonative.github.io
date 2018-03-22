@@ -309,7 +309,7 @@ boolean | 更新是否成功
 
 + **int request(Object requestOrigin)**
 
-删除数据
+请求数据
 
 **Object内的参数说明:**
 
