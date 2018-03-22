@@ -345,122 +345,122 @@ requstId | int | 是 | 要取消的请求id
 
 + **setStorage(Object object)**
 
-    将数据存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个异步接口。
+将数据存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个异步接口。
     
-    **object内的参数说明:**
+**object内的参数说明:**
     
-    参数 | 类型 | 必填 | 说明
-    --- | --- | --- | ---
-    key | String | 是 | 本地缓存中的指定的key
-    data | Object/String | 是 | 需要存储的内容
-    success | Function | 否 | 接口调用成功的回调函数
-    fail | Function | 否 | 接口调用失败的回调函数
-    complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
-    expires | Long | 否 | 存储过期事件
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | String | 是 | 本地缓存中的指定的key
+data | Object/String | 是 | 需要存储的内容
+success | Function | 否 | 接口调用成功的回调函数
+fail | Function | 否 | 接口调用失败的回调函数
+complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
+expires | Long | 否 | 存储过期事件
 
 + **int setStorageSync(Object object)**
 
-    将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口。
+将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口。
     
-    **object内的参数说明:**
+**object内的参数说明:**
     
-    参数 | 类型 | 必填 | 说明
-    --- | --- | --- | ---
-    key | String | 是 | 本地缓存中的指定的 key
-    data | Object/String | 是 | 需要存储的内容
-    expires | Long | 否 | 存储过期事件
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | String | 是 | 本地缓存中的指定的 key
+data | Object/String | 是 | 需要存储的内容
+expires | Long | 否 | 存储过期事件
     
-    **返回参数说明:**
-       
-    类型 | 说明
-    --- |  ---
-    int | errorCode(0表示成功)
+**返回参数说明:**
+   
+类型 | 说明
+--- |  ---
+int | errorCode(0表示成功)
 
 + **getStorage(Object object)**
 
-    从本地缓存中异步获取指定 key 对应的内容。
-    **object内的参数说明:**
+从本地缓存中异步获取指定 key 对应的内容。
+**object内的参数说明:**
     
-    参数 | 类型 | 必填 | 说明
-    --- | --- | --- | ---
-    key | String | 是 | 本地缓存中的指定的key
-    success | Function | 否 | 接口调用成功的回调函数
-    fail | Function | 否 | 接口调用失败的回调函数
-    complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | String | 是 | 本地缓存中的指定的key
+success | Function | 否 | 接口调用成功的回调函数
+fail | Function | 否 | 接口调用失败的回调函数
+complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
     
-    **success返回参数说明:**
+**success返回参数说明:**
     
-    参数 | 类型 | 说明
-    --- | --- |  ---
-    data| Object/String | key对应的内容
+参数 | 类型 | 说明
+--- | --- |  ---
+data| Object/String | key对应的内容
     
-    **fail返回参数说明:**
+**fail返回参数说明:**
     
-    类型 | 说明
-    --- |  ---
-    int | errorCode(0表示成功)
+类型 | 说明
+--- |  ---
+int | errorCode(0表示成功)
 
 + **Object getStorageSync(String key)**
 
-    从本地缓存中同步获取指定 key 对应的内容。
-    **参数说明:**
+从本地缓存中同步获取指定 key 对应的内容。
+**参数说明:**
     
-    参数 | 类型 | 必填 | 说明
-    --- | --- | --- | ---
-    key | String | 是 | 本地缓存中的指定的key
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | String | 是 | 本地缓存中的指定的key
     
-    **返回参数说明:**
+**返回参数说明:**
     
-    类型 | 说明
-    --- |  ---
-    Object/String | key对应的内容
+类型 | 说明
+--- |  ---
+Object/String | key对应的内容
 
 + **removeStorage(Object obect)**
 
-    从本地缓存中异步移除指定 key 。
-    **object内的参数说明:**
+从本地缓存中异步移除指定 key 。
+**object内的参数说明:**
     
-    参数 | 类型 | 必填 | 说明
-    --- | --- | --- | ---
-    key | String | 是 | 本地缓存中的指定的 key
-    success | Function | 是 | 接口调用的回调函数
-    fail | Function | 否 | 接口调用失败的回调函数
-    complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | String | 是 | 本地缓存中的指定的 key
+success | Function | 是 | 接口调用的回调函数
+fail | Function | 否 | 接口调用失败的回调函数
+complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
     
-    **返回参数说明:**
+**返回参数说明:**
     
-    类型 | 说明
-    --- |  ---
-    Object/String | key对应的内容
+类型 | 说明
+--- |  ---
+Object/String | key对应的内容
 
 + **int removeStorageSync(String key)**
 
-    从本地缓存中同步移除指定 key 。
-    **参数说明:**
+从本地缓存中同步移除指定 key 。
+**参数说明:**
     
-    参数 | 类型 | 必填 | 说明
-    --- | --- | --- | ---
-    key | String | 是 | 本地缓存中的指定的 key
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | String | 是 | 本地缓存中的指定的 key
     
-    **返回参数说明:**
-       
-    类型 | 说明
-    --- |  ---
-    int | errorCode(0表示成功)
+**返回参数说明:**
+   
+类型 | 说明
+--- |  ---
+int | errorCode(0表示成功)
     
 + **clearStorage()**
     
-    清理本地数据缓存。
+清理本地数据缓存。
 
 + **int clearStorageSync()**
 
-    同步清理本地数据缓存。
+同步清理本地数据缓存。
     
-    **返回参数说明:**
-       
-    类型 | 说明
-    --- |  ---
-    int | errorCode(0表示成功)
+**返回参数说明:**
+   
+类型 | 说明
+--- |  ---
+int | errorCode(0表示成功)
 
 ### vn.navigate
 
