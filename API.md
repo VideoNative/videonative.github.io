@@ -1,6 +1,6 @@
-## VNDom
 
-### VNDom
+
+### vn.dom
 
 + **Object getElementById(String id)**
 
@@ -163,7 +163,7 @@ Object | 所有data-属性都会在返回的对象的属性中如：有个一属
 --- |  ---
 Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，右，下，左，单位是 rpx
 
-### VNWindow
+### vn.window
 
 + **Float getScreenWidth()**
 
@@ -237,7 +237,7 @@ Boolean | 当前页面是否为弹框样式
 --- | --- | --- | ---
 message | Object | 是 | 日志的内容
 
-### VNData
+### vn.data
 
 + **Object query(String kayPath)**
 
@@ -305,7 +305,7 @@ data | Object | 是 | 新数据
 --- |  ---
 boolean | 更新是否成功
 
-### VNRequest
+### vn.request
 
 + **int request(Object requestOrigin)**
 
@@ -341,7 +341,7 @@ data| Object/String | 开发者服务器返回的数据
 --- | --- | --- | ---
 requstId | int | 是 | 要取消的请求id
 
-### VNStorage
+### vn.storage
 
 + **setStorage(Object object)**
 
@@ -443,11 +443,11 @@ requstId | int | 是 | 要取消的请求id
     key | String | 是 | 本地缓存中的指定的 key
     
     **返回参数说明:**
-    
+       
     类型 | 说明
     --- |  ---
-    Object/String | key对应的内容
-
+    int | errorCode(0表示成功)
+    
 + **clearStorage()**
     
     清理本地数据缓存。
@@ -462,7 +462,7 @@ requstId | int | 是 | 要取消的请求id
     --- |  ---
     int | errorCode(0表示成功)
 
-### VNNavigateManager
+### vn.navigate
 
 + **navigateTo(Object obj)**
 
@@ -496,15 +496,15 @@ params | String/Object | 否 | 页面传递的参数
 
 + **relaunch(Object obj)**
 
-关闭当前页面再打开一个新页面。
+关闭当前APP所有页面，再打开一个新页面。
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-pageUrl | String | 是 | 页面Url
+pageUrl | String | 是 | 页面Url，只能为绝对路径
 params | String/Object | 否 | 页面传递的参数
 
-### VNApp
+### vn.app
 
 + **String getSDKVersionName()**
 
@@ -557,3 +557,16 @@ key | Object/String | 是 | sessionKey
 类型 | 说明
 --- |  ---
 Object | 返回Session数据。
+
+### vn
+
++ **void scanCode(Object object)**
+
+开启扫描。
+**object内的参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+success | Function | 是 | 接口调用的回调函数
+fail | Function | 否 | 接口调用失败的回调函数
+complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）

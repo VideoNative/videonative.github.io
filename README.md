@@ -259,18 +259,18 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 
 ## js 文件脚本
 
-目前的脚本文件里面主要定义的是 JavaScript 函数。VideoNative 封装了一部分接口，供 js 脚本调用，接口分为全局接口和非全局接口。主要差别在于全局接口是注册在JS引擎上的。调用非全局接口需要加上`this.`，目前的接口有：
+目前的脚本文件里面主要定义的是 JavaScript 函数。VideoNative 封装了一部分接口，供 js 脚本调用，目前的接口有：
 
-+ VNData：对数据源的增删查改，非全局接口
++ vn.data：对数据源的增删查改
     + 代码示例如下：
     ```js
     /**VNData.js**/
     Page({
     onImageClick: function () {
-        var obj = VNData.query('textArray[0]')
-        VNData.update('textArray[1]', obj)
-        VNData.insert('textArray[2]', obj)
-        VNData.delete("textArray[0]")
+        var obj = vn.data.query('textArray[0]')
+        vn.data.update('textArray[1]', obj)
+        vn.data.insert('textArray[2]', obj)
+        vn.data.delete("textArray[0]")
     }
     });
     ```
@@ -294,24 +294,24 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     delete | String | 需要删除数据的KeyPath | boolean 成功or失败 |
     update | String </br> Object | 更新目标位置的KeyPath</br>更新目标位置的数据 | boolean 成功or失败 |
 
-+ VNNavigate：执行页面跳转， 全局接口
++ vn.navigate：执行页面跳转
     + 代码示例如下：
     ```js
     /**VNNavigate.js**/
     Page({
         startPage: function () {
-            VNNavigate.navigateTo('/navigate/newPage');
+            vn.navigate.navigateTo('/navigate/newPage');
         },
         closePage: function () {
             var ret = {};
             ret.text = "转给前一个页面的内容"
-            VNNavigate.navigateBack(1, JSON.stringify(ret))
+            vn.navigate.navigateBack(1, JSON.stringify(ret))
         },
         redirectPage: function () {
-            VNNavigate.redirectTo('../newPage')
+            vn.navigate.redirectTo('../newPage')
         },
         relaunchPage: function () {
-            VNNavigate.relaunch('../newPage')
+            vn.navigate.relaunch('../newPage')
         }
     });
     ```
@@ -324,17 +324,17 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     navigateBack | int </br> String | 回退层级数 </br> Json格式的回传参数 | 空 | 关闭当前页面并返回
     relaunch | String | 加载目标页面的PageUrl | 空 | 在当前页面重新加载新页面
 
-+ VNRequest：执行网络请求， 全局接口
++ vn.request：执行网络请求
     + 代码示例如下：
     ```js
     /**VNRequest.js**/
     Page({
         startRequest: function () {
-            VNRequest.request({
+            vn.request.request({
                 "url": "http://connorlu.vip:3000/data/network_test.json",
                 "method": "GET",
                 "success": function (result) {
-                    VNData.update('textArray', result.textArray)
+                    vn.data.update('textArray', result.textArray)
                 },
                 "fail": function (errorCode) {
                     console.log("network failed!,errCode=" + errorCode);
@@ -357,14 +357,14 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     --- | --- | --- | ---| ---
     request | Object | 请求信息集，包括url，header，method，</br>成功回调，失败回调，完成回调等 | int 请求ID | 发起网络请求
 
-+ VNDom: Dom树对象，非全局接口
++ vn.dom: Dom树对象
 
     + 代码示例如下：
     ```js
     /**VNDom.js**/
     page({
         scrollTop: function (params) {
-            scrollView = VNDom.getElementById("scrollID");
+            scrollView = vn.dom.getElementById("scrollID");
             scrollView.scrollTo(0, false);
         }
     });
@@ -385,7 +385,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     --- | --- | --- | ---| ---
     getElementById | String | id | Object Widget对象 | 根据ID查找widget对象
 
-+ VNWidget: Widget控件，通常从VNDom里面获取，非全局接口
++ vn.widget: Widget控件，通常从vn.dom里面获取
    </br> 不同类型的Widget控件提供的函数是不一样的，详情请参见控件页
    + 通用接口详情列表如下：
 
@@ -402,7 +402,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     getPropertyKeyList | | | Set<String> | 获取属性Key集合
     getPropertyValue | String | 属性Key | String | 根据属性Key获取属性值
 
-+ VNStorage：数据存储，全局接口
++ vn.storage：数据存储
     
     + 代码示例如下：
     
@@ -410,7 +410,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     /**VNStorage.js**/
     page({
         save: function (data) {
-            VNStorage.setStorage({
+            vn.storage.setStorage({
             key: "dataKey",
             data: data,
             success: function () {
@@ -425,7 +425,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
             });
         },
         restore: function () {
-            VNStorage.getStorage({
+            vn.storage.getStorage({
             key: "dataKey",
             success: function (data) {
                 console.log("get cache success, data=" + JSON.stringify(data));
@@ -439,7 +439,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
             });
         },
         remove: function () {
-            VNStorage.removeStorage({
+            vn.storage.removeStorage({
             key: "dataKey",
             success: function () {
                 console.log("remove cache success");
@@ -453,7 +453,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
             });
         },
         clear: function () {
-            VNStorage.clearStorage({
+            vn.storage.clearStorage({
             success: function () {
                 console.log("clear cache success");
             },
@@ -478,7 +478,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     clearStorage | Object | 包含success，complete回调 | 空 | 异步清空数据
     clearStorageSync | 空 |  | 空 | 同步清空数据
 
-+ console：输出日志， 全局接口
++ console：输出日志
 
     + 代码示例如下：
     ```js
