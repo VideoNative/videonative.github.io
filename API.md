@@ -319,7 +319,7 @@ url | String | 是 | 开发者服务器接口地址
 data | Object/String | 否 | 请求的参数
 header | Object | 否 | 设置请求的 header，header 中不能设置 Referer。
 method | String | 否 | （需大写）有效值：OPTIONS, GET(默认), HEAD, POST, PUT, DELETE, TRACE, CONNECT
-dataType | String | 否 | 如果设为json(默认)，会尝试对返回的数据做一次 JSON.parse
+dataType | String | 否 | 如果设为json(默认)，会尝试对返回的数据做一次 JSON.parse，有效值：json，text
 requestType | String | 否 | application/json或text/plain
 success | Function | 否 | 收到开发者服务成功返回的回调函数
 fail | Function | 否 | 接口调用失败的回调函数
