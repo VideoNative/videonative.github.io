@@ -323,13 +323,20 @@ dataType | String | 否 | 如果设为json(默认)，会尝试对返回的数据
 requestType | String | 否 | application/json或text/plain
 success | Function | 否 | 收到开发者服务成功返回的回调函数
 fail | Function | 否 | 接口调用失败的回调函数
-complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
+complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
 
 **success返回参数说明:**
 
 参数 | 类型 | 说明
 --- | --- |  ---
 data| Object/String | 开发者服务器返回的数据
+
+**fail返回参数说明:**
+    
+类型 | 说明
+--- |  ---
+int | errorCode(0表示成功)
+
 
 + **cancel(int requstId)**
 
