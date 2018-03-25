@@ -474,7 +474,7 @@ EventHandle | bindHeaderRefreshing | function() | | 列表发生了下拉刷新
 EventHandle | bindFooterRefreshing | function() | | 列表发生了上拉加载
 EventHandle | bindScroll | function(Float deltaX, Float deltaY) | | 列表滚动，deltaX;deltaY（正数为下滑，负数为上滑）
 EventHandle | bindScrollState | function(Integer newState) | | 列表滚动状态切换，newState，0:空闲;1:拖拽;2:滑动;
-Method | void scrollToPosition(int position) |  |  | list滚动到指定的位置
+Method | void scrollToPosition(int position) |  |  | list滚动到指定的位置，position 代表 Cell 的下标，从0开始
 Method | void smoothScrollToPosition(int position) |  |  | 有动画的滚动到指定的位置
 Method | void setFooterRefreshingEnabled(boolean enable) |  |  | 是否允许上拉加载更多
 Method | void setHeaderRefreshingEnabled(boolean enable) |  |  | 是否允许下拉刷新
