@@ -574,7 +574,7 @@ header 主要用于实现下拉刷新，目前只能作为 list 的子控件
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 EventHandle | bindHeaderStateChange | function(Integer state, Boolean isAutomatic, Float maxOffset) | 当下拉刷新状态发生变化时<br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否为自动触发 <br> maxOffset 达到下拉刷新的偏移量 
-EventHandle | bindHeaderMove | function(Boolean hasRefreshed, Boolean isAutomatic, Float offset) | 当下拉刷新视图发生移动时 <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否为自动触发 <br> offset 当前下拉的偏移
+EventHandle | bindHeaderMove | function(Boolean hasRefreshed, Boolean isAutomatic, Float offset) | 当下拉刷新视图发生移动时 <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否为自动触发 <br> offset 当前下拉的偏移（正数，下拉越多，数字越大）
 
 ## scroll-view
 
