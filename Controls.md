@@ -35,7 +35,10 @@ Page ({
 
 事件 Key | 事件类型 | 适用范围 | 参数 Key | 参数类型
 --- | --- | --- | --- | ---
-bindTap | 点击 | 所有控件 | |
+bindTap | 点击 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
+bindLongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
+bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
+bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
 onPageResult(Object params) | 从前一个页面返回 | 页面 | 拉起的页面传递过来的参数 | Object/String
 onLaunch(Object params) | 当前页面启动 | 页面 | 上个页面传递过来的参数 | Object/String
 onStart() | 当前页面进入前台 | 页面 |  | 
