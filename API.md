@@ -362,7 +362,7 @@ key | String | 是 | 本地缓存中的指定的key
 data | Object/String | 是 | 需要存储的内容
 success | Function | 否 | 接口调用成功的回调函数
 fail | Function | 否 | 接口调用失败的回调函数
-complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
+complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
 expires | Long | 否 | 存储过期事件
 
 + **int setStorageSync(Object object)**
@@ -393,7 +393,7 @@ int | errorCode(0表示成功)
 key | String | 是 | 本地缓存中的指定的key
 success | Function | 否 | 接口调用成功的回调函数
 fail | Function | 否 | 接口调用失败的回调函数
-complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
+complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
     
 **success返回参数说明:**
     
@@ -432,7 +432,7 @@ Object/String | key对应的内容
 key | String | 是 | 本地缓存中的指定的 key
 success | Function | 是 | 接口调用的回调函数
 fail | Function | 否 | 接口调用失败的回调函数
-complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
+complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
     
 **返回参数说明:**
     
@@ -576,4 +576,16 @@ Object | 返回Session数据。
 --- | --- | --- | ---
 success | Function | 是 | 接口调用的回调函数
 fail | Function | 否 | 接口调用失败的回调函数
-complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行）
+complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
+
+**success返回参数说明:**
+    
+参数 | 类型 | 说明
+--- | --- |  ---
+result | String | 扫描结果
+    
+**fail返回参数说明:**
+    
+类型 | 说明
+--- |  ---
+int | errorCode(0表示成功)
