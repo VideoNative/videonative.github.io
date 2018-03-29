@@ -65,7 +65,7 @@ id | String | none | 主要用于做 CSS 匹配
 width | [rpx percent auto] | auto |
 height | [rpx percent auto] | auto |
 aspect-ratio | Float | | 宽高比
-background-stretch-param | [rpx 组合] | | 1.25rpx 15rpx (将对图片(15,25)坐标点进行拉伸) 2.25rpx 10rpx 22rpx 15rpx (将对图片的纵坐标25位置到35位置进行拉伸，并对横坐标22位置到37位置进行拉伸)
+background-stretch-param | [rpx 组合] | | 1.25rpx 15rpx (将对图片(15,25)坐标点进行拉伸) 2.25rpx 10rpx 22rpx 15rpx (将对图片的纵坐标25位置到35位置进行拉伸，并对横坐标22位置到37位置进行拉伸)，必须配合 background 属性一起使用，否则无效
 background-color | color | #FFFFFFFF | 取值格式为#RGBA，如果同时设置了background，background的优先级更高
 background | String | "" | 1.不拉伸的图片如:../image/btn_bg
 alpha | Float | 1 | 0:透明 到 1:不透明
@@ -412,6 +412,7 @@ Method | void setFocus(boolean focus) |  |  | 设置当前输入框的焦点属�
     + 在 `<list>` 标签内使用一组 `<cell>` 标签填充，一个 `<cell>` 代表着一种 ViewType
     + 每个 `<cell>` 都定义了一个子页面布局
     + `<list>` 标签内有 `vn:cell-key` 属性，定义数组元素里标示 ViewType 的字段，默认为 cellType
+    + `<cell>` 有 `fixedCellSize` 的属性，标识该类型的 cell 的尺寸是否是不变。如果是 true，则 Cell 的高度一旦计算完成后就不再随着内容的变化而变化，该值默认是 true。用于优化 iOS 的列表性能，在 Android 上被忽略
     + 每个 `<cell>` 标签内应都有 `vn:cell-key` 属性值作为 Key，相应的数组元素里也有同样的 KEY-VALUE
     + `<cell>` 内的页面布局通过胡子语法，访问数组 item 里的属性作为数据填充
     + `<list>` 标签可使用 `<header>` 子标签作为拉下刷新的头部显示的视图，这个标签不能使用当前的 item 访问数据
