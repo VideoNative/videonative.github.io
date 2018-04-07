@@ -42,7 +42,7 @@
 
     ```js
     /**Demo.js**/
-    Page ({
+    page ({
         onTextTap: function (params) {
             var clickStr = "文本被点击";
             console.log(clickStr);
@@ -265,7 +265,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     + 代码示例如下：
     ```js
     /**VNData.js**/
-    Page({
+    page({
     onImageClick: function () {
         var obj = vn.data.query('textArray[0]')
         vn.data.update('textArray[1]', obj)
@@ -298,7 +298,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     + 代码示例如下：
     ```js
     /**VNNavigate.js**/
-    Page({
+    page({
         startPage: function () {
             vn.navigate.navigateTo('/navigate/newPage');
         },
@@ -328,7 +328,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     + 代码示例如下：
     ```js
     /**VNRequest.js**/
-    Page({
+    page({
         startRequest: function () {
             vn.request.request({
                 "url": "http://connorlu.vip:3000/data/network_test.json",
