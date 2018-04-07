@@ -483,7 +483,7 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     + 代码示例如下：
     ```js
     /**Console.js**/
-    Page ({
+    page ({
         onTextTap: function (params) {
             var clickStr = "文本被点击";
             console.log(clickStr);
