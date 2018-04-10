@@ -208,6 +208,7 @@ Property | position-type | Enum | relative | relative/absolute
 ## text和button
 
 + 代码示例如下：
+
 ```html
 <!--text.vnml-->
 <view width="100%" height="auto" flex-direction="row">
@@ -227,6 +228,7 @@ Property | max-line | Integer | 0 | 0代表不限行数
 ## image
 
 + 代码示例如下：
+
 ```html
 <!--image.vnml-->
 <image width="100%" aspect-ratio="1.78" src="{{imageUrl}}" shape="round-corner" corner-radius="30rpx" mode="center-crop"/>
@@ -258,6 +260,7 @@ Property | corner-radius | rpx | 12rpx | 圆角半径，仅在 shape 为 round-c
 ## checkbox
 
 + 代码示例如下：
+
 ```html
 <!--checkbox.vnml-->
 <checkbox width="92rpx" aspect-ratio="1" checked="{{selected}}" checked-src="{{check}}" unchecked-src="{{uncheck}}" bindchange="onCheckChange"/>
@@ -292,6 +295,7 @@ EventHandle | bindChange | function() | | checkbox 状态切换
 ## input
 
 + 代码示例如下：
+
 ```html
 <!--input.vnml-->
 <input id="eventText" placeholder="响应事件" confirm-type="done" margin="10rpx" padding="5rpx" width="100%"
@@ -387,6 +391,7 @@ Method | void setFocus(boolean focus) |  |  | 设置当前输入框的焦点属�
 ## textarea
 
 + 代码示例如下：
+
 ```html
 <!--textarea.vnml-->
 <textarea id="eventText" placeholder="响应事件" max-line="10" confirm-type="done" margin="10rpx" padding="5rpx" width="100%"
@@ -493,6 +498,7 @@ Method | void setFocus(boolean focus) |  |  | 设置当前输入框的焦点属�
     + `<list>` 标签可使用 `<header>` 子标签作为拉下刷新的头部显示的视图，这个标签不能使用当前的 item 访问数据
 
 + 代码示例如下：
+
 ```html
 <!--list.vnml-->
 <list direction="column" width="100%" height="100%" vn:for="{{listData}}" vn:cell-key="cellType" bindItemTap="onItemClick">
@@ -663,6 +669,7 @@ EventHandle | bindHeaderMove | function(Boolean hasRefreshed, Boolean isAutomati
 ## scroll-view
 
 + 代码示例如下：
+
 ```html
 <!--scroll.vnml-->
 <scroll-view id="scroll" direction="row" width="100%" height="100%"  flex-direction="column" bindScroll="onScroll">
@@ -779,6 +786,7 @@ Method | Integer getPageIndex() | | | 获取当前的分页编号
 ## video
 
 + 代码示例如下：
+
 ```html
 <!--video.vnml-->
 <video width="100%" aspect-ratio="1.78" vid="{{vid}}" controls="true" object-fit="fill" initial-time="10"/>
