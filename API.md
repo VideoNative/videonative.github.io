@@ -1,6 +1,4 @@
-
-
-### vn.dom
+## vn.dom
 
 + **Object getElementById(String id)**
 
@@ -18,7 +16,7 @@ id | String | 是 | Dom对象的id，注意id属性必须唯一
 --- |  ---
 Object |  Dom对象
 
-### Dom对象
+## Dom对象
 
 + **Object getParentElement()**
 
@@ -206,7 +204,7 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 >
 注意：对于list、viewpager，由于其cell会被复用，针对cell或者其子view做的动画，会在cell被复用时复位，不会保留最终状态。
 
-### vn.window
+## vn.window
 
 + **Float getScreenWidth()**
 
@@ -268,7 +266,7 @@ orientation | String | 是 | 屏幕方向"portrait":竖向，"landscape":横向�
 --- |  ---
 Boolean | 当前页面是否为弹框样式
 
-### console
+## console
 
 + **log(Object message)**
 
@@ -280,7 +278,7 @@ Boolean | 当前页面是否为弹框样式
 --- | --- | --- | ---
 message | Object | 是 | 日志的内容
 
-### vn.data
+## vn.data
 
 + **Object query(String kayPath)**
 
@@ -348,7 +346,7 @@ data | Object | 是 | 新数据
 --- |  ---
 boolean | 更新是否成功
 
-### vn.request
+## vn.request
 
 + **int request(Object requestOrigin)**
 
@@ -391,7 +389,7 @@ int | errorCode(0表示成功)
 --- | --- | --- | ---
 requstId | int | 是 | 要取消的请求id
 
-### vn.storage
+## vn.storage
 
 + **setStorage(Object object)**
 
@@ -512,7 +510,7 @@ int | errorCode(0表示成功)
 --- |  ---
 int | errorCode(0表示成功)
 
-### vn.navigate
+## vn.navigate
 
 + **navigateTo(Object obj)**
 
@@ -554,7 +552,7 @@ params | String/Object | 否 | 页面传递的参数
 pageUrl | String | 是 | 页面Url，只能为绝对路径
 params | String/Object | 否 | 页面传递的参数
 
-### vn.app
+## vn.app
 
 + **String getSDKVersionName()**
 
@@ -608,7 +606,7 @@ key | Object/String | 是 | sessionKey
 --- |  ---
 Object | 返回Session数据。
 
-### vn
+## vn
 
 + **void scanCode(Object object)**
 
