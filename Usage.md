@@ -1,4 +1,4 @@
-### PageUrl 的使用
+## PageUrl 的使用
 VideoNative 提供有 VNActivity 供外部接口使用。VNActivity 可以接收 pageUrl 并将其最终渲染成 VideoNative 界面
 
 1. 拉起一个 `vn://vn_demo/index/index` 界面示例
@@ -40,7 +40,7 @@ VideoNative 提供有 VNActivity 供外部接口使用。VNActivity 可以接收
     
    > 比如当前页面是 `vn://vn_demo/index/index`，希望跳转的目标页面是 `vn://vn_demo/channel/channel`，可以直接用绝对路径，也可以写成相对路径: `../channel/channel`
 
-### VideoNative 脚本的编译输出
+## VideoNative 脚本的编译输出
 1. VideoNative 的脚本在服务端编译解析，最终以离线包的ZIP格式给到客户端，其中包括：
     + `Node` 树，由 `vnml` 生成
     + `json` 格式数据，由 `json` 文件生成
@@ -98,7 +98,7 @@ VideoNative 提供有 VNActivity 供外部接口使用。VNActivity 可以接收
     };
     ```
 
-### Native ViewTree 的事件处理
+## Native ViewTree 的事件处理
 1. 组件通过指定事件 `Key` 属性，可以接收事件，并执行任意 `JScript` 定义好的函数
 2. 事件参数为 V8Object，通用参数的结构为：
 
@@ -135,7 +135,7 @@ VideoNative 提供有 VNActivity 供外部接口使用。VNActivity 可以接收
     })
     ```
 
-### 离线包解决方案
+## 离线包解决方案
 1. 采用离线包方案主要解决的问题
 
     + 页面可以内置在 app 里面，提升页面的打开速度
