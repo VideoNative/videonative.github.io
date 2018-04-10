@@ -287,12 +287,12 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     ```
     + 接口详情列表如下：
 
-    函数名 |  参数列表 | 参数详情 | 返回值 | 说明
-    --- | --- | --- | --- | ---
-    query | String | 需要查询数据的KeyPath | 基础类型或Object |
-    insert | String </br> Object | 插入目标位置的KeyPath</br>插入目标位置的数据 | boolean 成功or失败 |
-    delete | String | 需要删除数据的KeyPath | boolean 成功or失败 |
-    update | String </br> Object | 更新目标位置的KeyPath</br>更新目标位置的数据 | boolean 成功or失败 |
+函数名 |  参数列表 | 参数详情 | 返回值 | 说明
+--- | --- | --- | --- | ---
+query | String | 需要查询数据的KeyPath | 基础类型或Object |
+insert | String </br> Object | 插入目标位置的KeyPath</br>插入目标位置的数据 | boolean 成功or失败 |
+delete | String | 需要删除数据的KeyPath | boolean 成功or失败 |
+update | String </br> Object | 更新目标位置的KeyPath</br>更新目标位置的数据 | boolean 成功or失败 |
 
 + vn.navigate：执行页面跳转
     + 代码示例如下：
@@ -317,12 +317,12 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     ```
     + 接口详情列表如下：
 
-    函数名 |  参数列表 | 参数详情 | 返回值 | 说明
-    --- | --- | --- | ---| ---
-    navigateTo | String | 跳转目标页面的PageUrl | 空 | 拉起一个新的页面
-    redirectTo | String | 跳转目标页面的PageUrl | 空 | 关闭当前页面并拉起新页面
-    navigateBack | int </br> String | 回退层级数 </br> Json格式的回传参数 | 空 | 关闭当前页面并返回
-    relaunch | String | 加载目标页面的PageUrl | 空 | 在当前页面重新加载新页面
+函数名 |  参数列表 | 参数详情 | 返回值 | 说明
+--- | --- | --- | ---| ---
+navigateTo | String | 跳转目标页面的PageUrl | 空 | 拉起一个新的页面
+redirectTo | String | 跳转目标页面的PageUrl | 空 | 关闭当前页面并拉起新页面
+navigateBack | int </br> String | 回退层级数 </br> Json格式的回传参数 | 空 | 关闭当前页面并返回
+relaunch | String | 加载目标页面的PageUrl | 空 | 在当前页面重新加载新页面
 
 + vn.request：执行网络请求
     + 代码示例如下：
@@ -353,9 +353,9 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     ```
     + 接口详情列表如下：
 
-    函数名 |  参数列表 | 参数详情 | 返回值 | 说明
-    --- | --- | --- | ---| ---
-    request | Object | 请求信息集，包括url，header，method，</br>成功回调，失败回调，完成回调等 | int 请求ID | 发起网络请求
+函数名 |  参数列表 | 参数详情 | 返回值 | 说明
+--- | --- | --- | ---| ---
+request | Object | 请求信息集，包括url，header，method，</br>成功回调，失败回调，完成回调等 | int 请求ID | 发起网络请求
 
 + vn.dom: Dom树对象
 
@@ -381,26 +381,26 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 
     + 接口详情列表如下：
 
-    函数名 |  参数列表 | 参数详情 | 返回值 | 说明
-    --- | --- | --- | ---| ---
-    getElementById | String | id | Object Widget对象 | 根据ID查找widget对象
+函数名 |  参数列表 | 参数详情 | 返回值 | 说明
+--- | --- | --- | ---| ---
+getElementById | String | id | Object Widget对象 | 根据ID查找widget对象
 
 + vn.widget: Widget控件，通常从vn.dom里面获取
    </br> 不同类型的Widget控件提供的函数是不一样的，详情请参见控件页
    + 通用接口详情列表如下：
 
-    函数名 |  参数列表 | 参数详情 | 返回值 | 说明
-    --- | --- | --- | ---| ---
-    getElementById | String | id | Object Widget对象 | 根据ID查找widget对象
-    setProperty | String</br> Object | key</br>value | 空 | 设置控件属性
-    getParentElement | | | Object widget对象 | 获取父控件
-    getChilcrenElement | | | Array | 获取子控件数组
-    getDataSet | | | Object | 获取数据集对象
-    getClasses | | | List<String> | 获取class属性列表
-    getId | | | String | 获取控件ID
-    getType | | | String | 获取控件类型
-    getPropertyKeyList | | | Set<String> | 获取属性Key集合
-    getPropertyValue | String | 属性Key | String | 根据属性Key获取属性值
+函数名 |  参数列表 | 参数详情 | 返回值 | 说明
+--- | --- | --- | ---| ---
+getElementById | String | id | Object Widget对象 | 根据ID查找widget对象
+setProperty | String</br> Object | key</br>value | 空 | 设置控件属性
+getParentElement | | | Object widget对象 | 获取父控件
+getChilcrenElement | | | Array | 获取子控件数组
+getDataSet | | | Object | 获取数据集对象
+getClasses | | | List<String> | 获取class属性列表
+getId | | | String | 获取控件ID
+getType | | | String | 获取控件类型
+getPropertyKeyList | | | Set<String> | 获取属性Key集合
+getPropertyValue | String | 属性Key | String | 根据属性Key获取属性值
 
 + vn.storage：数据存储
     
@@ -466,17 +466,17 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
     ```
     + 接口详情列表如下：
 
-    函数名 |  参数列表 | 参数详情 | 返回值 | 说明
-    --- | --- | --- | ---| ---
-    getStorage | Object | 包含key，success，fail，complete | 空 | 异步读数据
-    getStorageSync | String | 数据Key | String/Object | 同步读数据
-    setStorage | Object | 包含data，key，success，fail，</br>complete，expires | 空 | 异步存数据
-    setStorageSync | String</br>Object | 数据Key</br>数据 | 空 | 同步存数据
-    setStorageSync | String</br>Object</br>long | 数据Key</br>数据</br>过期时间 | 空 | 同步存数据
-    removeStorage | Object | 包含key，success，fail，complete | 空 | 异步删除数据
-    removeStorageSync | String | 数据Key | 空 | 同步删除数据
-    clearStorage | Object | 包含success，complete回调 | 空 | 异步清空数据
-    clearStorageSync | 空 |  | 空 | 同步清空数据
+函数名 |  参数列表 | 参数详情 | 返回值 | 说明
+--- | --- | --- | ---| ---
+getStorage | Object | 包含key，success，fail，complete | 空 | 异步读数据
+getStorageSync | String | 数据Key | String/Object | 同步读数据
+setStorage | Object | 包含data，key，success，fail，</br>complete，expires | 空 | 异步存数据
+setStorageSync | String</br>Object | 数据Key</br>数据 | 空 | 同步存数据
+setStorageSync | String</br>Object</br>long | 数据Key</br>数据</br>过期时间 | 空 | 同步存数据
+removeStorage | Object | 包含key，success，fail，complete | 空 | 异步删除数据
+removeStorageSync | String | 数据Key | 空 | 同步删除数据
+clearStorage | Object | 包含success，complete回调 | 空 | 异步清空数据
+clearStorageSync | 空 |  | 空 | 同步清空数据
 
 + console：输出日志
 
@@ -493,6 +493,6 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 
     + 接口详情列表如下：
 
-    函数名 |  参数列表 | 参数详情 | 返回值 | 说明
-    --- | --- | --- | ---| ---
-    log | String/Object | 输出内容 | 空 | 输出日志
+        函数名 |  参数列表 | 参数详情 | 返回值 | 说明
+        --- | --- | --- | ---| ---
+        log | String/Object | 输出内容 | 空 | 输出日志
