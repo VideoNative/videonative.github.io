@@ -163,6 +163,49 @@ Object | 所有data-属性都会在返回的对象的属性中如：有个一属
 --- |  ---
 Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，右，下，左，单位是 rpx
 
++ **startAnimation(obj)**
+
+对当前dom对象开启动画。传入参数obj对象包含了动画的属性，如动画操作的view属性、动画时长、时间函数、回调函数等属性。具体的属性定义如下
+
+参数 | 说明
+--- |  ---
+alpha |  取值范围 0.0 ~ 1.0。  0=完全透明; 1=完全不透明
+background-color | 取值范围和通用属性background-color相同
+rotate-x | 在x轴上的旋转角度
+rotate-y | 在y轴上的旋转角度
+rotation | 表示旋转。和rotate_x、rotate_y不同的是，rotation是围绕pivot点做旋转，而rotate_x是x轴围绕pivot_x旋转，rotate_y围绕pivot_y旋转。
+scale-x | 在x轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数
+scale-y | 在y轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数
+translate-x | 在x轴上的偏移。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
+translate-y | 在y轴上的偏移。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
+delay | 动画延迟开始的时间，毫秒，正整数
+duration | 动画的时长，毫秒，正整数
+pivot-x | 旋转和缩放的中心点x坐标。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
+pivot-y | 旋转和缩放的中心点y坐标。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
+complete | 回调函数。当动画结束时会回调该方法，没有参数
+timingFunction | 动画的时间函数。支持下面几种取值：
+
+timingFunction 的取值如下
+
+参数 | 说明
+--- |  ---
+linear | 规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）
+ease | 规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）
+ease-in | 规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）
+ease-out | 规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）
+ease-in-out | 规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）
+cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值
+
+
++ **stopAnimation()**
+
+停止该dom对象上的所有动画
+
+>
+说明：当开始新动画时，未完成的动画自动停止。
+>
+注意：对于list、viewpager，由于其cell会被复用，针对cell或者其子view做的动画，会在cell被复用时复位，不会保留最终状态。
+
 ### vn.window
 
 + **Float getScreenWidth()**
