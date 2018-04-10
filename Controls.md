@@ -83,10 +83,6 @@ margin-left | [rpx percent] | | 共存时覆盖 margin 的值
 margin-right | [rpx percent] | | 共存时覆盖 margin 的值
 margin-top | [rpx percent] | | 共存时覆盖 margin 的值
 margin-bottom | [rpx percent] | |共存时覆盖 margin 的值
-border-width | rpx | 0rpx | 暂不支持
-border-style | Enum | none | 暂不支持
-border-color | color | #000000FF | 暂不支持
-border-radius | rpx | 0rpx |暂不支持
 max-height | [rpx percent] | |
 max-width | [rpx percent] | |
 min-height | [rpx percent] | |
@@ -95,9 +91,9 @@ hidden | Boolean | false | 是否隐藏
 enable | Boolean | true | 是否启用，为 false 时不接收点击事件
 box-shadow | h-shadow v-shadow blur spread color inset | | 添加一个阴影。每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略的长度值为0。
 border-color | color | transparent（透明） | 设置四条边框的颜色。此属性可设置 1 到 4 种颜色。
-border-style | String | 详见下方 | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。
-border-width | rpx | | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
-border-radius | rpx | | 设置边框的圆角属性。可设置 1 到 4 个值
+border-style | Enum | none | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。
+border-width | rpx | 0rpx | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
+border-radius | rpx | 0rpx | 设置边框的圆角属性。可设置 1 到 4 个值
 
 ### box-shadow 的详细说明
 值	| 类型 | 描述 
