@@ -12,7 +12,7 @@
 
 ```js
 /**commonEvent.js**/
-Page ({
+page ({
     onTextTap: function (params) {
         var clickStr = "文本被点击";
         console.log(clickStr);
@@ -50,6 +50,7 @@ onOrientationChange(String orientation) |  当前页面方向改变 | 页面 | �
 ## 通用属性
 
 + 代码示例如下：
+
 ```html
 <!--commonAttribute.vnml-->
 <view id="mainContainer">
@@ -69,7 +70,7 @@ width | [rpx percent auto] | auto |
 height | [rpx percent auto] | auto |
 aspect-ratio | Float | | 宽高比
 background-stretch-param | [rpx 组合] | | 1.25rpx 15rpx (将对图片(15,25)坐标点进行拉伸) 2.25rpx 10rpx 22rpx 15rpx (将对图片的纵坐标25位置到35位置进行拉伸，并对横坐标22位置到37位置进行拉伸)，必须配合 background 属性一起使用，否则无效
-background-color | color | #FFFFFFFF | 取值格式为#RGBA，如果同时设置了background，background的优先级更高
+background-color | color | #FFFFFFFF | 取值格式为#RGB，#RRGGBB #RRGGBBAA，RRGGBBAA，如果同时设置了background，background的优先级更高
 background | String | "" | 1.不拉伸的图片如:../image/btn_bg
 alpha | Float | 1 | 0:透明 到 1:不透明
 padding | [rpx percent 组合] | 0rpx | 参见 CSS 标准写法
@@ -92,10 +93,81 @@ min-height | [rpx percent] | |
 min-width | [rpx percent] | |
 hidden | Boolean | false | 是否隐藏
 enable | Boolean | true | 是否启用，为 false 时不接收点击事件
+box-shadow | h-shadow v-shadow blur spread color inset | | 添加一个阴影。每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略的长度值为0。
+border-color | color | transparent（透明） | 设置四条边框的颜色。此属性可设置 1 到 4 种颜色。
+border-style | String | 详见下方 | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。
+border-width | rpx | | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
+border-radius | rpx | | 设置边框的圆角属性。可设置 1 到 4 个值
+
+### box-shadow 的详细说明
+值	| 类型 | 描述 
+--- | --- | --- 
+h-shadow | rpx | 必需。水平阴影的位置。允许负值
+v-shadow | rpx | 必需。垂直阴影的位置。允许负值
+blur	| rpx | 可选。模糊距离
+spread | rpx  | 可选。阴影的尺寸
+color	 | color | 可选。阴影的颜色。请参阅 CSS 颜色值
+inset	 | | 可选。将外部阴影 (outset) 改为内部阴影
+
+### border-color 的详细说明
+color 的语法如下：
+
++ transparent：默认值，透明色
++ 颜色名：red、green
++ `#hex：#rgb  #rrggbb  #rrggbbaa`
++ inherit:  从父元素继承边框颜色
+
+代码示例如下：
+
+```css
+border-color:red green blue pink;   // 上  右  下  左
+
+border-color:red green blue;        // 上  右&左  下
+
+border-color:red green;             // 上&下  右&左
+
+border-color:red;                   // 四边
+```
+
+### border-style 的详细说明
+值	| 描述 
+--- | ---
+none | 定义无边框
+hidden | 与 "none" 相同
+dotted | 定义点状边框
+dashed | 定义虚线
+solid | 定义实线
+
+代码示例如下：
+
+```css
+border-style: hidden dotted dashed solid;   // 上无 右点 下虚 左实
+```
+
+### box-shadow & border-color & border-style 的说明
+以下这些属性用于对具体方向的边框指定指定颜色、样式、宽度，只可设置1个值
+
+```css
+border-bottom-color
+border-bottom-style
+border-bottom-width
+border-left-color
+border-left-style
+border-left-width
+border-right-color
+border-right-style
+border-right-width
+border-top-color
+border-top-style
+border-top-width
+```
+
+
 
 ## view
 
 + 代码示例如下：
+
 ```html
 <!--view.vnml-->
 <view width="100%" height="85.4rpx" align-items="center"  justify-content="space-between" flex-direction="row">
@@ -203,7 +275,7 @@ Property | corner-radius | rpx | 12rpx | 圆角半径，仅在 shape 为 round-c
 
 ```js
 /**checkbox.js**/
-Page ({
+page ({
     onCheckChange: function () {
         console.log("checkbox 发生状态切换");
     }

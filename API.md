@@ -170,18 +170,18 @@ Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，�
 参数 | 说明
 --- |  ---
 alpha |  取值范围 0.0 ~ 1.0。  0=完全透明; 1=完全不透明
-background-color | 取值范围和通用属性background-color相同
-rotate-x | 在x轴上的旋转角度
-rotate-y | 在y轴上的旋转角度
+background_color | 取值范围和通用属性background-color相同
+rotate_x | 在x轴上的旋转角度
+rotate_y | 在y轴上的旋转角度
 rotation | 表示旋转。和rotate_x、rotate_y不同的是，rotation是围绕pivot点做旋转，而rotate_x是x轴围绕pivot_x旋转，rotate_y围绕pivot_y旋转。
-scale-x | 在x轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数
-scale-y | 在y轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数
-translate-x | 在x轴上的偏移。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
-translate-y | 在y轴上的偏移。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
+scale_x | 在x轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数
+scale_y | 在y轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数
+translate_x | 在x轴上的偏移。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
+translate_y | 在y轴上的偏移。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
 delay | 动画延迟开始的时间，毫秒，正整数
 duration | 动画的时长，毫秒，正整数
-pivot-x | 旋转和缩放的中心点x坐标。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
-pivot-y | 旋转和缩放的中心点y坐标。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
+pivot_x | 旋转和缩放的中心点x坐标。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
+pivot_y | 旋转和缩放的中心点y坐标。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
 complete | 回调函数。当动画结束时会回调该方法，没有参数
 timingFunction | 动画的时间函数。支持下面几种取值：
 
