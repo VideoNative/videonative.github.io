@@ -93,7 +93,7 @@ box-shadow | h-shadow v-shadow blur spread color inset | | 添加一个阴影。
 border-color | color | transparent（透明） | 设置四条边框的颜色。此属性可设置 1 到 4 种颜色。
 border-style | Enum | none | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。
 border-width | rpx | 0rpx | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
-border-radius | rpx | 0rpx | 设置边框的圆角属性。可设置 1 到 4 个值
+border-radius | rpx | 0rpx | 设置边框的圆角属性。可设置 1 到 4 个值（topLeft, topRight, bottomRight, bottomLeft）
 
 ### box-shadow 的详细说明
 值	| 类型 | 描述 
