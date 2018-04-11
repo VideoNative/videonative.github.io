@@ -140,7 +140,7 @@ solid | 定义实线
 border-style: hidden dotted dashed solid;   // 上无 右点 下虚 左实
 ```
 
-### box-shadow & border-color & border-style 的说明
+### border-width & border-color & border-style 的说明
 以下这些属性用于对具体方向的边框指定指定颜色、样式、宽度，只可设置1个值
 
 ```css
