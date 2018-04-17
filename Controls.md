@@ -104,7 +104,7 @@ h-shadow | rpx | 必需。水平阴影的位置。允许负值
 v-shadow | rpx | 必需。垂直阴影的位置。允许负值
 blur	| rpx | 可选。模糊距离，不允许负值
 spread | rpx  | 可选。阴影的尺寸，允许负值
-color	 | color | 可选。阴影的颜色。请参阅 CSS 颜色值
+color	 | color | 可选。阴影的颜色。请参阅 CSS 颜色值，默认为透明
 inset	 | | 可选。将外部阴影 (outset) 改为内部阴影
 
 ### border-color 的详细说明
