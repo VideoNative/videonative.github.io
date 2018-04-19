@@ -42,6 +42,8 @@ bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager 等
 onPageResult(Object params) | 从前一个页面返回 | 页面 | 拉起的页面传递过来的参数 | Object/String
 onLaunch(Object params) | 当前页面启动 | 页面 | 上个页面传递过来的参数 | Object/String
 onStart() | 当前页面进入前台 | 页面 |  | 
+onResume() | 当前页面从被覆盖变成未覆盖、进前台、，iOS 下与 onStart() 一样 | 页面 |  |
+onPause() | 当前页面进入后台，iOS 下与 onStop() 一样 | 页面 |  |  
 onStop() | 当前页面进入后台 | 页面 |  | 
 onDestroy() | 当前页面即将销毁 | 页面 |  | 
 onOrientationChange(String orientation) |  当前页面方向改变 | 页面 | 选项的角度如：portrait， landscape， reverse-landscape | String

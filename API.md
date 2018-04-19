@@ -248,7 +248,7 @@ String | 获取屏幕方向"portrait":竖向，"landscape":横向，"reverse-lan
 
 + **setOrientation(String orientation)**
 
-设置屏幕方向
+设置屏幕方向，默认为竖屏
 
 **参数说明:**
 
