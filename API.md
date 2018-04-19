@@ -234,7 +234,7 @@ Float | 屏幕的高度，单位是 rpx
 
 类型 | 说明
 --- |  ---
-String | 获取屏幕方向"portrait":竖向，"landscape":横向，"reverse-landscape":逆横向，"auto":根据屏幕位置自动旋转，
+String | 获取屏幕方向"portrait":竖向，"landscape":横向，"reverse-landscape":逆横向，"auto":根据屏幕位置自动旋转
 
 + **String getCurOrientation()**
 

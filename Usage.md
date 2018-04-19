@@ -186,3 +186,32 @@ VideoNative 提供有 VNActivity 供外部接口使用。VNActivity 可以接收
 
 6. 离线包的发布
     + 在WebApp的发布后台发布上线。
+
+
+## App 预配置
+在 `info.json` 文件中可以对 App 页面预设一些配置，配置项为 pageConfigs，示例如下：
+
+```json
+{
+  "packageId" : "39",
+  "version" : "17120519",
+  "pageConfigs": [
+    {
+      "pageUrl": "vn://jsapi/jsapi",
+      "orientation": "auto",
+      "style": "dialog",
+      "fullscreen": true
+    }
+  ]
+}
+```
+
+pageConfigs 是一个数组，每个配置项对应一个页面配置，包括
+
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+pageUrl | String | 是 | 标识是要配置哪个页面
+orientation | String | 否 | 屏幕的旋转方向，取值为："portrait":竖向，"landscape":横向，"reverse-landscape":逆横向，"auto":根据屏幕位置自动旋转。默认为 portrait
+style | String | 否 | 如果为 "dialog"，则页面以对话框形式弹出，默认是透明背景；否则是普通页面。默认为空
+fullscreen | Boolean | 否 | 标识是否要隐藏状态栏，默认为 false
