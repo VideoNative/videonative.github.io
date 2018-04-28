@@ -180,6 +180,7 @@ delay | 动画延迟开始的时间，毫秒，正整数
 duration | 动画的时长，毫秒，正整数
 pivot_x | 旋转和缩放的中心点x坐标。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
 pivot_y | 旋转和缩放的中心点y坐标。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
+repeat_count| 表示动画重复次数，整数类型，默认值为0。-1表示无限循环。
 complete | 回调函数。当动画结束时会回调该方法，没有参数
 timingFunction | 动画的时间函数。支持下面几种取值：
 
@@ -203,6 +204,71 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 说明：当开始新动画时，未完成的动画自动停止。
 >
 注意：对于list、viewpager，由于其cell会被复用，针对cell或者其子view做的动画，会在cell被复用时复位，不会保留最终状态。
+
++ **float getTranslationX()**
+
+当前位置的 x 偏移，单位 rpx
+
++ **float getTranslationY()**
+
+当前位置的 y 偏移，单位 rpx
+
++ **setTranslationX()**
+
+设置 x 偏移，单位 rpx
+
++ **setTranslationY()**
+
+设置 y 的偏移，单位 rpx
+
++ **float getScaleX()**
+
+获取 x 轴上的缩放，单位 rpx
+
++ **float getScaleY()**
+
+获取 y 轴上的缩放，单位 rpx
+
++ **setScaleX()**
+
+设置 x 轴上的缩放，单位 rpx
+
++ **setScaleY()**
+
+设置 y 轴上的缩放，单位 rpx
+
++ **float getAlpha()**
+
+获取当前透明度
+
++ **setAlpha()**
+
+设置透明度，范围 0.0~1.0
+
++ **float getRotation()**
+
+获取当前旋转角度
+
++ **setRotation()**
+
+设置旋转的角度
+
++ **float getRotationX()**
+
+获取当前x轴旋转角度
+
++ **setRotationX()**
+
+设置x轴旋转的角度
+
++ **float getRotationY()**
+
+获取当前y轴旋转角度
+
++ **setRotationY()**
+
+设置y轴旋转的角度
+
 
 ## vn.window
 
