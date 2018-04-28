@@ -215,3 +215,4 @@ pageUrl | String | 是 | 标识是要配置哪个页面
 orientation | String | 否 | 屏幕的旋转方向，取值为："portrait":竖向，"landscape":横向，"reverse-landscape":逆横向，"auto":根据屏幕位置自动旋转。默认为 portrait
 style | String | 否 | 如果为 "dialog"，则页面以对话框形式弹出，默认是透明背景；否则是普通页面。默认为空
 fullscreen | Boolean | 否 | 标识是否要隐藏状态栏，默认为 false
+launchMode | String | 否 | 当设置为 "singleTask" 时，表示这个页面是单例的，不会重复创建，当再次打开一个 singleTask 类型的页面时，这个页面之上的其他页面会被销毁，而当前页面的 js 函数 onRelaunch 会被调用
