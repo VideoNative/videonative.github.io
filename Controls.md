@@ -379,7 +379,7 @@ Property | placeholder | String | "" | 当没有文字输入时的提示文案
 Property | placeholder-color | color | #888888FF | 取值格式为#RGBA
 Property | keep-focus | Boolean | false | 当点击非本input输入的区域时是否保持焦点
 EventHandle | bindinput | String function(String value, int cursor) | | 当键盘输入时，触发input事件，回调{value, cursor}，处理函数可以直接 return 一个字符串，将替换输入框的内容。value 为事件发生时文本框的内容
-EventHandle | bindconfirm | Boolean function(String value) | | 点击完成按钮时触发，value 为事件发生时文本框的内容，返回值表示按下完成按钮时是否要收起键盘，默认不收起
+EventHandle | bindconfirm | Boolean function(String value) | | 点击完成按钮时触发，value 为事件发生时文本框的内容，返回 true 表示按下完成按钮时不收起键盘，返回 false 表示收起键盘，默认为 false。注，在安卓上可能受到其他特性的影响导致键盘不收起，比如当指定 confirmType 为 Next 时，会聚焦到下一个输入框，此时键盘没有收起。
 EventHandle | bindfocus | function(String value) | | 输入框聚焦时触发，value 为事件发生时文本框的内容
 EventHandle | bindblur | function(String value) | | 输入框失去焦点时触发，value 为事件发生时文本框的内容
 Method | int getCursorStart() |  |  | 当前输入框的光标开始位置
