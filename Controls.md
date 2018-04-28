@@ -377,8 +377,8 @@ Property | password | Boolean | false | 是否为密码输入
 Property | placeholder | String | "" | 当没有文字输入时的提示文案
 Property | placeholder-color | color | #888888FF | 取值格式为#RGBA
 Property | keep-focus | Boolean | false | 当点击非本input输入的区域时是否保持焦点
-EventHandle | bindinput | function(String value, int cursor) | | 当键盘输入时，触发input事件，回调{value, cursor}，处理函数可以直接 return 一个字符串，将替换输入框的内容。value 为事件发生时文本框的内容
-EventHandle | bindconfirm | function(String value) | | 点击完成按钮时触发，value 为事件发生时文本框的内容
+EventHandle | bindinput | String function(String value, int cursor) | | 当键盘输入时，触发input事件，回调{value, cursor}，处理函数可以直接 return 一个字符串，将替换输入框的内容。value 为事件发生时文本框的内容
+EventHandle | bindconfirm | Boolean function(String value) | | 点击完成按钮时触发，value 为事件发生时文本框的内容，返回值表示按下完成按钮时是否要收起键盘，默认不收起
 EventHandle | bindfocus | function(String value) | | 输入框聚焦时触发，value 为事件发生时文本框的内容
 EventHandle | bindblur | function(String value) | | 输入框失去焦点时触发，value 为事件发生时文本框的内容
 Method | int getCursorStart() |  |  | 当前输入框的光标开始位置
