@@ -792,14 +792,13 @@ Method | Integer getPageIndex() | | | 获取当前的分页编号
 
 ```html
 <!--video.vnml-->
-<video width="100%" aspect-ratio="1.78" vid="{{vid}}" controls="true" object-fit="fill" initial-time="10"/>
+<video width="100%" aspect-ratio="1.78" src="{{vid}}" controls="true" object-fit="fill" initial-time="10"/>
 ```
 
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 Property | src | String | | 视频资源地址
-Property | vid | String | | 视频id
 Property | poster | String | | 视频海报
 Property | controls | Boolean | true | 是否显示自带控件
 Property | show-fullscreen-btn | Boolean | true | 是否显示全屏按钮，controls为false时不生效
