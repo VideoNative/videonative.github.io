@@ -800,6 +800,7 @@ Method | Integer getPageIndex() | | | 获取当前的分页编号
 --- | --- | --- | --- | ---
 Property | src | String | | 视频资源地址
 Property | vid | String | | 视频id
+Property | poster | String | | 视频海报
 Property | controls | Boolean | true | 是否显示自带控件
 Property | show-fullscreen-btn | Boolean | true | 是否显示全屏按钮，controls为false时不生效
 Property | show-progress | Boolean | true | 是否显示进度条，controls为false时不生效
