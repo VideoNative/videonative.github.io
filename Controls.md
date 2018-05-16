@@ -193,7 +193,7 @@ Property | justify-content | Enum | flex-start |
 ```html
 <!--subView.vnml-->
 <view width="100%" height="auto" flex-direction="row" align-items="center">
-    <image width="200rpx" aspect-ratio="1.7" src="{{url}}" position-type="absolute" />
+    <image width="200rpx" aspect-ratio="1.7" src="{{url}}" position="absolute" />
     <text height="auto" width="auto" flex-grow="1" font-size="30rpx">{{firstLine}}</text>
 </view>
 ```
@@ -204,7 +204,12 @@ Property | align-self | Enum | auto |
 Property | flex-basis | [Enum Float] | auto | 初始大小
 Property | flex-grow | Float | 0 | 拉伸因子
 Property | flex-shrink | Float | 1 | 收缩规则
-Property | position-type | Enum | relative | relative/absolute
+Property | position | Enum | relative | relative/absolute
+Property | left  | Integer | 0rpx | left属性影响元素的水平位置
+Property | right  | Integer | 0rpx | right属性影响元素的水平位置
+Property | top  | Integer | 0rpx | top属性影响元素的竖直位置
+Property | bottom  | Integer | 0rpx | bottom属性影响元素的竖直位置
+
 
 ## text和button
 
