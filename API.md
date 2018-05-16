@@ -1,3 +1,6 @@
+>
+注意，以下 Js 方法都需要确保在主线程调用，否则可能发生不可预见的错误
+
 ## vn.dom
 
 + **Object getElementById(String id)**
@@ -16,7 +19,7 @@ id | String | 是 | Dom对象的id，注意id属性必须唯一
 --- |  ---
 Object |  Dom对象
 
-## Dom对象
+## dom对象
 
 + **Object getParentElement()**
 
