@@ -33,19 +33,19 @@ page ({
 </view>
 ```
 
-事件 Key | 事件类型 | 适用范围 | 参数 Key | 参数类型
+事件 Key | 事件类型 | 适用范围 | 备注 | 参数类型
 --- | --- | --- | --- | ---
 bindTap | 点击 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
 bindLongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
 bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
 bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
-onPageResult(Object params) | 从前一个页面返回 | 页面 | 前一个页面传递过来的参数 | Object/String
-onLoad(Object params) | 当前页面启动 | 页面 | 该页面被拉起时候传递过来的参数 | Object/String
-onReady(Object params) | 当前页面渲染完成 | 页面 | 该页面被拉起时候传递过来的参数 | Object/String
-onReload(Object params) | 当前页面重新启动 | 当再次打开一个 launchMode 为 singleTask 的页面时，该页面之上的其他页面会被销毁，该页面的 onReload 会被调用 | 该页面被拉起时候传递过来的参数 | Object/String
-onShow() | 页面可见（进入前台或从其他页面跳转回来） | 页面 |  | 
-onHide() | 页面不可见（退入后台或跳转到其他页面） | 页面 |  |  
-onUnload() | 当前页面即将销毁 | 页面 |  | 
+onPageResult(Object params) | 从前一个页面返回 | 页面 | 前一个页面传递过来的参数，一次生命周期可能会调用多次 | Object/String
+onLoad(Object params) | 当前页面启动 | 页面 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次 | Object/String
+onReady(Object params) | 当前页面渲染完成 | 页面 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次 | Object/String
+onReload(Object params) | 当前页面重新启动 | 当再次打开一个 launchMode 为 singleTask 的页面时，该页面之上的其他页面会被销毁，该页面的 onReload 会被调用 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次 | Object/String
+onShow() | 页面可见（进入前台或从其他页面跳转回来） | 页面 | 一次生命周期可能会调用多次 | 
+onHide() | 页面不可见（退入后台或跳转到其他页面） | 页面 | 一次生命周期可能会调用多次 |  
+onUnload() | 当前页面即将销毁 | 页面 | 一次生命周期只会调用一次 | 
 onOrientationChange(String orientation) |  当前页面方向改变 | 页面 | 选项的角度如：portrait， landscape， reverse-landscape | String
  
 
