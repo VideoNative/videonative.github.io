@@ -17,7 +17,7 @@ page ({
         var clickStr = "文本被点击";
         console.log(clickStr);
     },
-    onLaunch: function () {
+    onReady: function () {
         console.log('页面加载完成')
     },
     onPageResult: function (params) {
@@ -39,14 +39,13 @@ bindTap | 点击 | 除了滑动控件(scroll-view,list,view-pager 等)的所有�
 bindLongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
 bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
 bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
-onPageResult(Object params) | 从前一个页面返回 | 页面 | 拉起的页面传递过来的参数 | Object/String
-onLaunch(Object params) | 当前页面启动 | 页面 | 上个页面传递过来的参数 | Object/String
-onRelaunch() | 当前页面重新启动 | 当再次打开一个 launchMode 为 singleTask 的页面时，该页面之上的其他页面会被销毁，该页面的 onRelaunch 会被调用 |  | 
-onStart() | 当前页面进入前台 | 页面 |  | 
-onResume() | 当前页面从被覆盖变成未覆盖、进前台、，iOS 下与 onStart() 一样 | 页面 |  |
-onPause() | 当前页面进入后台，iOS 下与 onStop() 一样 | 页面 |  |  
-onStop() | 当前页面进入后台 | 页面 |  | 
-onDestroy() | 当前页面即将销毁 | 页面 |  | 
+onPageResult(Object params) | 从前一个页面返回 | 页面 | 前一个页面传递过来的参数 | Object/String
+onLoad(Object params) | 当前页面启动 | 页面 | 该页面被拉起时候传递过来的参数 | Object/String
+onReady(Object params) | 当前页面渲染完成 | 页面 | 该页面被拉起时候传递过来的参数 | Object/String
+onReload(Object params) | 当前页面重新启动 | 当再次打开一个 launchMode 为 singleTask 的页面时，该页面之上的其他页面会被销毁，该页面的 onReload 会被调用 | 该页面被拉起时候传递过来的参数 | Object/String
+onShow() | 页面可见（进入前台或从其他页面跳转回来） | 页面 |  | 
+onHide() | 页面不可见（退入后台或跳转到其他页面） | 页面 |  |  
+onUnload() | 当前页面即将销毁 | 页面 |  | 
 onOrientationChange(String orientation) |  当前页面方向改变 | 页面 | 选项的角度如：portrait， landscape， reverse-landscape | String
  
 
@@ -326,7 +325,7 @@ EventHandle | bindChange | function() | | checkbox 状态切换
 var eventinput;
 
 page({
-  onLaunch: function () {
+  onReady: function () {
     eventinput = vn.dom.getElementById('eventText');
   },
   onInput: function (params) {
@@ -422,7 +421,7 @@ Method | void setFocus(boolean focus) |  |  | 设置当前输入框的焦点属�
 var eventTextarea;
 
 page({
-  onLaunch: function () {
+  onReady: function () {
     eventTextarea = vn.dom.getElementById('eventText');
   },
   onTextArea: function (params) {
