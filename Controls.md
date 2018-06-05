@@ -91,7 +91,7 @@ min-height | [rpx percent] | |
 min-width | [rpx percent] | |
 hidden | Boolean | false | 是否隐藏
 enable | Boolean | true | 是否启用，为 false 时不接收点击事件
-box-shadow | h-shadow v-shadow blur spread color inset | | 添加一个阴影。每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略的长度值为0。
+box-shadow | h-shadow v-shadow blur spread color inset | | 添加一个阴影。每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略的长度值为0。默认为 outset
 border-color | color | transparent（透明） | 设置四条边框的颜色。此属性可设置 1 到 4 种颜色。
 border-style | Enum | none | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。
 border-width | rpx | 0rpx | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
@@ -106,8 +106,8 @@ h-shadow | rpx | 必需。水平阴影的位置。允许负值
 v-shadow | rpx | 必需。垂直阴影的位置。允许负值
 blur	| rpx | 可选。模糊距离，不允许负值
 spread | rpx  | 可选。阴影的尺寸，允许负值
-color	 | color | 可选。阴影的颜色。请参阅 CSS 颜色值，默认为透明
-inset	 | | 可选。将外部阴影 (outset) 改为内部阴影
+color	 | color | 可选。阴影的颜色。请参阅 CSS 颜色值，默认为黑色
+inset	 | | 可选。将外部阴影 (outset) 改为内部阴影，默认为 outset
 
 ### border-color 的详细说明
 color 的语法如下：
@@ -229,7 +229,7 @@ Property | color | color | #000000FF | 取值格式为#RGBA
 Property | text-align | Enum(可组合) | left/top | left/top/right/bottom/center/center_horizontal/center_vertical
 Property | ellipsize | Enum | none | none;start;middle;end
 Property | max-line | Integer | 0 | 0代表不限行数
-Property | line-height | Float | 1.0 | 1.0代表一倍行间距
+Property | line-height | Float | 1.0 | 1.0代表一倍行间距，最小有效值为 1.0
 
 ## image
 
@@ -477,7 +477,7 @@ Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
 Property | placeholder | String | "" | 当没有文字输入时的提示文案
 Property | placeholder-color | color | #888888FF | 取值格式为#RGBA
 Property | keep-focus | Boolean | false | 当点击非本input输入的区域时是否保持焦点
-Property | line-height | Float | 1.0 | 1.0代表一倍行间距
+Property | line-height | Float | 1.0 | 1.0代表一倍行间距，最小有效值为 1.0
 EventHandle | bindinput | function(String value, int cursor) | | 当键盘输入时，触发input事件，回调{value, cursor}，处理函数可以直接 return 一个字符串，将替换输入框的内容。value 为事件发生时文本框的内容
 EventHandle | bindconfirm | function(String value) | | 点击完成按钮时触发，value 为事件发生时文本框的内容
 EventHandle | bindfocus | function(String value) | | 输入框聚焦时触发，value 为事件发生时文本框的内容
