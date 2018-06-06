@@ -389,6 +389,7 @@ EventHandle | bindblur | function(String value) | | 输入框失去焦点时触�
 Method | int getCursorStart() |  |  | 当前输入框的光标开始位置
 Method | int getCursorEnd() |  |  | 当前输入框的光标结束位置
 Method | String getValue() |  |  | 当前输入框的文本
+Method | void setValue(String value) |  |  | 设置当前输入框的文本
 Method | Boolean hasFocus() |  |  | 当前输入框是否获取了焦点
 Method | void setCursorRange(int start, int end) |  |  | 设置当前输入框光标起始和结束位置
 Method | void setCursorStart(int start) |  |  | 设置当前输入框光标起始位置
