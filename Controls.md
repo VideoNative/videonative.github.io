@@ -478,7 +478,6 @@ Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
 Property | placeholder | String | "" | 当没有文字输入时的提示文案
 Property | placeholder-color | color | #888888FF | 取值格式为#RGBA
 Property | keep-focus | Boolean | false | 当点击非本input输入的区域时是否保持焦点
-Property | line-height | Float | 1.0 | 1.0代表一倍行间距，最小有效值为 1.0
 EventHandle | bindinput | function(String value, int cursor) | | 当键盘输入时，触发input事件，回调{value, cursor}，处理函数可以直接 return 一个字符串，将替换输入框的内容。value 为事件发生时文本框的内容
 EventHandle | bindconfirm | function(String value) | | 点击完成按钮时触发，value 为事件发生时文本框的内容
 EventHandle | bindfocus | function(String value) | | 输入框聚焦时触发，value 为事件发生时文本框的内容
