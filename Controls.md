@@ -96,6 +96,7 @@ border-color | color | transparent（透明） | 设置四条边框的颜色。�
 border-style | Enum | none | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。
 border-width | rpx | 0rpx | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
 border-radius | rpx | 0rpx | 设置边框的圆角属性。可设置 1 到 4 个值（topLeft, topRight, bottomRight, bottomLeft）
+overflow | visable hidden | hidden | 当内容溢出元素框时发生的事情，visable 表示溢出的内容不会被裁剪，hidden 表示溢出的内容会被裁剪
 
 ### box-shadow 的详细说明
 参照 [box-shadow 的 W3C标准](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow)
@@ -576,6 +577,7 @@ Method | void smoothScrollToPosition(int position) |  |  | 有动画的滚动到
 Method | void setFooterRefreshingEnabled(boolean enable) |  |  | 是否允许上拉加载更多
 Method | void setHeaderRefreshingEnabled(boolean enable) |  |  | 是否允许下拉刷新
 Method | void setRefreshing(boolean enable) |  |  | 下拉刷新是否开始(如果已经开始下拉刷新可以靠这个值结束下拉刷新，若果没有下拉刷新也可以通过代码触发，前提是setHeaderRefreshingEnabled(true))
+Method | void invalidateLayout() |  |  | 使 List 布局失效， 会导致 list 重新刷新布局，计算每个 cell 的宽高，只对 iOS 平台生效
 
 ## header
 
