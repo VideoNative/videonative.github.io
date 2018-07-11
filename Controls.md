@@ -96,7 +96,7 @@ border-color | color | transparent（透明） | 设置四条边框的颜色。�
 border-style | Enum | none | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。
 border-width | rpx | 0rpx | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
 border-radius | rpx | 0rpx | 设置边框的圆角属性。可设置 1 到 4 个值（topLeft, topRight, bottomRight, bottomLeft）
-overflow | visible hidden | hidden | 当内容溢出元素框时发生的事情，visible 表示溢出的内容不会被裁剪，hidden 表示溢出的内容会被裁剪，visible 必须配合 position="absolute" 使用
+overflow | visible hidden | hidden | 当内容溢出元素框时发生的事情，visible 表示溢出的内容不会被裁剪，hidden 表示溢出的内容会被裁剪，visible 必须配合 flex-shrink=0 使用
 
 ### box-shadow 的详细说明
 参照 [box-shadow 的 W3C标准](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow)
