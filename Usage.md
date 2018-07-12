@@ -217,3 +217,4 @@ style | String | 否 | 如果为 "dialog"，则页面以对话框形式弹出，
 fullscreen | Boolean | 否 | 标识是否要隐藏状态栏，默认为 false
 launchMode | String | 否 | 当设置为 "singleTask" 时，表示这个页面是单例的，不会重复创建，当再次打开一个 singleTask 类型的页面时，这个页面之上的其他页面会被销毁，而当前页面的 js 函数 onRelaunch 会被调用
 softInputMode | String | 否 | default 表示键盘弹起时， 如果弹起的键盘不会遮挡输入框，则 View 页面不会被抬起；否则 View 页面会被抬起，直到输入框完全不会被键盘遮挡（即输入框的底部和键盘顶部紧挨着）。pan 表示键盘弹起时，View页面会被抬起，抬起的距离是键盘的高度。
+backgroundColor | String | 否 | 指定页面的背景颜色
