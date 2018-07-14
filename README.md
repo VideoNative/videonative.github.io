@@ -305,7 +305,8 @@ update | String </br> Object | 更新目标位置的KeyPath</br>更新目标位�
         closePage: function () {
             var ret = {};
             ret.text = "转给前一个页面的内容"
-            vn.navigate.navigateBack(1, JSON.stringify(ret))
+            vn.navigate.navigateBack({"deltaLevel":1,
+                    "params": JSON.stringify(ret)})
         },
         redirectPage: function () {
             vn.navigate.redirectTo('../newPage')
@@ -321,7 +322,7 @@ update | String </br> Object | 更新目标位置的KeyPath</br>更新目标位�
 --- | --- | --- | ---| ---
 navigateTo | String | 跳转目标页面的PageUrl | 空 | 拉起一个新的页面
 redirectTo | String | 跳转目标页面的PageUrl | 空 | 关闭当前页面并拉起新页面
-navigateBack | int </br> String | 回退层级数 </br> Json格式的回传参数 | 空 | 关闭当前页面并返回
+navigateBack | Object | 内部参数deltaLevel:回退层级数 </br> params:Json格式的String回传参数 | 空 | 关闭当前页面并返回
 relaunch | String | 加载目标页面的PageUrl | 空 | 在当前页面重新加载新页面
 
 + vn.request：执行网络请求
