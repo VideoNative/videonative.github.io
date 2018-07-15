@@ -214,7 +214,7 @@ pageConfigs 是一个数组，每个配置项对应一个页面配置，包括
 pageUrl | String | 是 | 标识是要配置哪个页面
 orientation | String | 否 | 屏幕的旋转方向，取值为："portrait":竖向，"landscape":横向，"reverse-landscape":逆横向，"auto":根据屏幕位置自动旋转。默认为 portrait
 style | String | 否 | 如果为 "dialog"，则页面以对话框形式弹出，默认是透明背景；否则是普通页面。默认为空
-fullscreen | Boolean | 否 | 标识是否要隐藏状态栏，默认为 false
 launchMode | String | 否 | 当设置为 "singleTask" 时，表示这个页面是单例的，不会重复创建，当再次打开一个 singleTask 类型的页面时，这个页面之上的其他页面会被销毁，而当前页面的 js 函数 onRelaunch 会被调用
 softInputMode | String | 否 | default 表示键盘弹起时， 如果弹起的键盘不会遮挡输入框，则 View 页面不会被抬起；否则 View 页面会被抬起，直到输入框完全不会被键盘遮挡（即输入框的底部和键盘顶部紧挨着）。pan 表示键盘弹起时，View页面会被抬起，抬起的距离是键盘的高度。
 backgroundColor | String | 否 | 指定页面的背景颜色
+mode | String | 否 | 页面的全屏模式。取值为："normal":普通模式，显示状态栏和控制栏。内容区间已经排除了状态栏和控制栏的区域，所以安全区的值为0；"immersive":沉浸模式，全屏页面，显示状态栏和控制栏，有安全区；"fullscreen":全屏模式，隐藏状态栏和控制栏，有安全区
