@@ -30,15 +30,25 @@ Object |  Dom对象
 --- |  ---
 Object |  父Dom对象
 
-+ **Array getChildrenElement()**
++ **Array getChildElements()**
 
-获取子Dom对象数组
+获取子DOM对象数组
 
 **返回参数说明:**
 
 类型 | 说明
 --- |  ---
-Array |  子Dom对象数组
+Array |  子DOM对象数组
+
++ **Array getVisibleChildElements()**
+
+获取可见的子DOM对象数组
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+Array |  子DOM对象数组
 
 + **String getId()**
 
