@@ -578,6 +578,7 @@ Method | void setFooterRefreshingEnabled(boolean enable) |  |  | 是否允许上
 Method | void setHeaderRefreshingEnabled(boolean enable) |  |  | 是否允许下拉刷新
 Method | void setRefreshing(boolean enable) |  |  | 下拉刷新是否开始(如果已经开始下拉刷新可以靠这个值结束下拉刷新，若果没有下拉刷新也可以通过代码触发，前提是setHeaderRefreshingEnabled(true))
 Method | void invalidateLayout() |  |  | 使 List 布局失效， 会导致 list 重新刷新布局，计算每个 cell 的宽高，只对 iOS 平台生效
+Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 
 ## header
 
@@ -701,7 +702,7 @@ page({
     },
     getOffset: function (params) {
         scrollView = this.vn.dom.getElementById("scroll");
-        var offset = scrollView.getOffset();
+        var offset = scrollView.getScrollOffset();
         this.printLog("当前位移为：" + offset);
     }
 });
@@ -712,7 +713,7 @@ page({
 Property | direction | Enum | column | column/row
 EventHandle | bindScroll | function(Float deltaX,Float deltaY) | | 滚动时触发，deltaX，deltaY，单位为px
 Method | scrollTo(Float delta, Boolean animation) | | 0, false | 滚动到指定位置，单位为rpx；参数 animation 指定是否带动画效果
-Method | Float getOffset() | | | 获取当前的偏移，单位为rpx
+Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 
 
 
