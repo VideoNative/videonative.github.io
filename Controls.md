@@ -568,6 +568,7 @@ Property | vn:for-item | String | item |
 Property | vn:cell-key | String | cellType |
 Property | direction | Enum | column | column/row
 EventHandle | bindItemTap | function(Integer position) | | 列表 Item 点击，参数为 position
+EventHandle | bindItemLoad | function(Integer position) | | 列表 Item 与数据绑定时回调，在Item重用时还会回调，参数为 position
 EventHandle | bindHeaderRefreshing | function() | | 列表发生了下拉刷新
 EventHandle | bindFooterRefreshing | function() | | 列表发生了上拉加载
 EventHandle | bindScroll | function(Float deltaX, Float deltaY) | | 列表滚动，deltaX;deltaY（正数为下滑，负数为上滑）
