@@ -226,6 +226,7 @@ Property | bottom  | Integer | 0rpx | bottom属性影响元素的竖直位置
 --- | --- | --- | --- | ---
 Property | font-size | rpx | 手机系统默认 | 文本 size
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
+Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
 Property | text-align | Enum(可组合) | left/top | left/top/right/bottom/center/center_horizontal/center_vertical
 Property | ellipsize | Enum | none | none;start;middle;end
@@ -374,6 +375,7 @@ page({
 --- | --- | --- | --- | ---
 Property | font-size | rpx | 手机系统默认 | 文本 size
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
+Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
 Property | text-align | Enum(可组合) | left/top | left/top/right/bottom/center/center_horizontal/center_vertical
 Property | ellipsize | Enum | none | none;start;middle;end
@@ -471,6 +473,7 @@ page({
 --- | --- | --- | --- | ---
 Property | font-size | rpx | 手机系统默认 | 文本 size
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
+Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
 Property | text-align | Enum(可组合) | left/top | left/top/right/bottom/center/center_horizontal/center_vertical
 Property | ellipsize | Enum | none | none;start;middle;end
