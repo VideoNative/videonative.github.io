@@ -717,6 +717,7 @@ page({
 Property | direction | Enum | column | column/row
 EventHandle | bindScroll | function(Float deltaX,Float deltaY) | | 滚动时触发，deltaX，deltaY，单位为px
 Method | scrollTo(Float delta, Boolean animation) | | 0, false | 滚动到指定位置，单位为rpx；参数 animation 指定是否带动画效果
+Method | bindScrollStateChange |function(Object param) | | 监听scroll-view 的滚动状态改变
 Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 
 
