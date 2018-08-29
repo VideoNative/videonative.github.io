@@ -173,6 +173,16 @@ Object | 所有data-属性都会在返回的对象的属性中如：有个一属
 --- |  ---
 Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，右，下，左，单位是 rpx
 
++ **Object getBoundingClientRect()**
+
+获取节点相对于屏幕的位置属性
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+Object | 参照 W3C 的 [nsIDOMClientRect](https://developer.mozilla.org/zh-CN/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect)
+
 + **startAnimation(obj)**
 
 对当前dom对象开启动画。传入参数obj对象包含了动画的属性，如动画操作的view属性、动画时长、时间函数、回调函数等属性。具体的属性定义如下
