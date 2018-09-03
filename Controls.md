@@ -794,9 +794,9 @@ Property | vn:cell-key | String | cellType | 数组项类型
 Property | page-gap | rpx | 0rpx | 分页间距
 Property | previous-margin | rpx | 0rpx | 前边距，可用于露出前一页的一小部分
 Property | next-margin | rpx | 0rpx | 后边距，可用于露出下一页的一小部分
-Property | circular | String | false | 是否开启无限滚动
-Property | autoplay | String | false | 是否开启自动滚动
-Property | interval | String | 2 | 自动滚动的间隔时间
+Property | circular | boolean | false | 是否开启无限滚动
+Property | autoplay | boolean | false | 是否开启自动滚动
+Property | interval | Number | 5000 | 自动滚动的间隔时间，单位：毫秒
 EventHandle | bindScroll | function(Float delta, Float offset, Float offsetPercent, Integer scrollState, Integer pageIndex) | | 滚动时触发， delta, offset, offsetPercent, scrollState, pageIndex
 EventHandle | bindScrollStateChange | function(int scrollState) | | 0:空闲;1:拖拽;2:滑动
 EventHandle | bindPageChange | function(int pageIndex) | | 滑动停止时指向的分页，pageIndex
