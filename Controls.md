@@ -822,7 +822,7 @@ Property | show-fullscreen-btn | Boolean | true | 是否显示全屏按钮，con
 Property | show-progress | Boolean | true | 是否显示进度条，controls为false时不生效
 Property | object-fit | Enum | contain | contain/fill/cover
 Property | initial-time | Integer | 0 | 指定视频初始播放位置，时长单位为毫秒
-Property | auto-play | Boolean | false | 是否自动播放
+Property | autoplay | Boolean | false | 是否自动播放
 Property | loop | Boolean | false | 是否循环播放
 EventHandle | bindPlay | function() | | 当开始/继续播放时触发play事件
 EventHandle | bindPause | function() | | 当暂停播放时触发 pause 事件
