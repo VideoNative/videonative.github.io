@@ -31,7 +31,11 @@ $ pip install watchdog
 ### 1.4)下载Playground源码
 
 Playground功能目录：[http://git.code.oa.com/VideoNative/VideoNativePlayground](http://git.code.oa.com/VideoNative/VideoNativePlayground)
-打开项目Playground代码工程中的VNAPP目录，该目录是编写VN Playground代码的工程根目录，其中源码都放在VNAPP/source目录下其他目录和文件是都用于打包的工具或者临时目录。
+打开项目Playground代码工程中的VNAPP目录，该目录是编写VN Playground代码的工程根目录，其中源码都放在VNAPP/source目录下其他目录和文件是都用于打包的工具或者临时目录。  
+下载完成源码后请在VNAPP目录下运行:
+```shell
+$ npm install
+```
 
 ## 2.Get Started(With Python WatchDog)
 
