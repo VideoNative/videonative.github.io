@@ -6,7 +6,7 @@ Playground是一个让前端用户不用安装Android或iOS编译环境就可以
 
 ### 1.1)安装Node.js
 
-[Node.js官方网站](!https://nodejs.org/en/)
+![Node.js官方网站](https://nodejs.org/en/)
 
 ### 1.2)安装Python与WatchDog组件(可选)
 
@@ -14,7 +14,7 @@ Playground是一个让前端用户不用安装Android或iOS编译环境就可以
 
 #### 安装Python
 
-[Python官方网站(Mac OS自带Python无需安装)](!https://www.python.org/)
+![Python官方网站(Mac OS自带Python无需安装)](https://www.python.org/)
 
 #### 安装WatchDog组件
 
@@ -24,13 +24,13 @@ $ pip install watchdog
 
 ### 1.3)安装VN Playground.apk
 
-在Android手机上面安装[VN Playground.apk](!https://share.weiyun.com/5ORk34g),并将Android手机设置为允许USB调试，然后通过USB连接电脑，在看到是否同意该电脑调试时请选择是。  
+在Android手机上面安装![VN Playground.apk](https://share.weiyun.com/5ORk34g),并将Android手机设置为允许USB调试，然后通过USB连接电脑，在看到是否同意该电脑调试时请选择是。  
 
 打开VN Playground App。
 
 ### 1.4)下载Playground源码
 
-Playground功能目录：[http://git.code.oa.com/VideoNative/VideoNativePlayground](!http://git.code.oa.com/VideoNative/VideoNativePlayground)
+Playground功能目录：![http://git.code.oa.com/VideoNative/VideoNativePlayground](http://git.code.oa.com/VideoNative/VideoNativePlayground)
 打开项目Playground代码工程中的VNAPP目录，该目录是编写VN Playground代码的工程根目录，其中源码都放在VNAPP/source目录下其他目录和文件是都用于打包的工具或者临时目录。
 
 ## 2.Get Started(With Python WatchDog)
