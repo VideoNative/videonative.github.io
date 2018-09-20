@@ -3,27 +3,95 @@
 ## 新建一个工程
 
 * 新建Xcode工程，例如VNDemo工程。
-![](https://github.com/VideoNative/VideoNative/blob/master/VideoNativeGuide/media/15277825216637/15277842979504.jpg)
+![](https://puui.qpic.cn/vupload/0/20180920_1537454612925_lbyprdz27fr.png/0)
 
 
-## 添加静态库
+## 添加VideoNative.Framwork静态库
 
-0. VideoNative工程Framework包含 `VideoNative.Framework`, `TVKPlayer.Framework`,可以通过下面的链接下载：[下载地址](https://share.weiyun.com/5f0LZFa)
-0. VideoNative包含的静态文件包含`libcrypto.a` ,   `libDecodeWebP.a`,`libGifSupport.a`,`libminizip.a`,`libQLJCEData.a`,`libQuickRSA.a`,`libSerializationJCE.a`,`libssl.a`,`libWebP.a`。可以通过下面的链接下载：[下载地址](https://share.weiyun.com/5b1J5Ab)
+0. VideoNative工程Framework包含 `VideoNative.Framework`
+0. VideoNative库运行的环境需要一些静态文件包含 `libDecodeWebP.a`,`libGifSupport.a`,`libQLJCEData.a`,`libSerializationJCE.a`,`libWebP.a`。
+
+## 添加TVKPlayer.Framwork静态库
+
+0. VideoNative工程中使用了腾讯视频统一播放器TVKPlayer,需要添加 `TVKPlayer.Framework`
+0. VideoNative库运行的环境需要一些静态文件包含 `libcrypto.a`。
 
 ## 添加系统Framework与tdb
 0. 需要添加的Framework有 `VideoToolBox.Framework`, tdb有`libiconv.2.4.0.tbd`,`libsqlite3.0.tbd`。
 0. 并在info.plist中添加App Transport Security Settings并设置Allow Arbitrary Loads为YES。
-![](https://github.com/VideoNative/VideoNative/blob/master/VideoNativeGuide/media/15277825216637/15277841143448.jpg)
-0. 在Other Linker Flags中添加`-ObjC`![](https://github.com/VideoNative/VideoNative/blob/master/VideoNativeGuide/media/15277825216637/15277842027766.jpg)
+
+![](https://puui.qpic.cn/vupload/0/20180920_1537455031397_cpf99chs69.png/0)
+
+
+0. 在Other Linker Flags中添加`-ObjC`
+
+![](https://puui.qpic.cn/vupload/0/20180920_1537455111827_mxn4ci95e4.png/0)
+
+>这时，你就可以运行这个app并且通过编译了
 
 ## 运行一个VNDemo App
-下载demo.zip文件，并放入工程目录下的vnapp中![](https://github.com/VideoNative/VideoNative/blob/master/VideoNativeGuide/media/15277825216637/15277844735419.jpg)
+在Demo工程中我们添加了VN的一个小Demo
+
+![](https://puui.qpic.cn/vupload/0/20180920_1537455240447_6prz932nv1.png/0)
+
+接下来在ViewController中添加下面的代码
+
+
+```ObjC
+- (void)openApp:(NSString *)appId pageUrl:(NSString *)pageUrl
+{
+    self.navigationController.navigationBarHidden = YES;
+    
+    NSString *rootUrl = [[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"vnapp"] stringByAppendingPathComponent:appId];
+    
+    QVNApp *app = [[QVNVideoNative sharedInstance] getVNApp:appId rootUrl:rootUrl];
+    [app startApp:self pageUrl:pageUrl animation:YES];
+}
+
+```
+```ObjC
+[[QVNVideoNative sharedInstance] getVNApp:appId rootUrl:rootUrl];
+```
+>这行代码是通过rootUrl去获取VNAPP的，你可以在你的工程里使用自己的离线包管理逻辑，只要最终传递这个参数即可。
+
 
 构建运行工程，就可以看到Demo跑起来了。
 
-![](https://github.com/VideoNative/VideoNative/blob/master/VideoNativeGuide/media/15277825216637/15277845701398.jpg)
+![](https://puui.qpic.cn/vupload/0/20180920_1537454564898_hvtnisfjn8k.jpeg/0)
 
+## 添加JSAPI
 
+```ObjC
+#import "VideoNatvieDemoInjector.h"
+#import "VideoNativeDemoPlayer.h"
 
+@implementation VideoNatvieDemoInjector
+- (void)injectJsContext:(JSContext *)jsContext {
+    mJsContext = jsContext;
+    /**
+     * 在这里注入App侧支持的JSApi
+     * 例如：jsContext[@"testInterName"] = [commonJSInterface new];
+     */
+}
+@end
+```
+
+## 注入播放器
+
+```ObjC
+#import "VideoNatvieDemoInjector.h"
+#import "VideoNativeDemoPlayer.h"
+
+@implementation VideoNatvieDemoInjector
+
+- (void *)createVNPlayer {
+    return (__bridge_retained void *) [[VideoNativeDemoPlayer alloc] init];
+}
+
+@end
+```
+
+## Demo工程下载路径
+
+[下载地址](https://share.weiyun.com/5z5MUnc)
 
