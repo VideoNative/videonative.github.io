@@ -54,9 +54,11 @@
     }
 
     ```
+    
     ```ObjC
     [[QVNVideoNative sharedInstance] getVNApp:appId rootUrl:rootUrl];
     ```
+    
     >这行代码是通过rootUrl去获取VNAPP的，你可以在你的工程里使用自己的离线包管理逻辑，只要最终传递这个参数即可。
 
 
