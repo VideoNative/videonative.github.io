@@ -67,9 +67,19 @@
 ## 添加JSAPI
 
 ```ObjC
+//Injector.h
+#import <Foundation/Foundation.h>
+#import <VideoNativeFramework/IVNInjector.h>
+
+@interface VideoNatvieDemoInjector : NSObject <IVNInjector> {
+    JSContext *mJsContext;
+}
+@end
+
 #import "VideoNatvieDemoInjector.h"
 #import "VideoNativeDemoPlayer.h"
 
+//Injector.m
 @implementation VideoNatvieDemoInjector
 - (void)injectJsContext:(JSContext *)jsContext {
     mJsContext = jsContext;
@@ -79,6 +89,24 @@
      */
 }
 @end
+
+//Interface.h
+#import <Foundation/Foundation.h>
+#import <JavaScriptCore/JavaScriptCore.h>
+@protocol commonJSInterfaceProtocol <JSExport>
+-(void)examplefunction;
+@end
+
+@interface commonJSInterface : VNJSInterface <commonJSInterfaceProtocol>
+@end
+
+//Interface.m
+@implementation VNCommonInterface
+-(void)examplefunction{
+    //TODO
+}
+@end
+
 ```
 
 ## 注入播放器（可选为系统播放器实现）
