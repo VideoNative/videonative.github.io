@@ -7,83 +7,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <title>Video Native 文档</title>
     <!-- the docute client styles -->
-    <link rel="stylesheet" href="docute@4.0.1.css">
+    <link rel="stylesheet" href="docute@3.4.12.css">
 </head>
 
 <body>
     <div id="app"></div>
     <!-- load the docute client library -->
-    <script src="docute@4.0.1.js"></script>
+    <script src="docute@3.4.12.js"></script>
     <!-- bootstrap your docute app! -->
     <script>
-		new Docute({
-			target: '#docute',
-			nav: [{
+		docute.init({
+			nav: [
+				{
 					title: '首页',
-					links: {
-						title: '首页',
-						link: '/'
-					}
+					path: '/'
 				},
 				{
 					title: '控件',
-					links: {
-						title: '控件',
-						link: '/Controls'
-					}
+					path: '/Controls'
 				},
 				{
 					title: 'API',
-					links : {
-						title: 'API',
-						link: '/API'
-					}
-                },
+					path: '/API'
+				},
 				{
 					title: 'CSS',
-					links : {
-						title: 'CSS',
-						link: '/CSS'
-					}
+					path: '/CSS'
 				},
 				{
 					title: '用法',
-					links : {
-						title: '用法',
-						link: '/Usage'
-					}
+					path: '/Usage'
 				},
 				{
 					title: '规范',
-					links : {
-						title: '规范',
-						link: '/Standard'
-					}
+					path: '/Standard'
 				},
 				{
 					title: '开始接入（iOS）',
-					links : {
-						title: '开始接入（iOS）',
-						link: '/VideoNativeGuide/README'
-					}
+					path: '/VideoNativeGuide/README'
 				},
 				{
 					title: '相关工具',
-					links : {
-						title: '相关工具',
-						link: '/VideoNativeGuide/QuickHelp'
-					}
+					path: '/VideoNativeGuide/QuickHelp'
 				},
 				{
 					title: 'Playground',
-					links : {
-						title: 'Playground',
-						link: '/Playground'
-					}
+					path: '/Playground'
 				}
 			],
 			tocVisibleDepth: 2
-        })
+		})
     </script>
 </body>
 
