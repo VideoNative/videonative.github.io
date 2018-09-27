@@ -649,7 +649,7 @@ int | errorCode(0表示成功)
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url
-params | String/Object | 否 | 页面传递的参数
+params | Object | 否 | 页面传递的参数
 
 + **redirectTo(Object obj)**
 
@@ -659,7 +659,7 @@ params | String/Object | 否 | 页面传递的参数
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url
-params | String/Object | 否 | 页面传递的参数
+params | Object | 否 | 页面传递的参数
 
 + **navigateBack(Object obj)**
 
@@ -669,7 +669,7 @@ params | String/Object | 否 | 页面传递的参数
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 deltaLevel | Integer | 否 | 回退的页面个数，默认为1
-params | String/Object | 否 | 页面传递的参数
+params | Object | 否 | 页面传递的参数
 
 + **relaunch(Object obj)**
 
@@ -679,7 +679,7 @@ params | String/Object | 否 | 页面传递的参数
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url，只能为绝对路径
-params | String/Object | 否 | 页面传递的参数
+params | Object | 否 | 页面传递的参数
 
 ## vn.app
 
