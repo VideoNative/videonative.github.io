@@ -1,5 +1,46 @@
 > **注意，以下 Js 方法都需要确保在主线程调用，否则可能发生不可预见的错误**
 
+## vn
+
++ **void scanCode(Object object)**
+
+开启扫描。
+**object内的参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+success | Function | 是 | 接口调用的回调函数
+fail | Function | 否 | 接口调用失败的回调函数
+complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
+
+**success返回参数说明:**
+    
+参数 | 类型 | 说明
+--- | --- |  ---
+result | String | 扫描结果
+    
+**fail返回参数说明:**
+    
+类型 | 说明
+--- |  ---
+int | errorCode(0表示成功)
+
++ **float toRpx(String value)**
+
+将形如："10pt","10px","10rpx"的字符串转化为数字类型的rpx值
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+value | String | 是 | 形如："10pt","10px","10rpx"的字符串
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+float |  数字类型的rpx值
+
 ## vn.dom
 
 + **Object getElementById(String id)**
@@ -17,22 +58,6 @@ id | String | 是 | Dom对象的id，注意id属性必须唯一
 类型 | 说明
 --- |  ---
 Object |  Dom对象
-
-+ **float toRpx(String value)**
-
-将形如："10pt","10px","10rpx"的字符串转化为数字类型的rpx值
-
-**参数说明:**
-
-参数 | 类型 | 必填 | 说明
---- | --- | --- | ---
-value | String | 是 | 形如："10pt","10px","10rpx"的字符串
-
-**返回参数说明:**
-
-类型 | 说明
---- |  ---
-float |  数字类型的rpx值
 
 ## dom对象
 
@@ -709,28 +734,3 @@ key | Object/String | 是 | sessionKey
 类型 | 说明
 --- |  ---
 Object | 返回Session数据。
-
-## vn
-
-+ **void scanCode(Object object)**
-
-开启扫描。
-**object内的参数说明:**
-
-参数 | 类型 | 必填 | 说明
---- | --- | --- | ---
-success | Function | 是 | 接口调用的回调函数
-fail | Function | 否 | 接口调用失败的回调函数
-complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
-
-**success返回参数说明:**
-    
-参数 | 类型 | 说明
---- | --- |  ---
-result | String | 扫描结果
-    
-**fail返回参数说明:**
-    
-类型 | 说明
---- |  ---
-int | errorCode(0表示成功)
