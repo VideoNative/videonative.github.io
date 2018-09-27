@@ -18,6 +18,22 @@ id | String | 是 | Dom对象的id，注意id属性必须唯一
 --- |  ---
 Object |  Dom对象
 
++ **float toRpx(String value)**
+
+将形如："10pt","10px","10rpx"的字符串转化为数字类型的rpx值
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+value | String | 是 | 形如："10pt","10px","10rpx"的字符串
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+float |  数字类型的rpx值
+
 ## dom对象
 
 + **Object getParentElement()**

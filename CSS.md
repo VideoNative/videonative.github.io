@@ -10,17 +10,22 @@ VNSS 用来决定 VNML 的组件应该怎么显示。
 
 ## 尺寸单位
 
--rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。
+-**rpx**（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375 point(ios布局单位)，共有750个物理像素，则750rpx = 375point = 750物理像素，1rpx = 0.5point = 1物理像素。
 
 设备 | rpx换算px (屏幕宽度/750) |px换算rpx (750/屏幕宽度)
 --- | --- | ---
-iPhone5 | 1rpx = 0.42px | 1px = 2.34rpx
-iPhone6 | 1rpx = 0.5px | 1px = 2rpx
-iPhone6 Plus | 1rpx = 0.552px | 1px = 1.81rpx
+iPhone5 | 1rpx = 0.85px | 1px = 1.17rpx
+iPhone6 | 1rpx = 1px | 1px = 1rpx
+iPhone6 Plus | 1rpx = 1.44px | 1px = 0.69rpx
+iPhone x | 1rpx = 1.5px | 1px = 0.67rpx
+Google Pixel 2 XL | 1rpx = 1.92px | 1px = 0.52rpx
+Google Pixel 2 | 1rpx = 1.44px | 1px = 0.69rpx
 
-**建议：** 开发微信小程序时设计师可以用 iPhone6 作为视觉稿的标准。
+-**pt**（point）: 印刷所使用的长度单位，用于表示字型的大小，也用于余白（字距、行距）等其他版面构成要素的长度。1 点的长度曾经有过各种定义，当代最通行的是广泛应用于桌面排版软件的 DTP 点，72 点等于 1英寸（1 point = 127⁄360 mm = 0.352777... mm）。中国传统字体排印上的字号单位是“号”，而后采用“点”“号”兼容的体制。计算设备pt与px的关系通常可以通过先计算[PPI](https://en.wikipedia.org/wiki/Pixel_density)来实现。
 
-**注意：**在较小的屏幕上不可避免的会有一些毛刺，请在开发时尽量避免这种情况。
+ $$ 1pt = \frac {PPI} {72}px $$
+
+**建议：** 开发VideoNative程序时设计师可以用 iPhone6 作为视觉稿的标准。
 
 ## 内联样式
 
