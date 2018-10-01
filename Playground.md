@@ -30,7 +30,7 @@ $ pip install watchdog
 
 ### 1.4)下载Playground源码
 
-Playground代码URL：（这里贴不了请联系：connorlu,ashercai,norcychen）
+Playground代码URL：https://github.com/lj8215946/VNPlayground.git
 打开项目Playground代码工程中的VNAPP目录，该目录是编写VN Playground代码的工程根目录，其中源码都放在VNAPP/source目录下其他目录和文件是都用于打包的工具或者临时目录。  
 下载完成源码后请在VNAPP目录下运行:
 ```shell
