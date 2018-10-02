@@ -584,10 +584,10 @@ Method | void setRefreshing(boolean enable) |  |  | 下拉刷新是否开始(如
 Method | void invalidateLayout() |  |  | 使 List 布局失效， 会导致 list 重新刷新布局，计算每个 cell 的宽高，只对 iOS 平台生效
 Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 
-## header
+## header & Footer
 
 ```html
-<!--listHeader.vnml-->
+<!--listHeaderFooter.vnml-->
 <list class="mainList" vn:for="{{listData}}" vn:cell-key="cellType" bindHeaderRefreshing="onHeaderRefreshing" bindFooterRefreshing="onFooterRefreshing" >
     <header class="listHeader" bindHeaderStateChange="onHeaderStateChange">
         <text id="header_title" class="headerTitle">下拉刷新</text>
@@ -606,12 +606,15 @@ Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
             <image width="45%" aspect-ratio="1.5" src="{{item.url}}"/>
         </view>
     </cell>
+     <footer class="listFooter" bindFooterStateChange="onFooterStateChange">
+        <text id="footer_title" class="footerTitle">上拉加载更多</text>
+    </footer>
 
 </list>
 ```
 
 ```json
-/** listHeader.json **/
+/** listHeaderFooter.json **/
 {
   "listData": [
     {
@@ -635,15 +638,11 @@ Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 ```
 
 ```js
-/**listHeader.js**/
+/**listHeaderFooter.js**/
 page({     
     onHeaderRefreshing: function (param) {
         console.log('onHeaderRefresh');
         this.reloadData();
-    },
-    onFooterRefreshing: function (param) {
-        console.log('onFooterRefresh');
-        this.loadNextPage(param);
     },
     onHeaderStateChange: function (event) {
         headerChildren = event.target.getChildrenElement();
@@ -680,6 +679,39 @@ header 主要用于实现下拉刷新，目前只能作为 list 的子控件
 EventHandle | bindHeaderStateChange | function(Integer state, Boolean isAutomatic, Float maxOffset) | 当下拉刷新状态发生变化时<br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否为自动触发 <br> maxOffset 达到下拉刷新的偏移量 
 EventHandle | bindHeaderMove | function(Boolean hasRefreshed, Boolean isAutomatic, Float offset) | 当下拉刷新视图发生移动时 <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否为自动触发 <br> offset 当前下拉的偏移（正数，下拉越多，数字越大）
 
+```JavaScript
+page({
+    onFooterRefreshing: function (param) {
+        console.log('onFooterRefreshing');
+        this.loadMore();
+    },
+    onFooterStateChange: function (event) {
+        let footerChildren = event.target.getChildElements();
+        switch (event.event.state) {
+            case 0://数据加载中
+                // Footer展示刷新中
+                break;
+            case 1://setFooterRefreshingEnabled（true）会回调
+                // 此处可以对网络情况或者错误吗进行判断刷新结束是否由网络异常导致
+                if ({异常的api}) {
+                //Footer展示异常
+                } else {
+                //Footer正常展示LoadMore
+                }
+                break;
+            case 2://没有更多数据了
+                // Footer展示没有更多数据的UI 可决定展示与否（没有更多数据了/隐藏）
+                break;
+        }
+    },
+})
+```
+footer 主要用于实现上拉时自动加载更多，目前只能作为 list 的子控件。
+>备注：在list未进行LoadMore时，setFooterRefreshingEnabled（true）可以对ListLoadMore进行中状态进行重置。（相当于设置footer结束加载更多）
+
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+EventHandle | bindFooterStateChange | function(Integer state) | 当下拉刷新状态发生变化时<br> state 0:可以加载更多;1:加载更多请求结束;2:没有更多数据了; 
 ## scroll-view
 
 + 代码示例如下：
