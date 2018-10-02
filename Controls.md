@@ -68,34 +68,34 @@ onOrientationChange(String orientation) |  当前页面方向改变 | 页面 | �
 --- | --- | --- | --- 
 class | String | none | 引用 vnss 中的样式类；多个样式可用空格分割
 id | String | none | 主要用于做 CSS 匹配
-width | [rpx percent auto] | auto |
-height | [rpx percent auto] | auto |
+width | [rpx pt percent auto] | auto |
+height | [rpx pt percent auto] | auto |
 aspect-ratio | Float | | 宽高比
 background-stretch-param | [rpx 组合] | | 1.25rpx 15rpx (将对图片(15,25)坐标点进行拉伸) 2.25rpx 10rpx 22rpx 15rpx (将对图片的纵坐标25位置到35位置进行拉伸，并对横坐标22位置到37位置进行拉伸)，必须配合 background 属性一起使用，否则无效
 background-color | color | #FFFFFFFF | 取值格式为#RGB，#RRGGBB #RRGGBBAA，RRGGBBAA，如果同时设置了background，background的优先级更高
 background | String | "" | 1.不拉伸的图片如:../image/btn_bg
 alpha | Float | 1 | 0:透明 到 1:不透明
-padding | [rpx percent 组合] | 0rpx | 参见 CSS 标准写法
-padding-left | [rpx percent] | | 共存时覆盖 padding 的值
-padding-right | [rpx percent] | | 共存时覆盖 padding 的值
-padding-top | [rpx percent] | | 共存时覆盖 padding 的值
-padding-bottom | [rpx percent] | | 共存时覆盖 padding 的值
-margin | [rpx percent 组合] | 0rpx | 参见 CSS 标准写法
-margin-left | [rpx percent] | | 共存时覆盖 margin 的值
-margin-right | [rpx percent] | | 共存时覆盖 margin 的值
-margin-top | [rpx percent] | | 共存时覆盖 margin 的值
-margin-bottom | [rpx percent] | |共存时覆盖 margin 的值
-max-height | [rpx percent] | |
-max-width | [rpx percent] | |
-min-height | [rpx percent] | |
-min-width | [rpx percent] | |
+padding | [rpx pt percent 组合] | 0rpx | 参见 CSS 标准写法
+padding-left | [rpx pt percent] | | 共存时覆盖 padding 的值
+padding-right | [rpx pt percent] | | 共存时覆盖 padding 的值
+padding-top | [rpx pt percent] | | 共存时覆盖 padding 的值
+padding-bottom | [rpx pt percent] | | 共存时覆盖 padding 的值
+margin | [rpx pt percent 组合] | 0rpx | 参见 CSS 标准写法
+margin-left | [rpx pt percent] | | 共存时覆盖 margin 的值
+margin-right | [rpx pt percent] | | 共存时覆盖 margin 的值
+margin-top | [rpx pt percent] | | 共存时覆盖 margin 的值
+margin-bottom | [rpx pt percent] | |共存时覆盖 margin 的值
+max-height | [rpx pt percent] | |
+max-width | [rpx pt percent] | |
+min-height | [rpx pt percent] | |
+min-width | [rpx pt percent] | |
 hidden | Boolean | false | 是否隐藏
 enable | Boolean | true | 是否启用，为 false 时不接收点击事件
 box-shadow | h-shadow v-shadow blur spread color inset | | 添加一个阴影。每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略的长度值为0。默认为 outset
 border-color | color | transparent（透明） | 设置四条边框的颜色。此属性可设置 1 到 4 种颜色。
 border-style | Enum | none | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。
-border-width | rpx | 0rpx | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
-border-radius | rpx | 0rpx | 设置边框的圆角属性。可设置 1 到 4 个值（topLeft, topRight, bottomRight, bottomLeft）
+border-width | rpx pt | 0rpx | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
+border-radius | rpx pt | 0rpx | 设置边框的圆角属性。可设置 1 到 4 个值（topLeft, topRight, bottomRight, bottomLeft）
 overflow | visible hidden | hidden | 当内容溢出元素框时发生的事情，visible 表示溢出的内容不会被裁剪，hidden 表示溢出的内容会被裁剪，visible 必须配合 flex-shrink=0 使用
 
 ### box-shadow 的详细说明
@@ -103,10 +103,10 @@ overflow | visible hidden | hidden | 当内容溢出元素框时发生的事情�
 
 值	| 类型 | 描述 
 --- | --- | --- 
-h-shadow | rpx | 必需。水平阴影的位置。允许负值
-v-shadow | rpx | 必需。垂直阴影的位置。允许负值
-blur	| rpx | 可选。模糊距离，不允许负值
-spread | rpx  | 可选。阴影的尺寸，允许负值
+h-shadow | rpx pt | 必需。水平阴影的位置。允许负值
+v-shadow | rpx pt | 必需。垂直阴影的位置。允许负值
+blur	| rpx pt | 可选。模糊距离，不允许负值
+spread | rpx pt  | 可选。阴影的尺寸，允许负值
 color	 | color | 可选。阴影的颜色。请参阅 CSS 颜色值，默认为黑色
 inset	 | | 可选。将外部阴影 (outset) 改为内部阴影，默认为 outset
 
@@ -224,7 +224,7 @@ Property | bottom  | Integer | 0rpx | bottom属性影响元素的竖直位置
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | rpx | 手机系统默认 | 文本 size
+Property | font-size | rpx pt | 手机系统默认 | 文本 size
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA

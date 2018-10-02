@@ -137,9 +137,9 @@
 
 ```html
 <!--IfDemo.vnml-->
-<view vn:if="{{length > 5}}"> 1 </view> 
-<view vn:elif="{{length > 2}}"> 2 </view> 
-<view vn:else> 3 </view>
+<text vn:if="{{length > 5}}"> 1 </text> 
+<text vn:elif="{{length > 2}}"> 2 </text> 
+<text vn:else> 3 </text>
 ```
 
 ```json

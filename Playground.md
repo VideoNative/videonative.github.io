@@ -16,7 +16,7 @@ Playground是一个让前端用户不用安装Android或iOS编译环境就可以
 
 [Python官方网站(Mac OS自带Python无需安装)](https://www.python.org/)
 
-#### 安装WatchDog组件
+#### 安装WatchDog组件（需要先安装pip）
 
 ```shell
 $ pip install watchdog

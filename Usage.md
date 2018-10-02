@@ -1,44 +1,21 @@
 ## PageUrl 的使用
 VideoNative 提供有 VNActivity 供外部接口使用。VNActivity 可以接收 pageUrl 并将其最终渲染成 VideoNative 界面
 
-1. 拉起一个 `vn://vn_demo/index/index` 界面示例
+1. 拉起App `39` 的地址为 `/vn_demo/index/index` 的页面
 
     ```java
     /** MainActivity.java **/
     button.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            VideoNative.getInstance().startPage(MainActivity.this, VNPageActivity.class, "vn://vn_demo/index/index");
+            VideoNative.getInstance().openPage(MainActivity.this, "39", "/vn_demo/index/index");
         }
     });
     ```
 
-    ```java
-    /** VNPageActivity.java **/
-    public class VNPageActivity extends VNActivity {
-
-        private ProgressDialog mProgressDialog;
-
-        @Override
-        public void onCreatePageStart() {
-            super.onCreatePageStart();
-            mProgressDialog = new ProgressDialog(this);
-            mProgressDialog.setTitle("加载VN页面中...");
-            mProgressDialog.show();
-        }
-
-        @Override
-        public void onCreatePageSucc() {
-            super.onCreatePageSucc();
-            mProgressDialog.dismiss();
-        }
-
-    }
-    ```
-
 2. VideoNative 内部页面跳转时，pageUrl 支持相对路径的写法
     
-   > 比如当前页面是 `vn://vn_demo/index/index`，希望跳转的目标页面是 `vn://vn_demo/channel/channel`，可以直接用绝对路径，也可以写成相对路径: `../channel/channel`
+   > 比如当前页面是 `/vn_demo/index/index`，希望跳转的目标页面是 `/vn_demo/channel/channel`，可以直接用绝对路径，也可以写成相对路径: `../channel/channel`
 
 ## VideoNative 脚本的编译输出
 1. VideoNative 的脚本在服务端编译解析，最终以离线包的ZIP格式给到客户端，其中包括：
@@ -106,7 +83,7 @@ VideoNative 提供有 VNActivity 供外部接口使用。VNActivity 可以接收
     /**V8Object 事件参数**/
     {
         "type": "bindTap", //回调函数名称 
-        "target": {},   // 回调事件触发的视图，可能是text，button等
+        "target": {},   // 回调事件触发的dom对象，可能是text，button等
         "event":{},  // 回调参数，不同的事件，参数不一样，详情参见控件页
         "timeStamp": 1511787001494, //回调时间戳 
         "dataset": {} //回调的视图附带的数据列表
@@ -159,16 +136,16 @@ VideoNative 提供有 VNActivity 供外部接口使用。VNActivity 可以接收
     
 3. 本地图片
 
-    + 图片可以放在离线包下的任意目录下。使用本地图片的 url 是以`local://`起头的。url 写法包括绝对路径和相对路径两种写法，示例如下：
+    + 图片可以放在离线包下的任意目录下。url 写法包括绝对路径和相对路径两种写法，示例如下：
     
         ```html
         <!--locaImageDemo.vnml-->
-        <image width="50rpx" aspect-ratio="1" src="local://../image/check.png"/>
-        <image width="34rpx" aspect-ratio="1" src="local://./image/check.png"/>
-        <image width="34rpx" aspect-ratio="1" src="local://setting/image/check.png"/>
+        <image width="50rpx" aspect-ratio="1" src="../image/check.png"/>
+        <image width="34rpx" aspect-ratio="1" src="image/check.png"/>
+        <image width="34rpx" aspect-ratio="1" src="/setting/image/check.png"/>
         ```
     
-    + 本地图片支持多种分辨率的模糊匹配。具体来说，假如离线包下面存在两个图片，分别是`check@2x.png`和`check@3x.png`，则当使用 url 为`local://image/check.png`访问图片时，在屏幕密度是`3.0`的手机上，会使用`check@3x.png`的图片；而在屏幕密度是`2.0`的手机上，会使用`check@2x.png`
+    + 本地图片支持多种分辨率的模糊匹配。具体来说，假如离线包下面存在两个图片，分别是`check@2x.png`和`check@3x.png`，则当使用 url 为`/image/check.png`访问图片时，在屏幕密度是`3.0`的手机上，会使用`check@3x.png`的图片；而在屏幕密度是`2.0`的手机上，会使用`check@2x.png`
 
         + 如果没有对应密度的图片，会优先匹配密度最接近的。
         + 最差的情况，就是使用不带分辨率的默认图片。

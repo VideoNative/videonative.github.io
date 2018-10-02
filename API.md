@@ -475,6 +475,35 @@ data | Object | 是 | 新数据
 --- |  ---
 boolean | 更新是否成功
 
++ **void watch(String kayPath, Function callback)**
+
+注册对keyPath的监听，当指定路径的数据发生变化时，回调指定的callback函数。callback会接收到一个对象，标明通知的keypath和更新类型。
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+kayPath | String | 是 | 内存中数据存储的路径
+callback | Function | 是 | 回调处理函数
+
+
++ **Boolean unwatch(String kayPath, Function callback)**
+
+反注册之前通过watch注册的监听
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+kayPath | String | 是 | 内存中数据存储的路径
+callback | Function | 是 | 回调处理函数
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+boolean | 更新是否成功
+
 ## vn.request
 
 + **int request(Object requestOrigin)**
