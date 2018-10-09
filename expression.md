@@ -6,11 +6,11 @@ VN与其他跨终端框架的一个区别是VN框架在JS侧没有FrameWork。
 
 数据类型 | 样例 | 说明
 --- | --- | ---
-Boolean | true,false 
-Integer | 1,5
-Long | 1L,5l
-Double | 1d,5D
-String | 'Hello',"World"
+Boolean | true,false |
+Integer | 1,5 |
+Long | 1L,5l |
+Double | 1d,5D |
+String | 'Hello',"World" |
 ID     | dataArray[5],dataObj.name | 这些标识符会在表达式运算的时候从页面提供的json数据中获取实际的取值。
 
 ## 运算符
@@ -19,8 +19,8 @@ ID     | dataArray[5],dataObj.name | 这些标识符会在表达式运算的时�
 --- | --- | ---
 +,-,*,/,% | 1+2 | 算数运算符支持数字类型的数据运算
 (,) | (1+2)*3 | 用于提高运算优先级
-&lt;,&lt;=,&gt;,&gt;=,==,!=,\|\|,\&\& | 2&lt;5 | 逻辑运算符,运算结果是Boolean类型
-\|,\&,~,^| 2\&5 |  位运算符
+&lt;,&lt;=,&gt;,&gt;=,==,!=,&vert;&vert;,&& | 2&lt;5 | 逻辑运算符,运算结果是Boolean类型
+&vert;,&,~,^| 2&5 |  位运算符
 : ?| 2>3 ? 2:3 |  三元运算符
 
 ## 函数
