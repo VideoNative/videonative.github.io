@@ -46,14 +46,23 @@ component({
 
 ## 2. 如何使用一个组件？
 
-&emsp;&emsp;使用方需要在自己的页面js或者组件js中，调用 usecomponents 方法来注册组件：定义组件名和路径。该函数可多次调用，可一次注册多个组件。后面设置的同名组件会覆盖前面设置的。也可在app的info.json中使用 usingcomponents {} 块注册，对该app下的所有页面生效。
+&emsp;&emsp;使用方需要在自己的页面js或者组件js中，调用 usingcomponents 方法来注册组件：定义组件名和路径。该函数可多次调用，可一次注册多个组件。后面设置的同名组件会覆盖前面设置的。也可在app的info.json中使用 usingcomponents {} 块注册，对该app下的所有页面生效。
 
-   例子：
+   例子：在页面js中调用 usingcomponents 函数
 
 ```javascript
-   usecomponents({
+   usingcomponents({
        'custom-text' : 'path/to/cusotm/text',
-       'custom-image' : 'path/to/cusotm/image',
+       'custom-image' : 'path/to/cusotm/image'
+   });
+```
+
+或者在info.json中定义
+
+```json
+   usingcomponents : {
+       "custom-text" : "path/to/cusotm/text",
+       "custom-image" : "path/to/cusotm/image"
    });
 ```
 
@@ -76,7 +85,7 @@ component({
       <slot name="header" />
       <text>11111</text>
       <text>22222</text>
-      <slot name=footer" />
+      <slot name="footer" />
    </view>
 ```
 
