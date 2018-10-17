@@ -409,7 +409,7 @@ message | Object | 是 | 日志的内容
 
 ## vn.data
 
-+ **Object query(String kayPath)**
++ **Object query(String keyPath)**
 
 查询数据
 
@@ -417,7 +417,7 @@ message | Object | 是 | 日志的内容
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-kayPath | String | 是 | 内存中数据存储的路径
+keyPath | String | 是 | 内存中数据存储的路径
 
 **返回参数说明:**
 
@@ -425,7 +425,7 @@ kayPath | String | 是 | 内存中数据存储的路径
 --- |  ---
 Object | 查询获取的数据
 
-+ **Boolean insert(String kayPath, Object data)**
++ **Boolean insert(String keyPath, Object data)**
 
 插入新数据
 
@@ -433,7 +433,7 @@ Object | 查询获取的数据
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-kayPath | String | 是 | 内存中数据存储的路径
+keyPath | String | 是 | 内存中数据存储的路径
 data | Object | 是 | 新数据
 
 **返回参数说明:**
@@ -442,7 +442,7 @@ data | Object | 是 | 新数据
 --- |  ---
 boolean | 插入是否成功
 
-+ **Boolean delete(String kayPath)**
++ **Boolean delete(String keyPath)**
 
 删除数据
 
@@ -450,7 +450,7 @@ boolean | 插入是否成功
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-kayPath | String | 是 | 内存中数据存储的路径
+keyPath | String | 是 | 内存中数据存储的路径
 
 **返回参数说明:**
 
@@ -458,7 +458,7 @@ kayPath | String | 是 | 内存中数据存储的路径
 --- |  ---
 boolean | 删除是否成功
 
-+ **Boolean update(String kayPath, Object data)**
++ **Boolean update(String keyPath, Object data)**
 
 更新数据
 
@@ -466,7 +466,7 @@ boolean | 删除是否成功
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-kayPath | String | 是 | 内存中数据存储的路径
+keyPath | String | 是 | 内存中数据存储的路径
 data | Object | 是 | 新数据
 
 **返回参数说明:**
@@ -475,7 +475,43 @@ data | Object | 是 | 新数据
 --- |  ---
 boolean | 更新是否成功
 
-+ **void watch(String kayPath, Function callback)**
++ **Boolean append(String keyPath, Object dataA, Object dataB, ...)**
+
+批量添加数据
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+keyPath | String | 是 | 内存中数据存储的路径
+dataA | Object | 是 | 新数据
+dataB | Object | 是 | 新数据
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+boolean | 更新是否成功
+
++ **Boolean remove(String keyPath, Number index, Number count)**
+
+批量移除数据
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+keyPath | String | 是 | 内存中数据存储的路径
+index | Number | 是 | 待删除数据的起始位置
+count | Number | 是 | 待删除数据的数量
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+boolean | 更新是否成功
+
++ **void watch(String keyPath, Function callback)**
 
 注册对keyPath的监听，当指定路径的数据发生变化时，回调指定的callback函数。callback会接收到一个对象，标明通知的keypath和更新类型。
 
@@ -483,11 +519,11 @@ boolean | 更新是否成功
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-kayPath | String | 是 | 内存中数据存储的路径
+keyPath | String | 是 | 内存中数据存储的路径
 callback | Function | 是 | 回调处理函数
 
 
-+ **Boolean unwatch(String kayPath, Function callback)**
++ **Boolean unwatch(String keyPath, Function callback)**
 
 反注册之前通过watch注册的监听
 
@@ -495,7 +531,7 @@ callback | Function | 是 | 回调处理函数
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-kayPath | String | 是 | 内存中数据存储的路径
+keyPath | String | 是 | 内存中数据存储的路径
 callback | Function | 是 | 回调处理函数
 
 **返回参数说明:**

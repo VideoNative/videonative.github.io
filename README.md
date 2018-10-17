@@ -293,6 +293,8 @@ query | String | 需要查询数据的KeyPath | 基础类型或Object |
 insert | String </br> Object | 插入目标位置的KeyPath</br>插入目标位置的数据 | boolean 成功or失败 |
 delete | String | 需要删除数据的KeyPath | boolean 成功or失败 |
 update | String </br> Object | 更新目标位置的KeyPath</br>更新目标位置的数据 | boolean 成功or失败 |
+append | String </br> Object | 添加目标位置的KeyPath</br>待添加的数据 | boolean 成功or失败 |
+remove | String </br> Number </br> Number | 添加目标位置的KeyPath</br>删除起始位置</br>删除的数量 | boolean 成功or失败 |
 
 + vn.navigate：执行页面跳转
     + 代码示例如下：
