@@ -101,7 +101,7 @@ Array |  子DOM对象数组
 --- |  ---
 String |  Id属性
 
-+ **String getClasses()**
++ **String[] getClasses()**
 
 获取Dom对象的类属性列表
 
