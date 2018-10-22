@@ -645,7 +645,7 @@ page({
         this.reloadData();
     },
     onHeaderStateChange: function (event) {
-        headerChildren = event.target.getChildrenElement();
+        headerChildren = event.target.getChildElements();
         switch (event.event.state) {
         case 0:
             headerChildren[0].setProperty("content", "还原");
