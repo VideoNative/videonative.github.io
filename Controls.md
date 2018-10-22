@@ -297,7 +297,7 @@ page ({
 --- | --- | --- | --- | ---
 Property | checked | 胡子语句 | | 必填项，绑定 data 里的一个布尔值
 Property | checked-src | String | | 选中时图片 url
-Property | uncheck-src | String | | 未选中时图片 url
+Property | unchecked-src | String | | 未选中时图片 url
 EventHandle | bindChange | function() | | checkbox 状态切换
 
 ## input
