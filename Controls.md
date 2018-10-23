@@ -37,8 +37,8 @@ page ({
 --- | --- | --- | --- | ---
 bindTap | 点击 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
 bindLongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
-bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
-bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
+bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | | x: Number, y: Number
+bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | | x: Number, y: Number
 onPageResult(Object params) | 从前一个页面返回 | 页面 | 前一个页面传递过来的参数，一次生命周期可能会调用多次 | Object/String
 onLoad(Object params) | 当前页面启动 | 页面 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次 | Object/String
 onReady(Object params) | 当前页面渲染完成 | 页面 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次 | Object/String
