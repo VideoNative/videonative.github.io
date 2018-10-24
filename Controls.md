@@ -378,7 +378,6 @@ Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
 Property | text-align | Enum(可组合) | left/top | left/top/right/bottom/center/center_horizontal/center_vertical
-Property | ellipsize | Enum | none | none;start;middle;end
 Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
 Property | confirm-type | Enum | done | send(发送)/search(搜索)/next(下一个)/go(去)/done(完成)
 Property | password | Boolean | false | 是否为密码输入
@@ -476,7 +475,6 @@ Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
 Property | text-align | Enum(可组合) | left/top | left/top/right/bottom/center/center_horizontal/center_vertical
-Property | ellipsize | Enum | none | none;start;middle;end
 Property | max-line | Integer | 0 | 0代表不限行数
 Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
 Property | placeholder | String | "" | 当没有文字输入时的提示文案
@@ -575,7 +573,7 @@ EventHandle | bindItemLoad | function(Integer position) | | 列表 Item 与数�
 EventHandle | bindHeaderRefreshing | function() | | 列表发生了下拉刷新
 EventHandle | bindFooterRefreshing | function() | | 列表发生了上拉加载
 EventHandle | bindScroll | function(Float deltaX, Float deltaY) | | 列表滚动，deltaX;deltaY（正数为下滑，负数为上滑）
-EventHandle | bindScrollState | function(Integer newState) | | 列表滚动状态切换，newState，0:空闲;1:拖拽;2:滑动;
+EventHandle | bindScrollStateChange | function(Integer newState) | | 列表滚动状态切换，newState，0:空闲;1:拖拽;2:滑动;
 Method | void scrollToPosition(int position, int mode) |  |  | list滚动到指定的位置，position 代表 Cell 的下标，从0开始。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间
 Method | void smoothScrollToPosition(int position, int mode) |  |  | 有动画的滚动到指定的位置。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间
 Method | void setFooterRefreshingEnabled(boolean enable) |  |  | 是否允许上拉加载更多
