@@ -23,7 +23,7 @@ result | String | 扫描结果
     
 类型 | 说明
 --- |  ---
-int | errorCode(0表示成功)
+Integer | errorCode(0表示成功)
 
 + **float toRpx(String value)**
 
@@ -224,7 +224,7 @@ Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，�
 --- |  ---
 Object | 参照 W3C 的 [nsIDOMClientRect](https://developer.mozilla.org/zh-CN/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect)
 
-+ **startAnimation(obj)**
++ **startAnimation(Object obj)**
 
 对当前dom对象开启动画。传入参数obj对象包含了动画的属性，如动画操作的view属性、动画时长、时间函数、回调函数等属性。具体的属性定义如下
 
@@ -263,10 +263,9 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 
 停止该dom对象上的所有动画
 
->
-说明：当开始新动画时，未完成的动画自动停止。
->
-注意：对于list、viewpager，由于其cell会被复用，针对cell或者其子view做的动画，会在cell被复用时复位，不会保留最终状态。
+> **说明：当开始新动画时，未完成的动画自动停止。**
+
+> **注意：对于list、viewpager，由于其cell会被复用，针对cell或者其子view做的动画，会在cell被复用时复位，不会保留最终状态。**
 
 + **float getTranslationX()**
 
@@ -306,7 +305,7 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 
 + **setAlpha()**
 
-设置透明度，范围 0.0~1.0
+设置透明度，范围 [0.0, 1.0]
 
 + **float getRotation()**
 
@@ -337,23 +336,23 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 
 + **Float getScreenWidth()**
 
-获取屏幕的宽度
+获取屏幕的物理宽度
 
 **返回参数说明:**
 
 类型 | 说明
 --- |  ---
-Float | 屏幕的宽度，单位是 rpx
+Float | 屏幕的物理宽度，单位是 rpx
 
 + **Float getScreenHeight()**
 
-获取屏幕的高度
+获取屏幕的物理高度
 
 **返回参数说明:**
 
 类型 | 说明
 --- |  ---
-Float | 屏幕的高度，单位是 rpx
+Float | 屏幕的物理高度，单位是 rpx
 
 + **String getOrientationSetting()**
 
@@ -542,7 +541,7 @@ boolean | 更新是否成功
 
 ## vn.request
 
-+ **int request(Object requestOrigin)**
++ **Integer request(Object requestOrigin)**
 
 请求数据
 
@@ -570,10 +569,10 @@ data| Object/String | 开发者服务器返回的数据
     
 类型 | 说明
 --- |  ---
-int | errorCode(0表示成功)
+Integer | errorCode(0表示成功)
 
 
-+ **cancel(int requstId)**
++ **cancel(Integer requstId)**
 
 取消请求
 
@@ -581,7 +580,7 @@ int | errorCode(0表示成功)
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-requstId | int | 是 | 要取消的请求id
+requstId | Integer | 是 | 要取消的请求id
 
 ## vn.storage
 
@@ -600,7 +599,7 @@ fail | Function | 否 | 接口调用失败的回调函数
 complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
 expires | Long | 否 | 存储过期事件，时长单位为毫秒
 
-+ **int setStorageSync(Object object)**
++ **Integer setStorageSync(Object object)**
 
 将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口。
     
@@ -616,7 +615,7 @@ expires | Long | 否 | 存储过期事件，时长单位为毫秒
    
 类型 | 说明
 --- |  ---
-int | errorCode(0表示成功)
+Integer | errorCode(0表示成功)
 
 + **getStorage(Object object)**
 
@@ -640,7 +639,7 @@ data| Object/String | key对应的内容
     
 类型 | 说明
 --- |  ---
-int | errorCode(0表示成功)
+Integer | errorCode(0表示成功)
 
 + **Object getStorageSync(String key)**
 
@@ -675,7 +674,7 @@ complete | Function | 否 | 接口调用结束的回调函数（调用成功、�
 --- |  ---
 Object/String | key对应的内容
 
-+ **int removeStorageSync(String key)**
++ **Integer removeStorageSync(String key)**
 
 从本地缓存中同步移除指定 key 。
 **参数说明:**
@@ -688,13 +687,13 @@ key | String | 是 | 本地缓存中的指定的 key
    
 类型 | 说明
 --- |  ---
-int | errorCode(0表示成功)
+Integer | errorCode(0表示成功)
     
 + **clearStorage()**
     
 清理本地数据缓存。
 
-+ **int clearStorageSync()**
++ **Integer clearStorageSync()**
 
 同步清理本地数据缓存。
     
@@ -702,7 +701,7 @@ int | errorCode(0表示成功)
    
 类型 | 说明
 --- |  ---
-int | errorCode(0表示成功)
+Integer | errorCode(0表示成功)
 
 ## vn.navigate
 
