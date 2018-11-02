@@ -29,4 +29,4 @@
 
 * 下载地址
 
-    [立即下载](https://share.weiyun.com/5pq9nrF)    
+    [立即下载](https://github.com/VideoNative/VideoNative/blob/master/Resouce/vnappTypings.zip?raw=true)    
