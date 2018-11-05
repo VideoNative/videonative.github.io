@@ -1,12 +1,12 @@
 ## 文件结构
 
-1. VideoNative 的一个页面文件主要有四个文件，文件命名规则是文件名相同，后缀不同。 其中:
-    + vnml 文件用于表达页面结构，基于 XML 格式
-    + json 文件用于表示页面数据，基于 JSON 格式
-    + vnss 文件用于表达公共样式表，基于 CSS 格式
-    + js 文件用于表达 JScript 脚本，基于 JavaScript
+1. VideoNative 的每一个页面由1~4个同名但扩展名不同的文件组成，其中:
+    + vnml 文件是必需的，用于描述页面节点结构，基于 XML 文件格式
+    + json 文件为可选，用于存储页面初始化数据，基于 JSON 文件格式
+    + vnss 文件为可选，用于存储页面CSS规则，基于 CSS 文件格式
+    + js 文件为可选，用于存储页面相关的JS脚本，基于 JS 文件格式
 
-2. 页面文件可以放在任意层次的目录下面，最终通过编译打包后，生成与目录相对应的 pageUrl 作为访问的唯一路径 
+2. 页面文件可以放在任意层次的目录里，但每个页面的4个文件需要处于相同的目录。最终通过编译打包后，通过与目录相对应的 pageUrl 作为来访问
     > 举例说明，页面文件路径是: `/vn_demo/index/index.*`，则最终对应的 pageUrl 就是: `vn://vn_demo/index/index`
 
 ## 脚本示例
@@ -19,6 +19,7 @@
         <text width="100%" height="auto" bindTap="onTextTap">{{userInfo.nickName}}</text>
     </view>
     ```
+
     ```json
     /** Demo.json **/
     {
@@ -51,31 +52,21 @@
     ```
 2. 简单说明如下：
     
-    + `vnml`文件通过属性`class`访问`vnss`文件的样式`container`
-    + `vnml`文件通过`{{userInfo.nickName}}`的胡子语法访问`json`文件的字符串`Video`
-    + `vnml`文件通过属性`bindTap`绑定点击事件监听，发生点击时调用`js`文件中的`onTextTap`函数
+    + `vnml`文件中的view节点通过属性`class`声明使用了`vnss`文件中`container`规则
+    + `vnml`文件中的text节点通过`{{userInfo.nickName}}`的胡子语法访问`json`文件中的文本`Video`
+    + `vnml`文件中的text节点通过属性`bindTap`绑定点击事件监听，关联到`js`文件中的`onTextTap`函数
 
 ## vnml 页面脚本
 
-1. vnml 页面脚本支持的组件标签目前主要有:
-    + view
-    + text
-    + image
-    + button
-    + list
-        + cell
-        + header
-    + checkbox
-    + scroll-view
-    + view-pager
+1. vnml 用于定义标签节点，定义相关的属性，以及事件绑定。当前支持的组件标签可参见[控件](https://videonative.github.io/VideoNative/#/Controls):
 
 ## json 数据脚本
 
-1. json 数据脚本里面主要是用来放数据:
+1. json 存放了页面的初始化数据:
 
-    + 数据内容是基于 Json 格式的，由 KEY-VALUE 和数组组成
+    + 数据基于 JSON 文本格式
     + 数据中的 KEY 只能是字母、数字、下划线组成，且只能以字母开头
-    + 页面组件可以通过胡子语句访问数据节点
+    + 页面组件可以通过胡子语句访问数据
 
 2. 胡子语句简介：
     + 胡子语句是为了使界面与数据分离而产生的
@@ -147,12 +138,17 @@
 {"length": 4}
 ```
 
-## vnss 样式表
+#### vn:for 与 vn:if
 
-1. 样式表用于定义页面组件属性，页面组件有多种方式匹配定义好的样式表 
-2. 各组件可用属性会各不相同。详情请参见控件页
-3. 样式表的匹配方式有标签选择器，类选择器，ID 选择器，后代选择器，伪类选择器，通配符选择器 。详细说明如下：
-    + 标签选择器示例：
+1. 当 `vn:if` 和 `vn:for` 同时存在于一个标签内时，`vn:for` 会被优先处理
+
+
+## vnss 样式
+
+1. vnss文件可定义若干个规则集，用于定义页面布局和组件属性，页面组件有多种方式匹配定义好的规则集
+2. 各组件的属性会各不相同。详情请参见控件页
+3. 样式表的匹配方式有：标签选择器，类选择器，ID选择器，后代选择器，伪类选择器，通配符选择器 。详细说明如下：
+    + 类选择器示例：
     ```css
     /** LabelSelector.vnss **/
     /* 匹配class="title"的标签 */
@@ -166,7 +162,7 @@
     <text class="title" width="100%" height="auto">匹配文本</text>
     ```
 
-    + 类选择器示例：
+    + 标签选择器示例：
     ```css
     /** ClassSelector.vnss **/
     /* 匹配布局中所有的text标签 */
@@ -260,5 +256,5 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 ## js 文件脚本
 
 JS文件用于定义页面业务相关的处理逻辑和数据，也用于定义页面生命周期回调函数。在JS脚本中，可以调用VN框架提供的API，具体参见[API](https://videonative.github.io/VideoNative/#/API)
-JS脚本文件通过调用page函数来传入对象处理页面事件。具体页面事件参见[API](https://videonative.github.io/VideoNative/#/Controls?id=%E9%80%9A%E7%94%A8%E4%BA%8B%E4%BB%B6)
+JS脚本文件通过调用page函数来传入对象，用于处理页面事件。具体页面事件参见[API](https://videonative.github.io/VideoNative/#/Controls?id=%E9%80%9A%E7%94%A8%E4%BA%8B%E4%BB%B6)
 
