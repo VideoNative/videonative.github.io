@@ -4,30 +4,25 @@
 
 + **void scanCode(Object object)**
 
-开启扫描。
+开启二维码扫描。
 **object内的参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 success | Function | 是 | 接口调用的回调函数
-fail | Function | 否 | 接口调用失败的回调函数
+fail | Function | 否 | 接口调用失败的回调函数，没有参数
 complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
 
-**success返回参数说明:**
-    
-参数 | 类型 | 说明
+**success回调函数接收一个Object参数；它的成员属性如下:**
+
+属性 | 类型 | 说明
 --- | --- |  ---
-result | String | 扫描结果
-    
-**fail返回参数说明:**
-    
-类型 | 说明
---- |  ---
-Integer | errorCode(0表示成功)
+result | String | 扫描得到的结果
+
 
 + **float toRpx(String value)**
 
-将形如："10pt","10px","10rpx"的字符串转化为数字类型的rpx值
+将输入字符串转换为数字型的rpx值。例如："10pt"、"10px"、"10rpx"
 
 **参数说明:**
 
@@ -38,92 +33,92 @@ value | String | 是 | 形如："10pt","10px","10rpx"的字符串
 **返回参数说明:**
 
 类型 | 说明
---- |  ---
-float |  数字类型的rpx值
+--- | ---
+float | 数字类型的rpx值
 
 ## vn.dom
 
 + **Object getElementById(String id)**
 
-获取Dom对象
+在DOM树中逐级查找并返回第一个id相符的DOM对象。如果找不到则返回null
 
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-id | String | 是 | Dom对象的id，注意id属性必须唯一
+id | String | 是 | DOM对象的id
 
 **返回参数说明:**
 
 类型 | 说明
---- |  ---
-Object |  Dom对象
+--- | ---
+Object | DOM对象，或者null
 
-## dom对象
+## DOM对象
 
 + **Object getParentElement()**
 
-获取父Dom对象
+获取父DOM对象；如果没有父DOM对象，则返回null
 
 **返回参数说明:**
 
 类型 | 说明
---- |  ---
-Object |  父Dom对象
+--- | ---
+Object | 父DOM对象；或者null
 
 + **Array getChildElements()**
 
-获取子DOM对象数组
+获取包含子DOM对象的数组
 
 **返回参数说明:**
 
 类型 | 说明
---- |  ---
-Array |  子DOM对象数组
+--- | ---
+Array | 包含子DOM对象的数组
 
 + **Array getVisibleChildElements()**
 
-获取可见的子DOM对象数组
+获取屏幕可见的子DOM对象的数组
 
 **返回参数说明:**
 
 类型 | 说明
 --- |  ---
-Array |  子DOM对象数组
+Array | 子DOM对象的数组
 
 + **String getId()**
 
-获取Dom对象的Id属性
+获取DOM对象的Id属性
 
 **返回参数说明:**
 
 类型 | 说明
---- |  ---
-String |  Id属性
+--- | ---
+String | Id属性
 
-+ **String[] getClasses()**
++ **Array getClasses()**
 
-获取Dom对象的类属性列表
+获取DOM对象的class属性中定义的类选择器的字符串数组
 
 **返回参数说明:**
 
 类型 | 说明
---- |  ---
-Array |  类属性列表
+--- | ---
+Array | class属性的字符串数组
 
 + **String getType()**
 
-获取Dom对象类型
+获取DOM对象的标签类型
 
 **返回参数说明:**
 
 类型 | 说明
 --- |  ---
-String | 类型名称如:"text"
+String | DOM的标签类型，例如:"text"
 
 + **Array getPropertyKeyList()**
 
-获取Dom对象的属性名称列表
+获取DOM对象的标签中定义的所有属性的名称的字符粗数组
 
 **返回参数说明:**
 
@@ -133,44 +128,43 @@ Array | 属性名称列表如：["margin-left","margin-top","background-color"]
 
 + **setEnabled(boolean enable)**
 
-设置节点是否可用
+设置DOM对象是否可用
 
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-enable | boolean | 是 | Dom节点是否可用
-
+enable | boolean | 是 | DOM节点对象是否可用
 
 + **boolean isEnabled()**
 
-返回Dom节点是否可用
+返回DOM节点对象是否可用
 
 **返回参数说明:**
 
 类型 | 说明
 --- |  ---
-boolean | Dom节点是否可用
+boolean | DOM节点是否可用
 
 + **Object getElementById(String id)**
 
-获取子孙Dom对象
+从该DOM节点开始逐级查找子节点，并返回第一个id相符的DOM节点。如果未找到，则返回null
 
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-id | String | 是 | Dom对象的id，注意id属性必须唯一
+id | String | 是 | DOM对象的id
 
 **返回参数说明:**
 
 类型 | 说明
---- |  ---
-Object |  Dom对象
+--- | ---
+Object | DOM对象；或者null
 
 + **setProperty(String propertyKey, String propertyValue)**
 
-获取Dom对象
+设置DOM对象的属性
 
 **参数说明:**
 
@@ -181,6 +175,7 @@ propertyValue | String | 是 | CSS的属性值如："15rpx"
 
 + **String getProperty(String propertyKey)**
 
+获取DOM对象的属性；如果该DOM没有设置该属性，则返回null
 
 **参数说明:**
 
@@ -191,61 +186,61 @@ propertyKey | String | 是 | CSS的属性名称如："margin-left"
 **返回参数说明:**
 
 类型 | 说明
---- |  ---
-String | Dom对象的属性值如："15rpx"
+--- | ---
+String | DOM对象的属性值如："15rpx"
 
 + **Object getDataSet()**
 
-获取Dom节点的所有data-属性
+获取DOM节点的所有名为 data- 开头的属性，例如：data-name="test"
 
 **返回参数说明:**
 
 类型 | 说明
---- |  ---
-Object | 所有data-属性都会在返回的对象的属性中如：有个一属性是data-index=3,则返回为json {"index":3}
+--- | ---
+Object | 所有名为 data- 开头的属性都会在返回的对象的属性中。如：属性是data-index="3"，则返回的对象为：{ index : "3" }
 
 + **Array getPositionRect()**
 
-获取节点相对于父节点的位置属性
+获取DOM节点相对于父节点的位置信息，类型为rpx数值。位置顺序如下：[top, right, bottom, left]
 
 **返回参数说明:**
 
 类型 | 说明
 --- |  ---
-Array |  Dom对象位置属性如：[0,0,50.2,50.2] //4个值的顺序是上，右，下，左，单位是 rpx
+Array | 返回值格式如：[0, 0, 50.2, 50.2] //4个值的顺序是上，右，下，左，单位是 rpx
 
 + **Object getBoundingClientRect()**
 
-获取节点相对于屏幕的位置属性
+获取DOM节点相对于屏幕的位置属性
 
 **返回参数说明:**
 
 类型 | 说明
---- |  ---
+--- | ---
 Object | 参照 W3C 的 [nsIDOMClientRect](https://developer.mozilla.org/zh-CN/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect)
 
 + **startAnimation(Object obj)**
 
-对当前dom对象开启动画。传入参数obj对象包含了动画的属性，如动画操作的view属性、动画时长、时间函数、回调函数等属性。具体的属性定义如下
+对当前DOM对象开启动画。传入参数obj对象包含了动画的属性，如动画操作的属性、动画时长、时间函数、回调函数等。具体的属性定义如下
 
 参数 | 说明
---- |  ---
-alpha |  取值范围 0.0 ~ 1.0。  0=完全透明; 1=完全不透明
-background_color | 取值范围和通用属性background-color相同
-rotate_x | 在x轴上的旋转角度
-rotate_y | 在y轴上的旋转角度
-rotation | 表示旋转。和rotate_x、rotate_y不同的是，rotation是围绕pivot点做旋转，而rotate_x是x轴围绕pivot_x旋转，rotate_y围绕pivot_y旋转。
-scale_x | 在x轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数
-scale_y | 在y轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数
-translate_x | 在x轴上的偏移。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
-translate_y | 在y轴上的偏移。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
+--- | ---
+alpha | 数字。取值范围 0.0 ~ 1.0。  0=完全透明; 1=完全不透明
+background_color | 字符串。取值和通用属性background-color相同
+rotate_x | 数字。表示在x轴上的旋转角度
+rotate_y | 数字。表示在y轴上的旋转角度
+rotation | 数字。表示旋转的角度。和rotate_x、rotate_y不同的是，rotation是围绕pivot点做旋转，而rotate_x是x轴围绕pivot_x旋转，rotate_y围绕pivot_y旋转。
+scale_x | 数字。在x轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数
+scale_y | 数字。在y轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数
+translate_x | 字符串。在x轴上的偏移。支持的单位：rpx,px,%
+translate_y | 字符串。在y轴上的偏移。支持的单位：rpx,px,%
 delay | 动画延迟开始的时间，毫秒，正整数
 duration | 动画的时长，毫秒，正整数
-pivot_x | 旋转和缩放的中心点x坐标。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
-pivot_y | 旋转和缩放的中心点y坐标。取值范围：负无穷 ~ 正无穷。类型：rpx,px,%
+pivot_x | 字符串。旋转和缩放的中心点x坐标。支持的单位：rpx,px,%
+pivot_y | 字符串。旋转和缩放的中心点y坐标。支持的单位：rpx,px,%
 repeat_count| 表示动画的重复执行次数，整数类型。默认值为0，表示不重复。-1表示无限循环。
 complete | 回调函数。当动画结束时会回调该方法，没有参数
-timingFunction | 动画的时间函数。支持下面几种取值：
+timingFunction | 字符串。动画的时间函数。支持下面几种取值：
 
 timingFunction 的取值如下
 
@@ -256,12 +251,12 @@ ease | 规定慢速开始，然后变快，然后慢速结束的过渡效果（c
 ease-in | 规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）
 ease-out | 规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）
 ease-in-out | 规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）
-cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值
+cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。值为 0 至 1 之间的数值
 
 
 + **stopAnimation()**
 
-停止该dom对象上的所有动画
+停止该DOM对象上的动画
 
 > **说明：当开始新动画时，未完成的动画自动停止。**
 
@@ -275,13 +270,13 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 
 当前位置的 y 偏移，单位 rpx
 
-+ **setTranslationX()**
++ **setTranslationX(String)**
 
-设置 x 偏移，单位 rpx
+设置 x 偏移
 
-+ **setTranslationY()**
++ **setTranslationY(String)**
 
-设置 y 的偏移，单位 rpx
+设置 y 的偏移
 
 + **float getScaleX()**
 
@@ -291,27 +286,27 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 
 获取 y 轴上的缩放，单位 rpx
 
-+ **setScaleX()**
++ **setScaleX(String)**
 
-设置 x 轴上的缩放，单位 rpx
+设置 x 轴上的缩放
 
-+ **setScaleY()**
++ **setScaleY(String)**
 
-设置 y 轴上的缩放，单位 rpx
+设置 y 轴上的缩放
 
 + **float getAlpha()**
 
 获取当前透明度
 
-+ **setAlpha()**
++ **setAlpha(float)**
 
-设置透明度，范围 [0.0, 1.0]
+设置透明度，范围: 0 ~ 1
 
 + **float getRotation()**
 
 获取当前旋转角度
 
-+ **setRotation()**
++ **setRotation(float)**
 
 设置旋转的角度
 
@@ -319,7 +314,7 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 
 获取当前x轴旋转角度
 
-+ **setRotationX()**
++ **setRotationX(float)**
 
 设置x轴旋转的角度
 
@@ -327,7 +322,7 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 
 获取当前y轴旋转角度
 
-+ **setRotationY()**
++ **setRotationY(float)**
 
 设置y轴旋转的角度
 
@@ -336,7 +331,7 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 
 + **Float getScreenWidth()**
 
-获取屏幕的物理宽度
+获取屏幕的宽度，单位rpx
 
 **返回参数说明:**
 
@@ -346,7 +341,7 @@ Float | 屏幕的物理宽度，单位是 rpx
 
 + **Float getScreenHeight()**
 
-获取屏幕的物理高度
+获取屏幕的高度，单位rpx
 
 **返回参数说明:**
 
@@ -362,7 +357,7 @@ Float | 屏幕的物理高度，单位是 rpx
 
 类型 | 说明
 --- |  ---
-String | 获取屏幕方向"portrait":竖向，"landscape":横向，"reverse-landscape":逆横向，"auto":根据屏幕位置自动旋转
+String | 获取屏幕方向，可能的值："portrait":竖向，"landscape":横向，"reverse-landscape":逆横向，"auto":根据屏幕位置自动旋转
 
 + **String getCurOrientation()**
 
@@ -372,17 +367,17 @@ String | 获取屏幕方向"portrait":竖向，"landscape":横向，"reverse-lan
 
 类型 | 说明
 --- |  ---
-String | 获取屏幕方向"portrait":竖向，"landscape":横向，"reverse-landscape":逆横向
+String | 获取屏幕方向。可能的值为："portrait":竖向， "landscape":横向， "reverse-landscape":逆横向
 
 + **setOrientation(String orientation)**
 
-设置屏幕方向，默认为竖屏
+设置屏幕方向。可用的值："portrait":竖向，"landscape":横向，"reverse-landscape":逆横向，"auto":根据屏幕位置自动旋转
 
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-orientation | String | 是 | 屏幕方向"portrait":竖向，"landscape":横向，"reverse-landscape":逆横向，"auto":根据屏幕位置自动旋转，
+orientation | String | 是 | 屏幕方向
 
 + **Boolean isDialog()**
 
@@ -476,13 +471,13 @@ boolean | 更新是否成功
 
 + **Boolean append(String keyPath, Object dataA, Object dataB, ...)**
 
-批量添加数据
+往数组尾部批量添加数据，keyPath需指向到一个Array，如果该数组不存在，会自动创建。如果keyPath指向的对象已经存在并且不是数组类型，则失败并返回false。
 
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-keyPath | String | 是 | 内存中数据存储的路径
+keyPath | String | 是 | 数据路径指向到一个Array
 dataA | Object | 是 | 新数据
 dataB | Object | 是 | 新数据
 
@@ -494,15 +489,15 @@ boolean | 更新是否成功
 
 + **Boolean remove(String keyPath, Number index, Number count)**
 
-批量移除数据
+批量移除数组中的数据。keyPath需指向到一个Array。如果该对象不存在，则返回false。
 
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-keyPath | String | 是 | 内存中数据存储的路径
-index | Number | 是 | 待删除数据的起始位置
-count | Number | 是 | 待删除数据的数量
+keyPath | String | 是 | 数据路径指向到一个Array
+index | Number | 是 | 待删除数据的起始位置，取值范围为 0 ~ array.length-1
+count | Number | 是 | 待删除数据的数量，正整数
 
 **返回参数说明:**
 
@@ -512,7 +507,7 @@ boolean | 更新是否成功
 
 + **void watch(String keyPath, Function callback)**
 
-注册对keyPath的监听，当指定路径的数据发生变化时，回调指定的callback函数。callback会接收到一个对象，标明通知的keypath和更新类型。
+注册对keyPath的监听，当指定路径的数据发生变化时，回调指定的callback函数。callback会接收到一个对象，包含通知的keypath和更新类型。
 
 **参数说明:**
 
@@ -524,7 +519,7 @@ callback | Function | 是 | 回调处理函数
 
 + **Boolean unwatch(String keyPath, Function callback)**
 
-反注册之前通过watch注册的监听
+反注册之前通过watch注册的监听。参数callback必须为上次调用watch时传入的函数。
 
 **参数说明:**
 
@@ -543,13 +538,13 @@ boolean | 更新是否成功
 
 + **Integer request(Object requestOrigin)**
 
-请求数据
+请求网络数据
 
 **Object内的参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-url | String | 是 | 开发者服务器接口地址
+url | String | 是 | 请求url
 data | Object/String | 否 | 请求的参数
 header | Object | 否 | 设置请求的 header，header 中不能设置 Referer。
 method | String | 否 | （需大写）有效值：OPTIONS, GET(默认), HEAD, POST, PUT, DELETE, TRACE, CONNECT
@@ -558,6 +553,13 @@ requestType | String | 否 | application/json或text/plain
 success | Function | 否 | 收到开发者服务成功返回的回调函数
 fail | Function | 否 | 接口调用失败的回调函数
 complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+Integer | requestId，可用于取消请求
+
 
 **success返回参数说明:**
 
@@ -574,7 +576,7 @@ Integer | errorCode(0表示成功)
 
 + **cancel(Integer requstId)**
 
-取消请求
+取消之前的request，传入参数requestId为request调用时的返回值
 
 **参数说明:**
 
@@ -597,19 +599,19 @@ data | Object/String | 是 | 需要存储的内容
 success | Function | 否 | 接口调用成功的回调函数
 fail | Function | 否 | 接口调用失败的回调函数
 complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
-expires | Long | 否 | 存储过期事件，时长单位为毫秒
+expires | Long | 否 | 存储过期时间，单位为毫秒
 
 + **Integer setStorageSync(Object object)**
 
-将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口。
-    
+将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容。这是一个同步接口，会卡主线程，不建议使用。
+
 **object内的参数说明:**
     
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 key | String | 是 | 本地缓存中的指定的 key
 data | Object/String | 是 | 需要存储的内容
-expires | Long | 否 | 存储过期事件，时长单位为毫秒
+expires | Long | 否 | 存储过期时间，单位为毫秒
     
 **返回参数说明:**
    
@@ -620,6 +622,7 @@ Integer | errorCode(0表示成功)
 + **getStorage(Object object)**
 
 从本地缓存中异步获取指定 key 对应的内容。
+
 **object内的参数说明:**
     
 参数 | 类型 | 必填 | 说明
@@ -643,7 +646,8 @@ Integer | errorCode(0表示成功)
 
 + **Object getStorageSync(String key)**
 
-从本地缓存中同步获取指定 key 对应的内容。
+从本地缓存中获取指定 key 对应的内容。这是一个同步接口，会卡主线程，不建议使用。
+
 **参数说明:**
     
 参数 | 类型 | 必填 | 说明
@@ -659,6 +663,7 @@ Object/String | key对应的内容
 + **removeStorage(Object obect)**
 
 从本地缓存中异步移除指定 key 。
+
 **object内的参数说明:**
     
 参数 | 类型 | 必填 | 说明
@@ -676,7 +681,8 @@ Object/String | key对应的内容
 
 + **Integer removeStorageSync(String key)**
 
-从本地缓存中同步移除指定 key 。
+从本地缓存中移除指定 key。这是一个同步接口，会卡主线程，不建议使用。
+
 **参数说明:**
     
 参数 | 类型 | 必填 | 说明
@@ -695,8 +701,8 @@ Integer | errorCode(0表示成功)
 
 + **Integer clearStorageSync()**
 
-同步清理本地数据缓存。
-    
+清理本地数据缓存。这是一个同步接口，会卡主线程，不建议使用。
+
 **返回参数说明:**
    
 类型 | 说明
@@ -708,6 +714,7 @@ Integer | errorCode(0表示成功)
 + **navigateTo(Object obj)**
 
 新页面打开对应的Url。
+
 **obj的内部参数说明:**
 
 参数 | 类型 | 必填 | 说明
@@ -718,6 +725,7 @@ params | Object | 否 | 页面传递的参数
 + **redirectTo(Object obj)**
 
 当前页面刷新URL。
+
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
@@ -728,6 +736,7 @@ params | Object | 否 | 页面传递的参数
 + **navigateBack(Object obj)**
 
 回退URL。
+
 **obj的内部参数说明:**
 
 参数 | 类型 | 必填 | 说明
@@ -738,6 +747,7 @@ params | Object | 否 | 页面传递的参数
 + **relaunch(Object obj)**
 
 关闭当前APP所有页面，再打开一个新页面。
+
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
@@ -750,6 +760,7 @@ params | Object | 否 | 页面传递的参数
 + **String getSDKVersionName()**
 
 获取SDK版本名称。
+
 **返回参数说明:**
 
 类型 | 说明
@@ -759,6 +770,7 @@ String | SDK版本名称如:"1.0.0"
 + **Integer getSDKVersionCode()**
 
 获取SDK版本号。
+
 **返回参数说明:**
 
 类型 | 说明
@@ -767,26 +779,29 @@ Integer | SDK版本号，从1开始不断增加。如:1
 
 + **Integer getAppVersion()**
 
-获取App版本号。
+获取app版本号。如果当前页面不是以app方式接入，则返回0
+
 **返回参数说明:**
 
 类型 | 说明
 --- |  ---
-Integer | App版本号，从1开始不断增加。如:1
+Integer | app版本号
 
 + **void setShareData(String key, Object value)**
 
-设置App内共享的数据。
+设置app内共享的内存数据
+
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-key | String | 是 | sessionKey
-value | Object | 否 | sessionValue,为null的时候相当于清除sessionValue
+key | String | 是 | key
+value | Object | 否 | value，为null的时候相当于清除数据
 
 + **Object getShareData(String key)**
 
-过去App内共享的数据。
+获取之前调用setShareData设置的内存数据。
+
 **参数说明:**
 
 参数 | 类型 | 必填 | 说明
@@ -797,4 +812,4 @@ key | Object/String | 是 | sessionKey
 
 类型 | 说明
 --- |  ---
-Object | 返回Session数据。
+Object | 数据对象，或者null
