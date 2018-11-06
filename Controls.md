@@ -1,12 +1,26 @@
 ## 总览
-控件的属性表格的类型定义
+控件属性列表中的类型说明：
++ Property：控件的属性。可以直接写在标签中，也可以写在 vnss 规则集中
++ Method：控件DOM方法，供JS代码调用
++ EventHandler：控件的事件。通过将JS方法绑定到组件事件上，可以处理事件回调
 
-+ Property：属性，可以写在 style 里面，也可以用 class 引用 vnss 脚本里的样式表
-+ Method：JS 侧可调用的方法
-+ EventHandle：事件回调给 JS 侧的方法
+## 页面生命周期事件
+页面的生命周期事件通过定义相对应的JS方法来处理。这些方法需要定义在传递给page()方法的参数对象中。具体的页面事件和方法定义如下：
+
+事件 Key | 事件类型 | 适用范围 | 备注 | 参数类型
+--- | --- | --- | --- | ---
+onPageResult(Object params) | 从前一个页面返回 | 页面 | 前一个页面传递过来的参数，一次生命周期可能会调用多次 | Object/String
+onLoad(Object params) | 当前页面启动 | 页面 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次 | Object/String
+onReady(Object params) | 当前页面渲染完成 | 页面 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次 | Object/String
+onReload(Object params) | 当前页面重新启动 | 页面 | 当再次打开一个 launchMode 为 singleTask 的页面时，该页面之上的其他页面会被销毁，该页面的 onReload 会被调用，一次生命周期只会调用一次 | Object/String
+onShow() | 页面可见（进入前台或从其他页面跳转回来） | 页面 | 一次生命周期可能会调用多次 | 
+onHide() | 页面不可见（退入后台或跳转到其他页面） | 页面 | 一次生命周期可能会调用多次 |  
+onUnload() | 当前页面即将销毁 | 页面 | 一次生命周期只会调用一次 | 
+onOrientationChange(String orientation) |  当前页面方向改变 | 页面 | 选项：portrait， landscape， reverse-landscape | String
 
 
 ## 通用事件
+通用事件是指所有组件都支持的事件。它们具有相同的回调参数。
 
 + 代码示例：
 
@@ -38,30 +52,22 @@ page ({
 参数名 | 备注 | 参数类型
 --- | --- | --- 
 type | 事件名 | String
-timestamp | 时间戳 | Number
+timestamp | 时间戳(毫秒) | Number
 event | 返回参数包裹结构 | Object
-dataset | 回调的视图附带的数据集 | Object
-target | JSDom | Object
+dataset | DOM节点的数据集 | Object
+target | DOM对象 | Object
 
-**注明：如下通用事件中注明的参数都包裹在 event 下**
+**注：如下通用事件中注明的参数都包裹在 event 下**
 
-事件 Key | 事件类型 | 适用范围 | 备注 | 参数类型
---- | --- | --- | --- | ---
-bindTap | 点击 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
-bindLongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | |
-bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | | event.x: Number, event.y: Number
-bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager 等)的所有控件 | | event.x: Number, event.y: Number
-onPageResult(Object params) | 从前一个页面返回 | 页面 | 前一个页面传递过来的参数，一次生命周期可能会调用多次 | Object/String
-onLoad(Object params) | 当前页面启动 | 页面 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次 | Object/String
-onReady(Object params) | 当前页面渲染完成 | 页面 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次 | Object/String
-onReload(Object params) | 当前页面重新启动 | 当再次打开一个 launchMode 为 singleTask 的页面时，该页面之上的其他页面会被销毁，该页面的 onReload 会被调用 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次 | Object/String
-onShow() | 页面可见（进入前台或从其他页面跳转回来） | 页面 | 一次生命周期可能会调用多次 | 
-onHide() | 页面不可见（退入后台或跳转到其他页面） | 页面 | 一次生命周期可能会调用多次 |  
-onUnload() | 当前页面即将销毁 | 页面 | 一次生命周期只会调用一次 | 
-onOrientationChange(String orientation) |  当前页面方向改变 | 页面 | 选项的角度如：portrait， landscape， reverse-landscape | String
- 
+事件 Key | 事件类型 | 适用范围 | 备注
+--- | --- | --- | ---
+bindTap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 |
+bindLongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 |
+bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
+bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
 
 ## 通用属性
+通用属性是指所有的组件都支持的属性。
 
 + 代码示例如下：
 
@@ -78,37 +84,93 @@ onOrientationChange(String orientation) |  当前页面方向改变 | 页面 | �
 
 通用属性名 | 类型 | 默认值 | 说明
 --- | --- | --- | --- 
-class | String | none | 引用 vnss 中的样式类；多个样式可用空格分割
-id | String | none | 主要用于做 CSS 匹配
+class | String | | 引用 vnss 中的样式类；多个样式可用空格分隔
+id | String | | 用于 CSS 匹配和 getElementById()
 width | [rpx pt percent auto] | auto |
 height | [rpx pt percent auto] | auto |
 aspect-ratio | Float | | 宽高比
 background-stretch-param | [rpx 组合] | | 1.25rpx 15rpx (将对图片(15,25)坐标点进行拉伸) 2.25rpx 10rpx 22rpx 15rpx (将对图片的纵坐标25位置到35位置进行拉伸，并对横坐标22位置到37位置进行拉伸)，必须配合 background 属性一起使用，否则无效
 background-color | color | #FFFFFFFF | 取值格式为#RGB，#RRGGBB #RRGGBBAA，RRGGBBAA，如果同时设置了background，background的优先级更高
-background | String | "" | 1.不拉伸的图片如:../image/btn_bg
+background | String | | 1.不拉伸的图片如: ../image/btn_bg
 alpha | Float | 1 | 0:透明 到 1:不透明
-padding | [rpx pt percent 组合] | 0rpx | 参见 CSS 标准写法
-padding-left | [rpx pt percent] | | 共存时覆盖 padding 的值
-padding-right | [rpx pt percent] | | 共存时覆盖 padding 的值
-padding-top | [rpx pt percent] | | 共存时覆盖 padding 的值
+padding | [rpx pt % 组合] | 0rpx | 参见 CSS 标准写法
+padding-left | [rpx pt %] | | 共存时覆盖 padding 的值
+padding-right | [rpx pt %] | | 共存时覆盖 padding 的值
+padding-top | [rpx pt %] | | 共存时覆盖 padding 的值
 padding-bottom | [rpx pt percent] | | 共存时覆盖 padding 的值
-margin | [rpx pt percent 组合] | 0rpx | 参见 CSS 标准写法
-margin-left | [rpx pt percent] | | 共存时覆盖 margin 的值
-margin-right | [rpx pt percent] | | 共存时覆盖 margin 的值
-margin-top | [rpx pt percent] | | 共存时覆盖 margin 的值
-margin-bottom | [rpx pt percent] | |共存时覆盖 margin 的值
-max-height | [rpx pt percent] | |
-max-width | [rpx pt percent] | |
-min-height | [rpx pt percent] | |
-min-width | [rpx pt percent] | |
+margin | [rpx pt % 组合] | 0rpx | 参见 CSS 标准写法
+margin-left | [rpx pt %] | | 共存时覆盖 margin 的值
+margin-right | [rpx pt %] | | 共存时覆盖 margin 的值
+margin-top | [rpx pt %] | | 共存时覆盖 margin 的值
+margin-bottom | [rpx pt %] | |共存时覆盖 margin 的值
+max-height | [rpx pt %] | |
+max-width | [rpx pt %] | |
+min-height | [rpx pt %] | |
+min-width | [rpx pt %] | |
 hidden | Boolean | false | 是否隐藏
 enable | Boolean | true | 是否启用，为 false 时不接收点击事件
-box-shadow | h-shadow v-shadow blur spread color inset | | 添加一个阴影。每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略的长度值为0。默认为 outset
-border-color | color | transparent（透明） | 设置四条边框的颜色。此属性可设置 1 到 4 种颜色。
-border-style | Enum | none | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。
-border-width | rpx pt | 0rpx | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
-border-radius | rpx pt | 0rpx | 设置边框的圆角属性。可设置 1 到 4 个值（topLeft, topRight, bottomRight, bottomLeft）
-overflow | visible hidden | hidden | 当内容溢出元素框时发生的事情，visible 表示溢出的内容不会被裁剪，hidden 表示溢出的内容会被裁剪，visible 必须配合 flex-shrink=0 使用
+overflow | [visible hidden] | hidden | 当内容溢出元素框时发生的事情，visible 表示溢出的内容不会被裁剪，hidden 表示溢出的内容会被裁剪，visible 必须配合 flex-shrink=0 使用
+
+## Flexbox 布局属性
+Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属性和子节点相关的属性。容器属性和子节点属性相互影响，配合生效。
+关于 Flexbox 属性的详细定义，请参见: [YogaLayout](https://yogalayout.com/docs)
+
++ 代码示例如下：
+```html
+<!--subView.vnml-->
+<view width="100%" height="auto" flex-direction="row" align-items="center">
+    <image width="200rpx" aspect-ratio="1.7" src="{{url}}" position="absolute" />
+    <text height="auto" width="auto" flex-grow="1" font-size="30rpx">{{firstLine}}</text>
+</view>
+```
+
+#### Flex 容器节点的属性
+这些属性只对容器节点有效(view/list/scroll-view/view-pager)
+
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+Property | align-content | Enum | stretch |
+Property | align-items | Enum | stretch | 
+Property | flex-direction | Enum | row | 弹性布局的方向
+Property | flex-wrap | Enum | no-wrap | 折行属性
+Property | justify-content | Enum | flex-start |
+
+#### Flex 子节点的属性
+这些属性可配置于所有标签，但仅当其有父容器时才生效
+
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+Property | align-self | Enum | auto |
+Property | flex-basis | [Enum %] | auto |
+Property | flex-grow | Float | 0 | 拉伸因子
+Property | flex-shrink | Float | 1 | 收缩规则
+Property | position | Enum | relative | relative/absolute
+Property | left  | [rpx pt px %] | 0rpx | left属性影响元素的水平位置
+Property | right  | [rpx pt px %] | 0rpx | right属性影响元素的水平位置
+Property | top  | [rpx pt px %] | 0rpx | top属性影响元素的竖直位置
+Property | bottom  | [rpx pt px %] | 0rpx | bottom属性影响元素的竖直位置
+
+
+## view
+view是简单的容器类。它支持设置 border 和 shadow。
+
++ 代码示例如下：
+
+```html
+<!--view.vnml-->
+<view width="100%" height="85.4rpx" align-items="center"  justify-content="space-between" flex-direction="row">
+    <image height="60rpx" width="95rpx" src="{{iconUrl}}" />
+    <text height="100%" width="95rpx" font-size="30rpx"></text>
+</view>
+```
+
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+Property |box-shadow | h-shadow v-shadow blur spread color inset | | 添加一个阴影。每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略的长度值为0。默认为 outset
+Property |border-color | color | transparent（透明） | 设置四条边框的颜色。此属性可设置 1 到 4 种颜色。
+Property |border-style | Enum | none | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。
+Property |border-width | rpx pt | 0rpx | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
+Property |border-radius | rpx pt | 0rpx | 设置边框的圆角属性。可设置 1 到 4 个值（topLeft, topRight, bottomRight, bottomLeft）
 
 ### box-shadow 的详细说明
 参照 [box-shadow 的 W3C标准](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow)
@@ -175,55 +237,8 @@ border-top-style
 border-top-width
 ```
 
-
-
-## view
-
-+ 代码示例如下：
-
-```html
-<!--view.vnml-->
-<view width="100%" height="85.4rpx" align-items="center"  justify-content="space-between" flex-direction="row">
-    <image height="60rpx" width="95rpx" src="{{iconUrl}}" />
-    <text height="100%" width="95rpx" font-size="30rpx"></text>
-</view>
-```
-
-类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
---- | --- | --- | --- | ---
-Property | align-content | Enum | stretch |
-Property | align-items | Enum | stretch | 
-Property | flex-direction | Enum | row | 弹性布局的方向
-Property | flex-wrap | Enum | nowarp | 行属性
-Property | justify-content | Enum | flex-start |
-
-关于 FlexboxLayout 的详细属性定义，请参见: [CSSFlexibleBoxLayout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout)
-
-## flex 子视图
-
-+ 代码示例如下：
-```html
-<!--subView.vnml-->
-<view width="100%" height="auto" flex-direction="row" align-items="center">
-    <image width="200rpx" aspect-ratio="1.7" src="{{url}}" position="absolute" />
-    <text height="auto" width="auto" flex-grow="1" font-size="30rpx">{{firstLine}}</text>
-</view>
-```
-
-类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
---- | --- | --- | --- | ---
-Property | align-self | Enum | auto |
-Property | flex-basis | [Enum Float] | auto | 初始大小
-Property | flex-grow | Float | 0 | 拉伸因子
-Property | flex-shrink | Float | 1 | 收缩规则
-Property | position | Enum | relative | relative/absolute
-Property | left  | Integer | 0rpx | left属性影响元素的水平位置
-Property | right  | Integer | 0rpx | right属性影响元素的水平位置
-Property | top  | Integer | 0rpx | top属性影响元素的竖直位置
-Property | bottom  | Integer | 0rpx | bottom属性影响元素的竖直位置
-
-
 ## text和button
+text 和 button 都可用于展示文本。它们之间的区别是 button 会有系统默认的样式和点击视觉效果
 
 + 代码示例如下：
 
@@ -239,13 +254,14 @@ Property | bottom  | Integer | 0rpx | bottom属性影响元素的竖直位置
 Property | font-size | rpx pt | 手机系统默认 | 文本 size
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
-Property | color | color | #000000FF | 取值格式为#RGBA
-Property | text-align | Enum(可组合) | left/top | left/top/right/bottom/center/center_horizontal/center_vertical
+Property | color | color | #000000FF |
+Property | text-align | Enum(可组合) | left&#124;top | left/top/right/bottom/center/center_horizontal/center_vertical
 Property | ellipsize | Enum | none | none;start;middle;end
 Property | max-line | Integer | 0 | 0代表不限行数
 Property | line-height | Float | 1.0 | 1.0代表一倍行间距，最小有效值为 1.0
 
 ## image
+image用于显示图片。支持网络和本地图片。
 
 + 代码示例如下：
 
@@ -262,22 +278,22 @@ Property | mode | Enum | fit-xy | focus-crop/center-crop/center-inside/center/fi
 Property | foucs-point-x | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | foucs-point-y | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | shape | Enum | normal | normal/circle/round-corner
-Property | corner-radius | rpx | 12rpx | 圆角半径，仅在 shape 为 round-corner 时生效
+Property | corner-radius | rpx pt | 12rpx | 圆角半径，仅在 shape 为 round-corner 时生效
 
 其中 mode 的有效值为
 
 模式 | 值 | 说明
 --- | --- | ---
 缩放 | fit-xy |不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素
-缩放 | fit-start | 保持纵横比缩放图片，使图片的长边能完全显示出来。</br>也就是说，可以完整地将图片显示出来，居上或居左显示。小图会放大，大图会缩小
-缩放 | fit-center | 同 fit-start，不过居中显示
-缩放 | fit-end | 同 fit-start，不过居下或居左显示
+缩放 | fit-center | 保持纵横比缩放图片，使图片的长边能完全显示出来，居中显示。小图会放大，大图会缩小
 缩放 | center | 不缩放图片，只显示图片的中间区域
 缩放 | center-inside | 保持纵横比缩放图片，保证图片的长边能完全居中 显示出来。小图不放大，大图会缩小
-裁剪 | center-crop | 保持纵横比缩放图片，只保证图片的短边能完全显示出来。</br>也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取
+裁剪 | center-crop | 保持纵横比缩放图片，只保证图片的短边能完全显示出来。图片通常只短边方向是完整的，另一个方向将会发生截取
 裁剪 | focus-crop | 重心裁剪，具体裁剪位置由 focus-point-x 和 focus-point-y 决定
 
 ## checkbox
+这个控件可以显示两种状态，checked 和 unchecked，不同的状态显示不同的图片。本控件自身不存储状态，所以它的 checked 属性必须通过胡子语句绑定到一个boolean型的数据上才能正常工作。当通过点击改变了控件状态时，胡子语句绑定的数据也会发生改变。
+
 
 + 代码示例如下：
 
@@ -308,11 +324,12 @@ page ({
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 Property | checked | 胡子语句 | | 必填项，绑定 data 里的一个布尔值
-Property | checked-src | String | | 选中时图片 url
-Property | unchecked-src | String | | 未选中时图片 url
-EventHandle | bindChange | function() | | checkbox 状态切换
+Property | checked-src | String | | 选中状态图片的url
+Property | unchecked-src | String | | 未选中状态图片的url
+EventHandler | bindChange | Function | | checkbox 状态切换事件回调
 
 ## input
+这是一个单行文本输入控件。
 
 + 代码示例如下：
 
@@ -345,13 +362,8 @@ page({
   onInput: function (params) {
     var text = params.event.value;
     vn.data.update('textCount', text.length);
-
-    var orginText = origininput.getValue();
-    if (orginText.length > 0) {
-      var replaceText = replaceinput.getValue();
-      text = text.replaceAll(orginText, replaceText);
-      return text;
-    }
+    text = text.replaceAll("A", "B");
+    return text;
   },
   onFocus: function (params) {
     vn.data.update('focusState', '获取焦点');
@@ -363,53 +375,38 @@ page({
     confirmCount = vn.data.query('confirmCount');
     confirmCount += 1;
     vn.data.update('confirmCount', confirmCount);
-  },
-  onLeftClick: function (params) {
-    var cursor = eventinput.getCursorStart();
-    eventinput.setCursorStart(cursor - 1);
-  },
-  onRightClick: function (params) {
-    var cursor = eventinput.getCursorStart();
-    eventinput.setCursorStart(cursor + 1);
-  },
-  onThreeClick: function (params) {
-    eventinput.setCursorRange(0, 3);
-  },
-  onAllClick: function (params) {
-    var cursorLength = eventinput.getValue().length;
-    eventinput.setCursorRange(0, cursorLength);
   }
-
 });
 ```
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | rpx | 手机系统默认 | 文本 size
+Property | font-size | rpx pt | 手机系统默认 | 文本 size
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
-Property | text-align | Enum(可组合) | left/top | left/top/right/bottom/center/center_horizontal/center_vertical
+Property | text-align | Enum(可组合) | left&#124;top | left/top/right/bottom/center/center_horizontal/center_vertical
 Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
 Property | confirm-type | Enum | done | send(发送)/search(搜索)/next(下一个)/go(去)/done(完成)
 Property | password | Boolean | false | 是否为密码输入
-Property | placeholder | String | "" | 当没有文字输入时的提示文案
+Property | placeholder | String | | 当没有文字输入时的提示文案
 Property | placeholder-color | color | #888888FF | 取值格式为#RGBA
 Property | keep-focus | Boolean | false | 当点击非本input输入的区域时是否保持焦点
-EventHandle | bindinput | String function(String value, int cursor) | | 当键盘输入时，触发input事件，回调{value, cursor}，处理函数可以直接 return 一个字符串，将替换输入框的内容。value 为事件发生时文本框的内容
-EventHandle | bindconfirm | Boolean function(String value) | | 点击完成按钮时触发，value 为事件发生时文本框的内容，返回 true 表示按下完成按钮时不收起键盘，返回 false 表示收起键盘，默认为 false。注，在安卓上可能受到其他特性的影响导致键盘不收起，比如当指定 confirmType 为 Next 时，会聚焦到下一个输入框，此时键盘没有收起。
-EventHandle | bindfocus | function(String value) | | 输入框聚焦时触发，value 为事件发生时文本框的内容
-EventHandle | bindblur | function(String value) | | 输入框失去焦点时触发，value 为事件发生时文本框的内容
-Method | int getCursorStart() |  |  | 当前输入框的光标开始位置
-Method | int getCursorEnd() |  |  | 当前输入框的光标结束位置
+EventHandler | bindinput | String function(Object params) | | 当键盘输入时，触发input事件，params.event = {value: "文本", cursor: 1}，处理函数可以直接 return 一个字符串，将替换输入框的内容。value 为事件发生时文本框的内容，cursor为光标所在的位置
+EventHandler | bindconfirm | Boolean function(Object params) | | 点击完成按钮时触发，params.event.value 为事件发生时文本框的内容，返回 true 表示按下完成按钮时不收起键盘，返回 false 表示收起键盘，默认为 false。注，在安卓上可能受到其他特性的影响导致键盘不收起，比如当指定 confirmType 为 Next 时，会聚焦到下一个输入框，此时键盘没有收起。
+EventHandler | bindfocus | function(Object params) | | 输入框得到输入焦点时触发，params.event.value 为事件发生时文本框的内容
+EventHandler | bindblur | function(Object params) | | 输入框失去焦点时触发，params.event.value 为事件发生时文本框的内容
+Method | Integer getCursorStart() |  |  | 当前输入框的光标开始位置
+Method | Integer getCursorEnd() |  |  | 当前输入框的光标结束位置
 Method | String getValue() |  |  | 当前输入框的文本
 Method | void setValue(String value) |  |  | 设置当前输入框的文本
 Method | Boolean hasFocus() |  |  | 当前输入框是否获取了焦点
-Method | void setCursorRange(int start, int end) |  |  | 设置当前输入框光标起始和结束位置
-Method | void setCursorStart(int start) |  |  | 设置当前输入框光标起始位置
-Method | void setFocus(boolean focus) |  |  | 设置当前输入框的焦点属性
+Method | void setCursorRange(Integer start, Integer end) |  |  | 设置当前输入框光标起始和结束位置
+Method | void setCursorStart(Integer start) |  |  | 设置当前输入框光标起始位置
+Method | void setFocus(Boolean focus) |  |  | 设置当前输入框的焦点属性
 
 ## textarea
+这是一个多行文本输入控件。
 
 + 代码示例如下：
 
@@ -442,13 +439,7 @@ page({
   onTextArea: function (params) {
     var text = params.event.value;
     vn.data.update('textCount', text.length);
-
-    var orginText = origintextarea.getValue();
-    if (orginText.length > 0) {
-      var replaceText = replacetextarea.getValue();
-      text = text.replaceAll(orginText, replaceText);
-      return text;
-    }
+    return text;
   },
   onFocus: function (params) {
     vn.data.update('focusState', '获取焦点');
@@ -460,79 +451,64 @@ page({
     confirmCount = vn.data.query('confirmCount');
     confirmCount += 1;
     vn.data.update('confirmCount', confirmCount);
-  },
-  onLeftClick: function (params) {
-    var cursor = eventtextarea.getCursorStart();
-    eventtextarea.setCursorStart(cursor - 1);
-  },
-  onRightClick: function (params) {
-    var cursor = eventtextarea.getCursorStart();
-    eventtextarea.setCursorStart(cursor + 1);
-  },
-  onThreeClick: function (params) {
-    eventtextarea.setCursorRange(0, 3);
-  },
-  onAllClick: function (params) {
-    var cursorLength = eventtextarea.getValue().length;
-    eventtextarea.setCursorRange(0, cursorLength);
   }
-
 });
 ```
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | rpx | 手机系统默认 | 文本 size
+Property | font-size | rpx pt | 手机系统默认 | 文本 size
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
-Property | text-align | Enum(可组合) | left/top | left/top/right/bottom/center/center_horizontal/center_vertical
+Property | text-align | Enum(可组合) | left&#124;top | left/top/right/bottom/center/center_horizontal/center_vertical
 Property | max-line | Integer | 0 | 0代表不限行数
 Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
-Property | placeholder | String | "" | 当没有文字输入时的提示文案
-Property | placeholder-color | color | #888888FF | 取值格式为#RGBA
+Property | placeholder | String | | 当没有文字输入时的提示文案
+Property | placeholder-color | color | #888888FF |
 Property | keep-focus | Boolean | false | 当点击非本input输入的区域时是否保持焦点
-EventHandle | bindinput | function(String value, int cursor) | | 当键盘输入时，触发input事件，回调{value, cursor}，处理函数可以直接 return 一个字符串，将替换输入框的内容。value 为事件发生时文本框的内容
-EventHandle | bindconfirm | function(String value) | | 点击完成按钮时触发，value 为事件发生时文本框的内容
-EventHandle | bindfocus | function(String value) | | 输入框聚焦时触发，value 为事件发生时文本框的内容
-EventHandle | bindblur | function(String value) | | 输入框失去焦点时触发，value 为事件发生时文本框的内容
-Method | int getCursorStart() |  |  | 当前输入框的光标开始位置
-Method | int getCursorEnd() |  |  | 当前输入框的光标结束位置
+EventHandler | bindinput | String function(Object params) | | 当键盘输入时，触发input事件，params.event = {value: "文本", cursor: 1}，处理函数可以直接 return 一个字符串，将替换输入框的内容。value 为事件发生时文本框的内容，cursor为光标所在的位置
+EventHandler | bindconfirm | Boolean function(Object params) | | 点击完成按钮时触发，params.event.value 为事件发生时文本框的内容，返回 true 表示按下完成按钮时不收起键盘，返回 false 表示收起键盘，默认为 false。注，在安卓上可能受到其他特性的影响导致键盘不收起，比如当指定 confirmType 为 Next 时，会聚焦到下一个输入框，此时键盘没有收起。
+EventHandler | bindfocus | function(Object params) | | 输入框得到输入焦点时触发，params.event.value 为事件发生时文本框的内容
+EventHandler | bindblur | function(Object params) | | 输入框失去焦点时触发，params.event.value 为事件发生时文本框的内容
+Method | Integer getCursorStart() |  |  | 当前输入框的光标开始位置
+Method | Integer getCursorEnd() |  |  | 当前输入框的光标结束位置
 Method | String getValue() |  |  | 当前输入框的文本
 Method | Boolean hasFocus() |  |  | 当前输入框是否获取了焦点
-Method | void setCursorRange(int start, int end) |  |  | 设置当前输入框光标起始和结束位置
-Method | void setCursorStart(int start) |  |  | 设置当前输入框光标起始位置
-Method | void setFocus(boolean focus) |  |  | 设置当前输入框的焦点属性
+Method | void setCursorRange(Integer start, Integer end) |  |  | 设置当前输入框光标起始和结束位置
+Method | void setCursorStart(Integer start) |  |  | 设置当前输入框光标起始位置
+Method | void setFocus(Boolean focus) |  |  | 设置当前输入框的焦点属性
 
 ## list
-+ `<list>` 组件是提供垂直列表功能的核心组件。非常适合用于长列表的展示
++ `<list>` 组件是提供列表功能的核心组件。非常适合用于长列表的展示
 + 使用方法:
-    
-    + `<list>` 标签内有 `vn:for` 属性，使用胡子语法，以 for 循环的方式遍历 `<data>` 标签内的 一个数组
+    + `<list>` 标签使用 `vn:for` 属性和胡子语法绑定到数组类型的数据
     + 默认情况下，数组的当前项下标变量名为 index，可以通过 `vn:for-index` 属性修改该变量名，同样的 `vn:for-item` 可以修改指定数组当前元素的变量名，和 for 语句定义是一样的
-    + 在 `<list>` 标签内使用一组 `<cell>` 标签填充，一个 `<cell>` 代表着一种 ViewType
-    + 每个 `<cell>` 都定义了一个子页面布局
-    + `<list>` 标签内有 `vn:cell-key` 属性，定义数组元素里标示 ViewType 的字段，默认为 cellType
-    + `<cell>` 有 `fixedCellSize` 的属性，标识该类型的 cell 的尺寸是否是不变。如果是 true，则 Cell 的高度一旦计算完成后就不再随着内容的变化而变化，该值默认是 true。用于优化 iOS 的列表性能，在 Android 上被忽略
-    + 每个 `<cell>` 标签内应都有 `vn:cell-key` 属性值作为 Key，相应的数组元素里也有同样的 KEY-VALUE
+    + 在 `<list>` 标签内使用若干个 `<cell>` 标签来定义UI模板。每个 `<cell>` 代表着一种UI模板。
+    + `<list>` 标签的 `vn:switch` 属性，用于定义UI模板和数据之间的关联关系。定义数组元素中指明 CellType 的字段名，它的默认值为 "case"
+    + `<cell>` 的 `fixedCellSize` 的属性，标识该类型的CELL的尺寸是否是固定不变的。如果是 true，则该类型的CELL的高度或宽度一旦计算完成后就不再随着内容的变化而变化，该值默认是 true。用于优化 iOS 的列表性能，在 Android 上被忽略
+    + 每个 `<cell>` 标签内应都有 `vn:case` 属性值用于指明 CellType
     + `<cell>` 内的页面布局通过胡子语法，访问数组 item 里的属性作为数据填充
-    + `<list>` 标签可使用 `<header>` 子标签作为拉下刷新的头部显示的视图，这个标签不能使用当前的 item 访问数据
+    + 可为其中一个 `<cell>` 标签设置 `vn:default` 属性，表示这个Cell是默认CellType，当数据中的ViewType找不到匹配的Cell时，会展示这种Cell。
+    + `<list>` 标签可使用 `<header>` 子标签作为下拉刷新的头部显示的视图。这个标签不能使用当前的 item 访问数据。
+    + `<list>` 标签可使用 `<footer>` 子标签作为上拉刷新的尾部显示的视图。这个标签不能使用当前的 item 访问数据。
 
 + 代码示例如下：
 
 ```html
 <!--list.vnml-->
-<list direction="column" width="100%" height="100%" vn:for="{{listData}}" vn:cell-key="cellType" bindItemTap="onItemClick">
-    <cell cellType="text">
-        <view>
-            <text>{{index}}: {{item.text}}</text>
-        </view>
+<list direction="column" width="100%" height="100%" vn:for="{{listData}}" vn:switch="cellType" bindItemTap="onItemClick">
+    <cell vn:case="text">
+    	<text>{{index}}: {{item.text}}</text>
     </cell>
-    <cell cellType="image">
+    <cell vn:case="image">
         <view flex-direction="row" justify-content="space-between">
             <image width="45%" aspect-ratio="1.5" src="{{item.url}}"/>
             <image width="45%" aspect-ratio="1.5" src="{{item.url}}"/>
         </view>
+    </cell>
+    <cell vn:case="default" vn:default>
+    	<text>Unknown Cell Type</text>
     </cell>
 </list>
 ```
@@ -564,10 +540,10 @@ Method | void setFocus(boolean focus) |  |  | 设置当前输入框的焦点属�
 ```js
 /**list.js**/
 page({
-    onItemClick: function(jsonObject) {
-        var position = jsonObject.event.position;
+    onItemClick: function(params) {
+        var position = params.event.position;
         var path = 'listData[' + position + '].cellType'; 
-        var curType = this.vn.data.query(path);
+        var curType = vn.data.query(path);
         console.log("被点击Item的type为：" + curType);
     }
 });
@@ -576,21 +552,21 @@ page({
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 Property | vn:for | 胡子语句 | | 数据源，必填项
-Property | vn:for-index | String | index |
-Property | vn:for-item | String | item |
-Property | vn:cell-key | String | cellType |
-Property | direction | Enum | column | column/row
-EventHandle | bindItemTap | function(Integer position) | | 列表 Item 点击，参数为 position
-EventHandle | bindItemLoad | function(Integer position) | | 列表 Item 与数据绑定时回调，在Item重用时还会回调，参数为 position
-EventHandle | bindHeaderRefreshing | function() | | 列表发生了下拉刷新
-EventHandle | bindFooterRefreshing | function() | | 列表发生了上拉加载
-EventHandle | bindScroll | function(Float deltaX, Float deltaY) | | 列表滚动，deltaX;deltaY（正数为下滑，负数为上滑）
-EventHandle | bindScrollStateChange | function(Integer newState) | | 列表滚动状态切换，newState，0:空闲;1:拖拽;2:滑动;
-Method | void scrollToPosition(int position, int mode) |  |  | list滚动到指定的位置，position 代表 Cell 的下标，从0开始。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间
-Method | void smoothScrollToPosition(int position, int mode) |  |  | 有动画的滚动到指定的位置。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间
-Method | void setFooterRefreshingEnabled(boolean enable) |  |  | 是否允许上拉加载更多
-Method | void setHeaderRefreshingEnabled(boolean enable) |  |  | 是否允许下拉刷新
-Method | void setRefreshing(boolean enable) |  |  | 下拉刷新是否开始(如果已经开始下拉刷新可以靠这个值结束下拉刷新，若果没有下拉刷新也可以通过代码触发，前提是setHeaderRefreshingEnabled(true))
+Property | vn:for-index | String | "index" |
+Property | vn:for-item | String | "item" |
+Property | vn:switch | String | "case" |
+Property | direction | Enum | column | column/row，滚动方向
+EventHandler | bindItemTap | function(Object params) | | 列表 Item 点击，位置参数为 params.event.position
+EventHandler | bindItemLoad | function(Object params) | | 列表 Item 与数据绑定时回调，在Item重用时还会回调，位置参数为 params.event.position
+EventHandler | bindHeaderRefreshing | function(Object params) | | 列表发生了下拉刷新
+EventHandler | bindFooterRefreshing | function(Object params) | | 列表发生了上拉加载
+EventHandler | bindScroll | function(Object params) | | 列表滚动，params.event = { deltaX : 0, deltaY : 0 }; deltaX 和 deltaY（正数为下滑，负数为上滑）
+EventHandler | bindScrollStateChange | function(Object params) | | 列表滚动状态切换，新状态为 params.event.newState。取值说明： 0:空闲;1:拖拽;2:滑动;
+Method | void scrollToPosition(Integer position, Integer mode) |  |  | list滚动到指定的位置，position 代表 cell 的下标，从0开始。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间
+Method | void smoothScrollToPosition(Integer position, Integer mode) |  |  | 有动画的滚动到指定的位置。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间
+Method | void setFooterRefreshingEnabled(Boolean enable) |  |  | 是否允许上拉加载更多
+Method | void setHeaderRefreshingEnabled(Boolean enable) |  |  | 是否允许下拉刷新
+Method | void setRefreshing(Boolean enable) |  |  | 下拉刷新是否开始，如果已经开始下拉刷新可以靠这个值结束下拉刷新，若果没有下拉刷新也可以通过代码触发，前提是setHeaderRefreshingEnabled(true)
 Method | void invalidateLayout() |  |  | 使 List 布局失效， 会导致 list 重新刷新布局，计算每个 cell 的宽高，只对 iOS 平台生效
 Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 
@@ -598,28 +574,24 @@ Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 
 ```html
 <!--listHeaderFooter.vnml-->
-<list class="mainList" vn:for="{{listData}}" vn:cell-key="cellType" bindHeaderRefreshing="onHeaderRefreshing" bindFooterRefreshing="onFooterRefreshing" >
+<list class="mainList" vn:for="{{listData}}" vn:switch="cellType" bindHeaderRefreshing="onHeaderRefreshing" bindFooterRefreshing="onFooterRefreshing" >
     <header class="listHeader" bindHeaderStateChange="onHeaderStateChange">
         <text id="header_title" class="headerTitle">下拉刷新</text>
         <text id="header_subtitle" class="headerSubtitle"></text>
         <image id="header_img" class="headerImg" hidden="true" src="http://connorlu.vip:3000/img/header-loading.gif"></image>
     </header>
-
-    <cell cellType="text">
-        <view>
-            <text>{{index}}: {{item.text}}</text>
-        </view>
+    <footer class="listFooter" bindFooterStateChange="onFooterStateChange">
+        <text id="footer_title" class="footerTitle">上拉加载更多</text>
+    </footer>
+    <cell vn:case="text">
+    	<text>{{index}}: {{item.text}}</text>
     </cell>
-    <cell cellType="image">
+    <cell vn:case="image">
         <view flex-direction="row" justify-content="space-between">
             <image width="45%" aspect-ratio="1.5" src="{{item.url}}"/>
             <image width="45%" aspect-ratio="1.5" src="{{item.url}}"/>
         </view>
     </cell>
-     <footer class="listFooter" bindFooterStateChange="onFooterStateChange">
-        <text id="footer_title" class="footerTitle">上拉加载更多</text>
-    </footer>
-
 </list>
 ```
 
@@ -650,13 +622,13 @@ Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 ```js
 /**listHeaderFooter.js**/
 page({     
-    onHeaderRefreshing: function (param) {
+    onHeaderRefreshing: function (params) {
         console.log('onHeaderRefresh');
         this.reloadData();
     },
-    onHeaderStateChange: function (event) {
-        headerChildren = event.target.getChildElements();
-        switch (event.event.state) {
+    onHeaderStateChange: function (params) {
+        headerChildren = params.target.getChildElements();
+        switch (params.event.state) {
         case 0:
             headerChildren[0].setProperty("content", "还原");
             break;
@@ -686,8 +658,8 @@ header 主要用于实现下拉刷新，目前只能作为 list 的子控件
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-EventHandle | bindHeaderStateChange | function(Integer state, Boolean isAutomatic, Float maxOffset) | 当下拉刷新状态发生变化时<br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否为自动触发 <br> maxOffset 达到下拉刷新的偏移量 
-EventHandle | bindHeaderMove | function(Boolean hasRefreshed, Boolean isAutomatic, Float offset) | 当下拉刷新视图发生移动时 <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否为自动触发 <br> offset 当前下拉的偏移（正数，下拉越多，数字越大）
+EventHandler | bindHeaderStateChange | function(Object params) | 当下拉刷新状态发生变化时回调。params.event = {state: 0, isAutomatic: true, maxOffset: 20}; <br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否为自动触发 <br> maxOffset 达到下拉刷新的偏移量 
+EventHandler | bindHeaderMove | function(Object params) | 当下拉刷新视图发生移动时回调。params.event = {hasRefreshed: false, isAutomatic: false, offset: 0} <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否为自动触发 <br> offset 当前下拉的偏移（正数，下拉越多，数字越大）
 
 ```JavaScript
 page({
@@ -695,19 +667,19 @@ page({
         console.log('onFooterRefreshing');
         this.loadMore();
     },
-    onFooterStateChange: function (event) {
-        let footerChildren = event.target.getChildElements();
-        switch (event.event.state) {
+    onFooterStateChange: function (params) {
+        let footerChildren = params.target.getChildElements();
+        switch (params.event.state) {
             case 0://数据加载中
                 // Footer展示刷新中
                 break;
             case 1://setFooterRefreshingEnabled（true）会回调
                 // 此处可以对网络情况或者错误吗进行判断刷新结束是否由网络异常导致
-                if ({异常的api}) {
+                //if ({异常的api}) {
                 //Footer展示异常
-                } else {
+                //} else {
                 //Footer正常展示LoadMore
-                }
+                //}
                 break;
             case 2://没有更多数据了
                 // Footer展示没有更多数据的UI 可决定展示与否（没有更多数据了/隐藏）
@@ -721,14 +693,16 @@ footer 主要用于实现上拉时自动加载更多，目前只能作为 list �
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-EventHandle | bindFooterStateChange | function(Integer state) | 当下拉刷新状态发生变化时<br> state 0:加载中;1:加载更多请求结束;2:没有更多数据了; | 
+EventHandler | bindFooterStateChange | function(Object params) | | 当下拉刷新状态发生变化时 params.event.state 代表了状态。<br> state 0:加载中; 1:加载结束; 2:没有更多数据了
+
 ## scroll-view
+这是一个可滚动的容器类。支持横向或纵向滚动。
 
 + 代码示例如下：
 
 ```html
 <!--scroll.vnml-->
-<scroll-view id="scroll" direction="row" width="100%" height="100%"  flex-direction="column" bindScroll="onScroll">
+<scroll-view id="scroll" direction="row" width="100%" height="100%" bindScroll="onScroll">
     <view vn:for="{{itemList}}" bindTap="getOffset">
         <image width="50rpx" aspect-ratio="1" src="{{item.iconUrl}}"  />
         <text width="auto" height="auto" flex-grow="1">{{item.title}}</text>
@@ -747,7 +721,7 @@ page({
         this.printLog("滑动速度:" + deltaY + "rpx");
     },
     getOffset: function (params) {
-        scrollView = this.vn.dom.getElementById("scroll");
+        let scrollView = params.target;
         var offset = scrollView.getScrollOffset();
         this.printLog("当前位移为：" + offset);
     }
@@ -757,27 +731,21 @@ page({
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 Property | direction | Enum | column | column/row
-EventHandle | bindScroll | function(Float deltaX,Float deltaY) | | 滚动时触发，deltaX，deltaY，单位为px
-Method | scrollTo(Float delta, Boolean animation) | | 0, false | 滚动到指定位置，单位为rpx；参数 animation 指定是否带动画效果
-Method | bindScrollStateChange |function(Object param) | | 监听scroll-view 的滚动状态改变
+Method | scrollTo(Float delta, Boolean animation) | | | 滚动到指定位置，单位为rpx；参数 animation 指定是否带动画效果
 Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
-
+EventHandler | bindScroll | function(Object params) | | 滚动时触发，params.event = {deltaX: 0, deltaY: 20}. deltaX 和 deltaY 为滚动的偏移量，单位为px
+EventHandler | bindScrollStateChange | function(Object params) | | 回调 scroll-view 的滚动状态改变。params.event.newState 为当前状态。取值说明： 0:空闲;1:拖拽;2:滑动;
 
 
 ## view-pager
+这是一个显示多页面的容器类，通过滑动切换页面，支持自动播放和无限滑动。
 
 ```html
 <!--viewPager.vnml-->
 <view id="mainContainer">
 
-    <list id="chennelTitleList" class="pageHeader" vn:for="{{pageData}}" vn:cell-key="channelType" style="direction:row;" binditemtap="onChannelItemClick" >
-        <cell channelType="channel">
-            <text color="{{pageIndex == index ? '#FF0000FF' : '#000000FF'}}">{{item.channelName}}</text>
-        </cell>
-    </list>
-
-    <view-pager id="mainPager" class="page" vn:for="{{pageData}}" bindPageChange="onPageChange">
-        <cell cellType="text">
+    <view-pager id="mainPager" class="page" vn:for="{{pageData}}" vn:switch="cellType" bindPageChange="onPageChange">
+        <cell vn:case="text">
             <text>{{item.channelName}}</text>
         </cell>
     </view-pager>
@@ -812,17 +780,9 @@ Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 ```js
 /**viewPager.js**/
 page({     
-    onChannelItemClick: function (params){
-        console.log(JSON.stringify(params));
-        pager = this.vn.dom.getElementById('mainPager');
-        pager.setPageIndex(params.event.position);
-    },
     onPageChange: function (param) {
-        var cellData = this.vn.data.query('pageData[' + param.event.pageIndex + ']');
-        this.vn.data.update('pageIndex', param.event.pageIndex);
-
-        channelList = this.vn.dom.getElementById('chennelTitleList');
-        channelList.smoothScrollToPosition(param.event.pageIndex);
+        var cellData = vn.data.query('pageData[' + param.event.pageIndex + ']');
+        vn.data.update('pageIndex', param.event.pageIndex);
     }
     });
 ```
@@ -830,22 +790,23 @@ page({
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 Property | vn:for | 胡子语句 | | 数据源，必填项
-Property | vn:for-index | String | index | 数组下标
-Property | vn:for-item | String | item | 数组项
-Property | vn:cell-key | String | cellType | 数组项类型
-Property | page-gap | rpx | 0rpx | 分页间距
-Property | previous-margin | rpx | 0rpx | 前边距，可用于露出前一页的一小部分
-Property | next-margin | rpx | 0rpx | 后边距，可用于露出下一页的一小部分
-Property | circular | boolean | false | 是否开启无限滚动
-Property | autoplay | boolean | false | 是否开启自动滚动
+Property | vn:for-index | String | "index" | 数组下标
+Property | vn:for-item | String | "item" | 数组项
+Property | vn:switch | String | "case" | 数组项类型
+Property | page-gap | rpx pt | 0rpx | 分页间距
+Property | previous-margin | rpx pt | 0rpx | 前边距，可用于露出前一页的一小部分
+Property | next-margin | rpx pt | 0rpx | 后边距，可用于露出下一页的一小部分
+Property | circular | Boolean | false | 是否开启无限滚动
+Property | autoplay | Boolean | false | 是否开启自动滚动
 Property | interval | Number | 5000 | 自动滚动的间隔时间，单位：毫秒
-EventHandle | bindScroll | function(Float delta, Float offset, Float offsetPercent, Integer scrollState, Integer pageIndex) | | 滚动时触发， delta, offset, offsetPercent, scrollState, pageIndex
-EventHandle | bindScrollStateChange | function(int scrollState) | | 0:空闲;1:拖拽;2:滑动
-EventHandle | bindPageChange | function(int pageIndex) | | 滑动停止时指向的分页，pageIndex
+EventHandler | bindScroll | function(Float delta, Float offset, Float offsetPercent, Integer scrollState, Integer pageIndex) | | 滚动时触发， delta, offset, offsetPercent, scrollState, pageIndex
+EventHandler | bindScrollStateChange | function(int scrollState) | | 0:空闲;1:拖拽;2:滑动
+EventHandler | bindPageChange | function(int pageIndex) | | 滑动停止时指向的分页，pageIndex
 Method | void setPageIndex(Integer index) | Integer | | 设置当前的分页编号
 Method | Integer getPageIndex() | | | 获取当前的分页编号
 
 ## video
+video组件用于播放音视频资源。
 
 + 代码示例如下：
 
@@ -862,16 +823,16 @@ Property | poster | String | | 视频海报
 Property | controls | Boolean | true | 是否显示自带控件
 Property | show-fullscreen-btn | Boolean | true | 是否显示全屏按钮，controls为false时不生效
 Property | show-progress | Boolean | true | 是否显示进度条，controls为false时不生效
-Property | object-fit | Enum | contain | contain/fill/cover
+Property | objectfit | Enum | contain | contain/fill/cover
 Property | initial-time | Integer | 0 | 指定视频初始播放位置，时长单位为毫秒
 Property | autoplay | Boolean | false | 是否自动播放
 Property | loop | Boolean | false | 是否循环播放
-EventHandle | bindPlay | function() | | 当开始/继续播放时触发play事件
-EventHandle | bindPause | function() | | 当暂停播放时触发 pause 事件
-EventHandle | bindEnded | function() | | 当播放到末尾时触发 ended 事件
-EventHandle | bindTimeUpdate | function(int currentTime, int duration) | | 播放进度变化时触发。触发频率250ms一次，时长单位为毫秒
-EventHandle | bindWaiting | function() | | 视频出现缓冲时触发
-EventHandle | bindError | function(int errorCode, String errorInfo) | | 视频播放出错时触发
+EventHandler | bindPlay | function() | | 当开始/继续播放时触发play事件
+EventHandler | bindPause | function() | | 当暂停播放时触发 pause 事件
+EventHandler | bindEnded | function() | | 当播放到末尾时触发 ended 事件
+EventHandler | bindTimeUpdate | function(int currentTime, int duration) | | 播放进度变化时触发。触发频率250ms一次，时长单位为毫秒
+EventHandler | bindWaiting | function() | | 视频出现缓冲时触发
+EventHandler | bindError | function(int errorCode, String errorInfo) | | 视频播放出错时触发
 Method | Integer getCurrentTime() | | | 获取当前播放位置，时长单位为毫秒
 Method | void seekTo(Integer time) | Integer | | 从指定毫秒开始播放，时长单位为毫秒
 Method | void start() | | | 从暂停位置继续播放
@@ -881,7 +842,7 @@ Method | void stop() | | | 停止播放，并释放资源
 Method | Boolean isPlaying() | | | 是否正在播放
 Method | Integer getDuration() | | | 获取当前播放视频的总长度，时长单位为毫秒。收到play事件以后才能获取准确值。
 
-其中 object-fit 的有效值为
+其中 objectfit 的有效值为
 
  值 | 说明
  --- | ---
