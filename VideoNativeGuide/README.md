@@ -4,7 +4,7 @@
 
 如果你的工程项目支持 Cocoapods, 可以直接采用如下的方式添加 VideoNative.
 
-```Ruby
+```ruby
 platform :ios, '9.0'
 source 'http://git.code.oa.com/VideoNative/VNSpec.git'
 target 'DemoProject' do
