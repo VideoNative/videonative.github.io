@@ -1,17 +1,30 @@
 # 开始一个新的工程（iOS）
 
-## 新建一个工程（[下载地址](https://share.weiyun.com/5z5MUnc)）
+## 使用 Cocoapods
+
+如果你的工程项目支持 Cocoapods, 可以直接采用如下的方式添加 VideoNative.
+
+```Ruby
+platform :ios, '9.0'
+source 'http://git.code.oa.com/VideoNative/VNSpec.git'
+target 'DemoProject' do
+  pod 'VideoNative'
+end
+```
+
+## 手动配置
+### 新建一个工程（[下载地址](https://share.weiyun.com/5z5MUnc)）
 
 * 新建Xcode工程，例如VNDemo工程。
 ![](https://puui.qpic.cn/vupload/0/20180920_1537454612925_lbyprdz27fr.png/0)
 
 
-## 添加VideoNative.Framwork静态库
+### 添加VideoNative.Framwork静态库
 
 0. VideoNative工程Framework包含 `VideoNative.Framework`
 0. VideoNative库运行的环境需要一些静态文件包含 `libDecodeWebP.a`,`libGifSupport.a`,`libQLJCEData.a`,`libSerializationJCE.a`,`libWebP.a`。
 
-## 添加TVKPlayer.Framwork静态库（可选）
+### 添加TVKPlayer.Framwork静态库（可选）
 >本Demo播放器实现使用了腾讯视频播放器，具体可以通过注入播放器方式修改播放器实现。
     
    - 添加TVKPlayer.Framework
@@ -33,7 +46,7 @@
 
 >这时，你就可以运行这个app并且通过编译了
 
-## 运行一个VNDemo App
+### 运行一个VNDemo App
 
 - 在Demo工程中我们添加了VN的一个小Demo
 
@@ -66,7 +79,7 @@
 
     ![](https://puui.qpic.cn/vupload/0/20180920_1537454564898_hvtnisfjn8k.jpeg/0)
 
-## 添加JSAPI
+### 添加JSAPI
 
 ```ObjC
 //Injector.h
@@ -111,7 +124,7 @@
 
 ```
 
-## 注入播放器（可选为系统播放器实现）
+### 注入播放器（可选为系统播放器实现）
 
 ```ObjC
 #import "VideoNatvieDemoInjector.h"
@@ -126,7 +139,7 @@
 @end
 ```
 
-## Demo工程下载路径
+### Demo工程下载路径
 
 [下载地址](https://share.weiyun.com/5z5MUnc)
 
