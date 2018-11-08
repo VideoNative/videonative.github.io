@@ -256,8 +256,8 @@ Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF |
 Property | text-align | Enum(可组合) | left&#124;top | left/right/center
-Property | ellipsize | Enum | none | none;start;middle;end
-Property | max-line | Integer | 0 | 0代表不限行数
+Property | ellipsize | Enum | none | none;start;middle;end。注：max-line属性的值会影响到本属性。
+Property | max-line | Integer | 0 | 0代表不限行数。注：1、当不限行数时，ellipsize无法生效；2、当max-line大于1时，ellipsize在Android平台上只有end生效
 Property | line-height | Float | 1.0 | 1.0代表一倍行间距，最小有效值为 1.0
 
 ## image
@@ -842,7 +842,7 @@ Method | void stop() | | | 停止播放，并释放资源
 Method | Boolean isPlaying() | | | 是否正在播放
 Method | Integer getDuration() | | | 获取当前播放视频的总长度，时长单位为毫秒。收到play事件以后才能获取准确值。
 
-其中 objectfit 的有效值为
+其中 objectfit 的有效值为：
 
  值 | 说明
  --- | ---
