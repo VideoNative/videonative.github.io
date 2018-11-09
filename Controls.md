@@ -256,8 +256,8 @@ Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF |
 Property | text-align | Enum(可组合) | left&#124;top | left/right/center
-Property | ellipsize | Enum | none | none;start;middle;end。注：max-line属性的值会影响到本属性。
-Property | max-line | Integer | 0 | 0代表不限行数。注：1、当不限行数时，ellipsize无法生效；2、当max-line大于1时，ellipsize在Android平台上只有end生效
+Property | ellipsize | Enum | none | none;start;middle;end。注：max-lines属性的值会影响到本属性。
+Property | max-lines | Integer | 0 | 0代表不限行数。注：1、当不限行数时，ellipsize无法生效；2、当max-lines大于1时，ellipsize在Android平台上只有end生效
 Property | line-height | Float | 1.0 | 1.0代表一倍行间距，最小有效值为 1.0
 
 ## image
@@ -412,7 +412,7 @@ Method | void setFocus(Boolean focus) |  |  | 设置当前输入框的焦点属�
 
 ```html
 <!--textarea.vnml-->
-<textarea id="eventText" placeholder="响应事件" max-line="10" confirm-type="done" margin="10rpx" padding="5rpx" width="100%"
+<textarea id="eventText" placeholder="响应事件" max-lines="10" confirm-type="done" margin="10rpx" padding="5rpx" width="100%"
             height="auto" font-size="30rpx" bindInput="onTextArea" bindFocus="onFocus" bindBlur="onBlur" bindConfirm="onConfirm"
             keep-focus="true">{{editdata}}
 </textarea>
@@ -462,7 +462,7 @@ Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
 Property | text-align | Enum(可组合) | left&#124;top | left/right/center
-Property | max-line | Integer | 0 | 0代表不限行数
+Property | max-lines | Integer | 0 | 0代表不限行数
 Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
 Property | placeholder | String | | 当没有文字输入时的提示文案
 Property | placeholder-color | color | #888888FF |
