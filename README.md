@@ -14,18 +14,18 @@
 1. 先来看一个简单的Demo示例
 
     ```html
-     <!--Demo.vnml-->
-     <view class="container">
-         <text width="100%" height="auto" bindTap="onTextTap">{{userInfo.content}}</text>
-     </view>
+    <!--Demo.vnml-->
+    <view class="container">
+        <text width="100%" height="auto" bindTap="onTextTap">{{userInfo.content}}</text>
+    </view>
     ```
 
     ```json
     {
-    	"userInfo":
-    	{
-    		"content": "Hello World!"
-    	}
+        "userInfo":
+        {
+        	   "content": "Hello World!"
+        }
     }
     ```
 
@@ -33,17 +33,17 @@
     /** Demo.vnss **/
     .container
     {
-    	height: 100%;
-    	width: 100%;
-    	flex-direction: column;
-    	justify-content: center;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
     }
     
     text 
     {
-    	font-size: 50rpx;
-    	text-align:center;
-    	background-color: #DDDDDD;
+        font-size: 50rpx;
+        text-align:center;
+        background-color: #DDDDDD;
     }
     ```
 
@@ -84,11 +84,24 @@
     <!-- MustacheDemo.vnml -->
     <!-- showIndex从json中查询得到的值为0，则当前文本颜色为选中态："#FF8D33FF" -->
     <!-- showIndex如果被js代码修改为1时，则当前文本颜色变为正常态："#979797FF"，产生动态效果 -->
-    <text class="tabItem" color="{{showIndex == 0 ? selectedColor : normalColor}}">颜色变化</text>
+    <text color="{{showIndex == 0 ? selectedColor : normalColor}}">
+        颜色变化
+    </text>
+    ```
+    
+    ```css
+    /** MustacheDemo.vnss **/
+    text 
+    {
+        width: 100%;
+        height: 100rpx;
+        font-size: 50rpx;
+        text-align:center;
+        background-color: #DDDDDD;
+    }
     ```
 
     ```json
-    /** MustacheDemo.json **/
     {
         "showIndex": 0,
         "selectedColor": "#FF8D33FF",
@@ -116,8 +129,19 @@
 </text>
 ```
 
+```css
+/** ForDemo.vnss **/
+text 
+{
+    width: 100%;
+    height: 100rpx;
+    font-size: 50rpx;
+    text-align:center;
+    background-color: #DDDDDD;
+}
+```
+
 ```json
-/** ForDemo.json **/
 {
     "array": [ 
         {"message": "foo" },
