@@ -163,6 +163,18 @@ text
 <text vn:else> 3 </text>
 ```
 
+```css
+/** IfDemo.vnss **/
+text 
+{
+    width: 100%;
+    height: 100rpx;
+    font-size: 50rpx;
+    text-align:center;
+    background-color: #DDDDDD;
+}
+```
+
 ```json
 /** IfDemo.json **/
 {"length": 4}
@@ -177,24 +189,25 @@ text
 
 1. vnss文件可定义若干个规则集，用于定义页面布局和组件属性，页面组件有多种方式匹配定义好的规则集
 2. 各组件的属性会各不相同。详情请参见控件页
-3. 样式表的匹配方式有：标签选择器，类选择器，ID选择器，后代选择器，伪类选择器，通配符选择器 。详细说明如下：
+3. 样式表的匹配方式有：标签选择器，类选择器，ID选择器，后代选择器，伪类选择器，通配符选择器。详细说明如下：
     + 类选择器示例：
     ```css
-    /** LabelSelector.vnss **/
+    /** ClassSelector.vnss **/
     /* 匹配class="title"的标签 */
     .title {
         font-size:35rpx;
         color:#222222FF;
     }
     ```
+    
     ```html
-    <!--LabelSelector.vnml-->
+    <!--ClassSelector.vnml-->
     <text class="title" width="100%" height="auto">匹配文本</text>
     ```
 
     + 标签选择器示例：
     ```css
-    /** ClassSelector.vnss **/
+    /** TypeSelector.vnss **/
     /* 匹配布局中所有的text标签 */
     text {
         font-size:35rpx;
@@ -203,7 +216,7 @@ text
     ```
 
     ```html
-    <!--ClassSelector.vnml-->
+    <!--TypeSelector.vnml-->
     <text width="100%" height="auto">匹配文本1</text>
     <text width="100%" height="auto">匹配文本2</text>
     ```
@@ -241,7 +254,7 @@ text
 
     + 伪类选择器示例：
     ```css
-    /** DescendantSelector.vnss **/
+    /** PseudoSelector.vnss **/
     /* 匹配id="container"的标签下的被用户点击的文本标签 */
     #container text:active {
         width:100%;
@@ -253,18 +266,18 @@ text
 
     + 通配符选择器示例：
     ```css
-    /** DescendantSelector.vnss **/
+    /** UniversalSelector.vnss **/
     /* 匹配所有标签 */
-    \* {
+    * {
         width:100%;
-        height:auto;
-        font-size:20rpx;
-        color:#FFFFFFFF;
+        height:200rpx;
+        font-size:50rpx;
+        background-color:green;
     }
     ```
 
     ```html
-    <!--DescendantSelector.vnml-->
+    <!--UniversalSelector.vnml-->
     <view id="mainContainer">
         <text>匹配文本</text>
     </view>
