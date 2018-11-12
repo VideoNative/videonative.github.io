@@ -14,19 +14,18 @@
 1. 先来看一个简单的Demo示例
 
     ```html
-    <!--Demo.vnml-->
-    <view class="container">
-        <text width="100%" height="auto" bindTap="onTextTap">{{userInfo.nickName}}</text>
-    </view>
+     <!--Demo.vnml-->
+     <view class="container">
+         <text width="100%" height="auto" bindTap="onTextTap">{{userInfo.content}}</text>
+     </view>
     ```
 
     ```json
-    /** Demo.json **/
     {
-        "userInfo":
-        {
-            "nickName": "Video"
-        }
+    	"userInfo":
+    	{
+    		"content": "Hello World!"
+    	}
     }
     ```
 
@@ -34,15 +33,22 @@
     /** Demo.vnss **/
     .container
     {
-        height: 100%;
-        width: 100%;
-        flex-direction: column;
-        padding: 200rpx 0;
+    	height: 100%;
+    	width: 100%;
+    	flex-direction: column;
+    	justify-content: center;
+    }
+    
+    text 
+    {
+    	font-size: 50rpx;
+    	text-align:center;
+    	background-color: #DDDDDD;
     }
     ```
 
     ```js
-    /**Demo.js**/
+    /** Demo.js **/
     page ({
         onTextTap: function (params) {
             var clickStr = "文本被点击";
