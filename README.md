@@ -113,11 +113,11 @@
 
 #### vn:for语句
 
-1. 在组件标签上使用 `vn:for` 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件
-2. 默认情况下，数组的当前项下标变量名为 `index`，数组当前项的变量名为 `item`
-3. 使用 `vn:for-index` 可以指定数组当前下标的变量名
-4. 使用 `vn:for-item` 可以指定数组当前元素的变量名
-5. 脚本示例:
++ 在组件标签上使用 `vn:for` 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件
++ 默认情况下，数组的当前项下标变量名为 `index`，数组当前项的变量名为 `item`
++ 使用 `vn:for-index` 可以指定数组当前下标的变量名
++ 使用 `vn:for-item` 可以指定数组当前元素的变量名
++ 脚本示例:
 
 ```html
 <!--ForDemo.vnml-->
@@ -152,9 +152,9 @@ text
 
 #### vn:if语句
 
-1. `vn:if` 条件语句用于判断当前组件标签是否需要渲染
-2. 也可以用 `vn:elif` 或 `vn:else` 来添加 else 块
-3. 脚本示例:
++ `vn:if` 条件语句用于判断当前组件标签是否需要渲染
++ 也可以用 `vn:elif` 或 `vn:else` 来添加 else 块
++ 脚本示例:
 
 ```html
 <!--IfDemo.vnml-->
@@ -182,7 +182,7 @@ text
 
 #### vn:for 与 vn:if
 
-1. 当 `vn:if` 和 `vn:for` 同时存在于一个标签内时，`vn:for` 会被优先处理
++ 当 `vn:if` 和 `vn:for` 同时存在于一个标签内时，`vn:for` 会被优先处理
 
 
 ## vnss 样式
@@ -191,6 +191,7 @@ text
 2. 各组件的属性会各不相同。详情请参见控件页
 3. 样式表的匹配方式有：标签选择器，类选择器，ID选择器，后代选择器，伪类选择器，通配符选择器。详细说明如下：
     + 类选择器示例：
+
     ```css
     /** ClassSelector.vnss **/
     /* 匹配class="title"的标签 */
@@ -206,6 +207,7 @@ text
     ```
 
     + 标签选择器示例：
+
     ```css
     /** TypeSelector.vnss **/
     /* 匹配布局中所有的text标签 */
@@ -222,6 +224,7 @@ text
     ```
 
     + ID选择器示例：
+
     ```css
     /** IDSelector.vnss **/
     /* 匹配id="container"的标签 */
@@ -241,6 +244,7 @@ text
     ```
 
     + 后代选择器示例：
+ 
     ```css
     /** DescendantSelector.vnss **/
     /* 匹配id="container"的标签下的文本标签 */
@@ -253,6 +257,7 @@ text
     ```
 
     + 伪类选择器示例：
+
     ```css
     /** PseudoSelector.vnss **/
     /* 匹配id="container"的标签下的被用户点击的文本标签 */
@@ -265,6 +270,7 @@ text
     ```
 
     + 通配符选择器示例：
+
     ```css
     /** UniversalSelector.vnss **/
     /* 匹配所有标签 */
@@ -299,5 +305,6 @@ iPhone6 Plus | 1rpx=0.552px | 1px=1.81rpx
 ## js 文件脚本
 
 JS文件用于定义页面业务相关的处理逻辑和数据，也用于定义页面生命周期回调函数。在JS脚本中，可以调用VN框架提供的API，具体参见[API](https://videonative.github.io/VideoNative/#/API)
+
 JS脚本文件通过调用page函数来传入对象，用于处理页面事件。具体页面事件参见[API](https://videonative.github.io/VideoNative/#/Controls?id=%E9%80%9A%E7%94%A8%E4%BA%8B%E4%BB%B6)
 
