@@ -31,19 +31,37 @@ page ({
         var clickStr = "文本被点击";
         console.log(clickStr);
     },
+    
     onReady: function () {
         console.log('页面加载完成')
-    },
-    onPageResult: function (params) {
-        console.log('从前一个页面返回， 参数为：' + JSON.stringify(params));
     }
 });
+```
+
+```css
+/** commonEvent.vnss **/
+.container
+{
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+    
+text 
+{
+    width: 100%;
+    height: 100rpx;
+    font-size: 50rpx;
+    text-align:center;
+    background-color: #DDDDDD;
+}
 ```
 
 ```html
 <!--commonEvent.vnml-->
 <view class="container">
-    <text width="100%" height="auto" bindTap="onTextTap">可点击文本</text>
+    <text bindTap="onTextTap">可点击文本</text>
 </view>
 ```
 
