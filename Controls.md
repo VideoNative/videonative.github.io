@@ -135,10 +135,12 @@ Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属
 
 + 代码示例如下：
 ```html
-<!--subView.vnml-->
-<view width="100%" height="auto" flex-direction="row" align-items="center">
-    <image width="200rpx" aspect-ratio="1.7" src="{{url}}" position="absolute" />
-    <text height="auto" width="auto" flex-grow="1" font-size="30rpx">{{firstLine}}</text>
+<!--Flexbox.vnml-->
+    <view width="100%" height="auto" flex-direction="row" align-items="center">
+    <image width="200rpx" aspect-ratio="1" src="https://github.com/VideoNative/VideoNative/raw/master/VideoNative.png" position="relative"/>
+    <text height="200rpx" width="auto" flex-grow="1" font-size="30rpx" background-color="gray">
+        FlexBox
+    </text>
 </view>
 ```
 
@@ -176,9 +178,10 @@ view是简单的容器类。它支持设置 border 和 shadow。
 
 ```html
 <!--view.vnml-->
-<view width="100%" height="85.4rpx" align-items="center"  justify-content="space-between" flex-direction="row">
-    <image height="60rpx" width="95rpx" src="{{iconUrl}}" />
-    <text height="100%" width="95rpx" font-size="30rpx"></text>
+<view width="100%" height="85.4rpx" align-items="center" justify-content="space-between" flex-direction="row">
+    <text height="200rpx" width="auto" flex-grow="1" font-size="30rpx" background-color="gray">
+        View Example
+    </text>
 </view>
 ```
 
@@ -308,7 +311,7 @@ image用于显示图片。支持网络和本地图片。
 
 ```html
 <!--image.vnml-->
-<image width="100%" aspect-ratio="1.78" src="{{imageUrl}}" shape="round-corner" corner-radius="30rpx" mode="center-crop"/>
+<image width="100%" aspect-ratio="1.78" src="https://github.com/VideoNative/VideoNative/raw/master/VideoNative.png" shape="round-corner" corner-radius="30rpx" mode="center-crop"/>
 ```
 
 
@@ -344,7 +347,6 @@ Property | corner-radius | rpx pt | 12rpx | 圆角半径，仅在 shape 为 roun
 ```
 
 ```json
-/** checkbox.json **/
 {
     "check": "http://connorlu.vip:3000/img/checkbox_y.png",
     "uncheck": "http://connorlu.vip:3000/img/checkbox_n.png",
