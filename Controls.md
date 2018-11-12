@@ -16,7 +16,7 @@ onReload(Object params) | 当前页面重新启动 | 页面 | 当再次打开一
 onShow() | 页面可见（进入前台或从其他页面跳转回来） | 页面 | 一次生命周期可能会调用多次 | 
 onHide() | 页面不可见（退入后台或跳转到其他页面） | 页面 | 一次生命周期可能会调用多次 |  
 onUnload() | 当前页面即将销毁 | 页面 | 一次生命周期只会调用一次 | 
-onOrientationChange(String orientation) |  当前页面方向改变 | 页面 | 选项：portrait， landscape， reverse-landscape | String
+onOrientationChange(Object param) |  当前页面方向改变 | 页面 | param.orientation 返回当前页面方向的字符串。可选项：portrait， landscape， reverse-landscape | String
 
 
 ## 通用事件
