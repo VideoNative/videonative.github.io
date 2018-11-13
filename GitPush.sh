@@ -1,4 +1,5 @@
 commitMessage='Auto Commit'
+echo $#
 if [ $# != 1 ] ; then
 	commitMessage=$1
 fi
