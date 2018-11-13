@@ -378,19 +378,20 @@ EventHandler | bindChange | Function | | checkbox 状态切换事件回调
 
 ```html
 <!--input.vnml-->
-<input id="eventText" placeholder="响应事件" confirm-type="done" margin="10rpx" padding="5rpx" width="100%"
-            height="auto" font-size="30rpx" bindInput="onInput" bindFocus="onFocus" bindBlur="onBlur" bindConfirm="onConfirm"
-            keep-focus="true">{{editdata}}
-</input>
+<view width="100%" height="100%" flex-direction="column">
+	<text margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx">你输入的是：{{inputValue}}</text>
+	<text margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx">状态：{{focusState}}</text>
+	<text margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx">确认次数：{{confirmCount}}</text>
+	<input id="eventText" placeholder="响应事件" confirm-type="done" margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx" bindInput="onInput" bindFocus="onFocus" bindBlur="onBlur" bindConfirm="onConfirm" keep-focus="true"></input>
+</view>
 ```
 
 ```json
-/** input.json **/
 {
   "focusState": "未获取焦点",
   "textCount": 0,
   "confirmCount": 0,
-  "editdata": ""
+  "inputValue": ""
 }
 ```
 
@@ -404,9 +405,7 @@ page({
   },
   onInput: function (params) {
     var text = params.event.value;
-    vn.data.update('textCount', text.length);
-    text = text.replaceAll("A", "B");
-    return text;
+    vn.data.update('inputValue', text);
   },
   onFocus: function (params) {
     vn.data.update('focusState', '获取焦点');
