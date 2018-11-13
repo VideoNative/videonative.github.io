@@ -382,7 +382,7 @@ EventHandler | bindChange | Function | | checkbox 状态切换事件回调
 	<text margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx">你输入的是：{{inputValue}}</text>
 	<text margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx">状态：{{focusState}}</text>
 	<text margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx">确认次数：{{confirmCount}}</text>
-	<input id="eventText" placeholder="响应事件" confirm-type="done" margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx" bindInput="onInput" bindFocus="onFocus" bindBlur="onBlur" bindConfirm="onConfirm" keep-focus="true"></input>
+	<input id="eventText" placeholder="响应事件" confirm-type="done" margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx" bindInput="onInput" bindFocus="onFocus" bindBlur="onBlur" bindConfirm="onConfirm" border-width="1rpx" border-style="solid"></input>
 </view>
 ```
 
@@ -454,10 +454,12 @@ Method | void setFocus(Boolean focus) |  |  | 设置当前输入框的焦点属�
 
 ```html
 <!--textarea.vnml-->
-<textarea id="eventText" placeholder="响应事件" max-lines="10" confirm-type="done" margin="10rpx" padding="5rpx" width="100%"
-            height="auto" font-size="30rpx" bindInput="onTextArea" bindFocus="onFocus" bindBlur="onBlur" bindConfirm="onConfirm"
-            keep-focus="true">{{editdata}}
-</textarea>
+<view width="100%" height="100%" flex-direction="column">	
+	<text margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx">你输入的是：{{inputValue}}</text>
+	<text margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx">状态：{{focusState}}</text>
+	<text margin="10rpx" padding="5rpx" width="100%" height="auto" font-size="30rpx">确认次数：{{confirmCount}}</text>
+	<textarea id="eventText" placeholder="响应事件" confirm-type="done" margin="10rpx" width="auto" height="auto" font-size="30rpx" bindInput="onInput" bindFocus="onFocus" bindBlur="onBlur" bindConfirm="onConfirm" max-lines="3" border-width="1rpx" border-style="solid"></textarea>
+</view>
 ```
 
 ```json
@@ -466,22 +468,21 @@ Method | void setFocus(Boolean focus) |  |  | 设置当前输入框的焦点属�
   "focusState": "未获取焦点",
   "textCount": 0,
   "confirmCount": 0,
-  "editdata": ""
+  "inputValue": ""
 }
 ```
 
 ```js
 /**textarea.js**/
-var eventTextarea;
+var eventinput;
 
 page({
   onReady: function () {
-    eventTextarea = vn.dom.getElementById('eventText');
+    eventinput = vn.dom.getElementById('eventText');
   },
-  onTextArea: function (params) {
+  onInput: function (params) {
     var text = params.event.value;
-    vn.data.update('textCount', text.length);
-    return text;
+    vn.data.update('inputValue', text);
   },
   onFocus: function (params) {
     vn.data.update('focusState', '获取焦点');
