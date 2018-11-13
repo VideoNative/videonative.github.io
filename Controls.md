@@ -442,7 +442,6 @@ Property | confirm-type | Enum | done | send(发送)/search(搜索)/next(下一�
 Property | password | Boolean | false | 是否为密码输入
 Property | placeholder | String | | 当没有文字输入时的提示文案
 Property | placeholder-color | color | #888888FF | 取值格式为#RGBA
-Property | keep-focus | Boolean | false | 当点击非本input输入的区域时是否保持焦点
 EventHandler | bindinput | String function(Object params) | | 当键盘输入时，触发input事件，params.event = {value: "文本", cursor: 1}，处理函数可以直接 return 一个字符串，将替换输入框的内容。value 为事件发生时文本框的内容，cursor为光标所在的位置
 EventHandler | bindconfirm | Boolean function(Object params) | | 点击完成按钮时触发，params.event.value 为事件发生时文本框的内容，返回 true 表示按下完成按钮时不收起键盘，返回 false 表示收起键盘，默认为 false。注，在安卓上可能受到其他特性的影响导致键盘不收起，比如当指定 confirmType 为 Next 时，会聚焦到下一个输入框，此时键盘没有收起。
 EventHandler | bindfocus | function(Object params) | | 输入框得到输入焦点时触发，params.event.value 为事件发生时文本框的内容
@@ -518,7 +517,6 @@ Property | max-lines | Integer | 0 | 0代表不限行数
 Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
 Property | placeholder | String | | 当没有文字输入时的提示文案
 Property | placeholder-color | color | #888888FF |
-Property | keep-focus | Boolean | false | 当点击非本input输入的区域时是否保持焦点
 EventHandler | bindinput | String function(Object params) | | 当键盘输入时，触发input事件，params.event = {value: "文本", cursor: 1}，处理函数可以直接 return 一个字符串，将替换输入框的内容。value 为事件发生时文本框的内容，cursor为光标所在的位置
 EventHandler | bindconfirm | Boolean function(Object params) | | 点击完成按钮时触发，params.event.value 为事件发生时文本框的内容，返回 true 表示按下完成按钮时不收起键盘，返回 false 表示收起键盘，默认为 false。注，在安卓上可能受到其他特性的影响导致键盘不收起，比如当指定 confirmType 为 Next 时，会聚焦到下一个输入框，此时键盘没有收起。
 EventHandler | bindfocus | function(Object params) | | 输入框得到输入焦点时触发，params.event.value 为事件发生时文本框的内容
