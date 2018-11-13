@@ -471,7 +471,6 @@ Method | void setFocus(Boolean focus) |  |  | 设置当前输入框的焦点属�
 ```
 
 ```json
-/** textarea.json **/
 {
   "focusState": "未获取焦点",
   "textCount": 0,
@@ -549,7 +548,7 @@ Method | void setFocus(Boolean focus) |  |  | 设置当前输入框的焦点属�
 <!--list.vnml-->
 <list direction="column" width="100%" height="100%" vn:for="{{listData}}" vn:switch="cellType" bindItemTap="onItemClick">
     <cell vn:case="text">
-    	<text>{{index}}: {{item.text}}</text>
+        <text font-size="50rpx">{{index}}: {{item.text}}</text>
     </cell>
     <cell vn:case="image">
         <view flex-direction="row" justify-content="space-between">
@@ -558,13 +557,12 @@ Method | void setFocus(Boolean focus) |  |  | 设置当前输入框的焦点属�
         </view>
     </cell>
     <cell vn:case="default" vn:default>
-    	<text>Unknown Cell Type</text>
+        <text>Unknown Cell Type</text>
     </cell>
 </list>
 ```
 
 ```json
-/** list.json **/
 {
   "listData": [
     {
@@ -624,29 +622,56 @@ Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 
 ```html
 <!--listHeaderFooter.vnml-->
-<list class="mainList" vn:for="{{listData}}" vn:switch="cellType" bindHeaderRefreshing="onHeaderRefreshing" bindFooterRefreshing="onFooterRefreshing" >
-    <header class="listHeader" bindHeaderStateChange="onHeaderStateChange">
-        <text id="header_title" class="headerTitle">下拉刷新</text>
-        <text id="header_subtitle" class="headerSubtitle"></text>
-        <image id="header_img" class="headerImg" hidden="true" src="http://connorlu.vip:3000/img/header-loading.gif"></image>
-    </header>
-    <footer class="listFooter" bindFooterStateChange="onFooterStateChange">
-        <text id="footer_title" class="footerTitle">上拉加载更多</text>
-    </footer>
-    <cell vn:case="text">
-    	<text>{{index}}: {{item.text}}</text>
-    </cell>
-    <cell vn:case="image">
-        <view flex-direction="row" justify-content="space-between">
-            <image width="45%" aspect-ratio="1.5" src="{{item.url}}"/>
-            <image width="45%" aspect-ratio="1.5" src="{{item.url}}"/>
-        </view>
-    </cell>
+<list id="mainList" vn:for="{{listData}}" vn:switch="cellType" bindHeaderRefreshing="onHeaderRefreshing" bindFooterRefreshing="onFooterRefreshing" >
+	<header class="listHeader" bindHeaderStateChange="onHeaderStateChange">
+		<text id="headerText"></text>
+	</header>
+	<cell vn:case="text">
+		<text>{{index}}: {{item.text}}</text>
+	</cell>
+	<cell vn:case="image">
+		<view flex-direction="row" justify-content="space-between">
+			<image src="{{item.url}}"/>
+			<image src="{{item.url}}"/>
+		</view>
+	</cell>
 </list>
 ```
 
+```css
+/** listHeaderFooter.vnss **/
+#mainList {
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    padding: 30rpx;
+    direction: column;
+}
+
+text {
+	font-size: 40rpx;
+	width: 100%;
+}
+
+#headerText {
+	text-align: center;
+	background-color: gray;
+}
+
+image {
+	width: 45%;
+	aspect-ratio:1.5;
+}
+
+.listHeader {
+    width: 100%;
+    height: 100rpx;
+    flex-grow: 1;
+    align-items: center;
+}
+```
+
 ```json
-/** listHeaderFooter.json **/
 {
   "listData": [
     {
@@ -672,36 +697,37 @@ Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 ```js
 /**listHeaderFooter.js**/
 page({     
-    onHeaderRefreshing: function (params) {
-        console.log('onHeaderRefresh');
-        this.reloadData();
-    },
-    onHeaderStateChange: function (params) {
-        headerChildren = params.target.getChildElements();
-        switch (params.event.state) {
-        case 0:
-            headerChildren[0].setProperty("content", "还原");
-            break;
-        case 1:
-            headerChildren[0].setProperty("content", "拖拽中");
-            break;
-        case 2:
-            headerChildren[0].setProperty("content", "松手");
-            break;
-        case 3:
-            headerChildren[0].setProperty("hidden", true);
-            headerChildren[1].setProperty("hidden", true);
-            headerChildren[2].setProperty("hidden", false);
-            break;
-        case 4:
-            headerChildren[0].setProperty("content", "刷新完成");
-            headerChildren[0].setProperty("hidden", false);
-            headerChildren[1].setProperty("hidden", false);
-            headerChildren[2].setProperty("hidden", true);
-            break;
-        }
-    }
-    });
+	onHeaderRefreshing: function (params) {
+		console.log('onHeaderRefresh');
+		var timerId = window.setInterval(function() {
+			let mainList = vn.dom.getElementById("mainList");
+            mainList.setRefreshing(false);
+            window.clearInterval(timerId);
+        },
+        1000);
+	},
+
+	onHeaderStateChange: function (params) {
+		headerChildren = params.target.getChildElements();
+		switch (params.event.state) {
+			case 0:
+			headerChildren[0].setProperty("content", "还原");
+			break;
+			case 1:
+			headerChildren[0].setProperty("content", "拖拽中");
+			break;
+			case 2:
+			headerChildren[0].setProperty("content", "松手");
+			break;
+			case 3:
+			headerChildren[0].setProperty("content", "刷新中");
+			break;
+			case 4:
+			headerChildren[0].setProperty("content", "刷新完成");
+			break;
+		}
+	}
+});
 ```
 
 header 主要用于实现下拉刷新，目前只能作为 list 的子控件
