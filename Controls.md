@@ -348,8 +348,8 @@ Property | corner-radius | rpx pt | 12rpx | 圆角半径，仅在 shape 为 roun
 
 ```json
 {
-    "check": "http://connorlu.vip:3000/img/https://github.com/VideoNative/VideoNative/raw/master/Resouce/checkbox_yes.png",
-    "uncheck": "http://connorlu.vip:3000/img/https://github.com/VideoNative/VideoNative/raw/master/Resouce/checkbox_no.png",
+    "check": "https://github.com/VideoNative/VideoNative/raw/master/Resouce/checkbox_yes.png",
+    "uncheck": "https://github.com/VideoNative/VideoNative/raw/master/Resouce/checkbox_no.png",
     "selected": true,
     "position": 10
 }
