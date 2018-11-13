@@ -8,4 +8,4 @@ echo $commitMessage
 
 git add .
 git commit -m "$commitMessage"
-# git push
+git push
