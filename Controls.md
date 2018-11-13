@@ -737,7 +737,7 @@ header 主要用于实现下拉刷新，目前只能作为 list 的子控件
 EventHandler | bindHeaderStateChange | function(Object params) | 当下拉刷新状态发生变化时回调。params.event = {state: 0, isAutomatic: true, maxOffset: 20}; <br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否为自动触发 <br> maxOffset 达到下拉刷新的偏移量 
 EventHandler | bindHeaderMove | function(Object params) | 当下拉刷新视图发生移动时回调。params.event = {hasRefreshed: false, isAutomatic: false, offset: 0} <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否为自动触发 <br> offset 当前下拉的偏移（正数，下拉越多，数字越大）
 
-```JavaScript
+```js
 page({
     onFooterRefreshing: function (param) {
         console.log('onFooterRefreshing');
@@ -778,30 +778,66 @@ EventHandler | bindFooterStateChange | function(Object params) | | 当下拉刷�
 
 ```html
 <!--scroll.vnml-->
-<scroll-view id="scroll" direction="row" width="100%" height="100%" bindScroll="onScroll">
-    <view vn:for="{{itemList}}" bindTap="getOffset">
-        <image width="50rpx" aspect-ratio="1" src="{{item.iconUrl}}"  />
-        <text width="auto" height="auto" flex-grow="1">{{item.title}}</text>
-    </view>
+<scroll-view class="container">
+	<scroll-view class="scroll" flex-direction="column">
+		<text background-color="{{item.background}}" class="column-item" color="{{item.color}}" vn:for="{{views}}">
+			{{item.text}}
+		</text>
+	</scroll-view>
 </scroll-view>
 ```
 
-```js
-/**scroll.js**/
-page({
-    printLog: function (log) {
-        console.log(log);
-    },
-    onScroll: function (params) {
-        var deltaY = params.event.deltaY;
-        this.printLog("滑动速度:" + deltaY + "rpx");
-    },
-    getOffset: function (params) {
-        let scrollView = params.target;
-        var offset = scrollView.getScrollOffset();
-        this.printLog("当前位移为：" + offset);
-    }
-});
+```css
+text {
+	font-size: 30rpx;
+	color: grey;
+}
+
+.container {
+	width: 100%;
+	flex-grow: 1;
+	flex-direction: column;
+	align-items: center;
+	background-color: #f8f8f8;
+	padding: 18rpx;
+}
+
+.column-item {
+	width: 500rpx;
+    height: 280rpx;
+	text-align: center;
+}
+
+.scroll {
+	width: 500rpx;
+	height: 300rpx;
+	margin: 50rpx;
+}
+```
+
+```json
+{
+	"page_title":"scroll-view",
+	"views": [
+		{
+			"text": "A",
+			"color": "white",
+			"background": "#1AAD19"
+		},
+
+		{
+			"text": "B",
+			"color": "white",
+			"background": "#2782D8"
+		},
+
+		{
+			"text": "C",
+			"color": "black",
+			"background": "#F1F1F1"
+		}
+	]
+}
 ```
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
