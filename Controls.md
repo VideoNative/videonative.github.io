@@ -258,6 +258,15 @@ border-top-style
 border-top-width
 ```
 
+代码示例如下：
+```html
+<!--border.vnml-->
+<view width="100%" height="100%">    
+	<view margin="25rpx" width="700rpx" height="300rpx" background-color="white" box-shadow="0rpx 0rpx 5rpx 10rpx #0000FF" border-radius="10rpx" border-color="green" border-width="10rpx" border-style="solid">
+	</view>
+</view>
+```
+
 ## text
 text是基本的文本展示控件
 
