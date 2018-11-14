@@ -969,7 +969,7 @@ video组件用于播放音视频资源。
 
 ```html
 <!--video.vnml-->
-<video width="100%" aspect-ratio="1.78" src="{{vid}}" controls="true" object-fit="fill" initial-time="10"/>
+<video src="http://gslb.miaopai.com/stream/vzQz~nbsBvpafyxhQF2OCcQVZbv~hP3I.mp4" autoplay="true" poster="http://puui.qpic.cn/qqvideo_ori/0/n0529gbp74d_496_280/0" />
 ```
 
 
