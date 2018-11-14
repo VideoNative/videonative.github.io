@@ -620,6 +620,12 @@ Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 
 ## header & Footer
 
+### header
+header 主要用于实现下拉刷新，目前只能作为 list 的子控件
+
++ 代码示例如下：
+
+
 ```html
 <!--listHeaderFooter.vnml-->
 <list id="mainList" vn:for="{{listData}}" vn:switch="cellType" bindHeaderRefreshing="onHeaderRefreshing" bindFooterRefreshing="onFooterRefreshing" >
@@ -730,12 +736,10 @@ page({
 });
 ```
 
-header 主要用于实现下拉刷新，目前只能作为 list 的子控件
-
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-EventHandler | bindHeaderStateChange | function(Object params) | 当下拉刷新状态发生变化时回调。params.event = {state: 0, isAutomatic: true, maxOffset: 20}; <br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否为自动触发 <br> maxOffset 达到下拉刷新的偏移量 
-EventHandler | bindHeaderMove | function(Object params) | 当下拉刷新视图发生移动时回调。params.event = {hasRefreshed: false, isAutomatic: false, offset: 0} <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否为自动触发 <br> offset 当前下拉的偏移（正数，下拉越多，数字越大）
+EventHandler | bindHeaderStateChange | function(Object params) | | 当下拉刷新状态发生变化时回调。params.event = {state: 0, isAutomatic: true, maxOffset: 20}; <br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否为自动触发 <br> maxOffset 达到下拉刷新的偏移量 
+EventHandler | bindHeaderMove | function(Object params) | | 当下拉刷新视图发生移动时回调。params.event = {hasRefreshed: false, isAutomatic: false, offset: 0} <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否为自动触发 <br> offset 当前下拉的偏移（正数，下拉越多，数字越大）
 
 ```js
 page({
@@ -764,8 +768,12 @@ page({
     },
 })
 ```
-footer 主要用于实现上拉时自动加载更多，目前只能作为 list 的子控件。
->备注：在list未进行LoadMore时，setFooterRefreshingEnabled（true）可以对ListLoadMore进行中状态进行重置。（相当于设置footer结束加载更多）
+
+### footer
+
+footer 主要用于实现上拉时自动加载更多，目前只能作为 list 的子控件
+
+> 备注：在list未进行LoadMore时，setFooterRefreshingEnabled（true）可以对ListLoadMore进行中状态进行重置。（相当于设置footer结束加载更多）
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
@@ -788,6 +796,7 @@ EventHandler | bindFooterStateChange | function(Object params) | | 当下拉刷�
 ```
 
 ```css
+/** scroll.vnss **/
 text {
 	font-size: 30rpx;
 	color: grey;
@@ -817,7 +826,6 @@ text {
 
 ```json
 {
-	"page_title":"scroll-view",
 	"views": [
 		{
 			"text": "A",
@@ -854,49 +862,86 @@ EventHandler | bindScrollStateChange | function(Object params) | | 回调 scroll
 
 ```html
 <!--viewPager.vnml-->
-<view id="mainContainer">
-
-    <view-pager id="mainPager" class="page" vn:for="{{pageData}}" vn:switch="cellType" bindPageChange="onPageChange">
-        <cell vn:case="text">
-            <text>{{item.channelName}}</text>
-        </cell>
-    </view-pager>
-
+<view id="wrapper">
+	<view-pager vn:for="{{views}}" bindPageChange="onPageChange" vn:switch="cellType">
+		<cell vn:case="text">
+			<view>
+				<text background-color="{{item.background}}" class="page-item" color="{{item.color}}">
+					{{item.text}}
+				</text>
+			</view>
+		</cell>
+	</view-pager>
 </view>
 ```
 
 ```json
-/** viewPager.json **/
-  {
-    "pageIndex":0,
-    "pageData": [{
-      "cellType": "text",
-      "channelType": "channel",
-      "channelName":"精选"
-    }, {
-      "cellType": "text",
-      "channelType": "channel",
-      "channelName":"电视剧"
-    },{
-      "cellType": "text",
-      "channelType": "channel",
-      "channelName":"综艺"
-    }, {
-      "cellType": "list",
-      "channelType": "channel",
-      "channelName":"少儿"
-    }]
-  }
+{
+	"views": [
+		{
+			"cellType": "text",
+			"text": "A",
+			"color": "white",
+			"background": "#1AAD19"
+		},
+
+		{
+			"cellType": "text",
+			"text": "B",
+			"color": "white",
+			"background": "#2782D8"
+		},
+
+		{
+			"cellType": "text",
+			"text": "C",
+			"color": "black",
+			"background": "#F1F1F1"
+		}
+	]
+}
+```
+
+```css
+/** viewPager.vnss **/
+text {
+	font-size: 30rpx;
+	color: grey;
+}
+
+#wrapper {
+	width: 100%;
+	height: 380rpx;
+}
+
+.container {
+	width: 100%;
+	flex-grow: 1;
+	flex-direction: column;
+	align-items: center;
+	background-color: #f8f8f8;
+	padding: 18rpx;
+}
+
+.page-item {
+	width: 100%;
+    height: 100%;
+	text-align: center;
+}
+
+view-pager {
+	width: 100%;
+	height: 100%;
+}
 ```
 
 ```js
 /**viewPager.js**/
 page({     
-    onPageChange: function (param) {
-        var cellData = vn.data.query('pageData[' + param.event.pageIndex + ']');
-        vn.data.update('pageIndex', param.event.pageIndex);
+	onPageChange: function(param) {
+		console.log("curIndex: " + param.event.pageIndex);
     }
-    });
+});
 ```
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
