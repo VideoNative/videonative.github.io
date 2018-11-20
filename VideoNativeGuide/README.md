@@ -2,8 +2,10 @@
 
 ## 使用 Cocoapods
 
-如果你的工程项目支持 Cocoapods, 可以直接采用如下的方式添加 VideoNative.
+如果你的工程项目支持 Cocoapods, 可以直接采用如下的方式添加 VideoNative
 
+添加 Podfile，内容如下，直接使用 `pod install` 来导入框架
+ 
 ```ruby
 platform :ios, '9.0'
 source 'http://git.code.oa.com/VideoNative/VNSpec.git'
@@ -11,6 +13,8 @@ target 'DemoProject' do
   pod 'VideoNative'
 end
 ```
+
+这个是接入 Cocoapods 的 [demo](http://git.code.oa.com/VideoNative/VideoNative_iOS_StartDemo.git)
 
 ## 手动配置
 ### 新建一个工程（[下载地址](https://share.weiyun.com/5z5MUnc)）
