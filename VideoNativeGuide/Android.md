@@ -1,6 +1,6 @@
 # Android 接入
 
-## 下载VNDemo模版工程 [下载地址](https://videonative.github.io/VideoNative/android_demo.zip)
+## 下载VNDemo模版工程 [下载地址](../android_demo.zip)
 
 修改 app/build.gradle，确保将如下Maven仓库和VN依赖添加到工程中<br>
 注：目前VN仅发布在腾讯内部的 maven.oa.com 上
