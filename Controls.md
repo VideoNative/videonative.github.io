@@ -614,7 +614,8 @@ Method | void scrollToPosition(Integer position, Integer mode) |  |  | list滚�
 Method | void smoothScrollToPosition(Integer position, Integer mode) |  |  | 有动画的滚动到指定的位置。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间
 Method | void setFooterRefreshingEnabled(Boolean enable) |  |  | 是否允许上拉加载更多
 Method | void setHeaderRefreshingEnabled(Boolean enable) |  |  | 是否允许下拉刷新
-Method | void setRefreshing(Boolean enable) |  |  | 下拉刷新是否开始，如果已经开始下拉刷新可以靠这个值结束下拉刷新，若果没有下拉刷新也可以通过代码触发，前提是setHeaderRefreshingEnabled(true)
+Method | void setHeaderRefreshing(Boolean enable) |  |  | 下拉刷新是否开始，如果已经开始刷新可以靠这个值结束刷新，若果没有刷新也可以通过代码触发，前提是setHeaderRefreshingEnabled(true)
+Method | void setFooterRefreshing(Boolean enable) |  |  | 上拉刷新是否开始，如果已经开始刷新可以靠这个值结束刷新，若果没有刷新也可以通过代码触发，前提是setFooterRefreshingEnabled(true)
 Method | void invalidateLayout() |  |  | 使 List 布局失效， 会导致 list 重新刷新布局，计算每个 cell 的宽高，只对 iOS 平台生效
 Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 
