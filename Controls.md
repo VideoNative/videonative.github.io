@@ -540,7 +540,7 @@ Method | void setFocus(Boolean focus) |  |  | 设置当前输入框的焦点属�
     + `<cell>` 内的页面布局通过胡子语法，访问数组 item 里的属性作为数据填充
     + 可为其中一个 `<cell>` 标签设置 `vn:default` 属性，表示这个Cell是默认CellType，当数据中的ViewType找不到匹配的Cell时，会展示这种Cell。
     + `<list>` 标签可使用 `<header>` 子标签作为下拉刷新的头部显示的视图。这个标签不能使用当前的 item 访问数据。
-    + `<list>` 标签可使用 `<footer>` 子标签作为上拉刷新的尾部显示的视图。这个标签不能使用当前的 item 访问数据。
+    + `<list>` 标签可使用 `<footer>` or `<pull-footer>` 子标签作为上拉刷新的尾部显示的视图。这个标签不能使用当前的 item 访问数据。
 
 + 代码示例如下：
 
@@ -618,29 +618,28 @@ Method | void setRefreshing(Boolean enable) |  |  | 下拉刷新是否开始，�
 Method | void invalidateLayout() |  |  | 使 List 布局失效， 会导致 list 重新刷新布局，计算每个 cell 的宽高，只对 iOS 平台生效
 Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
 
-## header & Footer
+## header & footer
 
 ### header
 header 主要用于实现下拉刷新，目前只能作为 list 的子控件
+
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+EventHandler | bindHeaderStateChange | function(Object params) | | 当下拉刷新状态发生变化时回调。params.event = {state: 0, isAutomatic: true, maxOffset: 20}; <br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否是 js 调用 <br> maxOffset 达到下拉刷新的偏移量 
+EventHandler | bindHeaderMove | function(Object params) | | 当下拉刷新视图发生移动时回调。params.event = {hasRefreshed: false, isAutomatic: false, offset: 0} <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否是 js 调用 <br> offset 当前下拉的偏移（正数，下拉越多，绝对值越大）
 
 + 代码示例如下：
 
 
 ```html
 <!--listHeaderFooter.vnml-->
-<list id="mainList" vn:for="{{listData}}" vn:switch="cellType" bindHeaderRefreshing="onHeaderRefreshing" bindFooterRefreshing="onFooterRefreshing" >
-	<header class="listHeader" bindHeaderStateChange="onHeaderStateChange">
-		<text id="headerText"></text>
-	</header>
-	<cell vn:case="text">
-		<text>{{index}}: {{item.text}}</text>
-	</cell>
-	<cell vn:case="image">
-		<view flex-direction="row" justify-content="space-between">
-			<image src="{{item.url}}"/>
-			<image src="{{item.url}}"/>
-		</view>
-	</cell>
+<list id="mainList" vn:for="{{listData}}" vn:switch="cellType" bindHeaderRefreshing="onHeaderRefreshing" >
+    <header class="listHeader" bindHeaderStateChange="onHeaderStateChange" bindHeaderMove="onHeaderMove">
+        <text id="headerText"></text>
+    </header>
+    <cell vn:case="text">
+        <text>{{index}}: {{item.text}}</text>
+    </cell>
 </list>
 ```
 
@@ -655,21 +654,22 @@ header 主要用于实现下拉刷新，目前只能作为 list 的子控件
 }
 
 text {
-	font-size: 40rpx;
-	width: 100%;
+    font-size: 40rpx;
+    width: 100%;
+    height:120rpx;
 }
 
-#headerText {
-	text-align: center;
-	background-color: gray;
+#headerText, #footerText {
+    text-align: center;
+    background-color: gray;
 }
 
 image {
-	width: 45%;
-	aspect-ratio:1.5;
+    width: 45%;
+    aspect-ratio:1.5;
 }
 
-.listHeader {
+.listHeader, .listFooter {
     width: 100%;
     height: 100rpx;
     flex-grow: 1;
@@ -682,19 +682,15 @@ image {
   "listData": [
     {
       "cellType": "text",
-      "text": "this is first text"
-    },
-    {
-      "cellType": "image",
-      "url": "http://puui.qpic.cn/tv/0/11536175_680382/0"
+      "text": "this is a text"
     },
     {
       "cellType": "text",
-      "text": "this is second text"
+      "text": "this is a text"
     },
     {
-      "cellType": "image",
-      "url": "http://puui.qpic.cn/tv/0/11522707_330185/0"
+      "cellType": "text",
+      "text": "this is a text"
     }
   ]
 }
@@ -703,81 +699,301 @@ image {
 ```js
 /**listHeaderFooter.js**/
 page({     
-	onHeaderRefreshing: function (params) {
-		console.log('onHeaderRefresh');
-		var timerId = window.setInterval(function() {
-			let mainList = vn.dom.getElementById("mainList");
-            mainList.setRefreshing(false);
+    onHeaderRefreshing: function (params) {
+        console.log('onHeaderRefresh');
+        var timerId = window.setInterval(function() {
+            let mainList = params.target;
+            mainList.setHeaderRefreshing(false);
             window.clearInterval(timerId);
         },
         1000);
-	},
-
-	onHeaderStateChange: function (params) {
-		headerChildren = params.target.getChildElements();
-		switch (params.event.state) {
-			case 0:
-			headerChildren[0].setProperty("content", "还原");
-			break;
-			case 1:
-			headerChildren[0].setProperty("content", "拖拽中");
-			break;
-			case 2:
-			headerChildren[0].setProperty("content", "松手");
-			break;
-			case 3:
-			headerChildren[0].setProperty("content", "刷新中");
-			break;
-			case 4:
-			headerChildren[0].setProperty("content", "刷新完成");
-			break;
-		}
-	}
-});
-```
-
-类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
---- | --- | --- | --- | ---
-EventHandler | bindHeaderStateChange | function(Object params) | | 当下拉刷新状态发生变化时回调。params.event = {state: 0, isAutomatic: true, maxOffset: 20}; <br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否为自动触发 <br> maxOffset 达到下拉刷新的偏移量 
-EventHandler | bindHeaderMove | function(Object params) | | 当下拉刷新视图发生移动时回调。params.event = {hasRefreshed: false, isAutomatic: false, offset: 0} <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否为自动触发 <br> offset 当前下拉的偏移（正数，下拉越多，数字越大）
-
-```js
-page({
-    onFooterRefreshing: function (param) {
-        console.log('onFooterRefreshing');
-        this.loadMore();
     },
-    onFooterStateChange: function (params) {
-        let footerChildren = params.target.getChildElements();
+
+    onHeaderStateChange: function (params) {
+        headerChildren = params.target.getChildElements();
         switch (params.event.state) {
-            case 0://数据加载中
-                // Footer展示刷新中
-                break;
-            case 1://setFooterRefreshingEnabled（true）会回调
-                // 此处可以对网络情况或者错误吗进行判断刷新结束是否由网络异常导致
-                //if ({异常的api}) {
-                //Footer展示异常
-                //} else {
-                //Footer正常展示LoadMore
-                //}
-                break;
-            case 2://没有更多数据了
-                // Footer展示没有更多数据的UI 可决定展示与否（没有更多数据了/隐藏）
-                break;
+            case 0:
+            headerChildren[0].setProperty("content", "空闲");
+            break;
+            case 1:
+            headerChildren[0].setProperty("content", "拖拽中");
+            break;
+            case 2:
+            headerChildren[0].setProperty("content", "松手");
+            break;
+            case 3:
+            headerChildren[0].setProperty("content", "刷新中");
+            break;
+            case 4:
+            headerChildren[0].setProperty("content", "刷新完成");
+            break;
         }
     },
-})
+
+    onHeaderMove: function (params) {
+        console.log("offset " + params.event.offset);
+    }
+});
 ```
 
 ### footer
 
 footer 主要用于实现上拉时自动加载更多，目前只能作为 list 的子控件
 
-> 备注：在list未进行LoadMore时，setFooterRefreshingEnabled（true）可以对ListLoadMore进行中状态进行重置。（相当于设置footer结束加载更多）
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+EventHandler | bindFooterStateChange | function(Object params) | | 当上拉刷新状态发生变化时 params.event.state 代表了状态。<br> state 0:空闲; 1:刷新中; 2:没有更多数据了
+
+```html
+<list id="mainList" vn:for="{{listData}}" vn:switch="cellType" bindFooterRefreshing="onFooterRefreshing" >
+    <cell vn:case="text">
+        <text>{{index}}: {{item.text}}</text>
+    </cell>
+    <footer class="listFooter" bindFooterStateChange="onFooterStateChange">
+        <text id="footerText">空闲</text>
+    </footer>
+</list>
+```
+
+```css
+#mainList {
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    padding: 30rpx;
+    direction: column;
+}
+
+text {
+    font-size: 40rpx;
+    width: 100%;
+    height:120rpx;
+}
+
+#headerText, #footerText {
+    text-align: center;
+    background-color: gray;
+}
+
+image {
+    width: 45%;
+    aspect-ratio:1.5;
+}
+
+.listHeader, .listFooter {
+    width: 100%;
+    height: 100rpx;
+    flex-grow: 1;
+    align-items: center;
+}
+```
+
+```json
+{
+  "listData": [
+    {
+      "cellType": "text",
+      "text": "this is a text"
+    },
+    {
+      "cellType": "text",
+      "text": "this is a text"
+    },
+    {
+      "cellType": "text",
+      "text": "this is a text"
+    },
+    {
+      "cellType": "text",
+      "text": "this is a text"
+    }
+  ]
+}
+```
+
+```js
+var moreData = true;
+page({     
+    onFooterRefreshing: function (params) {
+        console.log('onFooterRefresh');
+        var timerId = window.setInterval(function() {
+            let mainList = params.target;
+            if (moreData)
+            {
+                var datas = vn.data.query("listData");
+                for (var i = 0; i < 10; i++) {
+                    var newData = {
+                      "cellType": "text",
+                      "text": "this is a text"
+                    };
+                    datas.push(newData);
+                }
+                vn.data.update("listData", datas);
+                
+                mainList.setFooterRefreshing(false);
+                moreData = false;
+            }
+            else
+            {
+                mainList.setFooterRefreshingEnabled(false);  
+            }
+            window.clearInterval(timerId);
+        },
+        1000);
+    },
+
+    onFooterStateChange: function (params) {
+        footerChildren = params.target.getChildElements();
+        switch (params.event.state) {
+            case 0:
+            footerChildren[0].setProperty("content", "空闲");
+            break;
+            case 1:
+            footerChildren[0].setProperty("content", "刷新中");
+            break;
+            case 2:
+            footerChildren[0].setProperty("content", "没有更多数据了");
+            break;
+            case 3:
+        }
+    }
+});
+```
+
+### pull-footer
+
+pull-footer 主要用于实现上拉刷新，目前只能作为 list 的子控件。**注意，其功能和接口与 header 完全对称。**
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-EventHandler | bindFooterStateChange | function(Object params) | | 当下拉刷新状态发生变化时 params.event.state 代表了状态。<br> state 0:加载中; 1:加载结束; 2:没有更多数据了
+EventHandler | bindFooterStateChange | function(Object params) | | 当上拉刷新状态发生变化时回调。params.event = {state: 0, isAutomatic: true, maxOffset: 20}; <br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否是 js 调用 <br> maxOffset 达到下拉刷新的偏移量 
+EventHandler | bindFooterMove | function(Object params) | | 当上拉刷新视图发生移动时回调。params.event = {hasRefreshed: false, isAutomatic: false, offset: 0} <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否是 js 调用 <br> offset 当前上拉的偏移（负数，下拉越多，绝对值越大）
+
+```html
+<list id="mainList" vn:for="{{listData}}" vn:switch="cellType" bindFooterRefreshing="onFooterRefreshing">
+    <cell vn:case="text">
+        <text>{{index}}: {{item.text}}</text>
+    </cell>
+    <pull-footer class="listFooter" bindFooterStateChange="onFooterStateChange" bindFooterMove="onFooterMove">
+        <text id="footerText"></text>
+    </pull-footer>
+</list>
+```
+
+```css
+#mainList {
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    padding: 30rpx;
+    direction: column;
+}
+
+text {
+    font-size: 40rpx;
+    width: 100%;
+    height:120rpx;
+}
+
+#headerText, #footerText {
+    text-align: center;
+    background-color: gray;
+}
+
+image {
+    width: 45%;
+    aspect-ratio:1.5;
+}
+
+.listHeader, .listFooter {
+    width: 100%;
+    height: 100rpx;
+    flex-grow: 1;
+    align-items: center;
+}
+```
+
+```json
+{
+  "listData": [
+    {
+      "cellType": "text",
+      "text": "this is a text"
+    },
+    {
+      "cellType": "text",
+      "text": "this is a text"
+    },
+    {
+      "cellType": "text",
+      "text": "this is a text"
+    },
+    {
+      "cellType": "text",
+      "text": "this is a text"
+    }
+  ]
+}
+```
+
+```js
+var moreData = true;
+page({     
+    onFooterRefreshing: function (params) {
+        console.log('onFooterRefresh');
+        var timerId = window.setInterval(function() {
+            let mainList = params.target;
+            if (moreData)
+            {
+                var datas = vn.data.query("listData");
+                for (var i = 0; i < 10; i++) {
+                    var newData = {
+                      "cellType": "text",
+                      "text": "this is a text"
+                    };
+                    datas.push(newData);
+                }
+                vn.data.update("listData", datas);
+                moreData = false;
+            }
+            else
+            {
+                
+            }
+            mainList.setFooterRefreshing(false);
+            window.clearInterval(timerId);
+        },
+        1000);
+    },
+
+    onFooterStateChange: function (params) {
+        footerChildren = params.target.getChildElements();
+        switch (params.event.state) {
+            case 0:
+            footerChildren[0].setProperty("content", "空闲");
+            break;
+            case 1:
+            footerChildren[0].setProperty("content", "拖拽中");
+            break;
+            case 2:
+            footerChildren[0].setProperty("content", "松开");
+            break;
+            case 3:
+            footerChildren[0].setProperty("content", "刷新中");
+            break;
+            case 4:
+            footerChildren[0].setProperty("content", "刷新完成");
+            break;
+        }
+    },
+
+    onFooterMove: function (params) {
+        console.log("offset " + params.event.offset);
+    }
+});
+```
+
+
 
 ## scroll-view
 这是一个可滚动的容器类。支持横向或纵向滚动。
