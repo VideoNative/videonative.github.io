@@ -665,11 +665,6 @@ text {
     background-color: gray;
 }
 
-image {
-    width: 45%;
-    aspect-ratio:1.5;
-}
-
 .listHeader, .listFooter {
     width: 100%;
     height: 100rpx;
@@ -774,11 +769,6 @@ text {
 #headerText, #footerText {
     text-align: center;
     background-color: gray;
-}
-
-image {
-    width: 45%;
-    aspect-ratio:1.5;
 }
 
 .listHeader, .listFooter {
@@ -899,11 +889,6 @@ text {
 #headerText, #footerText {
     text-align: center;
     background-color: gray;
-}
-
-image {
-    width: 45%;
-    aspect-ratio:1.5;
 }
 
 .listHeader, .listFooter {
