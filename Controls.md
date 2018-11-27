@@ -344,6 +344,8 @@ Property | corner-radius | rpx pt | 12rpx | 圆角半径，仅在 shape 为 roun
 裁剪 | center-crop | 保持纵横比缩放图片，只保证图片的短边能完全显示出来。图片通常只短边方向是完整的，另一个方向将会发生截取
 裁剪 | focus-crop | 重心裁剪，具体裁剪位置由 focus-point-x 和 focus-point-y 决定
 
+注意，本标签不支持 padding 属性
+
 ## checkbox
 这个控件可以显示两种状态，checked 和 unchecked，不同的状态显示不同的图片。本控件自身不存储状态，所以它的 checked 属性必须通过胡子语句绑定到一个boolean型的数据上才能正常工作。当通过点击改变了控件状态时，胡子语句绑定的数据也会发生改变。
 
@@ -858,7 +860,7 @@ pull-footer 主要用于实现上拉刷新，目前只能作为 list 的子控�
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 EventHandler | bindFooterStateChange | function(Object params) | | 当上拉刷新状态发生变化时回调。params.event = {state: 0, isAutomatic: true, maxOffset: 20}; <br> state 0:空闲;1:拖拽;2:松开;3:刷新中;4:刷新完成; <br> isAutomatic 是否是 js 调用 <br> maxOffset 达到下拉刷新的偏移量 
-EventHandler | bindFooterMove | function(Object params) | | 当上拉刷新视图发生移动时回调。params.event = {hasRefreshed: false, isAutomatic: false, offset: 0} <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否是 js 调用 <br> offset 当前上拉的偏移（负数，下拉越多，绝对值越大）
+EventHandler | bindFooterMove | function(Object params) | | 当上拉刷新视图发生移动时回调。params.event = {hasRefreshed: false, isAutomatic: false, offset: 0} <br> hasRefreshed 是否已经触发刷新 <br> isAutomatic 是否是 js 调用 <br> offset 当前上拉的偏移（正数，下拉越多，绝对值越大）
 
 ```html
 <list id="mainList" vn:for="{{listData}}" vn:switch="cellType" bindFooterRefreshing="onFooterRefreshing">
