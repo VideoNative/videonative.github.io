@@ -176,7 +176,6 @@ text
 ```
 
 ```json
-/** IfDemo.json **/
 {"length": 4}
 ```
 
@@ -274,14 +273,14 @@ text
     ```css
     /** UniversalSelector.vnss **/
     /* 匹配所有标签 */
-    * {
-        width:100%;
-        height:200rpx;
-        font-size:50rpx;
-        background-color:green;
-    }
+        * {
+            width:100%;
+            height:200rpx;
+            font-size:50rpx;
+            background-color:green;
+        }
     ```
-
+    
     ```html
     <!--UniversalSelector.vnml-->
     <view id="mainContainer">
