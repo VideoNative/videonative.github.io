@@ -613,8 +613,8 @@ EventHandler | bindHeaderRefreshing | function(Object params) | | 列表发生�
 EventHandler | bindFooterRefreshing | function(Object params) | | 列表发生了上拉加载
 EventHandler | bindScroll | function(Object params) | | 列表滚动，params.event = { deltaX : 0, deltaY : 0 }; deltaX 和 deltaY（正数为下滑，负数为上滑）
 EventHandler | bindScrollStateChange | function(Object params) | | 列表滚动状态切换，新状态为 params.event.newState。取值说明： 0:空闲;1:拖拽;2:滑动;
-Method | void scrollToPosition(Integer position, Integer mode) |  |  | list滚动到指定的位置，position 代表 cell 的下标，从0开始。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间
-Method | void smoothScrollToPosition(Integer position, Integer mode) |  |  | 有动画的滚动到指定的位置。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间
+Method | void scrollToPosition(Integer position, Integer mode) |  |  | list滚动到指定的位置，position 代表 cell 的下标，从0开始。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间；2：滚动到可视区域的顶部
+Method | void smoothScrollToPosition(Integer position, Integer mode) |  |  | 有动画的滚动到指定的位置。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间；2：滚动到可视区域的顶部
 Method | void setFooterRefreshingEnabled(Boolean enable) |  |  | 是否允许上拉加载更多
 Method | void setHeaderRefreshingEnabled(Boolean enable) |  |  | 是否允许下拉刷新
 Method | void setHeaderRefreshing(Boolean enable) |  |  | 下拉刷新是否开始，如果已经开始刷新可以靠这个值结束刷新，若果没有刷新也可以通过代码触发，前提是setHeaderRefreshingEnabled(true)
