@@ -334,6 +334,7 @@ Property | foucs-point-y | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode �
 Property | shape | Enum | normal | normal/circle/round-corner
 Property | corner-radius | rpx pt | 12rpx | 圆角半径，仅在 shape 为 round-corner 时生效
 EventHandler | bindload | function(Object params) | | 当src指定的图片被显示时触发这个事件。图片的宽、高通过事件参数返回：params.event = {width: 50.3, height:30.02 }，单位为rpx。
+EventHandler | binderror | function(Object params) | | 当src指定的图片加载失败时触发这个事件。无event属性。
 
 其中 mode 的有效值为
 
