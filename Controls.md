@@ -275,8 +275,15 @@ text是基本的文本展示控件
 ```html
 <!--text.vnml-->
 <view width="100%" height="auto" flex-direction="row">
-    <text height="auto" width="auto" font-size="30rpx" color="#000000FF" font-style="bold">精彩瞬间</text>
+    <text font-size="30rpx" color="#000000FF" font-style="bold">精彩瞬间</text>
+    <text html-text="true">{{title}}</text>
 </view>
+```
+
+```json
+  {
+	  "title":"<font color='#FF00FFFF'>我是</font>带颜色<font color='#00FFFFFF'>的文本</font>"
+  }
 ```
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
