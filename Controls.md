@@ -286,6 +286,21 @@ text是基本的文本展示控件
   }
 ```
 
+> 注意 html 文本如果直接写在 \<text\> 标签里，会解析不出来，这里推荐使用胡子语法
+    
+
+推荐
+
+```html
+<text html-text="true">{{title}}</text>
+```   
+    
+不推荐    
+
+```html
+ <text html-text="true"><font color='#FF00FFFF'>我是</font></text>
+```
+
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 Property | font-size | rpx pt | 手机系统默认 | 文本 size
