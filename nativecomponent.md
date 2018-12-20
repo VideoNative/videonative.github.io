@@ -161,12 +161,6 @@ protected void onPropertyUpdate(@NonNull String propertyKey, @NonNull Object pro
 }
 ```
 
-### 处理混淆
-
-因为Widget通过反射构造所以需要处理混淆
-
--keep class com.tencent.test.MyWidget{*;}
-
 ## 代码示例
 这个例子实现了一个 NativeWidget，NativeWidget 返回了一个自定义的 View
 
