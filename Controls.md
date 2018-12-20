@@ -633,6 +633,8 @@ Property | vn:switch | String | "case" |
 Property | direction | Enum | column | column/row，滚动方向
 EventHandler | bindItemTap | function(Object params) | | 列表 Item 点击，位置参数为 params.event.position
 EventHandler | bindItemLoad | function(Object params) | | 列表 Item 与数据绑定时回调，在Item重用时还会回调，位置参数为 params.event.position
+EventHandler | bindItemAttach | function(Object params) | | 列表 Item 上屏时回调，位置参数为 params.event.position
+EventHandler | bindItemDetach | function(Object params) | | 列表 Item 下屏时回调，位置参数为 params.event.position
 EventHandler | bindHeaderRefreshing | function(Object params) | | 列表发生了下拉刷新
 EventHandler | bindFooterRefreshing | function(Object params) | | 列表发生了上拉加载
 EventHandler | bindScroll | function(Object params) | | 列表滚动，params.event = { deltaX : 0, deltaY : 0 }; deltaX 和 deltaY（正数为下滑，负数为上滑）
