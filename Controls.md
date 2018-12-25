@@ -350,7 +350,7 @@ image用于显示图片。支持网络和本地图片。
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 Property | src | String | | 图片资源地址
-Property | mode | Enum | fit-xy | focus-crop/center-crop/center-inside/center/fit-end/fit-center/fit-start/fit-xy
+Property | mode | Enum | fit-xy | focus-crop/center-crop/center-inside/center/fit-center/fit-xy
 Property | foucs-point-x | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | foucs-point-y | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | shape | Enum | normal | normal/circle/round-corner
