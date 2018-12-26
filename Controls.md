@@ -303,7 +303,7 @@ text是基本的文本展示控件
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | rpx pt | 手机系统默认 | 文本 size
+Property | font-size | rpx pt | 手机系统默认 | 文本 size，只能是整型
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF |
@@ -327,7 +327,7 @@ button是点击交互控件。button有默认的系统UI，以及点击时有系
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | rpx pt | 手机系统默认 | 文本 size
+Property | font-size | rpx pt | 手机系统默认 | 文本 size，只能是整型
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF |
@@ -350,6 +350,7 @@ image用于显示图片。支持网络和本地图片。
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
 Property | src | String | | 图片资源地址
+Property | placeholder | String | | 默认占位图片资源地址
 Property | mode | Enum | fit-xy | focus-crop/center-crop/center-inside/center/fit-center/fit-xy
 Property | foucs-point-x | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | foucs-point-y | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
@@ -459,7 +460,7 @@ page({
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | rpx pt | 手机系统默认 | 文本 size
+Property | font-size | rpx pt | 手机系统默认 | 文本 size，只能是整型
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
@@ -534,7 +535,7 @@ page({
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | rpx pt | 手机系统默认 | 文本 size
+Property | font-size | rpx pt | 手机系统默认 | 文本 size，只能是整型
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
