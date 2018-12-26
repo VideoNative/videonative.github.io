@@ -142,7 +142,7 @@ Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属
 ```html
 <!--Flexbox.vnml-->
     <view width="100%" height="auto" flex-direction="row" align-items="center">
-    <image width="200rpx" aspect-ratio="1" src="https://github.com/VideoNative/video-native.png" position="relative"/>
+    <image width="200rpx" aspect-ratio="1" src="https://videonative.io/video-native.png" position="relative"/>
     <text height="200rpx" width="auto" flex-grow="1" font-size="30rpx" background-color="gray">
         FlexBox
     </text>
@@ -348,7 +348,7 @@ image用于显示图片。支持网络和本地图片。
 
 ```html
 <!--image.vnml-->
-<image width="100%" aspect-ratio="1.78" src="https://github.com/VideoNative/video-native.png" shape="round-corner" corner-radius="30rpx" mode="center-crop"/>
+<image width="100%" aspect-ratio="1.78" src="http://videonative.io/img/video-native.png" shape="round-corner" corner-radius="30rpx" mode="center-crop"/>
 ```
 
 
@@ -390,8 +390,8 @@ EventHandler | binderror | function(Object params) | | 当src指定的图片加�
 
 ```json
 {
-    "check": "https://github.com/VideoNative/VideoNative/raw/master/Resouce/checkbox_yes.png",
-    "uncheck": "https://github.com/VideoNative/VideoNative/raw/master/Resouce/checkbox_no.png",
+    "check": "http://videonative.io/img/checkbox_yes.png",
+    "uncheck": "http://videonative.io/img/checkbox_no.png",
     "selected": true,
     "position": 10
 }

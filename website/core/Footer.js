@@ -37,14 +37,14 @@ class Footer extends React.Component {
           </a>
           <div>
             <h5>Docs</h5>
-            <a href={this.docUrl('doc1.html', this.props.language)}>
-              Getting Started (or other categories)
+            <a href={this.docUrl('getting-started-basis.html', this.props.language)}>
+              Getting Started 
             </a>
-            <a href={this.docUrl('doc2.html', this.props.language)}>
-              Guides (or other categories)
+            <a href={this.docUrl('playground-index.html', this.props.language)}>
+              Playground
             </a>
-            <a href={this.docUrl('doc3.html', this.props.language)}>
-              API Reference (or other categories)
+            <a href={this.docUrl('api-ui-controls.html', this.props.language)}>
+              API Reference
             </a>
           </div>
           <div>
@@ -69,7 +69,7 @@ class Footer extends React.Component {
           <div>
             <h5>More</h5>
             <a href={`${this.props.config.baseUrl}blog`}>Blog</a>
-            <a href="https://github.com/">GitHub</a>
+            <a href="https://github.com/VideoNative/">GitHub</a>
             <a
               className="github-button"
               href={this.props.config.repoUrl}

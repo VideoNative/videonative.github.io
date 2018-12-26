@@ -120,7 +120,7 @@ class Index extends React.Component {
           {
             content:
               '支持热更新，为新功能触达用户提供了更大的便利',
-            image: `${baseUrl}img/big_video_native.png`,
+            image: `${baseUrl}img/repair.png`,
             imageAlign: 'right',
             title: '热更新',
           },

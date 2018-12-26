@@ -14,7 +14,7 @@ const users = [
     caption: '腾讯视频',
     // You will need to prepend the image path with your baseUrl
     // if it is not '/', like: '/test-site/img/video_native.png'.
-    image: '/img/tencentvideo.jpg',
+    image: 'img/tencentvideo.jpg',
     infoLink: 'https://v.qq.com',
     pinned: true,
   },
@@ -22,7 +22,7 @@ const users = [
     caption: 'WeTV',
     // You will need to prepend the image path with your baseUrl
     // if it is not '/', like: '/test-site/img/video_native.png'.
-    image: '/img/wetv.png',
+    image: 'img/wetv.png',
     infoLink: 'https://wetv.qq.com/',
     pinned: true,
   },
@@ -30,7 +30,7 @@ const users = [
     caption: 'Yoo视频',
     // You will need to prepend the image path with your baseUrl
     // if it is not '/', like: '/test-site/img/video_native.png'.
-    image: '/img/yoo.png',
+    image: 'img/yoo.png',
     infoLink: 'http://yoo.qq.com/',
     pinned: true,
   }
@@ -39,8 +39,8 @@ const users = [
 const siteConfig = {
   title: 'VideoNative', // Title for your website.
   tagline: 'VideoNative Official Website',
-  url: 'https://videonative.github.io', // Your website URL
-  baseUrl: '/VideoNative/', // Base URL for your project */
+  url: 'https://videonative.github.io/VideoNative', // Your website URL
+  baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
