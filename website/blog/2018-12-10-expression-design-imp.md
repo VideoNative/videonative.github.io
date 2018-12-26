@@ -1,8 +1,8 @@
 ---
 title: 表达式设计与实现
 author: Connor Lu
-authorURL: https://twitter.com/maojiwang
-authorFBID: 1383236588627528
+authorURL: https://connorlu.vip
+authorFBID: 100008235998299
 ---
 
 ## 概述
