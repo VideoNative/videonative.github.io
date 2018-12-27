@@ -1,41 +1,47 @@
 /* your custom css */
 @import url('https://fonts.googleapis.com/css?family=Charm');
 
-@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
-}
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {}
 
-@media only screen and (min-width: 1024px) {
-}
+@media only screen and (min-width: 1024px) {}
 
-@media only screen and (max-width: 1023px) {
-}
+@media only screen and (max-width: 1023px) {}
 
-@media only screen and (min-width: 1400px) {
-}
+@media only screen and (min-width: 1400px) {}
 
-@media only screen and (min-width: 1500px) {
+@media only screen and (min-width: 1500px) {}
+
+.animationTitle {
+  margin: 0;
+  padding: 0;
+  font-size: 100px;
+  font-weight: bold;
+  background: url('../img/text-bg.png') no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: moveBg 90s linear infinite;
+  -webkit-animation: moveBg 90s linear infinite;
 }
 
 h2.animationTitle {
-    margin: 0;
-    padding: 0;
-    font-size: 100px;
-    font-weight: bold;
-    background: url('../img/text-bg.png') no-repeat;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: moveBg 90s linear infinite;
-    -webkit-animation: moveBg 90s linear infinite;
+  font-size: 100px;
+  /* text-shadow:9px 9px 30px #00000044; */
+}
+
+h2.animationTitle small {
+  font-size: 30px;
+  animation: moveBg 60s linear infinite;
+  -webkit-animation: moveBg 60s linear infinite;
+}
+
+/* Text Background Animation */
+@keyframes moveBg {
+  0% {
+    background-position: 0% 30%;
   }
-  
-  /* Text Background Animation */
-  @keyframes moveBg {
-    0% {
-      background-position: 0% 30%;
-    }
-  
-    100% {
-      background-position: 100% 50%;
-    }
+
+  100% {
+    background-position: 100% 70%;
   }
+}
