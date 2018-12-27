@@ -37,8 +37,8 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'VideoNative', // Title for your website.
-  tagline: 'VideoNative Official Website',
+  title: 'Video Native', // Title for your website.
+  tagline: 'Video Native Official Website',
   url: 'https://videonative.github.io/VideoNative', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
@@ -110,6 +110,8 @@ const siteConfig = {
   ogImage: 'img/video_native.png',
   twitterImage: 'img/video_native.png',
 
+
+  stylesheets: ["https://fonts.googleapis.com/css?family=Charm"],
   // Show documentation's last contributor's name.
   // enableUpdateBy: true,
 

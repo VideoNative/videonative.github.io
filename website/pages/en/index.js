@@ -36,10 +36,13 @@ class HomeSplash extends React.Component {
     );
 
     const ProjectTitle = () => (
-      <h2 className="projectTitle">
+      <div>
+      <h2 className="projectTitle animationTitle">
         {siteConfig.title}
-        <small>{siteConfig.tagline}</small>
       </h2>
+      <h2><small>{siteConfig.tagline}</small>
+        </h2>
+      </div>
     );
 
     const PromoSection = props => (
