@@ -17,10 +17,10 @@
 }
 
 h2.animationTitle {
-    font-family: 'Charm', cursive;
     margin: 0;
     padding: 0;
     font-size: 100px;
+    font-weight: bold;
     background: url('../img/text-bg.png') no-repeat;
     background-clip: text;
     -webkit-background-clip: text;
