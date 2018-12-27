@@ -105,7 +105,7 @@ class Index extends React.Component {
       <Block background="light">
         {[
           {
-            content: 'Video Native采用平台本地语言编写，性能优越。',
+            content: 'Video Native采用各平台本地代码编写，性能优越。',
             image: `${baseUrl}img/high_performance.png`,
             imageAlign: 'right',
             title: '高性能',
