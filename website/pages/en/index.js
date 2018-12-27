@@ -40,8 +40,7 @@ class HomeSplash extends React.Component {
       <h2 className="projectTitle animationTitle">
         {siteConfig.title}
       </h2>
-      <h2 className="animationTitle"><small>{siteConfig.tagline}</small>
-      </h2>
+      <h4 className="animationTitle">{siteConfig.tagline}</h4>
       </div>
     );
 

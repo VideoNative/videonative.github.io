@@ -14,7 +14,6 @@
 .animationTitle {
   margin: 0;
   padding: 0;
-  font-size: 100px;
   font-weight: bold;
   background: url('../img/text-bg.png') no-repeat;
   background-clip: text;
@@ -29,7 +28,7 @@ h2.animationTitle {
   /* text-shadow:9px 9px 30px #00000044; */
 }
 
-h2.animationTitle small {
+h4.animationTitle {
   font-size: 30px;
   animation: moveBg 60s linear infinite;
   -webkit-animation: moveBg 60s linear infinite;
