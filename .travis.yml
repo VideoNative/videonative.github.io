@@ -1,0 +1,22 @@
+language: node_js  #设置语言
+
+node_js: stable  #设置相应的版本
+
+cache:
+  yarn: true
+  directories:
+    - ~/.npm
+    - node_modules
+
+install:
+  - npm install  #安装hexo及插件
+
+script:
+  - git config --global user.name "${GH_AUTHOR}"
+  - git config --global user.email "${GH_EMAIL}"
+  - echo "machine github.com login ${GH_NAME} password ${GH_TOKEN}" > ~/.netrc
+  - cd website && npm install && yarn run publish-gh-pages
+
+branches:
+  only:
+    - master  #只有master分支作为部署需要的分支
