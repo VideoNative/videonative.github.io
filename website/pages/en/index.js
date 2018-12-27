@@ -64,7 +64,7 @@ class HomeSplash extends React.Component {
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href="#GettingStarted">Getting Started</Button>
+            <Button href={docUrl('getting-started-basis.html')}>Getting Started</Button>
             <Button href={docUrl('api-ui-controls.html')}>API</Button>
             <Button href={docUrl('playground-index.html')}>Playground</Button>
           </PromoSection>
@@ -92,16 +92,30 @@ class Index extends React.Component {
       </Container>
     );
 
-    const FeatureCallout = () => (
-      <div
-        className="productShowcaseSection paddingBottom"
-        style={{textAlign: 'center'}}>
-        <h2>高性能</h2>
-        <MarkdownBlock>性能优于RN，Weex</MarkdownBlock>
-      </div>
+    // const FeatureCallout = () => (
+    //   <div
+    //     className="productShowcaseSection paddingBottom"
+    //     style={{textAlign: 'center'}}>
+    //     <h2>高性能</h2>
+    //     <MarkdownBlock>性能优于RN，Weex</MarkdownBlock>
+    //   </div>
+    // );
+
+    const Feature_1 = () => (
+      <Block background="light">
+        {[
+          {
+            content: 'Video Native采用平台本地语言编写，性能优越。',
+            image: `${baseUrl}img/high_performance.png`,
+            imageAlign: 'right',
+            title: '高性能',
+          },
+        ]}
+      </Block>
     );
 
-    const TryOut = () => (
+
+    const Feature_2 = () => (
       <Block id="try">
         {[
           {
@@ -114,12 +128,12 @@ class Index extends React.Component {
       </Block>
     );
 
-    const Description = () => (
+    const Feature_3 = () => (
       <Block background="dark">
         {[
           {
             content:
-              '支持热更新，为新功能触达用户提供了更大的便利',
+              '支持热更新，随时随地发布新的产品体验。',
             image: `${baseUrl}img/repair.png`,
             imageAlign: 'right',
             title: '热更新',
@@ -128,18 +142,6 @@ class Index extends React.Component {
       </Block>
     );
 
-    const HighPerformance = () => (
-      <Block background="light">
-        {[
-          {
-            content: '性能由于广泛使用的RN和Weex。我们写了一个 Demo，分别对 VideoNative、Weex、ReactNative 和 Hippy 进行测试。',
-            image: `${baseUrl}img/performance_compare.gif`,
-            imageAlign: 'right',
-            title: '高性能',
-          },
-        ]}
-      </Block>
-    );
 
     // const Features = () => (
     //   <Block layout="fourColumn">
@@ -196,9 +198,9 @@ class Index extends React.Component {
         <div className="mainContainer">
           {/* <Features /> */}
           {/* <FeatureCallout /> */}
-          <HighPerformance />
-          <TryOut />
-          <Description />
+          <Feature_1 />
+          <Feature_2 />
+          <Feature_3 />
           <Showcase />
         </div>
       </div>
