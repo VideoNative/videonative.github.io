@@ -685,6 +685,7 @@ Integer | 错误码
 --- | --- | --- | ---
 pageUrl | String | 是 | 页面Url
 params | Object | 否 | 页面传递的参数
+animate | boolean | 是 | 页面跳转动画（0.2.0 版本开始支持）
 
 + **redirectTo(Object obj)**
 
@@ -707,6 +708,7 @@ params | Object | 否 | 页面传递的参数
 --- | --- | --- | ---
 deltaLevel | Integer | 否 | 回退的页面个数，默认为1
 params | Object | 否 | 页面传递的参数
+animate | boolean | 是 | 页面跳转动画（0.2.0 版本开始支持）
 
 + **relaunch(Object obj)**
 
