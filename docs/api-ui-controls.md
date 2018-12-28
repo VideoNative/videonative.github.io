@@ -133,6 +133,9 @@ min-width | [rpx pt %] | |
 hidden | Boolean | false | 是否隐藏
 enable | Boolean | true | 是否启用，为 false 时不接收点击事件
 overflow | [visible hidden] | hidden | 当内容溢出元素框时发生的事情，visible 表示溢出的内容不会被裁剪，hidden 表示溢出的内容会被裁剪，visible 必须配合 flex-shrink=0 使用
+border-color | color | #00000000 | 设置四条边框的颜色。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值
+border-width | rpx pt | 0rpx | 设置边框的宽度。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值
+border-radius | rpx pt | 0rpx | 设置边框的圆角属性。目前除了 View 标签能支持4个角设置不同的值，其他标签只支持4个角设置相同的值
 
 ## Flexbox 布局属性
 Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属性和子节点相关的属性。容器属性和子节点属性相互影响，配合生效。
@@ -348,7 +351,7 @@ image用于显示图片。支持网络和本地图片。
 
 ```html
 <!--image.vnml-->
-<image width="100%" aspect-ratio="1.78" src="http://videonative.io/img/video-native.png" shape="round-corner" corner-radius="30rpx" mode="center-crop"/>
+<image width="100%" aspect-ratio="1.78" src="http://videonative.io/img/video-native.png" border-radius="30rpx" mode="center-crop"/>
 ```
 
 
@@ -359,8 +362,7 @@ Property | placeholder | String | | 默认占位图片资源地址
 Property | mode | Enum | fit-xy | focus-crop/center-crop/center-inside/center/fit-center/fit-xy
 Property | foucs-point-x | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | foucs-point-y | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
-Property | shape | Enum | normal | normal/circle/round-corner
-Property | corner-radius | rpx pt | 12rpx | 圆角半径，仅在 shape 为 round-corner 时生效
+Property | shape | Enum | normal | normal/circle
 EventHandler | bindload | function(Object params) | | 当src指定的图片被显示时触发这个事件。图片的宽、高通过事件参数返回：params.event = {width: 50.3, height:30.02 }，单位为rpx。
 EventHandler | binderror | function(Object params) | | 当src指定的图片加载失败时触发这个事件。无event属性。
 
