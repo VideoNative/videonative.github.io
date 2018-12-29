@@ -471,7 +471,7 @@ Property | font-size | rpx pt | 手机系统默认 | 文本 size，只能是整�
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
-Property | text-align | Enum(可组合) | left&#124;top | left/right/center
+Property | text-align | Enum(可组合) | left | left/right/center
 Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
 Property | confirm-type | Enum | done | send(发送)/search(搜索)/next(下一个)/go(去)/done(完成)
 Property | password | Boolean | false | 是否为密码输入
@@ -546,7 +546,7 @@ Property | font-size | rpx pt | 手机系统默认 | 文本 size，只能是整�
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
-Property | text-align | Enum(可组合) | left&#124;top | left/right/center
+Property | text-align | Enum(可组合) | left | left/right/center
 Property | max-lines | Integer | 0 | 0代表不限行数
 Property | input-type | Enum | text | text(文字)/number(整数)/digit(小数)
 Property | placeholder | String | | 当没有文字输入时的提示文案
