@@ -577,6 +577,8 @@ Method | void setFocus(Boolean focus) |  |  | 设置当前输入框的焦点属�
     + `<list>` 标签可使用 `<header>` 子标签作为下拉刷新的头部显示的视图。这个标签不能使用当前的 item 访问数据。
     + `<list>` 标签可使用 `<footer>` or `<pull-footer>` 子标签作为上拉刷新的尾部显示的视图。这个标签不能使用当前的 item 访问数据。
 
+__注意：如果同一个类型的 Cell，它们的宽度或高度不是始终固定的话，请添加 fixedCellSize="false"，否则 iOS 系统会表现异常__
+
 + 代码示例如下：
 
 ```html
