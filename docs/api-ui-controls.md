@@ -1250,3 +1250,182 @@ Method | Integer getDuration() | | | 获取当前播放视频的总长度，时�
  
 
 
+## camera
+camera 是系统相机控件，可实现拍照和录制视频，同一页面只能插入一个 camera 组件，`0.2.0` 版本开始支持
+
++ 代码示例如下：
+
+```html
+<scroll-view id="mainContainer">
+	<camera id="camera" device-position="back"
+	flash="off" style="width: 100%; height: 600rpx"></camera>
+	<view style="width:100%;height:auto;flex-wrap:wrap">
+		<button bindtap="takePhoto">拍照</button>
+		<button bindtap="switchCamera">切换摄像头</button>
+		<button bindtap="startRecord">开始录制视频</button>
+		<button bindtap="stopRecord">停止录制视频</button>
+		<button bindtap="openFlash">闪光灯：打开</button>
+		<button bindtap="autoFlash">闪光灯：自动</button>
+		<button bindtap="closeFlash">闪光灯：关闭</button>
+	</view>
+	<image src="{{src}}" style="width: 100%; height: auto; background-color:gray" mode="center-inside"></image>
+</scroll-view>
+```
+
+```js
+var device_position = "back";
+
+page({
+    takePhoto:function() {
+        var camera = vn.dom.getElementById('camera');
+        camera.takePhoto({
+            "complete": function (res) {
+                vn.data.update("src", res.tempImagePath);
+            }
+        })
+    },
+
+
+    switchCamera:function() {
+        var camera = vn.dom.getElementById('camera');
+    	if (device_position == "back")
+    	{
+    		camera.setProperty("device-position", "front");
+    		device_position = "front";
+    	}
+    	else
+    	{
+    		camera.setProperty("device-position", "back");
+    		device_position = "back";
+    	}
+    },
+
+    startRecord:function() {
+        var camera = vn.dom.getElementById('camera');
+        camera.startRecord({
+            "complete": function (res) {	
+                console.log("error is: "+res.error);
+            },
+
+            "onError": function (res) {
+            	console.log("onError: "+ res.error);
+            }
+        })
+    },
+
+    stopRecord:function() {
+        var camera = vn.dom.getElementById('camera');
+        camera.stopRecord({
+            "complete": function (res) {
+                vn.data.update("src", res.tempThumbPath);
+                console.log("video src is: "+res.tempVideoPath);
+                console.log("error is: "+res.error);
+            }
+        })
+    },
+	
+	autoFlash:function() {
+        var camera = vn.dom.getElementById('camera');
+		camera.setProperty("flash", "auto");
+    },
+
+    openFlash:function() {
+        var camera = vn.dom.getElementById('camera');
+        camera.setProperty("flash", "on");
+    },
+
+    closeFlash:function() {
+        var camera = vn.dom.getElementById('camera');
+        camera.setProperty("flash", "off");
+    }
+});
+```
+
+```css
+#mainContainer{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+button {
+	width: 220rpx;
+	height: 50rpx;
+	font-size: 26rpx;
+	text-align: center;
+	margin: 15rpx;
+	padding: 18rpx;
+}
+```
+
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+Property | device-position | Enum | back | 前置或后置，值为front, back
+Property | flash | Enum | auto | 闪光灯，值为auto, on, off（切换到前置摄像头的时候会自动关闭闪光灯）
+Method | void takePhoto(Object object) |  | 见下表 | 拍照
+Method | void startRecord(Object object) | | 见下表 | 开始录像
+Method | void stopRecord(Object object) | | 见下表 | 结束录像
+
++ takePhoto 的参数说明
+    
+    **object 内的参数说明:**
+
+    参数 | 类型 | 必填 | 说明
+    --- | --- | --- | ---
+    complete | Function | 是 | 接口调用结束的回调函数（调用成功、失败都会执行）
+    
+    **complete 回调函数接收一个 res 对象；它的成员属性如下:**
+    
+    参数 | 类型  | 说明
+    --- | --- | ---
+    tempImagePath | String | 照片的临时存储路径，失败时为空
+    error | String | 错误信息
+
+    
++ startRecord 的参数说明
+
+    **object 内的参数说明:**
+
+    参数 | 类型 | 必填 | 说明
+    --- | --- | --- | ---
+    complete | Function | 是 | 接口调用结束的回调函数（调用成功、失败都会执行）
+    onError | Function | 否 | 录制视频过程出错的回调
+    
+    >注意，如果接口调用失败（比如没有权限），回调的是 complete；如果是接口调用成功但是录制过程失败（比如空间不足），回调的是 onError
+
+    > 注意，如果已经开始录制，此时进行再次调用 startRecord 或者转换摄像头等异常操作，会回调 onError 发生异常
+    
+    **complete 回调函数接收一个 res 对象；它的成员属性如下:**
+    
+    参数 | 类型  | 说明
+    --- | --- | ---
+    error | String | 错误信息
+    
+    **onError 回调函数接收一个 res 对象；它的成员属性如下:**
+        
+    参数 | 类型  | 说明
+    --- | --- | ---
+    error | String | 错误信息
+
++ stopRecord 的参数说明
+
+    **object 内的参数说明:**
+
+    参数 | 类型 | 必填 | 说明
+    --- | --- | --- | ---
+    complete | Function | 是 | 接口调用结束的回调函数（调用成功、失败都会执行）
+    
+    **complete 回调函数接收一个 res 对象；它的成员属性如下:**
+    
+    参数 | 类型  | 说明
+    --- | --- | ---
+    tempThumbPath | String | 封面图片的临时路径，失败时为空
+    tempVideoPath | String | 视频的临时路径，失败时为空
+    error | String | 错误信息
+
+
++ error 的错误类型
+    + `CAMERA_PERMISSION_DENIED`
+    + `CAMERA_STORAGE_FULL`
+    + `CAMERA_BUSY`
+    + 其他系统抛出的错误
