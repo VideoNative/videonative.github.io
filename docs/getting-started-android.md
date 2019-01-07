@@ -23,13 +23,23 @@ repositories {
 ```groovy
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.tencent.videonative:VideoNative:0.1.4"
-    implementation "com.tencent.videonative:DefaultInjector:0.1.4"
-    debugImplementation "com.tencent.videonative:Debugger:0.1.4"
+    implementation "com.tencent.videonative:VideoNative:0.1.5"
+    implementation "com.tencent.videonative:DefaultInjector:0.1.5"
+    debugImplementation "com.tencent.videonative:Debugger:0.1.5"
 }
 ```
 
 还需要添加 wup.jar 到libs目录中
+
+### 修改 abiFilters
+
+VN默认的图片库只包含armeabi目录的so，所以需要配置一下过滤选项
+
+```groovy
+ndk {
+	abiFilters "armeabi"
+}
+```
 
 ## 添加初始化代码
 
@@ -76,3 +86,27 @@ public class JsInterfaces extends V8JsPlugin {
     }
 }
 ```
+
+### 混淆和发布
+
+需要确保在混淆脚本中加入如下配置
+
+```groovy
+-ignorewarnings
+
+-keepattributes *JavascriptInterface*
+
+-keep class com.eclipsesource.v8.** {*;}
+-keep class com.facebook.** {*;}
+-keep class com.tencent.qqlive.imagelib.** {*;}
+
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface *;
+}
+
+```
+
+### 其他
+
+当前VideoNative使用zip离线包的方式管理vnapp。当以release方式发布apk时，只有正确签名的zip包才能运行。
+目前zip签名需要申请服务器权限，请联系ashercai

@@ -8,8 +8,11 @@ title: 版本发布信息
 
 新增功能：
 + image：增加binderror事件
-+ 性能优化：优化了自定义组件的属性传值方式（从copy变成 copy-on-write）
-+ 问题修复：修复部分UnsatisfiedLinkException异常
++ camera: 新增camera组件和拍照、录视频API
++ 问题修复：
+>>+ 修复部分UnsatisfiedLinkException异常
+>>+ 修复footer在Anroid、iOS上的表现不一致的问题
+>>+ 修复若干crash
 
 版本变更：
 
