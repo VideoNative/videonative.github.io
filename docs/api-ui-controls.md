@@ -1395,7 +1395,7 @@ Method | void stopRecord(Object object) | | 见下表 | 结束录像
 
     > 注意，如果已经开始录制，此时进行再次调用 startRecord 或者转换摄像头等异常操作，会回调 onerror 发生异常
     
-    **onError 回调函数接收一个 res 对象；它的成员属性如下:**
+    **onerror 回调函数接收一个 res 对象；它的成员属性如下:**
         
     参数 | 类型  | 说明
     --- | --- | ---
