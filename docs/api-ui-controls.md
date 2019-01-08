@@ -1253,6 +1253,8 @@ Method | Integer getDuration() | | | 获取当前播放视频的总长度，时�
 ## camera
 camera 是系统相机控件，可实现拍照和录制视频，同一页面只能插入一个 camera 组件，`0.2.0` 版本开始支持
 
+iOS 请务必在 Native 侧的 info.plist 中声明相机和麦克风的权限
+
 + 代码示例如下：
 
 ```html

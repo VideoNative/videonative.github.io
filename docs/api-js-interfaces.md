@@ -8,7 +8,11 @@ title: JS API
 
 + **void scanCode(Object object)**
 
-开启二维码扫描。
+开启二维码扫描
+
+iOS 请务必在 Native 侧的 info.plist 中声明相机的权限
+
+
 **object内的参数说明:**
 
 参数 | 类型 | 必填 | 说明
