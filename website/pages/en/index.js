@@ -210,9 +210,6 @@ class Index extends React.Component {
   }
 }
 
-Index.title = 'Video Native';
-Index.url = 'https://videonative.io/';
 Index.description = 'Video Native Official Website';
-Index.image = 'https://videonative.io/img/big_video_native.png';
 
 module.exports = Index;
