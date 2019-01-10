@@ -1305,12 +1305,12 @@ page({
     startRecord:function() {
         var camera = vn.dom.getElementById('camera');
         camera.startRecord({
-            "complete": function (res) {	
-                console.log("error is: "+res.error);
+            "onstart": function (res) {	
+                console.log("onstart result: " + res.error);
             },
 
-            "onError": function (res) {
-            	console.log("onError: "+ res.error);
+            "onerror": function (res) {
+            	console.log("onerror result: " + res.error);
             }
         })
     },
@@ -1374,7 +1374,7 @@ Method | void stopRecord(Object object) | | 见下表 | 结束录像
 
     参数 | 类型 | 必填 | 说明
     --- | --- | --- | ---
-    complete | Function | 是 | 接口调用结束的回调函数（调用成功、失败都会执行）
+    complete | Function(Object res) | 是 | 接口调用结束的回调函数（调用成功、失败都会执行）
     
     **complete 回调函数接收一个 res 对象；它的成员属性如下:**
     
@@ -1390,8 +1390,8 @@ Method | void stopRecord(Object object) | | 见下表 | 结束录像
 
     参数 | 类型 | 必填 | 说明
     --- | --- | --- | ---
-    onstart | Function | 否 | 视频开始录制的回调，没有参数
-    onerror | Function | 否 | 录制视频过程出错的回调
+    onstart | Function(Object res) | 否 | 视频开始录制的回调，没有参数
+    onerror | Function(Object res) | 否 | 录制视频过程出错的回调
     
     > 注意，如果接口调用失败（比如没有权限），或者接口调用成功但是录制过程失败（比如空间不足），回调的是 onerror
 
@@ -1409,7 +1409,7 @@ Method | void stopRecord(Object object) | | 见下表 | 结束录像
 
     参数 | 类型 | 必填 | 说明
     --- | --- | --- | ---
-    complete | Function | 是 | 接口调用结束的回调函数（调用成功、失败都会执行）
+    complete | Function(Object res) | 是 | 接口调用结束的回调函数（调用成功、失败都会执行）
     
     **complete 回调函数接收一个 res 对象；它的成员属性如下:**
     
