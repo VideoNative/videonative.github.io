@@ -211,6 +211,8 @@ Object | 所有名为 data- 开头的属性都会在返回的对象的属性中�
 
 获取DOM节点相对于父节点的位置信息，类型为rpx数值。位置顺序如下：[top, right, bottom, left]
 
+请配合 isAttachedToWindow  使用
+
 **返回参数说明:**
 
 类型 | 说明
@@ -221,11 +223,25 @@ Array | 返回值格式如：[0, 0, 50.2, 50.2] //4个值的顺序是上，右�
 
 获取DOM节点相对于屏幕的位置属性
 
+请配合 isAttachedToWindow  使用
+
 **返回参数说明:**
 
 类型 | 说明
 --- | ---
 Object | 参照 W3C 的 [nsIDOMClientRect](https://developer.mozilla.org/zh-CN/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect)
+
++ **boolean isAttachedToWindow()**
+
+返回DOM节点对象是否在屏幕上（比如 Cell 滚出屏幕、或者 View不在视图层级上，都会返回 false）
+
+如果该方法返回 false，则 getPositionRect 和 getBoundingClientRect 的位置信息是不准的
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+boolean | DOM节点对象是否在屏幕上
 
 + **startAnimation(Object obj)**
 
