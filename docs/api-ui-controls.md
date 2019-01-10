@@ -1390,7 +1390,7 @@ Method | void stopRecord(Object object) | | 见下表 | 结束录像
 
     参数 | 类型 | 必填 | 说明
     --- | --- | --- | ---
-    onstart | Function(Object res) | 否 | 视频开始录制的回调，没有参数
+    onstart | Function | 否 | 视频开始录制的回调，没有参数
     onerror | Function(Object res) | 否 | 录制视频过程出错的回调
     
     > 注意，如果接口调用失败（比如没有权限），或者接口调用成功但是录制过程失败（比如空间不足），回调的是 onerror
