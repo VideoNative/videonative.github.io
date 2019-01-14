@@ -204,6 +204,8 @@ Property |border-radius | rpx pt | 0rpx | 设置边框的圆角属性。可设�
 ### box-shadow 的详细说明
 参照 [box-shadow 的 W3C标准](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow)
 
+在 iOS 上，阴影和圆角不能并存。可改用多套一个 View 来实现阴影+圆角的效果
+
 值	| 类型 | 描述 
 --- | --- | --- 
 h-shadow | rpx pt | 必需。水平阴影的位置。允许负值
