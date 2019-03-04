@@ -44,6 +44,33 @@ value | String | 是 | 形如："10pt","10px","10rpx"的字符串
 --- | ---
 Float | 数字类型的rpx值
 
++ **void getSystemInfo(Object object)**
+
+获取系统信息
+
+**object内的参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+success | Function | 是 | 接口调用的回调函数
+fail | Function | 否 | 接口调用失败的回调函数
+
+**success回调函数接收一个Object参数；它的成员属性如下:**
+
+属性 | 类型 | 说明
+--- | --- |  ---
+language | String | 系统语言，如：zh_CN
+platform | String | 系统平台，如：ios
+system | String | 操作系统和版本号，如：iOS 12.1.2
+brand | String | 设备品牌，如：iPhone
+model | String | 设备型号，如：iPhone 8
+
+**fail回调函数接收一个Object参数；它的成员属性如下:**
+
+属性 | 类型 | 说明
+--- | --- |  ---
+error | String | 错误信息
+
 ## vn.dom
 
 + **Object getElementById(String id)**
