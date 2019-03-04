@@ -3,10 +3,37 @@ id: version-index
 title: 版本发布信息
 ---
 
+## 0.3
+发布日期：2019-3-4 <br/>
+Android版本：0.3.0 <br/>
+iOS版本：0.3.0
+
+新增功能：
++ 表达式：数组运算符内允许子表达式和字符串。如：array[idx1 + idx2]、array['name']
++ 组件: 增加 touch_move 事件的支持
++ vn: 增加 vn.getSystemInfo() 接口
++ 增强了vnapp的js引擎销毁机制
+
+问题修复：
+> Android
+>+ 优化属性设置的性能 
+>+ 完善camera的角度旋转算法
+>+ 修复text某些场景下折行不符合预期的问题
+>+ 优化了权限申请提示框
+
+> iOS
+>+ 修复某些动画场景导致的crash
+>+ 修复html文本的颜色没有生效的问题
+>+ NativeWidget增加路径转换接口
+
+
+业务场景：
+
+
 ## 0.2
 发布日期：2019-1-16 <br/>
-Android版本：0.2.2 <br/>
-iOS版本：0.2.0
+Android版本：0.2.5 <br/>
+iOS版本：0.2.2
 
 新增功能：
 + image：增加binderror事件

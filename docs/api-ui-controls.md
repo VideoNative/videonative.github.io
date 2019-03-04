@@ -87,6 +87,7 @@ target | DOM对象 | Object
 bindTap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 |
 bindLongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 |
 bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
+bindTouchMove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
 bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
 
 ## 通用属性
