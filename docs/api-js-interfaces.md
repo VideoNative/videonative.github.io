@@ -89,6 +89,14 @@ id | String | 是 | DOM对象的id
 --- | ---
 Object | DOM对象，或者null
 
++ **fullscreenElement** *(since 0.4)*
+
+属性。用于获取当前处于全屏模式的DOM节点。如果没有全屏元素，则为null
+
++ **exitFullscreen()** *(since 0.4)*
+
+调用该方法来退出全屏模式
+
 ## DOM对象
 
 + **Object getParentElement()**
@@ -197,7 +205,7 @@ id | String | 是 | DOM对象的id
 --- | ---
 Object | DOM对象；或者null
 
-+ **setProperty(String propertyKey, String propertyValue)**
++ **setProperty(String propertyKey, var propertyValue)**
 
 设置DOM对象的属性
 
@@ -206,7 +214,7 @@ Object | DOM对象；或者null
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 propertyKey | String | 是 | CSS的属性名称如："margin-left"
-propertyValue | String | 是 | CSS的属性值如："15rpx"
+propertyValue | var | 是 | 新的属性值，可为基本数据类型，或者JSON数组、JSON对象
 
 + **String getProperty(String propertyKey)**
 
@@ -377,6 +385,9 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 
 设置y轴旋转的角度
 
++ **requestFullscreen()** *(since 0.4)*
+
+将其他正处于全屏模式的节点恢复，并将当前DOM元素设置为全屏模式。如果进入全屏失败，当前节点会收到 fullscreenerror 回调。
 
 ## vn.window
 

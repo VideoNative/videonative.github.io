@@ -89,6 +89,8 @@ bindLongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之�
 bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
 bindTouchMove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
 bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
+bindFullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | *(since 0.4)*
+bindFullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | *(since 0.4)*
 
 ## 通用属性
 通用属性是指所有的组件都支持的属性。

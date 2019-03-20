@@ -3,6 +3,19 @@ id: version-index
 title: 版本发布信息
 ---
 
+## 0.4
+发布日期：开发中 <br/>
+
+新增功能：
++ 组件: 增加 requestFullscreen() 接口
++ vn: 新增 vn.dom.exitFullscreen()、vn.dom.fullscreenElement
++ 增加touch、tap、longpress事件的冒泡和捕获的能力
+
+问题修复：
+
+业务场景：
+
+
 ## 0.3
 发布日期：2019-3-4 <br/>
 Android版本：0.3.0 <br/>
