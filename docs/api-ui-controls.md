@@ -102,57 +102,39 @@ bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)
 bindFullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | *(since 0.4)*
 bindFullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | *(since 0.4)*
 
-<br/>
-
 ## 事件捕获与冒泡 (since 0.4)
 
-<br/>
-
 1. 事件阶段
-
-<br/>
 
 + **捕获阶段**
 >触发事件后，从页面根标签开始，逐层往下传递（或者中断）该事件，一直到事件触发标签结束（假设都没中断的情况）
 
-<br/>
-
 + **冒泡阶段**
 >触发事件后，从事件触发标签开始，逐层往上传递（或者中断）该事件，一直到页面根标签（假设都没中断的情况）
 
-<br/>
-
 2. 注册监听
 
-<br/>
-
->采用 标签 静态注册 方式
+>采用标签静态注册方式  
 
 + **监听捕获**： `capture:event`
 + **监听冒泡**： `on:event`
 
-<br/>
-
 ```html
-
+<!--event-capture-bubble.vnml-->
 <view id="d1"
     capture:tap="captureHandle" 
     bindtap="bindHandle" 
     on:tap="bubbleHandle" />
 
 ```
-
-<br/>
-
+>目前仅支持 点击、长按、触摸开始、触摸移动、触摸结束这些事件的捕获和冒泡阶段监听
 
 3. 中断传递
 
-<br/>
-
->采用 JS 动态中断 的方式
+>采用JS动态中断的方式
 
 ```js
-
+<!--event-capture-bubble.js-->
 captureHandle: function (e) {
     if (e.currentTarget.getId() === 'd1') {
         //在d1标签时，中断捕获事件传递
@@ -169,37 +151,34 @@ bubbleHandle: function (e) {
         e.stopPropagation();
     }
 }
-
 ```
 
-<br/>
-
-
 4. 回调参数
-
-<br/>
 
 事件名称 | 事件动作 | 回调参数（event对象）
 --- | --- | --- |
 tap | 点击 | -
 longpress | 长按 | -
-touchstart | 触摸开始 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点，目前仅返回单手指) \[ { identifier(手指标号)、currentX(相对当前标签的横坐标)、currentY(相对当前标签的纵坐标)、screenX(相对屏幕的横坐标)、screenY(相对屏幕的纵坐标) } \]
+touchstart | 触摸开始 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点，目前仅返回单手指)
 touchmove | 触摸移动 | 同上
 touchend | 触摸结束 | 同上
 
-<br/>
+>changedTouches数组对象
 
->目前仅支持 点击、长按、触摸开始、触摸移动、触摸结束这些事件的捕获和冒泡阶段监听
+参数名称 | 参数类型 | 参数说明
+--- | --- | --- |
+identifier | Number | 手指标号
+currentX | Number | 相对当前标签的横坐标
+currentY | Number | 相对当前标签的纵坐标
+screenX | Number | 相对屏幕的横坐标
+screenY | Number | 相对屏幕的纵坐标
 
-<br/>
+5. 实际使用
 
-5. 实际用例
-
-<br/>
-
+>这里用多层嵌套视图来举例
 
 ```html
-
+<!--event-capture-bubble.vnml-->
 <view id="d1"
     capture:tap="captureHandle" 
     bindtap="bindHandle" 
@@ -218,13 +197,40 @@ touchend | 触摸结束 | 同上
     </view>
     
 </view>
-
 ```
 
-<br/>
+```css
+<!--event-capture-bubble.css-->
+.d1 {
+   width: 300rpx;
+   height: 300rpx;
+   background-color: #7a1b9b;
+   flex-direction:column;
+   justify-content:flex-start;
+   align-items:flex-start;
+}
+
+.d2 {
+   width: 200rpx;
+   height: 200rpx;
+   background-color: #9b7a1b;
+   flex-direction:column;
+   justify-content:flex-start;
+   align-items:flex-start;
+}
+
+.d3 {
+   width: 100rpx;
+   height: 100rpx;
+   background-color: #7a9b1b;
+   flex-direction:column;
+   justify-content:flex-start;
+   align-items:flex-start;
+}
+```
 
 ```js
-
+<!--event-capture-bubble.js-->
 captureHandle: function (e) {
     if (e.currentTarget.getId() === 'd2') {
         //在d2标签时，中断捕获事件传递
@@ -241,29 +247,22 @@ bubbleHandle: function (e) {
         e.stopPropagation();
     }
 }
-
 ```
-
-<br/>
 
 >点击d1：  
 捕获阶段：d1  
 事件监听：d1  
-冒泡阶段：d1  
+冒泡阶段：d1
 
 >点击d2：  
 捕获阶段：d2  
 事件监听：d2  
-冒泡阶段：d2 -> d1  
+冒泡阶段：d2 -> d1
 
 >点击d3：  
 捕获阶段：d1 -> d2  
 事件监听：d3  
-冒泡阶段：d3  
-
-
-<br/>
-
+冒泡阶段：d3
 
 ## 通用属性
 通用属性是指所有的组件都支持的属性。
