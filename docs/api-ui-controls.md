@@ -98,19 +98,19 @@ bindFullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模�
 
 1. 事件阶段
 
-+ **捕获阶段**  
++ **捕获阶段：**  
 触发事件后，从页面根标签开始，逐层往下传递（或者中断）该事件，一直到事件触发标签结束（假设都没中断的情况）
 
-+ **冒泡阶段**  
++ **冒泡阶段：**  
 触发事件后，从事件触发标签开始，逐层往上传递（或者中断）该事件，一直到页面根标签（假设都没中断的情况）
 
 2. 注册监听
 
-**采用标签静态注册方式**
+采用标签静态注册方式
 
-+ **监听捕获**： `capture:event`
-+ **监听冒泡**： `on:event`
-+ **支持种类**： `tap、longpress、touchstart、touchmove、touchend`
++ **监听捕获：** `capture:event`
++ **监听冒泡：** `on:event`
++ **支持种类：** `tap、longpress、touchstart、touchmove、touchend`
 
 ```html
 <!--event-capture-bubble.vnml-->
@@ -165,9 +165,9 @@ currentY | Number | 相对当前标签的纵坐标
 screenX | Number | 相对屏幕的横坐标
 screenY | Number | 相对屏幕的纵坐标
 
-5. 实际使用
+5. 代码示例
 
-+ 代码示例如下：这里用多层嵌套视图来举例
++ 这里用多层嵌套视图来举例
 
 ```html
 <!--event-capture-bubble.vnml-->
@@ -241,7 +241,7 @@ bubbleHandle: function (e) {
 }
 ```
 
-+ 回调情况：
++ 点击视图后回调情况：
 
 ```
 点击d1：  
