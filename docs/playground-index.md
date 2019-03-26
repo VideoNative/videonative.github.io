@@ -27,7 +27,7 @@ $ pip install watchdog
 
 ### 1.3)安装VN Playground.apk
 
-在Android手机上面安装[VN Playground.apk](https://share.weiyun.com/5ORk34g),并将Android手机设置为允许USB调试，然后通过USB连接电脑，在看到是否同意该电脑调试时请选择是。  
+在Android手机上面安装[VNPlayground.apk](../file/VNPlayground.apk),并将Android手机设置为允许USB调试，然后通过USB连接电脑，在看到是否同意该电脑调试时请选择是。  
 
 打开VN Playground App。
 
