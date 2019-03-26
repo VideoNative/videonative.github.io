@@ -71,7 +71,7 @@ text
 </view>
 ```
 
-### 通用事件公共参数
+### 公共参数
 
 参数名 | 备注 | 参数类型
 --- | --- | --- 
@@ -94,7 +94,7 @@ bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)
 bindFullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | *(since 0.4)*
 bindFullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | *(since 0.4)*
 
-### 事件捕获与冒泡 (since 0.4)
+### 捕获与冒泡 (since 0.4)
 
 1. 事件阶段
 
@@ -151,11 +151,11 @@ bubbleHandle: function (e) {
 --- | --- | --- |
 tap | 点击 | 无
 longpress | 长按 | 无
-touchstart | 触摸开始 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组，目前仅返回单手指)
-touchmove | 触摸移动 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组，目前仅返回单手指)
-touchend | 触摸结束 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组，目前仅返回单手指)
+touchstart | 触摸开始 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组)
+touchmove | 触摸移动 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组)
+touchend | 触摸结束 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组)
 
-+ changedTouches数组项对象
++ changedTouches数组项对象（目前仅返回单手指）
 
 参数名称 | 参数类型 | 参数说明
 --- | --- | --- |
