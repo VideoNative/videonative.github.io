@@ -25,7 +25,10 @@ onOrientationChange(Object param) |  当前页面方向改变 | 页面 | param.o
 
 
 ## 通用事件
-通用事件是指所有组件都支持的事件。它们具有相同的回调参数。
+
+<br/>
+
+>通用事件是指所有组件都支持的事件。它们具有相同的回调参数。
 
 + 代码示例：
 
@@ -70,27 +73,197 @@ text
 </view>
 ```
 
+<br/>
+
 ### 通用事件公共参数
+
+<br/>
 
 参数名 | 备注 | 参数类型
 --- | --- | --- 
-type | 事件名 | String
-timestamp | 时间戳(毫秒) | Number
-event | 返回参数包裹结构 | Object
-dataset | DOM节点的数据集 | Object
-target | DOM对象 | Object
+type | 事件名称 | String
+timestamp | 事件发生时间戳(毫秒) | Number
+target | 事件触发的DOM对象 | Object
+dataset | 事件触发的DOM对象数据集 | Object
+currentTarget | 当前的DOM对象 | Object (since 0.4)
+event | 事件对象 | Object
 
-**注：如下通用事件中注明的参数都包裹在 event 下**
+<br/>
+
+>**注：如下通用事件中注明的参数都包裹在 event 下**
 
 事件 Key | 事件类型 | 适用范围 | 备注
 --- | --- | --- | ---
 bindTap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 |
 bindLongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 |
-bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
+bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number, event.changedTouches: Array \[ identifier: Number、currentX: Number、currentY: Number、screenX: Number、screenY: Number \]
 bindTouchMove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
 bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
 bindFullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | *(since 0.4)*
 bindFullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | *(since 0.4)*
+
+<br/>
+
+## 事件捕获与冒泡 (since 0.4)
+
+<br/>
+
+1. 事件阶段
+
+<br/>
+
++ **捕获阶段**
+>触发事件后，从页面根标签开始，逐层往下传递（或者中断）该事件，一直到事件触发标签结束（假设都没中断的情况）
+
+<br/>
+
++ **冒泡阶段**
+>触发事件后，从事件触发标签开始，逐层往上传递（或者中断）该事件，一直到页面根标签（假设都没中断的情况）
+
+<br/>
+
+2. 注册监听
+
+<br/>
+
+>采用 标签 静态注册 方式
+
++ **监听捕获**： `capture:event`
++ **监听冒泡**： `on:event`
+
+<br/>
+
+```html
+
+<view id="d1"
+    capture:tap="captureHandle" 
+    bindtap="bindHandle" 
+    on:tap="bubbleHandle" />
+
+```
+
+<br/>
+
+
+3. 中断传递
+
+<br/>
+
+>采用 JS 动态中断 的方式
+
+```js
+
+captureHandle: function (e) {
+    if (e.currentTarget.getId() === 'd1') {
+        //在d1标签时，中断捕获事件传递
+        e.stopPropagation();
+    }
+},
+bindHandle: function (e) {
+    //监听事件方法会正常回调，不受捕获或者冒泡阶段的中断操作影响
+    ...
+},
+bubbleHandle: function (e) {
+    if (e.currentTarget.getId() === 'd1') {
+        //在d1标签时，中断冒泡事件传递
+        e.stopPropagation();
+    }
+}
+
+```
+
+<br/>
+
+
+4. 回调参数
+
+<br/>
+
+事件名称 | 事件动作 | 回调参数（event对象）
+--- | --- | --- |
+tap | 点击 | -
+longpress | 长按 | -
+touchstart | 触摸开始 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点，目前仅返回单手指) \[ { identifier(手指标号)、currentX(相对当前标签的横坐标)、currentY(相对当前标签的纵坐标)、screenX(相对屏幕的横坐标)、screenY(相对屏幕的纵坐标) } \]
+touchmove | 触摸移动 | 同上
+touchend | 触摸结束 | 同上
+
+<br/>
+
+>目前仅支持 点击、长按、触摸开始、触摸移动、触摸结束这些事件的捕获和冒泡阶段监听
+
+<br/>
+
+5. 实际用例
+
+<br/>
+
+
+```html
+
+<view id="d1"
+    capture:tap="captureHandle" 
+    bindtap="bindHandle" 
+    on:tap="bubbleHandle">
+    
+    <view id="d2"
+        capture:tap="captureHandle" 
+        bindtap="bindHandle" 
+        on:tap="bubbleHandle">
+        
+        <view id="d3"
+            capture:tap="captureHandle" 
+            bindtap="bindHandle" 
+            on:tap="bubbleHandle"/>
+        
+    </view>
+    
+</view>
+
+```
+
+<br/>
+
+```js
+
+captureHandle: function (e) {
+    if (e.currentTarget.getId() === 'd2') {
+        //在d2标签时，中断捕获事件传递
+        e.stopPropagation();
+    }
+},
+bindHandle: function (e) {
+    //监听事件方法会正常回调，不受捕获或者冒泡阶段的中断操作影响
+    ...
+},
+bubbleHandle: function (e) {
+    if (e.currentTarget.getId() === 'd3') {
+        //在d3标签时，中断冒泡事件传递
+        e.stopPropagation();
+    }
+}
+
+```
+
+<br/>
+
+>点击d1：  
+捕获阶段：d1  
+事件监听：d1  
+冒泡阶段：d1  
+
+>点击d2：  
+捕获阶段：d2  
+事件监听：d2  
+冒泡阶段：d2 -> d1  
+
+>点击d3：  
+捕获阶段：d1 -> d2  
+事件监听：d3  
+冒泡阶段：d3  
+
+
+<br/>
+
 
 ## 通用属性
 通用属性是指所有的组件都支持的属性。
