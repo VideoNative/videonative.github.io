@@ -26,9 +26,7 @@ onOrientationChange(Object param) |  当前页面方向改变 | 页面 | param.o
 
 ## 通用事件
 
-<br/>
-
->通用事件是指所有组件都支持的事件。它们具有相同的回调参数。
+通用事件是指所有组件都支持的事件。它们具有相同的回调参数。
 
 + 代码示例：
 
@@ -73,11 +71,7 @@ text
 </view>
 ```
 
-<br/>
-
 ### 通用事件公共参数
-
-<br/>
 
 参数名 | 备注 | 参数类型
 --- | --- | --- 
@@ -88,9 +82,7 @@ dataset | 事件触发的DOM对象数据集 | Object
 currentTarget | 当前的DOM对象 | Object (since 0.4)
 event | 事件对象 | Object
 
-<br/>
-
->**注：如下通用事件中注明的参数都包裹在 event 下**
+**注：如下通用事件中注明的参数都包裹在 event 下**
 
 事件 Key | 事件类型 | 适用范围 | 备注
 --- | --- | --- | ---
@@ -102,22 +94,23 @@ bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)
 bindFullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | *(since 0.4)*
 bindFullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | *(since 0.4)*
 
-## 事件捕获与冒泡 (since 0.4)
+### 事件捕获与冒泡 (since 0.4)
 
 1. 事件阶段
 
-+ **捕获阶段**
->触发事件后，从页面根标签开始，逐层往下传递（或者中断）该事件，一直到事件触发标签结束（假设都没中断的情况）
++ **捕获阶段**  
+触发事件后，从页面根标签开始，逐层往下传递（或者中断）该事件，一直到事件触发标签结束（假设都没中断的情况）
 
-+ **冒泡阶段**
->触发事件后，从事件触发标签开始，逐层往上传递（或者中断）该事件，一直到页面根标签（假设都没中断的情况）
++ **冒泡阶段**  
+触发事件后，从事件触发标签开始，逐层往上传递（或者中断）该事件，一直到页面根标签（假设都没中断的情况）
 
 2. 注册监听
 
->采用标签静态注册方式  
+**采用标签静态注册方式**
 
 + **监听捕获**： `capture:event`
 + **监听冒泡**： `on:event`
++ **支持种类**： `tap、longpress、touchstart、touchmove、touchend`
 
 ```html
 <!--event-capture-bubble.vnml-->
@@ -127,11 +120,10 @@ bindFullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模�
     on:tap="bubbleHandle" />
 
 ```
->目前仅支持 点击、长按、触摸开始、触摸移动、触摸结束这些事件的捕获和冒泡阶段监听
 
 3. 中断传递
 
->采用JS动态中断的方式
+采用JS动态中断的方式
 
 ```js
 <!--event-capture-bubble.js-->
@@ -157,13 +149,13 @@ bubbleHandle: function (e) {
 
 事件名称 | 事件动作 | 回调参数（event对象）
 --- | --- | --- |
-tap | 点击 | -
-longpress | 长按 | -
-touchstart | 触摸开始 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点，目前仅返回单手指)
-touchmove | 触摸移动 | 同上
-touchend | 触摸结束 | 同上
+tap | 点击 | 无
+longpress | 长按 | 无
+touchstart | 触摸开始 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组，目前仅返回单手指)
+touchmove | 触摸移动 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组，目前仅返回单手指)
+touchend | 触摸结束 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组，目前仅返回单手指)
 
->changedTouches数组对象
++ changedTouches数组项对象
 
 参数名称 | 参数类型 | 参数说明
 --- | --- | --- |
@@ -175,7 +167,7 @@ screenY | Number | 相对屏幕的纵坐标
 
 5. 实际使用
 
->这里用多层嵌套视图来举例
++ 代码示例如下：这里用多层嵌套视图来举例
 
 ```html
 <!--event-capture-bubble.vnml-->
@@ -249,20 +241,24 @@ bubbleHandle: function (e) {
 }
 ```
 
->点击d1：  
++ 回调情况：
+
+```
+点击d1：  
 捕获阶段：d1  
 事件监听：d1  
 冒泡阶段：d1
 
->点击d2：  
+点击d2：  
 捕获阶段：d2  
 事件监听：d2  
 冒泡阶段：d2 -> d1
 
->点击d3：  
+点击d3：  
 捕获阶段：d1 -> d2  
 事件监听：d3  
 冒泡阶段：d3
+```
 
 ## 通用属性
 通用属性是指所有的组件都支持的属性。
