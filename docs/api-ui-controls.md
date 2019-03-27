@@ -18,30 +18,46 @@ onPageResult(Object params) | 从前一个页面返回 | 页面 | 前一个页�
 onLoad(Object params) | 当前页面启动 | 页面 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次，注意这个时候页面的 js 还没准备好，页面也没渲染好 | Object/String
 onReady(Object params) | 当前页面渲染完成 | 页面 | 该页面被拉起时候传递过来的参数，一次生命周期只会调用一次 | Object/String
 onReload(Object params) | 当前页面重新启动 | 页面 | 当再次打开一个 launchMode 为 singleTask 的页面时，该页面之上的其他页面会被销毁，该页面的 onReload 会被调用，一次生命周期只会调用一次 | Object/String
-onShow() | 页面可见（进入前台或从其他页面跳转回来） | 页面 | 一次生命周期可能会调用多次 | 
-onHide() | 页面不可见（退入后台或跳转到其他页面） | 页面 | 一次生命周期可能会调用多次 |  
-onUnload() | 当前页面即将销毁 | 页面 | 一次生命周期只会调用一次 | 
+onShow() | 页面可见（进入前台或从其他页面跳转回来） | 页面 | 一次生命周期可能会调用多次 | -
+onHide() | 页面不可见（退入后台或跳转到其他页面） | 页面 | 一次生命周期可能会调用多次 |  -
+onUnload() | 当前页面即将销毁 | 页面 | 一次生命周期只会调用一次 | -
 onOrientationChange(Object param) |  当前页面方向改变 | 页面 | param.orientation 返回当前页面方向的字符串。可选项：portrait， landscape， reverse-landscape | String
-
 
 ## 通用事件
 
-通用事件是指所有组件都支持的事件。它们具有相同的回调参数。
+**通用事件是指所有组件都支持的事件**
+
++ **监听方式：** `bind[Event]`
+
++ **公共参数：**
+
+参数名 | 备注 | 参数类型 | 取值范围 | 备注
+--- | --- | --- | --- | --- 
+type | 事件名称 | String | - | -  
+timestamp | 事件发生时间戳(毫秒) | Number | - | -  
+target | 事件触发的DOM对象 | Object | - | -  
+dataset | 事件触发的DOM对象数据集 | Object | - | -  
+event | 事件对象 | Object | - | 存放事件的额外参数  
+
++ 事件种类：
+
+名称 | 动作 | 适用场景 | 额外参数 | 捕获与冒泡 *(since 0.4)* | 备注
+--- | --- | --- | --- | --- | ---
+Tap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
+LongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
+TouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标) event.y: Number (触发事件时的纵坐标) | 支持 | - 
+TouchMove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标) event.y: Number (触发事件时的纵坐标) | 支持 | - 
+TouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标) event.y: Number (触发事件时的纵坐标) | 支持 | - 
+FullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
+FullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
 
 + 代码示例：
 
-```js
-/**commonEvent.js**/
-page ({
-    onTextTap: function (params) {
-        var clickStr = "文本被点击";
-        console.log(clickStr);
-    },
-    
-    onReady: function () {
-        console.log('页面加载完成')
-    }
-});
+```html
+<!--commonEvent.vnml-->
+<view class="container">
+    <text bindTap="onTextTap">可点击文本</text>
+</view>
 ```
 
 ```css
@@ -64,37 +80,21 @@ text
 }
 ```
 
-```html
-<!--commonEvent.vnml-->
-<view class="container">
-    <text bindTap="onTextTap">可点击文本</text>
-</view>
+```js
+/**commonEvent.js**/
+page ({
+    onTextTap: function (params) {
+        var clickStr = "文本被点击";
+        console.log(clickStr);
+    },
+    
+    onReady: function () {
+        console.log('页面加载完成')
+    }
+});
 ```
 
-### 公共参数
-
-参数名 | 备注 | 参数类型
---- | --- | --- 
-type | 事件名称 | String
-timestamp | 事件发生时间戳(毫秒) | Number
-target | 事件触发的DOM对象 | Object
-dataset | 事件触发的DOM对象数据集 | Object
-currentTarget | 当前的DOM对象 | Object (since 0.4)
-event | 事件对象 | Object
-
-**注：如下通用事件中注明的参数都包裹在 event 下**
-
-事件 Key | 事件类型 | 适用范围 | 备注
---- | --- | --- | ---
-bindTap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 |
-bindLongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 |
-bindTouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number, event.changedTouches: Array \[ identifier: Number、currentX: Number、currentY: Number、screenX: Number、screenY: Number \]
-bindTouchMove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
-bindTouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number, event.y: Number
-bindFullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | *(since 0.4)*
-bindFullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | *(since 0.4)*
-
-### 捕获与冒泡 (since 0.4)
+### 捕获与冒泡 *(since 0.4)*
 
 1. 事件阶段
 
@@ -102,7 +102,11 @@ bindFullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模�
 触发事件后，从页面根标签开始，逐层往下传递（或者中断）该事件，一直到事件触发标签结束（假设都没中断的情况）
 
 + **冒泡阶段：**  
-触发事件后，从事件触发标签开始，逐层往上传递（或者中断）该事件，一直到页面根标签（假设都没中断的情况）
+触发事件后，从事件触发标签开始，逐层往上传递（或者中断）该事件，一直到页面根标签结束（假设都没中断的情况）
+
+```text
+注意：页面和自定义组件都支持事件捕获与冒泡，但事件不能跨越自定义组件
+```
 
 2. 注册监听
 
@@ -123,7 +127,7 @@ bindFullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模�
 
 3. 中断传递
 
-采用JS动态中断的方式
++ **采用JS动态中断的方式：** `e.stopPropagation();`
 
 ```js
 <!--event-capture-bubble.js-->
@@ -145,25 +149,23 @@ bubbleHandle: function (e) {
 }
 ```
 
-4. 回调参数
+4. 额外参数(基于公共参数)
 
-事件名称 | 事件动作 | 回调参数（event对象）
---- | --- | --- |
-tap | 点击 | 无
-longpress | 长按 | 无
-touchstart | 触摸开始 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组)
-touchmove | 触摸移动 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组)
-touchend | 触摸结束 | x (横坐标)、y (纵坐标)、changedTouches (发生改变的触摸点数组)
+参数名称 | 参数类型 | 参数说明 | 取值范围 | 备注
+--- | --- | --- | --- | --- 
+currentTarget | Object | 当前的DOM对象 | - | - 
+event.phase | Number | 事件对象-事件阶段 | 0:监听阶段(bind) 1:捕获阶段(capture) 2:目标自身(target) 3:冒泡阶段(on) | - 
+event.changedTouches | Array | 经改变的触摸手指 | - | 目前仅返回单个触摸手指 
 
-+ changedTouches数组项对象（目前仅返回单手指）
++ changedTouches 数组项对象
 
-参数名称 | 参数类型 | 参数说明
---- | --- | --- |
-identifier | Number | 手指标号
-currentX | Number | 相对当前标签的横坐标
-currentY | Number | 相对当前标签的纵坐标
-screenX | Number | 相对屏幕的横坐标
-screenY | Number | 相对屏幕的纵坐标
+参数名称 | 参数类型 | 参数说明 | 取值范围 | 备注
+--- | --- | --- | --- | --- 
+identifier | Number | 手指标号 | 0 | 目前仅返回单个触摸手指 
+currentX | Number | 相对当前标签的横坐标 | - | - 
+currentY | Number | 相对当前标签的纵坐标 | - | - 
+screenX | Number | 相对屏幕的横坐标 | - | - 
+screenY | Number | 相对屏幕的纵坐标 | - | - 
 
 5. 代码示例
 
