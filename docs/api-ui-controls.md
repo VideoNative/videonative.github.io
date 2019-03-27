@@ -164,11 +164,11 @@ changedTouches 数组项对象
 
 参数名称 | 参数类型 | 参数说明 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
-identifier | Number | 手指标号 | 0 | 目前仅返回单个触摸手指 
-currentX | Number | 相对当前标签的横坐标 | - | - 
-currentY | Number | 相对当前标签的纵坐标 | - | - 
-screenX | Number | 相对屏幕的横坐标 | - | - 
-screenY | Number | 相对屏幕的纵坐标 | - | - 
+identifier | Number | 触摸手指编号 | 0 | 目前仅返回单个触摸手指 
+currentX | Number | 触摸点相对于当前标签的横坐标 | - | - 
+currentY | Number | 触摸点相对于当前标签的纵坐标 | - | - 
+screenX | Number | 触摸点相对于屏幕的横坐标 | - | - 
+screenY | Number | 触摸点相对于屏幕的纵坐标 | - | - 
 
 5. 代码示例
 
