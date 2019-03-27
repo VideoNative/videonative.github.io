@@ -29,7 +29,9 @@ onOrientationChange(Object param) |  当前页面方向改变 | 页面 | param.o
 
 + **监听方式：** `bind[Event]`
 
-公共参数：
+### 参数与种类
+
+1. 公共参数：
 
 参数名 | 备注 | 参数类型 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
@@ -39,7 +41,7 @@ target | 事件触发的DOM对象 | Object | - | -
 dataset | 事件触发的DOM对象数据集 | Object | - | -  
 event | 事件对象 | Object | - | 存放事件的其它参数  
 
-事件种类：
+2. 事件种类：
 
 名称 | 动作 | 适用场景 | 其它参数 | 捕获与冒泡 *(since 0.4)* | 备注
 --- | --- | --- | --- | --- | ---
@@ -51,7 +53,7 @@ TouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之�
 FullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
 FullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
 
-代码示例：
+3. 代码示例：
 
 ```html
 <!--commonEvent.vnml-->
