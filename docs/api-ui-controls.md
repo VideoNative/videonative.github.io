@@ -253,7 +253,7 @@ bubbleHandle: function (e) {
 冒泡阶段：d1
 
 点击d2区域：  
-捕获阶段：d1  
+捕获阶段：d1 -> d2  
 事件监听：d2  
 冒泡阶段：d2 -> d1
 
