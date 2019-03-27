@@ -25,11 +25,11 @@ onOrientationChange(Object param) |  当前页面方向改变 | 页面 | param.o
 
 ## 通用事件
 
-**通用事件是指所有组件都支持的事件**
+通用事件是指所有组件都支持的事件
 
 + **监听方式：** `bind[Event]`
 
-+ **公共参数：**
+公共参数：
 
 参数名 | 备注 | 参数类型 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
@@ -37,11 +37,11 @@ type | 事件名称 | String | - | -
 timestamp | 事件发生时间戳(毫秒) | Number | - | -  
 target | 事件触发的DOM对象 | Object | - | -  
 dataset | 事件触发的DOM对象数据集 | Object | - | -  
-event | 事件对象 | Object | - | 存放事件的额外参数  
+event | 事件对象 | Object | - | 存放事件的其它参数  
 
-+ 事件种类：
+事件种类：
 
-名称 | 动作 | 适用场景 | 额外参数 | 捕获与冒泡 *(since 0.4)* | 备注
+名称 | 动作 | 适用场景 | 其它参数 | 捕获与冒泡 *(since 0.4)* | 备注
 --- | --- | --- | --- | --- | ---
 Tap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
 LongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
@@ -51,7 +51,7 @@ TouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之�
 FullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
 FullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
 
-+ 代码示例：
+代码示例：
 
 ```html
 <!--commonEvent.vnml-->
@@ -110,8 +110,6 @@ page ({
 
 2. 注册监听
 
-采用标签静态注册方式
-
 + **监听捕获：** `capture:event`
 + **监听冒泡：** `on:event`
 + **支持种类：** `tap、longpress、touchstart、touchmove、touchend`
@@ -127,7 +125,7 @@ page ({
 
 3. 中断传递
 
-+ **采用JS动态中断的方式：** `e.stopPropagation();`
++ **调用方法：** `e.stopPropagation();`
 
 ```js
 <!--event-capture-bubble.js-->
@@ -149,7 +147,7 @@ bubbleHandle: function (e) {
 }
 ```
 
-4. 额外参数(基于公共参数)
+4. 其它参数(基于公共参数)
 
 参数名称 | 参数类型 | 参数说明 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
@@ -157,7 +155,7 @@ currentTarget | Object | 当前的DOM对象 | - | -
 event.phase | Number | 事件对象-事件阶段 | 0:监听阶段(bind) 1:捕获阶段(capture) 2:目标自身(target) 3:冒泡阶段(on) | - 
 event.changedTouches | Array | 经改变的触摸手指 | - | 目前仅返回单个触摸手指 
 
-+ changedTouches 数组项对象
+changedTouches 数组项对象
 
 参数名称 | 参数类型 | 参数说明 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
@@ -169,7 +167,7 @@ screenY | Number | 相对屏幕的纵坐标 | - | -
 
 5. 代码示例
 
-+ 这里用多层嵌套视图来举例
+这里用多层嵌套视图来举例
 
 ```html
 <!--event-capture-bubble.vnml-->
@@ -243,7 +241,7 @@ bubbleHandle: function (e) {
 }
 ```
 
-+ 点击视图后回调情况：
+点击视图后回调情况：
 
 ```
 点击d1：  
