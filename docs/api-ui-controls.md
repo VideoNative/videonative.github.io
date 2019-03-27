@@ -158,7 +158,7 @@ bubbleHandle: function (e) {
 参数名称 | 参数类型 | 参数说明 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
 currentTarget | Object | 当前的DOM对象 | - | - 
-event.phase | Number | 事件对象-事件阶段 | 0:监听阶段(bind); 1:捕获阶段(capture); 2:目标自身(target); 3:冒泡阶段(on) | - 
+event.phase | Number | 事件对象-事件阶段 | 0:处理阶段(bind);  1:捕获阶段(capture);  2:目标自身(target);  3:冒泡阶段(on) | - 
 event.changedTouches | Array | 经改变的触摸手指 | - | 目前仅返回单个触摸手指 
 
 changedTouches 数组项对象
