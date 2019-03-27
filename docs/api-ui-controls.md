@@ -173,8 +173,6 @@ screenY | Number | 相对屏幕的纵坐标 | - | -
 
 5. 代码示例
 
-这里用多层嵌套视图来举例
-
 ```html
 <!--event-capture-bubble.vnml-->
 <view id="d1" class="d1"
