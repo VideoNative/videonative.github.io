@@ -126,7 +126,6 @@ page ({
     capture:tap="captureHandle" 
     bindtap="bindHandle" 
     on:tap="bubbleHandle" />
-
 ```
 
 3. 中断传递
