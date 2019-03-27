@@ -177,17 +177,17 @@ screenY | Number | 相对屏幕的纵坐标 | - | -
 
 ```html
 <!--event-capture-bubble.vnml-->
-<view id="d1"
+<view id="d1" class="d1"
     capture:tap="captureHandle" 
     bindtap="bindHandle" 
     on:tap="bubbleHandle">
     
-    <view id="d2"
+    <view id="d2" class="d2"
         capture:tap="captureHandle" 
         bindtap="bindHandle" 
         on:tap="bubbleHandle">
         
-        <view id="d3"
+        <view id="d3" class="d3"
             capture:tap="captureHandle" 
             bindtap="bindHandle" 
             on:tap="bubbleHandle"/>
