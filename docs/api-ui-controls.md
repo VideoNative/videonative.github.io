@@ -47,9 +47,9 @@ event | 事件对象 | Object | - | 存放事件的其它参数
 --- | --- | --- | --- | --- | ---
 Tap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
 LongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
-TouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)  event.y: Number (触发事件时的纵坐标) | 支持 | - 
-TouchMove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)  event.y: Number (触发事件时的纵坐标) | 支持 | - 
-TouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)  event.y: Number (触发事件时的纵坐标) | 支持 | - 
+TouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
+TouchMove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
+TouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
 FullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
 FullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
 
@@ -158,13 +158,13 @@ bubbleHandle: function (e) {
 --- | --- | --- | --- | --- 
 currentTarget | Object | 当前的DOM对象 | - | - 
 event.phase | Number | 事件对象-事件阶段 | 0:处理阶段(bind);  1:捕获阶段(capture);  2:目标自身(target);  3:冒泡阶段(on) | 捕获或者冒泡阶段时，到达目标自身则值是2 
-event.changedTouches | Array | 坐标值发生改变的触摸手指 | - | 该参数仅限于touchstart、touchmove、touchend事件才会返回，并且目前仅返回单个触摸手指的坐标值 
+event.changedTouches | Array | 坐标值发生改变的触摸手指 | - | 该参数目前仅限于touchstart、touchmove、touchend事件才会返回，并且只返回单个触摸手指 
 
 changedTouches 数组项对象
 
 参数名称 | 参数类型 | 参数说明 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
-identifier | Number | 触摸手指编号 | 0 | 目前仅返回单个触摸手指 
+identifier | Number | 触摸手指编号 | 0 | 目前只返回单个触摸手指 
 currentX | Number | 触摸点相对于当前标签的横坐标 | - | - 
 currentY | Number | 触摸点相对于当前标签的纵坐标 | - | - 
 screenX | Number | 触摸点相对于屏幕的横坐标 | - | - 
