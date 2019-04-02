@@ -157,7 +157,7 @@ bubbleHandle: function (e) {
 参数名称 | 参数类型 | 参数说明 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
 currentTarget | Object | 当前的DOM对象 | - | - 
-phase | Number | 事件对象-事件阶段 | 0 ~ 3 |  0：事件处于响应阶段，即bind回调<br/>  1：事件处于捕获阶段，即capture回调<br/>  2：事件到达目标节点，即target属性指向的节点，只限于capture或者on回调<br/>  3：事件处于冒泡阶段，即on回调<br/>  
+phase | Number | 事件对象-事件阶段 | 0 ~ 3 |  0：事件处于响应阶段(bind)<br/>  1：事件处于捕获阶段(capture)<br/>  2：事件到达目标节点(capture / on)<br/>  3：事件处于冒泡阶段(on)<br/>  
 event.changedTouches | Array | 坐标值发生改变的触摸手指 | - | 该参数目前仅限于touchstart、touchmove、touchend事件才会返回，并且只返回单个触摸手指 
 
 changedTouches 数组项对象
