@@ -35,7 +35,7 @@ onOrientationChange(Object param) |  当前页面方向改变 | 页面 | param.o
 
 参数名 | 备注 | 参数类型 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
-type | 事件名称 | String | - | -  
+type | 事件名称 | String | - | *since 0.4*：只返回事件名称，不包含事件阶段。如原先的bindTap，现在改为tap  
 timestamp | 事件发生时间戳(毫秒) | Number | - | -  
 target | 事件触发的DOM对象 | Object | - | -  
 dataset | 事件触发的DOM对象数据集 | Object | - | -  
@@ -47,9 +47,9 @@ event | 事件对象 | Object | - | 存放事件的其它参数
 --- | --- | --- | --- | --- | ---
 Tap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
 LongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
-TouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
-TouchMove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
-TouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
+TouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
+TouchMove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
+TouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
 FullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
 FullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
 
@@ -157,7 +157,7 @@ bubbleHandle: function (e) {
 参数名称 | 参数类型 | 参数说明 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
 currentTarget | Object | 当前的DOM对象 | - | - 
-event.phase | Number | 事件对象-事件阶段 | 0:处理阶段(bind);  1:捕获阶段(capture);  2:目标自身(target);  3:冒泡阶段(on) | 捕获或者冒泡阶段时，到达目标自身则值是2 
+phase | Number | 事件对象-事件阶段 | 0 ~ 3 |  0：事件处于响应阶段，即bind回调<br/>  1：事件处于捕获阶段，即capture回调<br/>  2：事件到达目标节点，即target属性指向的节点，只限于capture或者on回调<br/>  3：事件处于冒泡阶段，即on回调<br/>  
 event.changedTouches | Array | 坐标值发生改变的触摸手指 | - | 该参数目前仅限于touchstart、touchmove、touchend事件才会返回，并且只返回单个触摸手指 
 
 changedTouches 数组项对象
