@@ -4,16 +4,28 @@ title: 版本发布信息
 ---
 
 ## 0.4
-发布日期：开发中 <br/>
+发布日期：2019-4-9 <br/>
 
 新增功能：
-+ 组件: 增加 requestFullscreen() 接口
-+ vn: 新增 vn.dom.exitFullscreen()、vn.dom.fullscreenElement
++ 增加Fullscreen API：组件增加 requestFullscreen() 接口；新增 vn.dom.exitFullscreen()、vn.dom.fullscreenElement
 + 增加touch、tap、longpress事件的冒泡和捕获的能力
++ 优化了自定义组件数据传递的性能
 
 问题修复：
+> Android
+>+ 修复快速转屏导致安全区高度错乱的问题
+>+ 修复footer和pull-footer的高度计算不正确的问题
+>+ 修复5.0系统上偶现view未渲染的问题
 
-业务场景：
+> iOS
+>+ 修复text文本行数和实际高度不对应的问题
+>+ 修复list动态切换滚动方向时cell显示错乱的问题
+>+ 修复增删数据时list显示异常的问题
+>+ 修复slot没有指定名字时不展示的问题
+>+ 修复list.setFooterRefreshingEnabled(false)之后无法再设置为true的问题
+
+已知问题：
++ 安全区尺寸在转屏后可能不正确 (iOS)
 
 
 ## 0.3
