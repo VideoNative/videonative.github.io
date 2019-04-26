@@ -18,15 +18,36 @@ title: VN 组件
 
 ```javascript
 component({
-    //这里定义对外暴露的属性，包括属性名、类型、默认值
+    //这里定义自定义组件对外暴露的属性，包括属性名和默认值（可缺省）
+    //每一个自定义属性通过一个对象进行描述，目前仅支持 value 字段用于描述属性默认值
+    //属性的默认值可以为基本类型、数组、对象
     properties: {
-        // 这里定义了innerText属性，属性值可以在组件使用时指定
+        // 这里定义了innerText属性，它的默认值是字符串 'default value'
         innerText: {
             value: 'default value'
-        }
+        },
+
+        // 这里定义了innerProp属性，默认值为空
+		innerProp: {},
+
+		// 这里定义了 innerArray 属性，默认值是一个数组
+		innerArray: {
+			value: [
+				{ index : 0 },
+				{ index : 1 }
+			]
+		},
+
+		// 这里定义了 innerObject 属性，默认值是一个对象
+		innerObject: {
+			value: {
+				name : 'inner',
+				demo : true
+			}
+		}
     },
 
-    //这里是这个组件暴露给外面的dom接口
+    //这里定义自定义组件对外暴露的dom接口
     methods : {
         getName : function() {
         },
@@ -35,13 +56,22 @@ component({
     },
 
     //对外暴露的自定义事件
+    //每一个自定义事件通过一个对象进行描述。目前事件没有选项需要额外描述，用空对象即可。
     events : {
-        myevent : {
-        }
+		//这里定义了一个 myevent 事件
+		myevent : {},
+
+		//这里定义了一个 myeventNext 事件
+		myeventNext : {}
     },
 
-    ready : function(p) {
-    }
+	//组件声明周期函数，表示组件已经创建
+	created : function(e) {
+	},
+
+	//组件声明周期函数，表示组件已经布局并展示
+	ready : function(e) {
+	}
 });
 ```
 
