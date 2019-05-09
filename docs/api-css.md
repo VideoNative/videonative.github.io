@@ -26,11 +26,11 @@ iPhone x | 1rpx = 1.5px | 1px = 0.67rpx
 Google Pixel 2 XL | 1rpx = 1.92px | 1px = 0.52rpx
 Google Pixel 2 | 1rpx = 1.44px | 1px = 0.69rpx
 
--**pt**（point）: 印刷所使用的长度单位，用于表示字型的大小，也用于余白（字距、行距）等其他版面构成要素的长度。1 点的长度曾经有过各种定义，当代最通行的是广泛应用于桌面排版软件的 DTP 点，72 点等于 1英寸（1 point = 127⁄360 mm = 0.352777... mm）。中国传统字体排印上的字号单位是“号”，而后采用“点”“号”兼容的体制。计算设备pt与px的关系通常可以通过先计算[PPI](https://en.wikipedia.org/wiki/Pixel_density)来实现。
+-**pt**（point）: 印刷所使用的长度单位，用于表示字型的大小，也用于余白（字距、行距）等其他版面构成要素的长度。1 点的长度曾经有过各种定义，当代最通行的是广泛应用于桌面排版软件的 DTP 点，72 点等于 1英寸（1 point = 127⁄360 mm = 0.352777... mm）。中国传统字体排印上的字号单位是“号”，而后采用“点”“号”兼容的体制。计算设备pt与px的关系通常可以通过先计算[PPI](https://en.wikipedia.org/wiki/Pixel_density)来实现。换算公式如下：
 
- $$ 1pt = \frac {PPI} {72}px $$
+![ppi pt](../images/ppi_pt.png)
 
-**建议：** 开发VideoNative程序时设计师可以用 iPhone6 作为视觉稿的标准。
+**建议：** 开发VideoNative程序时设计师可以用 iPhone6 作为视觉稿的标准，这样屏幕宽度是375点，点和rpx之间的换算关系为 1rpx = 2点; 点和pt的换算关系为 1pt = 0.4425点
 
 ## 内联样式
 
