@@ -286,7 +286,7 @@ id | String | | 用于 CSS 匹配和 getElementById()
 width | [rpx pt percent auto] | auto |
 height | [rpx pt percent auto] | auto |
 aspect-ratio | Float | | 宽高比
-background-stretch-param | [rpx 组合] | | 1.25rpx 15rpx (将对图片(15,25)坐标点进行拉伸) 2.25rpx 10rpx 22rpx 15rpx (将对图片的纵坐标25位置到35位置进行拉伸，并对横坐标22位置到37位置进行拉伸)，必须配合 background 属性一起使用，否则无效
+background-stretch-param | [整数的组合] | | 本属性需配合 background 属性一起使用才有效。输入格式有两种；第一种，对一个坐标点进行拉伸，格式为：top left，例：25 15 (对背景图片坐标点(15,25)进行拉伸)。第二种，对一个区域进行拉伸，格式：top lengthY left lengthX，例：25 10 22 15 (将对背景图片的纵坐标25位置到35位置进行拉伸，对横坐标22位置到37位置进行拉伸)。注：只能填写0和正整数，不带单位；含义是1倍图的像素坐标和长度。
 background-color | color | #FFFFFFFF | 取值格式为#RGB，#RRGGBB #RRGGBBAA，RRGGBBAA，如果同时设置了background，background的优先级更高
 background | String | | 1.不拉伸的图片如: ../image/btn_bg
 alpha | Float | 1 | 0:透明 到 1:不透明
