@@ -608,7 +608,7 @@ boolean | 更新是否成功
 --- | --- | --- | ---
 url | String | 是 | 请求url
 data | Object/String | 否 | 请求的参数
-header | Object | 否 | 设置请求的 header，header 中不能设置 Referer。
+header | Object | 否 | 设置请求的 header
 method | String | 否 | （需大写）有效值：OPTIONS, GET(默认), HEAD, POST, PUT, DELETE, TRACE, CONNECT
 dataType | String | 否 | 如果设为json(默认)，会尝试对返回的数据做一次 JSON.parse，有效值：json，text
 requestType | String | 否 | application/json或text/plain
