@@ -186,7 +186,7 @@ text
 
 #### vn:for 与 vn:if
 
-+ 当 `vn:if` 和 `vn:for` 同时存在于一个标签内时，`vn:for` 会被优先处理
++ 当 `vn:if` 和 `vn:for` 同时存在于一个标签内时，`vn:if` 会被优先处理
 
 
 ## vnss 样式
