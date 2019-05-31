@@ -539,6 +539,7 @@ Property | mode | Enum | fit-xy | focus-crop/center-crop/center-inside/center/fi
 Property | foucs-point-x | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | foucs-point-y | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | shape | Enum | normal | normal/circle
+Property | filter | | | 滤镜参数，目前只支持: blur; 例子：filter="blur(1px)" *(since 0.5)*
 EventHandler | bindload | function(Object params) | | 当src指定的图片被显示时触发这个事件。图片的宽、高通过事件参数返回：params.event = {width: 50.3, height:30.02 }，单位为rpx。
 EventHandler | binderror | function(Object params) | | 当src指定的图片加载失败时触发这个事件。无event属性。
 
@@ -1401,6 +1402,7 @@ Property | objectfit | Enum | contain | contain/fill/cover
 Property | initial-time | Integer | 0 | 指定视频初始播放位置，时长单位为毫秒
 Property | autoplay | Boolean | false | 是否自动播放
 Property | loop | Boolean | false | 是否循环播放
+Property | muted | Boolean | false | 是否无声播放 *(since 0.5)*
 EventHandler | bindPlay | function() | | 当开始/继续播放时触发play事件
 EventHandler | bindPause | function() | | 当暂停播放时触发 pause 事件
 EventHandler | bindEnded | function() | | 当播放到末尾时触发 ended 事件
