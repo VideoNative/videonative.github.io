@@ -539,7 +539,7 @@ Property | mode | Enum | fit-xy | focus-crop/center-crop/center-inside/center/fi
 Property | foucs-point-x | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | foucs-point-y | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | shape | Enum | normal | normal/circle
-Property | filter | | | 滤镜参数，目前只支持: blur; 例子：filter="blur(1px)" *(since 0.5)*
+Property | filter | | | 滤镜参数，目前只支持: blur; 注：不支持动图模糊。例子：filter="blur(1px)" *(since 0.5)*
 EventHandler | bindload | function(Object params) | | 当src指定的图片被显示时触发这个事件。图片的宽、高通过事件参数返回：params.event = {width: 50.3, height:30.02 }，单位为rpx。
 EventHandler | binderror | function(Object params) | | 当src指定的图片加载失败时触发这个事件。无event属性。
 
@@ -819,9 +819,9 @@ Property | vn:for-item | String | "item" |
 Property | vn:switch | String | "case" |
 Property | direction | Enum | column | column/row，滚动方向
 EventHandler | bindItemTap | function(Object params) | | 列表 Item 点击，位置参数为 params.event.position
-EventHandler | bindItemLoad | function(Object params) | | 列表 Item 与数据绑定时回调，在Item重用时还会回调，位置参数为 params.event.position
-EventHandler | bindItemAttach | function(Object params) | | 列表 Item 上屏时回调，位置参数为 params.event.position
-EventHandler | bindItemDetach | function(Object params) | | 列表 Item 下屏时回调，位置参数为 params.event.position
+EventHandler | bindItemLoad | function(Object params) | | 列表 Item 与数据绑定时回调，在Item重用时还会回调。params.event = { position:位置, cell:cell节点 *(since 0.5)* }
+EventHandler | bindItemAttach | function(Object params) | | 列表 Item 上屏时回调。params.event = { position:位置, cell:cell节点 *(since 0.5)* }
+EventHandler | bindItemDetach | function(Object params) | | 列表 Item 下屏时回调。params.event = { position:位置, cell:cell节点 *(since 0.5)* }
 EventHandler | bindHeaderRefreshing | function(Object params) | | 列表发生了下拉刷新
 EventHandler | bindFooterRefreshing | function(Object params) | | 列表发生了上拉加载
 EventHandler | bindScroll | function(Object params) | | 列表滚动，params.event = { deltaX : 0, deltaY : 0 }; deltaX 和 deltaY（正数为下滑，负数为上滑）
