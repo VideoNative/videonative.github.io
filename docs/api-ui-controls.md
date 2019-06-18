@@ -756,6 +756,8 @@ Method | void setFocus(Boolean focus) |  |  | 设置当前输入框的焦点属�
 
 __注意：如果同一个类型的 Cell，它们的宽度或高度不是始终固定的话，请添加 fixedCellSize="false"，否则 iOS 系统会表现异常__
 
+__注意：list 的 padding 属性和 header/footer 目前会冲突，尽量避免一起使用__
+
 + 代码示例如下：
 
 ```html
@@ -1411,6 +1413,7 @@ EventHandler | bindWaiting | function() | | 视频出现缓冲时触发
 EventHandler | bindError | function(int errorCode, String errorInfo) | | 视频播放出错时触发
 Method | Integer getCurrentTime() | | | 获取当前播放位置，时长单位为毫秒
 Method | void seekTo(Integer time) | Integer | | 从指定毫秒开始播放，时长单位为毫秒
+Method | void preload() | | | 开始预加载视频，如果视频已经加载好则无效
 Method | void start() | | | 从暂停位置继续播放
 Method | void resume() | | | 重头开始播放
 Method | void pause() | | | 暂停
