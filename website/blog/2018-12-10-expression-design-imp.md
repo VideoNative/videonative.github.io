@@ -44,7 +44,7 @@ trim | trim("&nbsp;&nbsp;&nbsp;Hello World&nbsp;&nbsp;&nbsp;") | 一个字符串
 toRpx | toRpx("15pt") | 单位字符串 | 返回转化为RPX单位的float值
 
 ## 主流程
-![VN表达式引擎的流程图](../img/blog-img/expression-design-imp-p1.png)
+![VN表达式引擎的流程图](/img/blog-img/expression-design-imp-p1.png)
 
 ### Token解析
 
@@ -138,7 +138,7 @@ Token解析的第一步是将表达式字符串转化为操作符，标识符，
 123*+
 ```
 生成的操作树为如下
-![生成的操作树](../img/blog-img/expression-design-imp-p2.png)
+![生成的操作树](/img/blog-img/expression-design-imp-p2.png)
 
 ### 计算与结果输出
 
