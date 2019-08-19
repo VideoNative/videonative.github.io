@@ -3,6 +3,56 @@ id: version-index
 title: 版本发布信息
 ---
 
+## 0.5
+发布日期：2019-7-23 <br/>
+
+新增功能：
++ 单页面现在也会应用 info.json 里的组件相关设置
++ video：增加muted属性；增加userinfo自定义属性
++ image：增加filter属性以支持blur高斯模糊
++ text：支持baseline对齐方式
++ list：滚动导致cell上下屏时，增加了cell的dom对象参数；增加对padding的支持
++ console.log支持打印object和error
+
+> Android
+>+ 增加对arm64, x86, x86_64的支持
+>+ text的html格式支持color带透明度
+>+ 对list的下拉和上拉加入阻尼效果
+
+> iOS
+>+ text的html格式增加<u>、<s>，以及color属性支持RGBA颜色
+
+
+问题修复：
+>+ 修复组件内部的vn:if节点没有更新的问题
+>+ 修复图片有时候边缘被裁剪的问题
+>+ 修复video的体验问题
+>+ 修复view-pager循环模式时更新数据导致当前页面索引值不对的问题
+>+ 表达式 == 和 !=，增加了数据类型的强转逻辑
+>+ 优化了vn:for语法在list的cell里时的性能问题
+>+ 优化了部分代码逻辑的性能
+
+> Android
+>+ 修复页面退出时调用gc()导致的ANR问题
+>+ 修复多倍图缩放系数计算错误的问题
+>+ 修复CSS多选择器不支持多行的问题
+>+ 修复在某些手机上无法调试的问题
+>+ 修复同方向嵌套view-pager时内部那个无法滑动的问题
+
+> iOS
+>+ 修复textarea当max-lines=0时没有自动高度的问题
+>+ 修复vn.window.isDialog()返回值错误的问题
+>+ 修复了由于新发布iPad设备导致的PPI无法识别从而导致的PT单位的显示问题
+>+ 修复text的html标签不能嵌套的问题
+>+ 修复更新数据的时候，新增的节点被数据更新两次的问题
+>+ 修复scroll-view和list停止滚动后，再次滚动时 deltaX 和 deltaY 变得很大的问题
+
+
+调整：
+> Android
+>+ list、scroll-view、view-pager：取消滑动到头之后的动画效果
+
+
 ## 0.4
 发布日期：2019-4-9 <br/>
 
