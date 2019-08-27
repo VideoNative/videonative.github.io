@@ -7,6 +7,7 @@ title: 版本发布信息
 发布日期：开发中 <br/>
 
 新增功能：
+
 + 加入JS模块化的支持：支持 CommonJS 和 AMD 两种方式
 + 优化了对象创建和list滚动的性能
 + 增加Native接口来预加载.page文件和.js文件以提高页面加载性能
@@ -17,6 +18,7 @@ title: 版本发布信息
 发布日期：2019-7-23 <br/>
 
 新增功能：
+
 + 单页面现在也会应用 info.json 里的组件相关设置
 + video：增加muted属性；增加userinfo自定义属性
 + image：增加filter属性以支持blur高斯模糊
@@ -25,12 +27,14 @@ title: 版本发布信息
 + console.log支持打印object和error
 
 > Android
+> 
 >+ 增加对arm64, x86, x86_64的支持
 >+ text的html格式支持color带透明度
 >+ 对list的下拉和上拉加入阻尼效果
 
 > iOS
->+ text的html格式增加<u>、<s>，以及color属性支持RGBA颜色
+> 
+>+ text的html格式增加`<u>`、`<s>`，以及color属性支持RGBA颜色
 
 
 问题修复：
@@ -43,6 +47,7 @@ title: 版本发布信息
 >+ 优化了部分代码逻辑的性能
 
 > Android
+> 
 >+ 修复页面退出时调用gc()导致的ANR问题
 >+ 修复多倍图缩放系数计算错误的问题
 >+ 修复CSS多选择器不支持多行的问题
@@ -50,6 +55,7 @@ title: 版本发布信息
 >+ 修复同方向嵌套view-pager时内部那个无法滑动的问题
 
 > iOS
+> 
 >+ 修复textarea当max-lines=0时没有自动高度的问题
 >+ 修复vn.window.isDialog()返回值错误的问题
 >+ 修复了由于新发布iPad设备导致的PPI无法识别从而导致的PT单位的显示问题
@@ -60,6 +66,7 @@ title: 版本发布信息
 
 调整：
 > Android
+> 
 >+ list、scroll-view、view-pager：取消滑动到头之后的动画效果
 
 
@@ -67,17 +74,20 @@ title: 版本发布信息
 发布日期：2019-4-9 <br/>
 
 新增功能：
+
 + 增加Fullscreen API：组件增加 requestFullscreen() 接口；新增 vn.dom.exitFullscreen()、vn.dom.fullscreenElement
 + 增加touch、tap、longpress事件的冒泡和捕获的能力
 + 优化了自定义组件数据传递的性能
 
 问题修复：
 > Android
+> 
 >+ 修复快速转屏导致安全区高度错乱的问题
 >+ 修复footer和pull-footer的高度计算不正确的问题
 >+ 修复5.0系统上偶现view未渲染的问题
 
 > iOS
+> 
 >+ 修复text文本行数和实际高度不对应的问题
 >+ 修复list动态切换滚动方向时cell显示错乱的问题
 >+ 修复增删数据时list显示异常的问题
@@ -85,6 +95,7 @@ title: 版本发布信息
 >+ 修复list.setFooterRefreshingEnabled(false)之后无法再设置为true的问题
 
 已知问题：
+
 + 安全区尺寸在转屏后可能不正确 (iOS)
 
 
@@ -94,6 +105,7 @@ Android版本：0.3.0 <br/>
 iOS版本：0.3.0
 
 新增功能：
+
 + 表达式：数组运算符内允许子表达式和字符串。如：array[idx1 + idx2]、array['name']
 + 组件: 增加 touch_move 事件的支持
 + vn: 增加 vn.getSystemInfo() 接口
@@ -101,18 +113,18 @@ iOS版本：0.3.0
 
 问题修复：
 > Android
+> 
 >+ 优化属性设置的性能 
 >+ 完善camera的角度旋转算法
 >+ 修复text某些场景下折行不符合预期的问题
 >+ 优化了权限申请提示框
 
 > iOS
+> 
 >+ 修复某些动画场景导致的crash
 >+ 修复html文本的颜色没有生效的问题
 >+ NativeWidget增加路径转换接口
 
-
-业务场景：
 
 
 ## 0.2
@@ -121,6 +133,7 @@ Android版本：0.2.5 <br/>
 iOS版本：0.2.2
 
 新增功能：
+
 + image：增加binderror事件
 + camera: 新增camera组件和拍照、录视频API
 + DOM: 增加 isAttachedToWindow() 方法用于判断DOM对象是否绑定到了系统View树上
@@ -129,12 +142,14 @@ iOS版本：0.2.2
 
 问题修复：
 > 双平台
+> 
 >+ 修复footer在Anroid、iOS上的表现不一致的问题
 >+ 修复了list滑动cell复用时过多数据通知的问题
 >+ 完善胡子语法内表达式的类型转换
 >+ 修复了KeyPath中包含字符 '-' 时解析错误的问题
 
 > Android
+> 
 >+ 修复大部分UnsatisfiedLinkException异常
 >+ 修复页面隐藏时自动暂停视频的问题
 >+ 修复vn.data.query()有时无法返回对象的问题
@@ -148,6 +163,7 @@ iOS版本：0.2.2
 >+ 修复 vn.window.getScreenHeight() 返回值不精确的问题
 
 > iOS
+> 
 >+ 修复某些动画场景导致的crash
 >+ 修复某些场景下 text 的 line-height、max-lines 等属性渲染错误的问题
 >+ 修复 ViewPager 偶现尺寸为0的问题
@@ -160,25 +176,24 @@ iOS版本：0.2.2
 
 
 版本变更：
->+ 现在不能通过 list.setFooterRefreshingEnabled(true) 使 footer 进入空闲状态，而必须通过 list.setFooterRefreshing(false) 才能使 footer 进入空闲状态
->+ 现在vn.data.update() 不能往数组中不存在的索引更新数据
->+ 现在dom.getChildElements()只会返回绑定到系统View树上的孩子节点
+
++ 现在不能通过 list.setFooterRefreshingEnabled(true) 使 footer 进入空闲状态，而必须通过 list.setFooterRefreshing(false) 才能使 footer 进入空闲状态
++ 现在vn.data.update() 不能往数组中不存在的索引更新数据
++ 现在dom.getChildElements()只会返回绑定到系统View树上的孩子节点
 
 已知问题：
+
 + view-pager未根据cellType进行复用，当vn:for数据发生变更后会导致显示不正确
 
-业务场景：
 
 
 ## 0.1
 发布日期： 2018-12-17
 
 新增功能：
+
 + list：支持横向模式下的header和footer。增加pull-footer标签支持拉动刷新模式。scrollToPosition和smoothScrollToPosition增加mode参数。
 + image：宽、高支持auto模式。增加bindload事件。
 
-版本变更：
-
-已知问题：
 
 业务场景：腾讯视频v6.5.0；腾讯视频国际版v1.1.0
