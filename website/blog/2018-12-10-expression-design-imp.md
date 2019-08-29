@@ -70,17 +70,29 @@ Token解析的第一步是将表达式字符串转化为操作符，标识符，
 调度场算法具体的执行过程如下：
 
 读入一个Token，直到无Token可读
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果Token是操作数（标识符，字符串，数字），则加入输出队列
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果Token是操作符，记作 Oc
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若Oc的优先级高于栈顶或Oc的优先级等于栈顶且Oc有左结合性，则弹栈入列，直到条件被打破 **\***
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;否则，Oc 压栈
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果Token是左括号，则压栈
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果Token是右括号，则
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;弹栈入列，直到遇见左括号
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;弹栈，丢弃左括号
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若遇见左括号之前，栈为空，则括号不匹配（右括号多）
+
 无Token可读时
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;弹栈入列，直至栈空
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若栈空之前遇见左括号，则括号不匹配（左括号多）
 
 **注**：对条件运算符（即'? :'这个三元运算符）我们要进行一些特殊处理。具体方法是:条件运算符优先级很低，只比’，’操作符的优先级高，’?’与':'操作符满足右结合性， 在标记为'**\***'的那个步骤中当 ‘:’操作符匹配了一个’？’将其出栈并停止循环。
