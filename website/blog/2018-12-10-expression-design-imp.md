@@ -75,7 +75,7 @@ Token解析的第一步是将表达式字符串转化为操作符，标识符，
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果Token是操作符，记作 Oc
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若Oc的优先级高于栈顶或Oc的优先级等于栈顶且Oc有左结合性，则弹栈入列，直到条件被打破 **\***
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若Oc的优先级低于栈顶或Oc的优先级等于栈顶且Oc有左结合性，则弹栈入列，直到条件被打破 **\***
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;否则，Oc 压栈
 
