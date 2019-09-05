@@ -5,7 +5,7 @@
     "VNCode接入": ["getting-started-vscode"]
   },
   "API": {
-    "API" : ["api-ui-controls", "api-js-interfaces", "api-css", "api-usage", "api-expression", "api-custom-component", "api-native-component"]
+    "API" : ["api-ui-controls", "api-js-interfaces", "api-css", "api-usage", "api-expression", "api-custom-component", "api-native-component", "api-js-module"]
   }
  
 }
