@@ -283,33 +283,33 @@ bubbleHandle: function (e) {
 --- | --- | --- | --- 
 class | String | | 引用 vnss 中的样式类；多个样式可用空格分隔
 id | String | | 用于 CSS 匹配和 getElementById()
-width | [rpx pt percent auto] | auto |
-height | [rpx pt percent auto] | auto |
+width | [rpx pt dp px % auto] | auto |
+height | [rpx pt dp px % auto] | auto |
 aspect-ratio | Float | | 宽高比
 background-stretch-param | [整数的组合] | | 本属性需配合 background 属性一起使用才有效。输入格式有两种；第一种，对一个坐标点进行拉伸，格式为：top left，例：25 15 (对背景图片坐标点(15,25)进行拉伸)。第二种，对一个区域进行拉伸，格式：top lengthY left lengthX，例：25 10 22 15 (将对背景图片的纵坐标25位置到35位置进行拉伸，对横坐标22位置到37位置进行拉伸)。注：只能填写0和正整数，不带单位；含义是1倍图的像素坐标和长度。
 background-color | color | #FFFFFFFF | 取值格式为#RGB，#RRGGBB #RRGGBBAA，RRGGBBAA，如果同时设置了background，background的优先级更高
 background | String | | 1.不拉伸的图片如: ../image/btn_bg
 alpha | Float | 1 | 0:透明 到 1:不透明
-padding | [rpx pt % 组合] | 0rpx | 参见 CSS 标准写法
-padding-left | [rpx pt %] | | 共存时覆盖 padding 的值
-padding-right | [rpx pt %] | | 共存时覆盖 padding 的值
-padding-top | [rpx pt %] | | 共存时覆盖 padding 的值
-padding-bottom | [rpx pt percent] | | 共存时覆盖 padding 的值
-margin | [rpx pt % 组合] | 0rpx | 参见 CSS 标准写法
-margin-left | [rpx pt %] | | 共存时覆盖 margin 的值
-margin-right | [rpx pt %] | | 共存时覆盖 margin 的值
-margin-top | [rpx pt %] | | 共存时覆盖 margin 的值
-margin-bottom | [rpx pt %] | |共存时覆盖 margin 的值
-max-height | [rpx pt %] | |
-max-width | [rpx pt %] | |
-min-height | [rpx pt %] | |
-min-width | [rpx pt %] | |
+padding | [rpx pt dp px % 组合] | 0rpx | 参见 CSS 标准写法
+padding-left | [rpx pt dp px %] | | 共存时覆盖 padding 的值
+padding-right | [rpx pt dp px %] | | 共存时覆盖 padding 的值
+padding-top | [rpx pt dp px %] | | 共存时覆盖 padding 的值
+padding-bottom | [rpx pt dp px percent] | | 共存时覆盖 padding 的值
+margin | [rpx pt dp px % 组合] | 0rpx | 参见 CSS 标准写法
+margin-left | [rpx pt dp px %] | | 共存时覆盖 margin 的值
+margin-right | [rpx pt dp px %] | | 共存时覆盖 margin 的值
+margin-top | [rpx pt dp px %] | | 共存时覆盖 margin 的值
+margin-bottom | [rpx pt dp px %] | |共存时覆盖 margin 的值
+max-height | [rpx pt dp px %] | |
+max-width | [rpx pt dp px %] | |
+min-height | [rpx pt dp px %] | |
+min-width | [rpx pt dp px %] | |
 hidden | Boolean | false | 是否隐藏
 enable | Boolean | true | 是否启用，为 false 时不接收点击事件
 overflow | [visible hidden] | hidden | 当内容溢出元素框时发生的事情，visible 表示溢出的内容不会被裁剪，hidden 表示溢出的内容会被裁剪，visible 必须配合 flex-shrink=0 使用
 border-color | color | #00000000 | 设置四条边框的颜色。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值
-border-width | rpx pt | 0rpx | 设置边框的宽度。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值
-border-radius | rpx pt | 0rpx | 设置边框的圆角属性。目前除了 View 标签能支持4个角设置不同的值，其他标签只支持4个角设置相同的值
+border-width | rpx pt dp px | 0rpx | 设置边框的宽度。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值
+border-radius | rpx pt dp px | 0rpx | 设置边框的圆角属性。目前除了 View 标签能支持4个角设置不同的值，其他标签只支持4个角设置相同的值
 
 ## Flexbox 布局属性
 Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属性和子节点相关的属性。容器属性和子节点属性相互影响，配合生效。
@@ -347,10 +347,10 @@ Property | flex-basis | [Enum %] | auto |
 Property | flex-grow | Float | 0 | 拉伸因子
 Property | flex-shrink | Float | 1 | 收缩规则
 Property | position | Enum | relative | relative/absolute
-Property | left  | [rpx pt px %] | 0rpx | left属性影响元素的水平位置
-Property | right  | [rpx pt px %] | 0rpx | right属性影响元素的水平位置
-Property | top  | [rpx pt px %] | 0rpx | top属性影响元素的竖直位置
-Property | bottom  | [rpx pt px %] | 0rpx | bottom属性影响元素的竖直位置
+Property | left  | [rpx pt dp px %] | 0rpx | left属性影响元素的水平位置
+Property | right  | [rpx pt dp px %] | 0rpx | right属性影响元素的水平位置
+Property | top  | [rpx pt dp px %] | 0rpx | top属性影响元素的竖直位置
+Property | bottom  | [rpx pt dp px %] | 0rpx | bottom属性影响元素的竖直位置
 
 
 ## view
@@ -372,8 +372,8 @@ view是简单的容器类。它支持设置 border 和 shadow。
 Property |box-shadow | h-shadow v-shadow blur spread color inset | | 添加一个阴影。每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略的长度值为0。默认为 outset
 Property |border-color | color | transparent（透明） | 设置四条边框的颜色。此属性可设置 1 到 4 种颜色。
 Property |border-style | Enum | none | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。此属性可设置 1 到 4 个值。
-Property |border-width | rpx pt | 0rpx | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
-Property |border-radius | rpx pt | 0rpx | 设置边框的圆角属性。可设置 1 到 4 个值（topLeft, topRight, bottomRight, bottomLeft）
+Property |border-width | rpx pt dp px | 0rpx | 为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。可设置 1 到 4 个值
+Property |border-radius | rpx pt dp px | 0rpx | 设置边框的圆角属性。可设置 1 到 4 个值（topLeft, topRight, bottomRight, bottomLeft）
 
 ### box-shadow 的详细说明
 参照 [box-shadow 的 W3C标准](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow)
@@ -382,10 +382,10 @@ Property |border-radius | rpx pt | 0rpx | 设置边框的圆角属性。可设�
 
 值	| 类型 | 描述 
 --- | --- | --- 
-h-shadow | rpx pt | 必需。水平阴影的位置。允许负值
-v-shadow | rpx pt | 必需。垂直阴影的位置。允许负值
-blur	| rpx pt | 可选。模糊距离，不允许负值
-spread | rpx pt  | 可选。阴影的尺寸，允许负值
+h-shadow | rpx pt dp px | 必需。水平阴影的位置。允许负值
+v-shadow | rpx pt dp px | 必需。垂直阴影的位置。允许负值
+blur	| rpx pt dp px | 可选。模糊距离，不允许负值
+spread | rpx pt dp px  | 可选。阴影的尺寸，允许负值
 color	 | color | 可选。阴影的颜色。请参阅 CSS 颜色值，默认为黑色
 inset	 | | 可选。将外部阴影 (outset) 改为内部阴影，默认为 outset
 
@@ -487,7 +487,7 @@ text是基本的文本展示控件
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | rpx pt | 手机系统默认 | 字体尺寸
+Property | font-size | rpx pt dp px | 手机系统默认 | 字体尺寸
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF |
@@ -511,7 +511,7 @@ button是点击交互控件。button有默认的系统UI，以及点击时有系
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | rpx pt | 手机系统默认 | 文本 size，只能是整型
+Property | font-size | rpx pt dp px | 手机系统默认 | 文本 size，只能是整型
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF |
@@ -644,7 +644,7 @@ page({
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | rpx pt | 手机系统默认 | 文本 size，只能是整型
+Property | font-size | rpx pt dp px | 手机系统默认 | 文本 size，只能是整型
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
@@ -719,7 +719,7 @@ page({
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | rpx pt | 手机系统默认 | 文本 size，只能是整型
+Property | font-size | rpx pt dp px | 手机系统默认 | 文本 size，只能是整型
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
@@ -1370,9 +1370,9 @@ Property | vn:for | 胡子语句 | | 数据源，必填项
 Property | vn:for-index | String | "index" | 数组下标
 Property | vn:for-item | String | "item" | 数组项
 Property | vn:switch | String | "case" | 数组项类型
-Property | page-gap | rpx pt | 0rpx | 分页间距
-Property | previous-margin | rpx pt | 0rpx | 前边距，可用于露出前一页的一小部分
-Property | next-margin | rpx pt | 0rpx | 后边距，可用于露出下一页的一小部分
+Property | page-gap | rpx pt dp px | 0rpx | 分页间距
+Property | previous-margin | rpx pt dp px | 0rpx | 前边距，可用于露出前一页的一小部分
+Property | next-margin | rpx pt dp px | 0rpx | 后边距，可用于露出下一页的一小部分
 Property | circular | Boolean | false | 是否开启无限滚动
 Property | autoplay | Boolean | false | 是否开启自动滚动
 Property | interval | Number | 5000 | 自动滚动的间隔时间，单位：毫秒
