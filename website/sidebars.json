@@ -2,7 +2,8 @@
   "Getting Started": {
     "基础概念": ["getting-started-basis"],
     "Native接入": ["getting-started-android","getting-started-ios"],
-    "VNCode接入": ["getting-started-vscode"]
+    "VNCode接入": ["getting-started-vscode"],
+    "开发建议": ["develop-suggestions"]
   },
   "API": {
     "API" : ["api-ui-controls", "api-js-interfaces", "api-css", "api-usage", "api-expression", "api-custom-component", "api-native-component", "api-js-module"]
