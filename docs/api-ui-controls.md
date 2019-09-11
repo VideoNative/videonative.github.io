@@ -539,7 +539,7 @@ Property | mode | Enum | fit-xy | focus-crop/center-crop/center-inside/center/fi
 Property | foucs-point-x | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | foucs-point-y | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | shape | Enum | normal | normal/circle
-Property | filter | | | 滤镜参数，目前只支持: blur; 注：1、不支持动图模糊；2、超过25px会导致渲染性能下降可能导致卡顿。例子：filter="blur(1px)" *(since 0.5)*
+Property | filter | | | 滤镜参数，目前只支持: blur; 注：1、不支持动图模糊；2、超过25px会导致渲染性能下降可能导致卡顿。3、blur 的单位暂时只能为 "px" 例子：filter="blur(1px)" *(since 0.5)*
 EventHandler | bindload | function(Object params) | | 当src指定的图片被显示时触发这个事件。图片的宽、高通过事件参数返回：params.event = {width: 50.3, height:30.02 }，单位为rpx。
 EventHandler | binderror | function(Object params) | | 当src指定的图片加载失败时触发这个事件。无event属性。
 
