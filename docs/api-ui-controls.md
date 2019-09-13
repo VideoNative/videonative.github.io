@@ -487,7 +487,7 @@ text是基本的文本展示控件
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | [rpx pt dp px] | 手机系统默认 | 字体尺寸
+Property | font-size | [rpx pt dp px] | 12dp | 字体尺寸
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF |
@@ -511,7 +511,7 @@ button是点击交互控件。button有默认的系统UI，以及点击时有系
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | [rpx pt dp px] | 手机系统默认 | 文本 size，只能是整型
+Property | font-size | [rpx pt dp px] | 12dp | 文本 size，只能是整型
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF |
@@ -644,7 +644,7 @@ page({
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | [rpx pt dp px] | 手机系统默认 | 文本 size，只能是整型
+Property | font-size | [rpx pt dp px] | 12dp | 文本 size，只能是整型
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
@@ -719,7 +719,7 @@ page({
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
 --- | --- | --- | --- | ---
-Property | font-size | [rpx pt dp px] | 手机系统默认 | 文本 size，只能是整型
+Property | font-size | [rpx pt dp px] | 12dp | 文本 size，只能是整型
 Property | font-style | Enum | normal | normal/bold/italic/bold_italic
 Property | font-family | String | 系统默认 | 字体集
 Property | color | color | #000000FF | 取值格式为#RGBA
