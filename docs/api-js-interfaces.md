@@ -205,7 +205,7 @@ id | String | 是 | DOM对象的id
 --- | ---
 Object | DOM对象；或者null
 
-+ **setProperty(String propertyKey, var propertyValue)**
++ **setProperty(String propertyKey, String propertyValue)**
 
 设置DOM对象的属性
 
@@ -214,7 +214,7 @@ Object | DOM对象；或者null
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
 propertyKey | String | 是 | CSS的属性名称如："margin-left"
-propertyValue | var | 是 | 新的属性值，可为基本数据类型，或者JSON数组、JSON对象
+propertyValue | String | 是 | 新的属性值，必须是基本数据类型：number、string、bool
 
 + **String getProperty(String propertyKey)**
 
