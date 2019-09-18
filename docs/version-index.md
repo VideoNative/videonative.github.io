@@ -14,7 +14,7 @@ title: 版本发布信息
 + CSS增加 @media 媒体查询
 
 ## 0.7
-发布日期：开发中<br/>
+发布日期：2019-9-17<br/>
 
 新增功能：
 
@@ -23,6 +23,12 @@ title: 版本发布信息
 调整：
 >
 >+ rpx长度单位调整：从之前版本的 (1rpx = 屏幕短边宽度 / 750) 修改为 (1rpx = 页面宽度 / 750)。rpx变为页面宽度(1/750)的比例单位。当横竖屏翻转或者页面分屏时，rpx会根据新宽度重新计算和布局。
+
+问题修复：
+> Android
+>
+>+ 修复循环view-pager的setPageIndex在边界时时候的显示异常问题
+>+ 修复在Android 8.0上会抛"only fullscreen opaque activities can request orientation portrait"异常的问题
 
 
 ## 0.6
