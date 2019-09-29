@@ -200,3 +200,4 @@ launchMode | String | 否 | 当设置为 "singleTask" 时，表示这个页面�
 softInputMode | String | 否 | default 表示键盘弹起时， 如果弹起的键盘不会遮挡输入框，则 View 页面不会被抬起；否则 View 页面会被抬起，直到输入框完全不会被键盘遮挡（即输入框的底部和键盘顶部紧挨着）。pan 表示键盘弹起时，View页面会被抬起，抬起的距离是键盘的高度。
 backgroundColor | String | 否 | 指定页面的背景颜色
 mode | String | 否 | 页面的全屏模式。取值为："normal":普通模式，显示状态栏和控制栏。内容区间已经排除了状态栏和控制栏的区域，所以安全区的值为0；"immersive":沉浸模式，全屏页面，显示状态栏和控制栏，有安全区；"fullscreen":全屏模式，隐藏状态栏和控制栏，有安全区
+statusBarContentStyle | string | 否 | 状态栏颜色。只支持 iOS。取值为："default": 默认模式，iOS12 及以下为黑色，iOS13 及以上跟随系统，正常模式下为黑色，暗黑模式下为白色；"light": 白色；"dark": 黑色
