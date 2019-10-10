@@ -74,3 +74,30 @@ element, element | view, checkbox | 选择所有文档的 view 组件和所有�
 更多CSS的规范请参看[W3C标准](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 更多Flex属性介绍清参看[Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+
+## 媒体查询 *(since 0.8)*
+
+从 0.8 版本开始支持 @media 媒体查询，特性如下：
+
+* 支持的媒体类型：all、screen
+* 支持的媒体功能：
+  * min-width (dp, pt, px)
+  * max-width (dp, pt, px)
+  * min-height (dp, pt, px)
+  * max-height (dp, pt, px)
+  * orientation: portrait, landscape
+  * prefers-color-scheme: light, dark；如果宿主App适配，也支持自定义值，如：gray
+  * 还支持自定义媒体功能，但需要宿主App适配。如：@media (custom-feature: ok)
+* 逻辑操作符：支持 and； 不支持 not 、only
+* 支持逗号分隔列表
+
+一个完整的例子：
+
+```CSS
+@media (min-width: 600px) and (prefers-color-scheme: dark), all and (max-height: 1080px), screen and (custom-state: state1)
+{
+    .title {
+        font-size: 100dp;
+    }
+}
+```
