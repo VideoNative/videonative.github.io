@@ -85,7 +85,7 @@ element, element | view, checkbox | 选择所有文档的 view 组件和所有�
   * max-width (dp, pt, px)
   * min-height (dp, pt, px)
   * max-height (dp, pt, px)
-  * orientation: portrait, landscape
+  * orientation: portrait, landscape; 注：这里采用的是真正的页面方向，而不像Web网页是用viewport的宽高比来模拟的
   * prefers-color-scheme: light, dark；如果宿主App适配，也支持自定义值，如：gray
   * 还支持自定义媒体功能，但需要宿主App适配。如：@media (custom-feature: ok)
 * 逻辑操作符：支持 and； 不支持 not 、only
