@@ -52,7 +52,7 @@ touchmove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之
 touchend | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
 fullscreenchange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
 fullscreenerror | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
-resize | 控件尺寸变化 | 当一个组件的尺寸发生变化时，会发送该事件 | event.width: Number (组件宽度)<br/>  event.height: Number (组件高度) | 不支持 | *since 0.8*
+resize | 控件尺寸变化 | 当一个组件的尺寸发生变化时，会发送该事件 | event.width: Number (组件宽度)<br/>  event.height: Number (组件高度) | 不支持 | *since 0.8* <br />注：这个事件在组件布局完毕之后通知
 
 3. 代码示例：
 
