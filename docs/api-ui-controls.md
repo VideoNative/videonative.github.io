@@ -45,13 +45,14 @@ event | 事件对象 | Object | - | 存放事件的其它参数
 
 名称 | 动作 | 适用场景 | 其它参数 | 捕获与冒泡 *(since 0.4)* | 备注
 --- | --- | --- | --- | --- | ---
-Tap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
-LongPress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
-TouchStart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
-TouchMove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
-TouchEnd | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
-FullscreenChange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
-FullscreenError | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
+tap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
+longpress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
+touchstart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
+touchmove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
+touchend | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | *since 0.4*：新增参数event.changedTouches 
+fullscreenchange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
+fullscreenerror | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | - | 不支持 | *since 0.4*
+resize | 控件尺寸变化 | 当一个组件的尺寸发生变化时，会发送该事件 | event.width: Number (组件宽度)<br/>  event.height: Number (组件高度) | 不支持 | *since 0.8*
 
 3. 代码示例：
 

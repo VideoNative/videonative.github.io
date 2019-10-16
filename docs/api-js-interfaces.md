@@ -30,6 +30,7 @@ result | String | 扫描得到的结果
 
 + **Float toRpx(String value)**
 
+*注: 0.8版本后请使用toUnit()* <br />
 将输入字符串转换为数字型的rpx值。例如："10pt"、"10px"、"10rpx"
 
 **参数说明:**
@@ -43,6 +44,24 @@ value | String | 是 | 形如："10pt","10px","10rpx"的字符串
 类型 | 说明
 --- | ---
 Float | 数字类型的rpx值
+
++ **Var toUnit(String value, String unit)** *(since 0.8)*
+
+通用长度转换函数。<br />
+将输入的长度字符串，转换为指定单位的数字。如果输入参数不合法，则返回undefined。
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+value | String | 是 | 形如："10pt","10px","10rpx", "10dp" 等带长度单位的字符串
+unit | String | 是 | 长度单位。有效值为："rpx", "pt", "px", "dp"
+
+**返回参数说明:**
+
+类型 | 说明
+--- | ---
+Var | 如果输入参数合法，则返回换算后的数字。如果输入不合法，则返回undefined
 
 + **void getSystemInfo(Object object)**
 
