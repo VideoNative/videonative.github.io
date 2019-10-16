@@ -13,7 +13,8 @@ title: 版本发布信息
 + 增加通用属性和API以支持接入外部上报框架，如腾讯视频VideoReporter
 + CSS增加 @media 媒体查询
 + CSS现在支持书写顺序覆盖
-+ JSAPI增加 vn.toUnit() 函数，用于长度单位转换
++ JSAPI: 增加 vn.toUnit() 函数用于长度单位转换; 增加 vn.reportEvent() 用于上报自定义事件
++ DOM: 增加 track() 用于组件上报自定义事件
 
 
 ## 0.7

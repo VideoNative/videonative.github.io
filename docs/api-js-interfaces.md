@@ -63,6 +63,17 @@ unit | String | 是 | 长度单位。有效值为："rpx", "pt", "px", "dp"
 --- | ---
 Var | 如果输入参数合法，则返回换算后的数字。如果输入不合法，则返回undefined
 
++ **void reportEvent(String event, Object params)** *(since 0.8)*
+
+上报自定义事件
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+event | String | 是 | 自定义事件名
+params | Object | 否 | 自定义事件参数的JSON对象，可缺省
+
 + **void getSystemInfo(Object object)**
 
 获取系统信息
@@ -407,6 +418,17 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 + **requestFullscreen()** *(since 0.4)*
 
 将其他正处于全屏模式的节点恢复，并将当前DOM元素设置为全屏模式。如果进入全屏失败，当前节点会收到 fullscreenerror 回调。
+
++ **track(String eventName, Object params)** *(since 0.8)*
+
+组件用来上报自定义事件，上报时会收集组件的上下文信息
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+eventName | String | 是 | 自定义事件名
+params | Object | 否 | 自定义事件参数的JSON对象，可缺省
 
 ## vn.window
 
