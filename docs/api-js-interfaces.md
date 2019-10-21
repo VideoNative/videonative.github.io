@@ -105,6 +105,33 @@ model | String | 设备型号，如：iPhone 8
 --- | --- |  ---
 error | String | 错误信息
 
++ **void setGlobalShareData(String key, Object value)** *(since 0.8)*
+
+设置全局共享的内存数据
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | String | 是 | key
+value | Object | 否 | value，为null的时候会清除已有数据
+
++ **Object getGlobalShareData(String key)** *(since 0.8)*
+
+获取之前调用setGlobalShareData设置的内存数据。
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | Object/String | 是 | key
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+Object | 数据或者null
+
 ## vn.dom
 
 + **Object getElementById(String id)**
@@ -875,7 +902,7 @@ value | Object | 否 | value，为null的时候相当于清除数据
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-key | Object/String | 是 | sessionKey
+key | Object/String | 是 | key
 
 **返回参数说明:**
 
