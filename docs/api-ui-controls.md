@@ -313,8 +313,10 @@ border-width | [rpx pt dp px] | 0rpx | 设置边框的宽度。目前除了 View
 border-radius | [rpx pt dp px] | 0rpx | 设置边框的圆角属性。目前除了 View 标签能支持4个角设置不同的值，其他标签只支持4个角设置相同的值
 report-page-id | String | | *(since 0.8)* 页面的上报ID。只应该在页面根view设置这个属性。
 report-page-params | Object, String | | *(since 0.8)* 页面的上报参数。只应该在页面根view设置这个属性。值类型可以为对象；或者JSON字符串；或者URL查询字符串，如：report-page-params="key1=1&key2=2"
+report-page-policy | String | | *(since 0.8)* 页面的自动上报策略，具体可用值依赖于上报框架接入层的定义
 report-id | String | | *(since 0.8)* 元素的上报ID
 report-params | Object, String | | *(since 0.8)* 元素的上报参数。值类型可以为对象；或者JSON字符串；或者URL查询字符串，如：report-params="key1=1&key2=2"
+report-policy | String | | *(since 0.8)* 元素的自动上报策略，具体可用值依赖于上报框架接入层的定义
 
 ## Flexbox 布局属性
 Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属性和子节点相关的属性。容器属性和子节点属性相互影响，配合生效。
