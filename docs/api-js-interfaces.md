@@ -124,7 +124,7 @@ value | Object | 否 | value，为null的时候会清除已有数据
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-key | Object/String | 是 | key
+key | String | 是 | key
 
 **返回参数说明:**
 
@@ -902,7 +902,7 @@ value | Object | 否 | value，为null的时候相当于清除数据
 
 参数 | 类型 | 必填 | 说明
 --- | --- | --- | ---
-key | Object/String | 是 | key
+key | String | 是 | key
 
 **返回参数说明:**
 
