@@ -1386,7 +1386,9 @@ Property | interval | Number | 5000 | 自动滚动的间隔时间，单位：毫
 EventHandler | bindScroll | function(Float delta, Float offset, Float offsetPercent, Integer scrollState, Integer pageIndex) | | 滚动时触发， delta, offset, offsetPercent, scrollState, pageIndex
 EventHandler | bindScrollStateChange | function(int scrollState) | | 0:空闲;1:拖拽;2:滑动
 EventHandler | bindPageChange | function(int pageIndex) | | 滑动停止时指向的分页，pageIndex
-Method | void setPageIndex(Integer index) | Integer | | 设置当前的分页编号
+EventHandler | bindItemAttach | function(Object params) | | 页面上屏时回调。params.event = { position:位置, cell:cell节点 *(since 0.8)* }
+EventHandler | bindItemDetach | function(Object params) | | 页面下屏时回调。params.event = { position:位置, cell:cell节点 *(since 0.8)* } 注：此时cell节点已经下屏，对它的操作可能返回非预期的结果。
+Method | void setPageIndex(Integer index, Boolean smooth) | Integer | | 设置当前的分页编号 （注：*since 0.8* 增加第二参数smooth用于控制是否平滑滚动，缺省值为true）
 Method | Integer getPageIndex() | | | 获取当前的分页编号
 
 ## video
