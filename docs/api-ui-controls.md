@@ -1206,6 +1206,84 @@ page({
 ```
 
 
+## flow-list  *(since 0.9)*
++ `<flow-list>` 是提供自适应容器宽度并自动布局功能的列表组件。
++ 使用方法:
+    + `<flow-list>` 标签使用 `vn:for` 属性和胡子语法绑定到数组类型的数据，该数组中的每⼀项对应一个 section 数据
+    + 在 `<flow-list>` 标签内使用若干个 `<section>` 标签来定义section模版。section模版用于指明数据内包含的分段的类型，使用 `vn:case` 属性来指定section的类型。`<section>` 标签可使用 `padding`, `item-space`, `line-error` 属性来指定块边距，元素间距和元素换行对齐参数
+    + `<flow-list>` 标签的 `vn:section-switch` 属性，用于定义section模板和数据之间的关联关系。定义数组元素中指明的字段名，它的默认值为 "case"
+    + `<flow-list>` 标签的 `vn:section-data` 属性，用于定义UI模板数据和section数据之间的关联关系。定义数组元素中指明的字段名，它的默认值为 "sectionData"
+    + 在 `<flow-list>` 标签内使用若干个 `<cell>` 标签来定义UI模板。每个 `<cell>` 代表着一种UI模板。
+    + `<flow-list>` 标签的 `vn:switch` 属性，用于定义UI模板和数据之间的关联关系。定义数组元素中指明 CellType 的字段名，它的默认值为 "case"
+    + `<cell>` 的 `fixedCellSize` 的属性，标识该类型的CELL的尺寸是否是固定不变的。如果是 true，则该类型的CELL的高度或宽度一旦计算完成后就不再随着内容的变化而变化，该值默认是 true。用于优化 iOS 的列表性能，在 Android 上被忽略
+    + 每个 `<cell>` 标签内应都有 `vn:case` 属性值用于指明 CellType
+    + `<cell>` 内的页面布局通过胡子语法，访问数组 item 里的属性作为数据填充
+    + 可为其中一个 `<cell>` 标签设置 `vn:default` 属性，表示这个Cell是默认CellType，当数据中的ViewType找不到匹配的Cell时，会展示这种Cell。
+
++ 代码示例如下：
+
+```html
+<!--flow-list.vnml-->
+<flow-list direction="column" width="100%" height="100%" vn:for="{{listData}}" vn:section-data="views" vn:switch="cellType" bindItemTap="onItemClick">
+    <section vn:case="section1" item-space="5dp" />
+    <cell vn:case="text">
+        <text font-size="50rpx">{{index}}: {{item.text}}</text>
+    </cell>
+</flow-list>
+```
+
+```json
+{
+  "listData": [
+    {
+      "case": "section1",
+      "views": [
+        {
+          "cellType": "text",
+          "text": "A",
+          "color": "white",
+          "background": "#1AAD19"
+        },
+        {
+          "cellType": "text",
+          "text": "B",
+          "color": "white",
+          "background": "#2782D8"
+        }
+      ]
+    }
+  ]
+}
+```
+
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+Property | vn:for | 胡子语句 | | section数据源，必填项
+Property | vn:section-switch | String | "case" | section数据项中和section模版对应关系的属性名
+Property | vn:section-index | String | "sectionIndex" |
+Property | vn:section-item | String | "sectionItem" |
+Property | vn:section-data | String | "sectionData" | UI数据数组在section数据项中的属性名
+Property | vn:for-index | String | "index" |
+Property | vn:switch | String | "case" |
+Property | direction | Enum | column | column/row，滚动方向
+
+### section
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+Property | item-space | [rpx pt px dp] | 0 | 固定轴上cell之间的间距
+Property | line-error | [rpx pt px dp] | 0 | 滚动轴上的换行误差
+
+### cell
+类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
+--- | --- | --- | --- | ---
+Property | main-length | String | "1/1" | cell在固定轴方向的长度，字符串，只支持分数形式，如："1/4"
+Property | cross-length | [rpx pt px dp auto] | auto | cell在滚动轴方向的长度
+Property | optional | Boolean | false | 对应的cell是否为可选。如果为true，当固定轴的空间不够摆放该cell时将忽略
+Property | line-break | Boolean | false | 该cell强制换行，即它的下一个cell从新的一行开始布局
+Property | margin-leading | [rpx pt px dp] | 0 | 该cell在滚动轴的前边距
+Property | margin-trailing | [rpx pt px dp] | 0 | 该cell在滚动轴的后边距
+
+__注：width 和 height 对 cell 无效。滚动轴方向的⾼度即可以通过设置 cross-length，也可以通过设置 aspect-ratio 来实现__
 
 ## scroll-view
 这是一个可滚动的容器类。支持横向或纵向滚动。
