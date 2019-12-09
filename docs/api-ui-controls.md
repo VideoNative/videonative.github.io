@@ -318,6 +318,7 @@ report-id | String | | *(since 0.8)* 元素的上报ID
 report-params | Object, String | | *(since 0.8)* 元素的上报参数。值类型可以为对象；或者JSON字符串；或者URL查询字符串，如：report-params="key1=1&key2=2"
 report-policy | String | | *(since 0.8)* 元素的自动上报策略，具体可用值依赖于上报框架接入层的定义
 aria-label | String | | *(since 0.8)* 无障碍辅助标签，应用于系统屏幕阅读
+tint-color | color | | *(since 0.9)* 设置渲染颜色，当为空为 #00000000 时，恢复原来的颜色；取值格式为#RGB，#RRGGBB #RRGGBBAA，RRGGBBAA
 
 ## Flexbox 布局属性
 Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属性和子节点相关的属性。容器属性和子节点属性相互影响，配合生效。
