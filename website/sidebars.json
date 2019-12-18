@@ -9,7 +9,7 @@
     "API" : ["api-ui-controls", "api-js-interfaces", "api-css", "api-usage", "api-expression", "api-custom-component", "api-native-component", "api-js-module"]
   },
   "API-Desktop": {
-    "简介": [
+    "VNDesktop": [
       "desktop/home"
     ],
     "配置": [
