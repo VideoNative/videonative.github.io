@@ -31,7 +31,8 @@
       "desktop/api-control-scroll-view"
     ],
     "JS API": [
-      "desktop/api-js-interfaces"
+      "desktop/api-js-interfaces",
+      "desktop/api-js-animation"
     ],
     "VN开发周边": [
       "desktop/vn-package",
