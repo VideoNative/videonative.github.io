@@ -7,6 +7,39 @@
   },
   "API": {
     "API" : ["api-ui-controls", "api-js-interfaces", "api-css", "api-usage", "api-expression", "api-custom-component", "api-native-component", "api-js-module"]
+  },
+  "API-Desktop": {
+    "简介": [
+      "desktop/home"
+    ],
+    "配置": [
+      "desktop/api-pageconfigs"
+    ],
+    "接口相关": [
+      "desktop/api-ui",
+      "desktop/api-common-event",
+      "desktop/api-common-property",
+      "desktop/api-css",
+      "desktop/api-expression",
+      "desktop/api-control-view",
+      "desktop/api-control-text",
+      "desktop/api-control-button",
+      "desktop/api-control-checkbox",
+      "desktop/api-control-image",
+      "desktop/api-control-input",
+      "desktop/api-control-textarea",
+      "desktop/api-control-scroll-view"
+    ],
+    "JS API": [
+      "desktop/api-js-interfaces"
+    ],
+    "VN开发周边": [
+      "desktop/vn-package",
+      "desktop/vn-build",
+      "desktop/vn-debug",
+      "desktop/vn-edit-browser-tool",
+      "desktop/vn-offline-package"
+    ]
   }
  
 }
