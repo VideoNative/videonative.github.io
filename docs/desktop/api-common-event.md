@@ -26,9 +26,9 @@ onActivate() |  页面Activate改变 | VNGF/VNViews |   | String
 
 + **事件监听：** `bind[Event]`
 
-### 参数与种类
+## 参数与种类
 
-* 1. 公共参数：
+### 1. 公共参数：
 
 参数名 | 备注 | 参数类型 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
@@ -38,7 +38,7 @@ target | 事件触发的DOM对象 | Object | - | -
 dataset | 事件触发的DOM对象数据集 | Object | - | -  
 event | 事件对象 | Object | - | 存放事件的其它参数  
 
-* 2. 事件种类：
+### 2. 事件种类：
 
 名称 | 动作 | 适用场景 | 其它参数 | 捕获与冒泡
 --- | --- | --- | --- | --- 
@@ -55,7 +55,7 @@ MouseMove    | 鼠标移动 | 除了滑动控件(scroll-view,list,view-pager等)
 ~~fullscreenchange~~ | ~~全屏状态变化~~ | --- | --- | ---
 ~~fullscreenerror~~ | ~~进入全屏失败~~ | --- | --- | ---
 
-* 3. 代码示例：
+### 3. 代码示例：
 
 ```html
 <!--commonEvent.vnml-->

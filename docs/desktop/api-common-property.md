@@ -43,7 +43,7 @@ tooltip	| String |""| 鼠标hover提示，只有桌面端支持
 Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属性和子节点相关的属性。容器属性和子节点属性相互影响，配合生效。
 关于 Flexbox 属性的详细定义，请参见: [YogaLayout](https://yogalayout.com/docs)
 
-+ 代码示例如下：
+### 代码示例如下：
 ```html
 <!--Flexbox.vnml-->
     <view width="100%" height="auto" flex-direction="row" align-items="center">
@@ -54,7 +54,7 @@ Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属
 </view>
 ```
 
-#### Flex 容器节点的属性
+### Flex 容器节点的属性
 这些属性只对容器节点有效(view/list/scroll-view/view-pager)
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
@@ -65,7 +65,7 @@ Property | flex-direction | Enum | row | 弹性布局主轴的方向：row / row
 Property | flex-wrap | Enum | no-wrap | 折行属性，行排满，如何换行属性：nowrap / wrap / wrap-reverse
 Property | justify-content | Enum | flex-start | 项目在主轴上的对齐方式：flex-start / flex-end / center / space-between / space-around
 
-#### Flex 子节点的属性
+### Flex 子节点的属性
 这些属性可配置于所有标签，但仅当其有父容器时才生效
 
 类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
