@@ -34,3 +34,12 @@ title: 框架实现
 * 代码多端完美对齐，框架维护工作量小。
 
 
+### VNDesktop运行环境
+
+项目工程	     |        运行环境	      |        逻辑层    |      渲染层
+---          |         ---            | ---             | ---
+VNGF         |    windows	      |	V8              |            GF
+VNViews      |    windows	      |	V8	        |           ChromeViews
+VNViews      |    mac	              |	V8	        |            ChromeViews
+VNViews      |    Linux	              |	V8	        |            ChromeViews
+
