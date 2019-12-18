@@ -57,3 +57,4 @@ modal	        |1/0	        |0	|BOOL	|模态窗口
 ~~softInputMode~~   | ---   | ---   | ---	| ~~桌面端不支持~~	
 ~~mode~~            | ---   | ---   | ---	| ~~桌面端不支持~~	
 ~~statusBarContentStyle~~| ---   | ---   | ---	| ~~桌面端不支持~~	
+
