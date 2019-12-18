@@ -9,10 +9,10 @@ title: VN 属性
 --- | --- | --- | --- 
 class | String | | 引用 vnss 中的样式类；多个样式可用空格分隔
 id | String | | 用于 CSS 匹配和 getElementById()
-width | [rpx pt dp px % auto] | auto |
-height | [rpx pt dp px % auto] | auto |
+width | [rpx pt dp px % auto] | auto | ---
+height | [rpx pt dp px % auto] | auto | ---
 aspect-ratio | Float | | 宽高比
-background-stretch-param | [整数的组合] | | 
+background-stretch-param | [整数的组合] | |  ---
 background-color | color | #FFFFFFFF | 取值格式为#RGB，#RRGGBB #RRGGBBAA，RRGGBBAA，如果同时设置了background，background的优先级更高
 background | String | | 1.不拉伸的图片如: ../image/btn_bg
 alpha | Float | 1 | 0:透明 到 1:不透明
@@ -26,10 +26,10 @@ margin-left | [rpx pt dp px %] | | 共存时覆盖 margin 的值
 margin-right | [rpx pt dp px %] | | 共存时覆盖 margin 的值
 margin-top | [rpx pt dp px %] | | 共存时覆盖 margin 的值
 margin-bottom | [rpx pt dp px %] | |共存时覆盖 margin 的值
-max-height | [rpx pt dp px %] | |
-max-width | [rpx pt dp px %] | |
-min-height | [rpx pt dp px %] | |
-min-width | [rpx pt dp px %] | |
+max-height | [rpx pt dp px %] | | ---
+max-width | [rpx pt dp px %] | | ---
+min-height | [rpx pt dp px %] | | ---
+min-width | [rpx pt dp px %] | | ---
 hidden | Boolean | false | 是否隐藏
 enable | Boolean | true | 是否启用，为 false 时不接收点击事件
 tooltip	| String |""| 鼠标hover提示，只有桌面端支持
