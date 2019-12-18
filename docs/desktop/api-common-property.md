@@ -32,7 +32,7 @@ min-height | [rpx pt dp px %] | |
 min-width | [rpx pt dp px %] | |
 hidden | Boolean | false | 是否隐藏
 enable | Boolean | true | 是否启用，为 false 时不接收点击事件
-tooltip	| 鼠标hover提示 |""| 只有桌面端支持
+tooltip	| String |""| 鼠标hover提示，只有桌面端支持
 ~~overflow~~ | [visible hidden] | hidden | ~~当内容溢出元素框时发生的事情，visible 表示溢出的内容不会被裁剪，hidden 表示溢出的内容会被裁剪，visible 必须配合 flex-shrink=0 使用~~
 ~~border-color~~ | color | #00000000 | ~~设置四条边框的颜色。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值~~
 ~~border-width~~ | [rpx pt dp px] | 0rpx | ~~设置边框的宽度。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值~~
