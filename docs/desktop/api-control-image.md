@@ -44,7 +44,6 @@ EventHandler | binderror | function(Object params) | | 当src指定的图片加�
 裁剪 | center-crop | 保持纵横比缩放图片，只保证图片的短边能完全显示出来。图片通常只短边方向是完整的，另一个方向将会发生截取
 裁剪 | focus-crop | 重心裁剪，具体裁剪位置由 focus-point-x 和 focus-point-y 决定
 
-![image.png](/uploads/5B9A5FC420B849A6A630932CFD26517F/image.png)
-
+![](https://videonative.io/img/image_mode.png)
 
 注意，本标签不支持 padding 属性
