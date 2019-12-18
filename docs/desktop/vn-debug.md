@@ -17,7 +17,12 @@ title: VN 调试
 
 ### 3.增加localhost:7777端口
 
+![](https://videonative.io/img/vn_debug_1.png)
+
 ### 4.增加^internal_script_pagejsobject$
+
+![](https://videonative.io/img/vn_debug_2.png)
 
 ### 5.开始调试
 
+![](https://videonative.io/img/vn_debug_3.png)
