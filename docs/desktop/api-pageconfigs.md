@@ -3,7 +3,7 @@ id: api-pageconfigs
 title: VN pageconfigs配置
 ---
 
-#### VNPackage目录结构示例
+### VNPackage目录结构示例
 .  
 └─ app  
 &emsp;├─ info.json  
@@ -13,8 +13,8 @@ title: VN pageconfigs配置
 &emsp;&emsp;├─ index.vnml  
 &emsp;&emsp;├─ index.vnss  
 
-* 每个app可以包含多个page，每个app有一个info.json
-* 每个应用，可以创建多个app，区分多个分离的业务场景；如果应用是全VN实现的，也可以只创建一个app
+#### 每个app可以包含多个page，每个app有一个info.json
+#### 每个应用，可以创建多个app，区分多个分离的业务场景；如果应用是全VN实现的，也可以只创建一个app
 
 ## App预配置
 在 `info.json` 文件中可以对 App 页面预设一些配置，配置项为 pageConfigs，示例如下：

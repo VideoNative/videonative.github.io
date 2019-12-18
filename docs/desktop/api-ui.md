@@ -10,9 +10,9 @@ title: VN 控件属性和事件
 + EventHandler：控件的事件。通过将JS方法绑定到组件事件上，可以处理事件回调
 
 ---
-## 通用事件和属性
-### [通用事件](api-common-event)
-### [通用属性](api-common-property)
+## 事件和属性
+### [事件](api-common-event)
+### [属性](api-common-property)
 
 ---
 ## 配置接口
