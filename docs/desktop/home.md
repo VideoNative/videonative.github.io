@@ -19,8 +19,8 @@ VNDesktop是VideoNative的桌面端版本，基于VideoNative和跨平台UI内�
 
 ---
 ## 体验VNDesktop
-![](https://videonative.io/file/vnviews_demo_win.7z)
-![](https://videonative.io/file/vnviews_demo_mac.7z)
+![vnviews_demo_win](https://videonative.io/file/vnviews_demo_win.7z)
+![vnviews_demo_mac](https://videonative.io/file/vnviews_demo_mac.7z)
 
 ---
 ## 配置
