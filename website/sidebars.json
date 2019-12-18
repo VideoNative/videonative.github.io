@@ -39,6 +39,9 @@
       "desktop/vn-debug",
       "desktop/vn-edit-browser-tool",
       "desktop/vn-offline-package"
+    ],
+    "VN桌面端技术文档": [
+      "desktop/doc-framework"
     ]
   }
  
