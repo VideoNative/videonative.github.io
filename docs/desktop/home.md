@@ -13,7 +13,14 @@ VideoNative是腾讯视频团队完全自研的一套高性能，跨平台的开
 
 VNDesktop是VideoNative的桌面端版本，基于VideoNative和跨平台UI内核库（ChromeViews或GF），能跨所有平台（包括所有桌面平台），目前业内首款且唯一一款做到windows端全面兼容的（支持XP和32位系统），让开发可以像写小程序一样写应用软件的（native级别小程序框架方案），一款的UI开发框架。
 
-项目地址：待补充
+---
+## 项目地址：
+待补充
+
+---
+## 体验VNDesktop
+![](https://videonative.io/file/vnviews_demo_win.7z)
+![](https://videonative.io/file/vnviews_demo_mac.7z)
 
 ---
 ## 配置
