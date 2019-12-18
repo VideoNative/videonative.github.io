@@ -12,14 +12,14 @@ title: VN 打包
 ---
 
 #### VNPackage目录结构示例：
-
-|-- app
-|-- |-- info.json
-|-- |-- index
-|-- |-- |-- index.js
-|-- |-- |-- index.json
-|-- |-- |-- index.vnml
-|-- |-- |-- index.vnss
+.  
+└─ app  
+&emsp;├─ info.json  
+&emsp;├─ index  
+&emsp;&emsp;├─ index.js  
+&emsp;&emsp;├─ index.json  
+&emsp;&emsp;├─ index.vnml  
+&emsp;&emsp;├─ index.vnss  
 
 ---
 
