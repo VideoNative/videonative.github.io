@@ -42,7 +42,7 @@ event | 事件对象 | Object | - | 存放事件的其它参数
 
 名称 | 动作 | 适用场景 | 其它参数 | 捕获与冒泡
 --- | --- | --- | --- | --- | ---
-tap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持
+tap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | --- | 支持
 touchstart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 |event.x: Number (触发事件时的横坐标)<br/>event.y: Number (触发事件时的纵坐标) | 支持
 touchend | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 |event.x: Number (触发事件时的横坐标)<br/>event.y: Number (触发事件时的纵坐标) | 支持
 MouseOver    | 鼠标移入 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 |event.x: Number (触发事件时的横坐标)<br/>event.y: Number (触发事件时的纵坐标) | 支持
