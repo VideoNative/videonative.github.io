@@ -26,13 +26,7 @@ title: 框架实现
 * 热更新：热更新和快速迭代
 * 高性能：提供类本地化的高性能能力
 * 设备兼容性：支持所有系统环境，具有很高的设备兼容性
-
----
-
-### 多内核渲染框架简介：
-* 所有代码跨平台编译。
-* 代码多端完美对齐，框架维护工作量小。
-
+* 多内核渲染框架：所有代码跨平台编译，多端多内核代码完美对齐，框架维护工作量小
 
 ### VNDesktop运行环境
 
@@ -43,4 +37,3 @@ VNViews      |    windows	        |	V8	        |           ChromeViews        | 
 VNViews      |    mac	            |	V8/JSC	        |            ChromeViews        |            已支持
 VNViews      |    Linux	            |	V8	        |            ChromeViews        |            后续支持
 VNAppkit     |    mac	            |	V8/JSC              |            Appkit        |            后续支持
-
