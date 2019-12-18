@@ -4,7 +4,7 @@ title: VN 调试
 ---
 
 ## 技术实现文档：
-http://km.oa.com/articles/show/408853 
+待补充
 
 ## 主要功能：
 支持js断点调试
