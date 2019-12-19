@@ -42,7 +42,6 @@ VNAppkit     |    mac	            |	V8/JSC              |            Appkit     
 
 
 ### VNDesktop性能优势：
-* VN框架致力于高性能，设计上规避了Weex/RN框架的性能瓶颈，将所有的实现尽可能的放在Native实现。
 
 ![](https://videonative.io/img/framework_0.png)
 ![](https://videonative.io/img/framework_1.png)
@@ -52,8 +51,7 @@ VNAppkit     |    mac	            |	V8/JSC              |            Appkit     
 * 大量数据改变的时候，因为VN的Dom树和数据都是在Native侧维护，避免了大量Js和Native的交互。
 * GF内核和ChromeViews内核，都支持开启UI渲染硬件加速。
 * VN的Native性能优化空间更大。
-* jce二进制预打包，避免了xml，css等运行时解析耗时。
-
+* jce二进制预打包，避免了xml，css等运行时解析耗时，加快了启动速度。
 
 ### VNDesktop现有业务性能测试：
 * 硬件配置：CPU：i7-7700 3.60GHz，内存：16G
