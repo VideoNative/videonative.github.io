@@ -933,7 +933,7 @@ page({
     },
 
     onHeaderStateChange: function (params) {
-        headerChildren = params.target.getChildElements();
+        let headerChildren = params.target.getChildElements();
         switch (params.event.state) {
             case 0:
             headerChildren[0].setProperty("content", "空闲");
@@ -1061,7 +1061,7 @@ page({
     },
 
     onFooterStateChange: function (params) {
-        footerChildren = params.target.getChildElements();
+        let footerChildren = params.target.getChildElements();
         switch (params.event.state) {
             case 0:
             footerChildren[0].setProperty("content", "空闲");
@@ -1180,7 +1180,7 @@ page({
     },
 
     onFooterStateChange: function (params) {
-        footerChildren = params.target.getChildElements();
+        let footerChildren = params.target.getChildElements();
         switch (params.event.state) {
             case 0:
             footerChildren[0].setProperty("content", "空闲");
