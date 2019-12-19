@@ -20,7 +20,7 @@ title: 简介
 ---
 ## 体验VNDesktop
 * http://videonative.io/file/vnviews_demo_win.7z
-* http://videonative.io/file/vnviews_demo_win.7z
+* http://videonative.io/file/vnviews_demo_mac.7z
 
 ---
 ## 配置
