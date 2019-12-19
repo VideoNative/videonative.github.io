@@ -11,12 +11,12 @@ title: 框架实现
 ### VNDesktop目前接入的UI内核库包括ChromeViews内核和GF内核。
 
 #### GF内核
-GF内核：腾讯内部开源的Windows端UI渲染库，广泛用于腾讯大部分Windows端软件。
-VNDesktopGF版本：基于VN和GF，是VN的一个Windows端跨平台实现，主要提供给腾讯内部以GF作为渲染内核的产品，框架又相当于GF的扩展层，可以做到所有基于GF项目的无缝融合和接入，支持Windows所有系统环境。
+* GF内核：腾讯内部开源的Windows端UI渲染库，广泛用于腾讯大部分Windows端软件。  
+* VNDesktopGF版本：基于VN和GF，是VN的一个Windows端跨平台实现，主要提供给腾讯内部以GF作为渲染内核的产品，框架又相当于GF的扩展层，可以做到所有基于GF项目的无缝融合和接入，支持Windows所有系统环境。
 
 #### ChromeViews内核
-ChromeViews内核：谷歌浏览器的跨平台UI渲染库。
-基于VN和ChromeViews，能跨所有平台（目前只实现了桌面平台，windows和mac和linux，后续可接入Android和IOS端），目前业内首款且唯一一款做到windows端全面兼容的（支持XP和32位系统），一款的UI开发框架。
+* ChromeViews内核：谷歌浏览器的跨平台UI渲染库。  
+* 基于VN和ChromeViews，能跨所有平台（目前只实现了桌面平台，windows和mac和linux，后续可接入Android和IOS端），目前业内首款且唯一一款做到windows端全面兼容的（支持XP和32位系统），一款的UI开发框架。
 
 #### 后续还会接入：mac端的Appkit内核渲染。
 
@@ -42,7 +42,7 @@ VNAppkit     |    mac	            |	V8/JSC              |            Appkit     
 
 
 ### VNDesktop性能优势：
-VN框架致力于高性能，设计上规避了Weex/RN框架的性能瓶颈，将所有的实现尽可能的放在Native实现。
+* VN框架致力于高性能，设计上规避了Weex/RN框架的性能瓶颈，将所有的实现尽可能的放在Native实现。
 
 ![](https://videonative.io/img/framework_0.png)
 ![](https://videonative.io/img/framework_1.png)
@@ -56,9 +56,9 @@ VN框架致力于高性能，设计上规避了Weex/RN框架的性能瓶颈，�
 
 
 ### VNDesktop现有业务性能测试：
-硬件配置：CPU：i7-7700 3.60GHz，内存：16G
-完整绘制：客户端皮肤浏览窗口在XXX*XXX下的所有可见元素全部重绘一次
-最大帧率测试：开启1ms的高帧率定时器，重绘最外层窗口，每一帧做完整绘制，测试极限相应帧率（1000次平均）
+* 硬件配置：CPU：i7-7700 3.60GHz，内存：16G
+* 完整绘制：客户端皮肤浏览窗口在XXX*XXX下的所有可见元素全部重绘一次
+* 最大帧率测试：开启1ms的高帧率定时器，重绘最外层窗口，每一帧做完整绘制，测试极限相应帧率（1000次平均）
 
 ![](https://videonative.io/img/framework_3.png)
 
