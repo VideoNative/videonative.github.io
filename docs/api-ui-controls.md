@@ -1279,10 +1279,6 @@ Property | line-error | [rpx pt px dp] | 0 | 滚动轴上的换行误差
 --- | --- | --- | --- | ---
 Property | main-length | String | "1/1" | cell在固定轴方向的长度，字符串，只支持分数形式，如："1/4"
 Property | cross-length | [rpx pt px dp auto] | auto | cell在滚动轴方向的长度
-Property | optional | Boolean | false | 对应的cell是否为可选。如果为true，当固定轴的空间不够摆放该cell时将忽略
-Property | line-break | Boolean | false | 该cell强制换行，即它的下一个cell从新的一行开始布局
-Property | margin-leading | [rpx pt px dp] | 0 | 该cell在滚动轴的前边距
-Property | margin-trailing | [rpx pt px dp] | 0 | 该cell在滚动轴的后边距
 
 __注：width 和 height 对 cell 无效。滚动轴方向的⾼度即可以通过设置 cross-length，也可以通过设置 aspect-ratio 来实现__
 
