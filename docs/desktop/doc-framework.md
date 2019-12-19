@@ -11,9 +11,11 @@ title: 框架实现
 ### VNDesktop目前接入的UI内核库包括ChromeViews内核和GF内核。
 
 #### GF内核
-基于VN和GF，是VN的一个Windows端跨平台实现，主要提供给腾讯内部以GF作为渲染内核的产品，框架又相当于GF的扩展层，可以做到所有基于GF项目的无缝融合和接入，支持Windows所有系统环境。
+GF内核：腾讯内部开源的Windows端UI渲染库，广泛用于腾讯大部分Windows端软件。
+VNDesktopGF版本：基于VN和GF，是VN的一个Windows端跨平台实现，主要提供给腾讯内部以GF作为渲染内核的产品，框架又相当于GF的扩展层，可以做到所有基于GF项目的无缝融合和接入，支持Windows所有系统环境。
 
 #### ChromeViews内核
+ChromeViews内核：谷歌浏览器的跨平台UI渲染库。
 基于VN和ChromeViews，能跨所有平台（目前只实现了桌面平台，windows和mac和linux，后续可接入Android和IOS端），目前业内首款且唯一一款做到windows端全面兼容的（支持XP和32位系统），一款的UI开发框架。
 
 #### 后续还会接入：mac端的Appkit内核渲染。
