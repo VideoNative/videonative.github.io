@@ -13,10 +13,11 @@ title: VN pageconfigs配置
 &emsp;&emsp;├─ index.vnml  
 &emsp;&emsp;├─ index.vnss  
 
-#### 每个app可以包含多个page，每个app有一个info.json
-#### 每个应用，可以创建多个app，区分多个分离的业务场景；如果应用是全VN实现的，也可以只创建一个app
+#### 小程序根目录下的 info.json 文件用来对小程序进行全局配置。
+#### 每个app业务有一个info.json，可以包含多个页面，info.json可以做页面信息配置。
+#### 每个应用，根据需要，可以创建多个app业务，可以区分多个分离的业务场景；如果应用是全VN实现的，也可以只创建一个app。
 
-## App预配置
+## App 全局配置
 在 `info.json` 文件中可以对 App 页面预设一些配置，配置项为 pageConfigs，示例如下：
 
 ```json
