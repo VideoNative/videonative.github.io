@@ -8,6 +8,8 @@ title: VN 编译
 
 VNDesktop目前接入的UI内核库包括ChromeViews内核和GF内核。  
 
+---
+
 ### Platform list
 
 | Operating System | Architectures    | UI Kernel   | Support System   |
@@ -16,8 +18,9 @@ VNDesktop目前接入的UI内核库包括ChromeViews内核和GF内核。
 | Windows          | x86(x64后续支持) | Views       | > xp sp3         |
 | macOS            | x64              | Views       | > macos 10.10    |
 
-### Windows
+---
 
+### Windows
 #### Prerequisites
 * VS2015
 
@@ -39,7 +42,12 @@ VNDesktop目前接入的UI内核库包括ChromeViews内核和GF内核。
 * 5.VN资源和打包：VNResourcesPackage.bat
 * 6.run
 
+---
+
 ### mac
+
+#### Prerequisites
+* xcode
 
 #### mac下编译（Views内核）:
 
@@ -49,6 +57,8 @@ VNDesktop目前接入的UI内核库包括ChromeViews内核和GF内核。
 * 4.build
 * 5.VN资源和打包：VNResourcesPackage.sh
 * 6.run
+
+---
 
 ### VN资源和打包
 
