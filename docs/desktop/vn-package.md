@@ -36,19 +36,21 @@ title: VN 打包
 npm install webpack  
 npm install webpack-cli  
 
+---
+
 #### 打包相关目录
-* 1.外部打包脚本：
-VideoNativeDesktop\VNResourcesPackage.sh 
+* 1.外部打包脚本：  
+VideoNativeDesktop\VNResourcesPackage.sh  
 
-* 2.vn资源原始码：
-VideoNativeDesktop\Output\Resources\vnapp 
+* 2.vn资源原始码：  
+VideoNativeDesktop\Output\Resources\vnapp  
 
-* 3.vn打包后的资源包： 
- mac：Output\Resources\vnapp_output 
- windows GF：OutputGF\Resources\vnapp_output 
- windows Views：OutputViews\Resources\vnapp_output 
+* 3.vn打包后的资源包：   
+ mac：Output\Resources\vnapp_output  
+ windows GF：OutputGF\Resources\vnapp_output  
+ windows Views：OutputViews\Resources\vnapp_output  
 
-* 4.vn打包后的压缩包 ： 
- VideoNativeDesktop\Output\Resources\vnapp_zips
+* 4.vn打包后的压缩包 ：   
+ VideoNativeDesktop\Output\Resources\vnapp_zips  
 
-* 5.每次修改vn资源后，执行打包脚本，打包脚本会把打包后的资源包copy到对应输出目录的Resources\vnapp_output
+* 5.每次修改vn资源后，执行打包脚本，打包脚本会把打包后的资源包copy到对应输出目录的Resources\vnapp_output  
