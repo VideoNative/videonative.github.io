@@ -3,7 +3,7 @@ id: vn-package
 title: VN 打包
 ---
 
-#### VN打包流程：
+#### VN打包基本流程：
 
 1.webpack对多js包含进行打包合并  
 2.把vnml、css、js、json通过jce二进制编码成page文件（可提高运行时解析速度）  
