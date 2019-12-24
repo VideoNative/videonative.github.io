@@ -23,29 +23,32 @@ VNDesktop目前接入的UI内核库包括ChromeViews内核和GF内核。
 
 #### Windows下编译（GF内核）:
 
-* 1.SwitchBuildToGF.bat
-* 2.VS2015 open Build/VideoNativeForGF.sln
-* 3.build
-* 4.VN资源和打包：VNResourcesPackage.bat
-* 5.run
+* 1.更新子模块：HummerSDK
+* 2.SwitchBuildToGF.bat
+* 3.VS2015 open Build/VideoNativeForGF.sln
+* 4.build
+* 5.VN资源和打包：VNResourcesPackage.bat
+* 6.run
 
 #### Windows下编译（Views内核）:
 
-* 1.SwitchBuildToViews.bat
-* 2.VS2015 open Build/VideoNativeForViews.sln
-* 3.build
-* 4.VN资源和打包：VNResourcesPackage.bat
-* 5.run
+* 1.更新子模块：ChromiumViewsWin
+* 2.SwitchBuildToViews.bat
+* 3.VS2015 open Build/VideoNativeForViews.sln
+* 4.build
+* 5.VN资源和打包：VNResourcesPackage.bat
+* 6.run
 
 ### mac
 
 #### mac下编译（Views内核）:
 
-* 1.SwitchBuildToViewsMac.sh
-* 2.open VN_Mac_Views.xcworkspace
-* 3.build
-* 4.VN资源和打包：VNResourcesPackage.sh
-* 5.run
+* 1.更新子模块：ChromiumViewsMac
+* 2.SwitchBuildToViewsMac.sh
+* 3.open VN_Mac_Views.xcworkspace
+* 4.build
+* 5.VN资源和打包：VNResourcesPackage.sh
+* 6.run
 
 ### VN资源和打包
 
