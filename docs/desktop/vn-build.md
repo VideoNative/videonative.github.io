@@ -35,7 +35,7 @@ git submodule update --remote HummerSDK
 * 3.open Build/VideoNativeForGF.sln and build  
 
 * 4.VN资源打包：VNResourcesPackage.bat  
-#### [VN资源和打包](vn-package)  
+    [VN资源和打包](vn-package)  
 
 * 5.run
 
@@ -49,7 +49,7 @@ git submodule update --remote ChromiumViewsWin
 * 3.open Build/VideoNativeForViews.sln and build
 
 * 5.VN资源和打包：VNResourcesPackage.bat  
-#### [VN资源和打包](vn-package)
+    [VN资源和打包](vn-package) 
 
 * 6.run
 
@@ -72,7 +72,7 @@ git submodule update --remote ChromiumViewsMac
 * 3.open VN_Mac_Views.xcworkspace and build  
 
 * 4.VN资源和打包：VNResourcesPackage.sh  
-#### [VN资源和打包](vn-package)
+    [VN资源和打包](vn-package) 
 
 * 5.run
 
