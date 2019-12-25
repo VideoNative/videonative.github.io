@@ -44,8 +44,7 @@ VideoNativeDesktop\VNResourcesPackage.sh
 
 * 2.vn资源原始码：  
 VideoNativeDesktop\Output\Resources\vnapp  
-
-手动打包脚本  
+手动打包脚本：  
 deploy.bat  
 deploy_mac.sh  
 
