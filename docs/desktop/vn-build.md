@@ -22,7 +22,7 @@ VNDesktop目前接入的UI内核库包括ChromeViews内核和GF内核。
 
 ### Windows
 #### Prerequisites
-* Visual Studio 2015 update 3 or newer
+* Visual Studio 2015 update 3 or higher
 * git
 
 #### Windows下编译（GF内核）:
