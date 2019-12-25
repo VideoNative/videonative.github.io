@@ -7,7 +7,7 @@ title: VN 打包
 
 1.webpack对多js包含进行打包合并  
 2.把vnml、css、js、json通过jce二进制编码成page文件（可提高运行时解析速度）  
-3.压缩app包  
+3.压缩app包到zip  
 
 ---
 
@@ -44,6 +44,10 @@ VideoNativeDesktop\VNResourcesPackage.sh
 
 * 2.vn资源原始码：  
 VideoNativeDesktop\Output\Resources\vnapp  
+
+手动打包脚本
+deploy.bat  
+deploy_mac.sh  
 
 * 3.vn打包后的资源包：   
  mac：Output\Resources\vnapp_output  
