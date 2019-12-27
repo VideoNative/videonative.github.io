@@ -19,7 +19,7 @@ title: 简介
 
 * 基于GF内核demo http://videonative.io/file/vngf_demo_win.7z
 * 基于Views内核demo http://videonative.io/file/vnviews_demo_win.7z
-* 基于Views内核demo http://videonative.io/file/vnviews_demo_mac.7z
+* 基于Views内核demo http://videonative.io/file/vnviews_demo_mac.zip
 
 ---
 ## 配置
