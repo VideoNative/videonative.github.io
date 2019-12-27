@@ -18,8 +18,6 @@ title: 框架实现
 * ChromeViews内核：谷歌浏览器的跨平台UI渲染库。  
 * 基于VN和ChromeViews，能跨所有平台（目前只实现了桌面平台，windows和mac和linux，后续可接入Android和IOS端），目前业内首款且唯一一款做到windows端全面兼容的（支持XP和32位系统），一款的UI开发框架。
 
-#### 后续还会接入：mac端的Appkit内核渲染。
-
 ---
 
 ### 特性：
@@ -28,7 +26,9 @@ title: 框架实现
 * 热更新：热更新和快速迭代
 * 高性能：提供类本地化的高性能能力
 * 设备兼容性：支持所有系统环境，具有很高的设备兼容性
-* 低维护：支持多内核渲染框架快速衔接能力，内核代码跨所有平台编译，多端多内核代码完美对齐，框架维护工作量小
+* 低维护：项目跨端、跨渲染内核，能同时支持多内核渲染框架，通用胶水层接口对象做到快速衔接能力，VNDesktop几乎所有代码跨所有平台编译，做到多端多内核代码完美对齐，框架维护工作量小
+
+---
 
 ### VNDesktop运行环境
 
@@ -40,7 +40,21 @@ VNViews      |    mac	            |	V8/JSC	        |            ChromeViews     
 VNViews      |    Linux	            |	V8	        |            ChromeViews        |            后续支持
 VNAppkit     |    mac	            |	V8/JSC              |            Appkit        |            后续支持
 
+---
 
+### VNDesktop框架设计
+
+![](https://videonative.io/img/framework_2.png)
+
+
+---
+
+### VNDesktop低维护优势：
+#### 项目虽然跨多端、跨多渲染内核，但通过【通用胶水层接口对象】做到接入任何UI内核的快速衔接能力，框架维护工作量小（只需要维护10个接口对象的实现即可）。   
+#### VNDesktop框架下全部c++化，所有代码跨所有平台编译，做到多端多内核代码完美对齐，任何优化全内核生效。   
+#### 通过渲染通用内核胶水层，VN后续还会接入UIKit、AppKit、Flutter、AndroidNative   
+
+---
 ### VNDesktop性能优势：
 
 ![](https://videonative.io/img/framework_0.png)
@@ -65,6 +79,19 @@ VNAppkit     |    mac	            |	V8/JSC              |            Appkit     
 * VNDesktop比Native在按钮点击耗时略高一点点，因为涉及JS交互。
 * VNDesktop跟Native在绘制耗时和最大帧率上面，基本保持一致。
 
-### VNDesktop框架设计
 
-![](https://videonative.io/img/framework_2.png)
+---
+
+### VNDesktop跟Native交互框架设计（待补充）：
+
+#### native代码接口注入方案（待补充）   
+
+#### ES6 export js module 注入通用全局接口方案（待补充）   
+
+#### CommonJS设计（待补充）   
+
+#### CommonJS requireJsModule（待补充）   
+
+#### CommonJS requireXPComModule（待补充）   
+
+#### CommonJS requireNodejsModule（待补充）   
