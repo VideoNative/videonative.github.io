@@ -37,9 +37,7 @@
     "VN开发周边": [
       "desktop/vn-package",
       "desktop/vn-build",
-      "desktop/vn-debug",
-      "desktop/vn-edit-browser-tool",
-      "desktop/vn-offline-package"
+      "desktop/vn-debug"
     ],
     "VN桌面端技术文档": [
       "desktop/doc-framework"

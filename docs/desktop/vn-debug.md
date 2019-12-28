@@ -1,13 +1,14 @@
 ---
 id: vn-debug
-title: VN 调试
+title: VNDesktop 调试
 ---
 
-## 技术实现文档：
-待补充
+## 主要功能：   
+VNDesktop的V8脚本引擎支持chrome开发者工具做js断点调试   
 
-## 主要功能：
-支持js断点调试
+## 实现的核心流程：     
+1.v8Inspector接口实现嵌入式v8内核和websocket交互。   
+2.websocket联通v8Inspector和chrome开发者工具，并实现所有交互协议。   
 
 ## 使用方式：
 

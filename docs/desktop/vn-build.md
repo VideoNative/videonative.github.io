@@ -1,9 +1,9 @@
 ---
 id: vn-build
-title: VN 编译
+title: VNDesktop 编译
 ---
 
-### build
+### VNDesktop build
 本文档介绍工程编译流程。 
 
 VNDesktop目前接入的UI内核库包括ChromeViews内核和GF内核。  
@@ -26,7 +26,7 @@ VNDesktop目前接入的UI内核库包括ChromeViews内核和GF内核。
 * Windows 7 or newer, 64-bit OS.
 * Visual Studio 2015 update 3 or Visual Studio VS2017 or higher.
 * Git.
-* Windows 10 SDK installed in the default location. 10.0.18362.0 or higher.
+* Windows 10 SDK installed in the default location. 
 
 #### Windows下编译（GF内核）:
 

@@ -17,16 +17,16 @@ title: 简介
 ---
 ## 体验VNDesktop
 
-* 基于GF内核demo http://videonative.io/file/vngf_demo_win.7z
-* 基于Views内核demo http://videonative.io/file/vnviews_demo_win.7z
-* 基于Views内核demo http://videonative.io/file/vnviews_demo_mac.zip
+* Windows端基于GF内核demo： http://videonative.io/file/vngf_demo_win.7z
+* Windows端基于Views内核demo： http://videonative.io/file/vnviews_demo_win.7z
+* Mac端基于Views内核demo： http://videonative.io/file/vnviews_demo_mac.zip
 
 ---
-## 配置
+## VNDesktop配置
 ### [VN pageconfigs配置](api-pageconfigs)
 
 ---
-## 接口相关
+## VNDesktop接口相关
 ### [VN 控件属性和事件](api-ui)
 ### [VN 事件](api-common-event)
 ### [VN 属性](api-common-property)
@@ -46,9 +46,7 @@ title: 简介
 ### [VN JS API](api-js-interfaces)
 
 ---
-## VN开发周边
+## VNDesktop开发周边
 ### [VN 打包](vn-package)
 ### [VN 编译](vn-build)
 ### [VN 调试](vn-debug)
-### [VN 实时编辑浏览工具](vn-edit-browser-tool)
-### [VN 离线包](vn-offline-package)
