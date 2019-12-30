@@ -12,6 +12,8 @@ title: 框架实现
 
 * VNDesktop是VideoNative的桌面端版本，基于VideoNative和跨平台UI内核库（ChromeViews或GF），能跨所有平台（所有桌面平台），目前业内首款且唯一一款做到windows端全面兼容的（支持XP和32位系统），让开发可以像写小程序一样写应用软件的（native级别小程序框架方案），一款的小程序UI开发框架。
 
+* VNDesktop还是一款可跨多端、跨多渲染内核的通用小程序渲染框架，支持接入任何端的任何UI引擎，可以与任何UI引擎无缝融合，并为之提供小程序框架支持能力。
+
 ---
 
 ### VNDesktop目前接入的UI内核库包括ChromeViews内核和GF内核。
