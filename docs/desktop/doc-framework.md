@@ -3,6 +3,8 @@ id: doc-framework
 title: 框架实现
 ---
 
+## 
+
 ### 简介
 * VNDesktop是一款桌面端的小程序UI开发框架，同时具备超native级别性能，同时跨多端、跨多渲染内核的通用小程序渲染框架。
 
@@ -55,7 +57,7 @@ VNViews      |    Linux	            |	V8	        |            ChromeViews       
 
 ---
 
-### VNDesktop低维护优势：
+### VNDesktop低维护优势
 * 项目虽然跨多端、跨多渲染内核，但通过【渲染通用内核胶水层】做到接入任何UI内核的快速衔接能力，框架维护工作量小（只需要维护10个胶水层接口对象的实现即可）。   
 * VNDesktop框架下全部c++化，所有代码跨所有平台编译，做到多端多内核代码完美对齐，任何优化全内核生效。   
 * 通过渲染通用内核胶水层，VN后续还会接入UIKit、AppKit、Flutter、AndroidNative   
@@ -63,7 +65,7 @@ VNViews      |    Linux	            |	V8	        |            ChromeViews       
 
 ---
 
-### VNDesktop性能优势：
+### VNDesktop性能优势
 
 ![](https://videonative.io/img/framework_0.png)
 ![](https://videonative.io/img/framework_1.png)
@@ -75,7 +77,7 @@ VNViews      |    Linux	            |	V8	        |            ChromeViews       
 * VN的Native性能优化空间更大。
 * jce二进制预打包，避免了xml，css等运行时解析耗时，加快了启动速度。
 
-### VNDesktop现有业务性能测试：
+### VNDesktop现有业务性能测试
 * 硬件配置：CPU：i7-7700 3.60GHz，内存：16G
 * 完整绘制：客户端皮肤浏览窗口在XXX*XXX下的所有可见元素全部重绘一次
 * 最大帧率测试：开启1ms的高帧率定时器，重绘最外层窗口，每一帧做完整绘制，测试极限相应帧率（1000次平均）
