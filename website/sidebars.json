@@ -1,12 +1,26 @@
 {
   "Getting Started": {
     "基础概念": ["getting-started-basis"],
-    "Native接入": ["getting-started-android","getting-started-ios"],
+    "Native接入": [
+      "getting-started-android",
+      "getting-started-ios",
+      "getting-started-windows",
+      "getting-started-mac"
+    ],
     "VNCode接入": ["getting-started-vscode"],
     "开发建议": ["develop-suggestions"]
   },
   "API": {
-    "API" : ["api-ui-controls", "api-js-interfaces", "api-css", "api-usage", "api-expression", "api-custom-component", "api-native-component", "api-js-module"]
+    "API" : [
+      "api-ui-controls", 
+      "api-js-interfaces", 
+      "api-css", 
+      "api-usage", 
+      "api-expression", 
+      "api-custom-component", 
+      "api-native-component", 
+      "api-js-module"
+    ]
   },
   "API-Desktop": {
     "VNDesktop": [

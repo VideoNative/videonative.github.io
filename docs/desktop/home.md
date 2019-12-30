@@ -14,7 +14,7 @@ title: 简介
 
 ---
 ## 项目地址：
-待补充
+https://git.code.oa.com/VideoNative/VideoNativeDesktop    
 
 ---
 ## 体验VNDesktop
