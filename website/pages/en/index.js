@@ -121,7 +121,7 @@ class Index extends React.Component {
       <Block id="try">
         {[
           {
-            content: '一次编写Android&iOS双平台运行。我们正在着手开发，支持更多平台。',
+            content: '一次编写Android&iOS&Windows&Mac&Linux全平台运行。',
             image: `${baseUrl}img/android_ios.png`,
             imageAlign: 'left',
             title: '跨平台',

@@ -1,12 +1,62 @@
 {
   "Getting Started": {
     "基础概念": ["getting-started-basis"],
-    "Native接入": ["getting-started-android","getting-started-ios"],
+    "Native接入": [
+      "getting-started-android",
+      "getting-started-ios",
+      "getting-started-windows",
+      "getting-started-mac"
+    ],
     "VNCode接入": ["getting-started-vscode"],
     "开发建议": ["develop-suggestions"]
   },
   "API": {
-    "API" : ["api-ui-controls", "api-js-interfaces", "api-css", "api-usage", "api-expression", "api-custom-component", "api-native-component", "api-js-module"]
+    "API" : [
+      "api-ui-controls", 
+      "api-js-interfaces", 
+      "api-css", 
+      "api-usage", 
+      "api-expression", 
+      "api-custom-component", 
+      "api-native-component", 
+      "api-js-module"
+    ]
+  },
+  "API-Desktop": {
+    "VNDesktop": [
+      "desktop/home"
+    ],
+    "配置": [
+      "desktop/api-pageconfigs"
+    ],
+    "接口相关": [
+      "desktop/api-ui",
+      "desktop/api-common-event",
+      "desktop/api-common-property",
+      "desktop/api-css",
+      "desktop/api-expression",
+      "desktop/api-control-view",
+      "desktop/api-control-text",
+      "desktop/api-control-button",
+      "desktop/api-control-checkbox",
+      "desktop/api-control-image",
+      "desktop/api-control-input",
+      "desktop/api-control-textarea",
+      "desktop/api-control-scroll-view"
+    ],
+    "JS API": [
+      "desktop/api-js-interfaces",
+      "desktop/api-js-animation"
+    ],
+    "VN开发周边": [
+      "desktop/vn-package",
+      "desktop/vn-build",
+      "desktop/vn-debug"
+    ],
+    "VN桌面端技术文档": [
+      "desktop/doc-framework",
+      "desktop/doc-connection"
+    ]
   }
  
 }

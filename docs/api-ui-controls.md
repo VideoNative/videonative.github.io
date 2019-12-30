@@ -318,6 +318,7 @@ report-id | String | | *(since 0.8)* 元素的上报ID
 report-params | Object, String | | *(since 0.8)* 元素的上报参数。值类型可以为对象；或者JSON字符串；或者URL查询字符串，如：report-params="key1=1&key2=2"
 report-policy | String | | *(since 0.8)* 元素的自动上报策略，具体可用值依赖于上报框架接入层的定义
 aria-label | String | | *(since 0.8)* 无障碍辅助标签，应用于系统屏幕阅读
+tint-color | color | | *(since 0.9)* 设置渲染颜色，当为空为 #00000000 时，恢复原来的颜色；取值格式为#RGB，#RRGGBB #RRGGBBAA，RRGGBBAA
 
 ## Flexbox 布局属性
 Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属性和子节点相关的属性。容器属性和子节点属性相互影响，配合生效。
@@ -932,7 +933,7 @@ page({
     },
 
     onHeaderStateChange: function (params) {
-        headerChildren = params.target.getChildElements();
+        let headerChildren = params.target.getChildElements();
         switch (params.event.state) {
             case 0:
             headerChildren[0].setProperty("content", "空闲");
@@ -1060,7 +1061,7 @@ page({
     },
 
     onFooterStateChange: function (params) {
-        footerChildren = params.target.getChildElements();
+        let footerChildren = params.target.getChildElements();
         switch (params.event.state) {
             case 0:
             footerChildren[0].setProperty("content", "空闲");
@@ -1179,7 +1180,7 @@ page({
     },
 
     onFooterStateChange: function (params) {
-        footerChildren = params.target.getChildElements();
+        let footerChildren = params.target.getChildElements();
         switch (params.event.state) {
             case 0:
             footerChildren[0].setProperty("content", "空闲");
@@ -1278,10 +1279,6 @@ Property | line-error | [rpx pt px dp] | 0 | 滚动轴上的换行误差
 --- | --- | --- | --- | ---
 Property | main-length | String | "1/1" | cell在固定轴方向的长度，字符串，只支持分数形式，如："1/4"
 Property | cross-length | [rpx pt px dp auto] | auto | cell在滚动轴方向的长度
-Property | optional | Boolean | false | 对应的cell是否为可选。如果为true，当固定轴的空间不够摆放该cell时将忽略
-Property | line-break | Boolean | false | 该cell强制换行，即它的下一个cell从新的一行开始布局
-Property | margin-leading | [rpx pt px dp] | 0 | 该cell在滚动轴的前边距
-Property | margin-trailing | [rpx pt px dp] | 0 | 该cell在滚动轴的后边距
 
 __注：width 和 height 对 cell 无效。滚动轴方向的⾼度即可以通过设置 cross-length，也可以通过设置 aspect-ratio 来实现__
 

@@ -56,6 +56,7 @@ const siteConfig = {
   headerLinks: [
     {doc: 'getting-started-basis', label: 'Getting Started'},
     {doc: 'api-ui-controls', label: 'API'},
+    {doc: 'desktop/home', label: 'API-Desktop'},
     {doc: 'playground-index', label: 'Playground'},
     {doc: 'version-index', label: 'Versions'},
     //TODO 暂时没有帮助页面 {page: 'help', label: 'Help'},
