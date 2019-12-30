@@ -44,17 +44,13 @@ VN_GetQVNVideoNative(&vn);
 https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/VideoNative/IQVNVideoNative.h   
 
 ```groovy 
-/**
-* IQVNVideoNative is a global instance object, created by VN_GetQVNVideoNative, use to load and close VideoNative page or app.
-* IQVNVideoNative 是一个单例类，主要提供获取 VNApp 和 VNPage 的接口，以及提供全局 JSApi 、以及 Native 组件的注册
-**/
+    /**
+    * IQVNVideoNative is a global instance object, created by VN_GetQVNVideoNative, use to load and close VideoNative page or app.
+    * IQVNVideoNative 是一个单例类，主要提供获取 VNApp 和 VNPage 的接口，以及提供全局 JSApi 、以及 Native 组件的注册
+    **/
 ```
 
 ```groovy
-/**
-* IQVNVideoNative is a global instance object, created by VN_GetQVNVideoNative, use to load and close VideoNative page or app.  
-**/
-
     /**
     * 根据 AppID 从指定的目录获取 App
     * @param appId app对应id
@@ -126,12 +122,12 @@ https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDe
 https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/VideoNative/IQVNApp.h   
 
 ```groovy 
-/**
-* IQVNApp 是一组 VideoNative 页面构成的集合，拥有 AppId 等属性，
-* 每个 IQVNApp 的存储空间是相互隔离的（可以类比下小程序），
-* IQVNApp 提供直接进入指定 VideoNative 页面，以及获取指定某个单页面的能力。
-* IQVNApp 的特点是可以做到业务隔离，同时相比 IQVNApp，可以更方便地实现多个页面之间共享数据，简化页面之间的跳转逻辑
-**/
+    /**
+    * IQVNApp 是一组 VideoNative 页面构成的集合，拥有 AppId 等属性，
+    * 每个 IQVNApp 的存储空间是相互隔离的（可以类比下小程序），
+    * IQVNApp 提供直接进入指定 VideoNative 页面，以及获取指定某个单页面的能力。
+    * IQVNApp 的特点是可以做到业务隔离，同时相比 IQVNApp，可以更方便地实现多个页面之间共享数据，简化页面之间的跳转逻辑
+    **/
 ```
 
 ```groovy
@@ -189,10 +185,10 @@ https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDe
 https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/VideoNative/IQVNPage.h   
    
 ```groovy 
-/**
-* IQVNPage 是业务开发的基本单位，每个 Page 由 vnml/vnss/js/json 来描述
-* IQVNPage 暴露接口可以让 Native 开发者直接获取框架渲染成功后的 View；注册该页面特有的 JSApi，设置该页面的安全区等等。
-**/
+    /**
+    * IQVNPage 是业务开发的基本单位，每个 Page 由 vnml/vnss/js/json 来描述
+    * IQVNPage 暴露接口可以让 Native 开发者直接获取框架渲染成功后的 View；注册该页面特有的 JSApi，设置该页面的安全区等等。
+    **/
 ```
 
 ```groovy
