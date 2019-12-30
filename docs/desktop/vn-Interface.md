@@ -7,8 +7,7 @@ title: VNDesktop 接入接口文档
 ### 代码接口
 https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/LoadVideoNativeDll.h   
 
-### 主要接口和示例
-
+### 主要接口
 ```groovy 
 void VN_InitViewsContentClient(int argc, const char** argv, void (*pMain)(), void *app_delegate);   
 void VN_InitHybridViewsContentClient(int argc, const char** argv, void (*pMain)());   
@@ -21,6 +20,7 @@ void VN_SetExternalDataFetcher(const char* key, ExternalDataCallback callback); 
 BOOL VN_GetExternalManager(IVNExternalManager** pExternalManager);   
 ```
 
+### 接口和示例
 #### bool VN_GetQVNVideoNative(IQVNVideoNative **pQVNVideoNative);   
 This function should be called on the main application thread when the application start.    
 It will initialize and return a global IQVNVideoNative instance object,    
