@@ -4,13 +4,16 @@ title: VNDesktop 接口文档
 ---
 
 ## LoadVideoNativeDll.h
+## 代码接口：
+    https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/LoadVideoNativeDll.h   
 
-### void VN_InitViewsContentClient(int argc, const char** argv, void (*pMain)(), void *app_delegate);   
+### 主要接口和示例：
+#### void VN_InitViewsContentClient(int argc, const char** argv, void (*pMain)(), void *app_delegate);   
 
-### void VN_InitHybridViewsContentClient(int argc, const char** argv, void (*pMain)());   
+#### void VN_InitHybridViewsContentClient(int argc, const char** argv, void (*pMain)());   
 
 
-### bool VN_GetQVNVideoNative(IQVNVideoNative **pQVNVideoNative);   
+#### bool VN_GetQVNVideoNative(IQVNVideoNative **pQVNVideoNative);   
 This function should be called on the main application thread when the application start.    
 It will initialize and return a global IQVNVideoNative instance object,    
 and use this global instance to load and close VideoNative page and app.   
@@ -18,35 +21,38 @@ and use this global instance to load and close VideoNative page and app.
 ```groovy
 #include "LoadVideoNativeDll.h"
 #pragma comment(lib, "VideoNative.lib")
-
 CComPtr<IQVNVideoNative> vn;
 VN_GetQVNVideoNative(&vn);
 ```
 
-### void VN_SetDefaultPictureCacheDirectory(LPCWSTR directory);   
+#### void VN_InitPictureDataManager(LPCWSTR sqliteDBPath, LPCWSTR tableName);   
 
-### void VN_InitPictureDataManager(LPCWSTR sqliteDBPath, LPCWSTR tableName);   
+#### void VN_SetCookieFilePath(const char *cookieFilePath); // utf8 coding   
 
-### void VN_SetCookieFilePath(const char *cookieFilePath); // utf8 coding   
+#### void VN_InitVNStorage(const char *sqliteDBPath, const char* storageTable); // utf8 coding   
 
-### void VN_InitVNStorage(const char *sqliteDBPath, const char* storageTable); // utf8 coding   
-
-### bool VN_CreateDataBuffer(IDataBuffer** ppBuffer);   
+#### bool VN_CreateDataBuffer(IDataBuffer** ppBuffer);   
  
-### void VN_SetExternalDataFetcher(const char* key, ExternalDataCallback callback); // utf8 coding   
+#### void VN_SetExternalDataFetcher(const char* key, ExternalDataCallback callback); // utf8 coding   
 
-### BOOL VN_GetExternalManager(IVNExternalManager** pExternalManager);   
+#### BOOL VN_GetExternalManager(IVNExternalManager** pExternalManager);   
 
 ---
 
 ### IQVNVideoNative.h
+## 代码接口：
+    https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/VideoNative/IQVNVideoNative.h   
 
 ---
 
 ### IQVNApp.h
+## 代码接口：
+    https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/VideoNative/IQVNApp.h   
 
 ---
 
 ### IQVNPage.h
-
+## 代码接口：
+    https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/VideoNative/IQVNPage.h   
+    
 ---
