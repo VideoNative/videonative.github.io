@@ -6,7 +6,7 @@ title: VNDesktop跟Native交互框架设计
 ### 概述：
 
 #### 提供四种交互能力    
-| Operating System     | Use Scene                                       |
+| connection           | Use Scene                                       |
 | -------------------- | ----------------------------------------------- |
 | native代码接口注入    | 单业务注入的一些定制接口                          |
 | ES6 export js module | 注入的一些通用业务接口（登录、统计）               |
