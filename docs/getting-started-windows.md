@@ -22,32 +22,26 @@ https://git.code.oa.com/VideoNative/VideoNativeDesktop
 ### 4.新建工程并配置工程环境
 
 ```groovy
-
 接口目录： VideoNativeDesktop\Interface   
 lib目录： VideoNativeDesktop\OutputGF\Lib   
-
 ```
 
 ### 5.添加初始化代码
 
 ```groovy
-
 #include "LoadVideoNativeDll.h"
 #pragma comment(lib, "VideoNative.lib")
 
 CComPtr<IQVNVideoNative> vn;
 VN_GetQVNVideoNative(&vn);
-
 ```
 
 ### 6.打开一个页面
 
 ```groovy
-
 CComPtr<IQVNApp>  g_app;
 vn->getVNApp("97", "{apppath}/Resources/vnapp_output/97", &g_app);
 g_app->startApp(nullptr, "vn://index/index");
-
 ```
 
 ### 7.其他接口文档和示例
