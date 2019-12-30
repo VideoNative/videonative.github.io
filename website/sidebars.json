@@ -40,7 +40,7 @@
       "desktop/vn-debug"
     ],
     "VN桌面端技术文档": [
-      "desktop/doc-framework"
+      "desktop/doc-framework",
       "desktop/doc-connection"
     ]
   }

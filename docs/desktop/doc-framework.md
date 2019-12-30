@@ -3,8 +3,14 @@ id: doc-framework
 title: 框架实现
 ---
 
-### 简介：
-* VNDesktop是VideoNative的桌面端版本，基于VideoNative和跨平台UI内核库（ChromeViews或GF），能跨所有平台（包括所有桌面平台），目前业内首款且唯一一款做到windows端全面兼容的（支持XP和32位系统），让开发可以像写小程序一样写应用软件的（native级别小程序框架方案），一款的UI开发框架。
+### 简介
+* VNDesktop是一款桌面端的小程序UI开发框架，同时具备超native级别性能，同时跨多端、跨多渲染内核的通用小程序渲染框架。
+
+#### 详细介绍
+
+* VideoNative是腾讯视频团队完全自研的一套高性能，跨平台的开发框架，让开发可以像写小程序一样写应用软件。
+
+* VNDesktop是VideoNative的桌面端版本，基于VideoNative和跨平台UI内核库（ChromeViews或GF），能跨所有平台（所有桌面平台），目前业内首款且唯一一款做到windows端全面兼容的（支持XP和32位系统），让开发可以像写小程序一样写应用软件的（native级别小程序框架方案），一款的小程序UI开发框架。
 
 ---
 
@@ -20,7 +26,7 @@ title: 框架实现
 
 ---
 
-### 特性：
+### 特性
 * 跨平台：通用的桌面端跨平台能力的框架(window/mac/linux)，并做到最小平台差异
 * 低成本：小程序框架，最大降低native开发成本
 * 热更新：热更新和快速迭代
@@ -38,7 +44,6 @@ VNGF         |    windows	        |	V8              |            GF        |    
 VNViews      |    windows	        |	V8	        |           ChromeViews        |            已支持
 VNViews      |    mac	            |	V8/JSC	        |            ChromeViews        |            已支持
 VNViews      |    Linux	            |	V8	        |            ChromeViews        |            后续支持
-VNAppkit     |    mac	            |	V8/JSC              |            Appkit        |            后续支持
 
 ---
 
@@ -49,9 +54,10 @@ VNAppkit     |    mac	            |	V8/JSC              |            Appkit     
 ---
 
 ### VNDesktop低维护优势：
-* 项目虽然跨多端、跨多渲染内核，但通过【渲染通用内核胶水层】做到接入任何UI内核的快速衔接能力，框架维护工作量小（只需要维护10个接口对象的实现即可）。   
+* 项目虽然跨多端、跨多渲染内核，但通过【渲染通用内核胶水层】做到接入任何UI内核的快速衔接能力，框架维护工作量小（只需要维护10个胶水层接口对象的实现即可）。   
 * VNDesktop框架下全部c++化，所有代码跨所有平台编译，做到多端多内核代码完美对齐，任何优化全内核生效。   
 * 通过渲染通用内核胶水层，VN后续还会接入UIKit、AppKit、Flutter、AndroidNative   
+* 跨多端、跨多渲染内核的通用小程序渲染框架设计：项目支持接入任何端的任何UI引擎，可以与任何UI引擎无缝融合，并提供小程序框架支持能力。   
 
 ---
 
