@@ -3,8 +3,20 @@ id: version-index
 title: 版本发布信息
 ---
 
-## 0.8
+## 0.9
 发布日期：开发中<br/>
+
+新增功能：
+
++ CSS: 支持常量。新增函数 var() 和 calc()
++ 组件: 新增流式布局容器 flow-list
++ JSAPI: 新增 vn.updateMediaQuery()
++ 数据: 支持通过 vn.data 查询和监听媒体查询条件
++ 数据: KeyPath支持在方括号中填字符串，如: list['one key']
+
+
+## 0.8
+发布日期：2019-11-21<br/>
 
 新增功能：
 
@@ -16,6 +28,14 @@ title: 版本发布信息
 + CSS现在支持书写顺序覆盖
 + JSAPI: 增加 vn.toUnit() 函数用于长度单位转换; 增加 vn.reportEvent() 用于上报自定义事件
 + DOM: 增加 track() 用于组件上报自定义事件
++ 0.8.5版本开始支持Android的V8 so离线下载
+
+调整：
+>
+>+ 启用新的离线包文件结构和管理后台
+>+ 启用新的打包工具Assembler2
+
+业务场景：腾讯视频v7.7.1
 
 
 ## 0.7
