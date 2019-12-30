@@ -73,4 +73,4 @@ g_app->startApp(nullptr, "vn://index/index");
 
 ### 7.其他接口文档和示例
 
-《待补充》  
+[VNDesktop 接口文档](desktop/vn-interface)
