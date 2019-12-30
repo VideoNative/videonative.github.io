@@ -4,14 +4,22 @@ title: VNDesktop 接入接口文档
 ---
 
 ## LoadVideoNativeDll.h
-### 代码接口：
+### 代码接口
 https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/LoadVideoNativeDll.h   
 
-### 主要接口和示例：
-#### void VN_InitViewsContentClient(int argc, const char** argv, void (*pMain)(), void *app_delegate);   
+### 主要接口和示例
 
-#### void VN_InitHybridViewsContentClient(int argc, const char** argv, void (*pMain)());   
-
+```groovy 
+void VN_InitViewsContentClient(int argc, const char** argv, void (*pMain)(), void *app_delegate);   
+void VN_InitHybridViewsContentClient(int argc, const char** argv, void (*pMain)());   
+bool VN_GetQVNVideoNative(IQVNVideoNative **pQVNVideoNative);   
+void VN_InitPictureDataManager(LPCWSTR sqliteDBPath, LPCWSTR tableName);   
+void VN_SetCookieFilePath(const char *cookieFilePath); // utf8 coding   
+void VN_InitVNStorage(const char *sqliteDBPath, const char* storageTable); // utf8 coding   
+bool VN_CreateDataBuffer(IDataBuffer** ppBuffer);   
+void VN_SetExternalDataFetcher(const char* key, ExternalDataCallback callback); // utf8 coding   
+BOOL VN_GetExternalManager(IVNExternalManager** pExternalManager);   
+```
 
 #### bool VN_GetQVNVideoNative(IQVNVideoNative **pQVNVideoNative);   
 This function should be called on the main application thread when the application start.    
@@ -25,24 +33,13 @@ CComPtr<IQVNVideoNative> vn;
 VN_GetQVNVideoNative(&vn);
 ```
 
-#### void VN_InitPictureDataManager(LPCWSTR sqliteDBPath, LPCWSTR tableName);   
-
-#### void VN_SetCookieFilePath(const char *cookieFilePath); // utf8 coding   
-
-#### void VN_InitVNStorage(const char *sqliteDBPath, const char* storageTable); // utf8 coding   
-
-#### bool VN_CreateDataBuffer(IDataBuffer** ppBuffer);   
- 
-#### void VN_SetExternalDataFetcher(const char* key, ExternalDataCallback callback); // utf8 coding   
-
-#### BOOL VN_GetExternalManager(IVNExternalManager** pExternalManager);   
-
 ---
 
 ## IQVNVideoNative.h
-### 代码接口：
+### 代码
 https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/VideoNative/IQVNVideoNative.h   
 
+### IQVNVideoNative
 ```groovy 
     /**
     * IQVNVideoNative is a global instance object, created by VN_GetQVNVideoNative, use to load and close VideoNative page or app.
@@ -50,6 +47,7 @@ https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDe
     **/
 ```
 
+### IQVNVideoNative主要接口
 ```groovy
     /**
     * 根据 AppID 从指定的目录获取 App
@@ -121,6 +119,7 @@ https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDe
 ### 代码接口：
 https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/VideoNative/IQVNApp.h   
 
+### IQVNApp
 ```groovy 
     /**
     * IQVNApp 是一组 VideoNative 页面构成的集合，拥有 AppId 等属性，
@@ -130,6 +129,7 @@ https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDe
     **/
 ```
 
+### IQVNApp主要接口
 ```groovy
     /**
     * 初始化一个app
@@ -184,6 +184,7 @@ https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDe
 ### 代码接口：
 https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/VideoNative/IQVNPage.h   
    
+### IQVNPage
 ```groovy 
     /**
     * IQVNPage 是业务开发的基本单位，每个 Page 由 vnml/vnss/js/json 来描述
@@ -191,6 +192,7 @@ https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDe
     **/
 ```
 
+### IQVNPage主要接口
 ```groovy
 	/** 
 	 * 获取Page的Native View
