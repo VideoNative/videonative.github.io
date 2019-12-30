@@ -1,6 +1,6 @@
 ---
 id: doc-connection
-title: VNDesktop跟Native交互框架设计
+title: VNDesktop Js跟Native交互框架设计
 ---
 
 ## 
@@ -8,7 +8,7 @@ title: VNDesktop跟Native交互框架设计
 ### 概述
 
 #### 提供四种交互能力    
-| connection           | Use Scene                                       |
+| Js跟Native交互       | Use Scene                                       |
 | -------------------- | ----------------------------------------------- |
 | native代码接口注入    | 单业务注入的一些定制接口                          |
 | ES6 export js module | 注入的一些通用业务接口（登录、统计）               |
@@ -17,8 +17,8 @@ title: VNDesktop跟Native交互框架设计
 | requireNodejsModule  | 提供所有Nodejs接口的更强大的本地化库支持能力        |
 
 #### * native代码接口注入方案   
-使用示例  （待补充）   
-技术方案 （待补充）       
+##### 使用示例   
+（待补充）         
 
 #### * ES6 export js module 注入通用全局接口方案   
 （待补充）   
@@ -26,13 +26,20 @@ title: VNDesktop跟Native交互框架设计
 #### * CommonJS设计   
 包括下面三个方案按优先级加载   
 
-框架设计图：   
+##### 框架设计图   
+![](https://videonative.io/img/framework_commonjs.png)   
 
 #### * CommonJS requireJsModule   
-（待补充）   
+
+##### 框架设计图   
+同上 
 
 #### * CommonJS requireXPComModule   
-（待补充）   
+
+![](https://videonative.io/img/framework_requireNative.png)   
 
 #### * CommonJS requireNodejsModule   
-（待补充）   
+
+一个比较简单外挂nodejs API的方案，跑两个js运行时环境，nodejs的运行时环境只干接口提供   
+![](https://videonative.io/img/framework_requirenodejs.png)   
+![](https://videonative.io/img/framework_requirenodejs2.png)   
