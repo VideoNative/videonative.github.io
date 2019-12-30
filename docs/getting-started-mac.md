@@ -3,13 +3,25 @@ id: getting-started-mac
 title: 开始一个新的工程（Mac）
 ---
 
+### Git下完整demo示例工程：   
+静态链接：   
+https://git.code.oa.com/VideoNative/VideoNativeDesktop/tree/master/VideoNativeDesktop/DemoForViews   
+动态链接：   
+https://git.code.oa.com/VideoNative/VideoNativeDesktop/tree/master/VideoNativeDesktop/DemoForViewsMac   
+macapp包的测试demo：   
+https://git.code.oa.com/VideoNative/VideoNativeDesktop/tree/master/VideoNativeDesktop/demo_macapp    
+
 ### 1.拉取代码
 
 https://git.code.oa.com/VideoNative/VideoNativeDesktop   
 
-### 2.[Mac下编译VN](desktop/vn-build)
+### 2.工程编译和依赖
 
-### 3.[Mac下VN打包](desktop/vn-package)
+[Mac下编译VN](desktop/vn-build)   
+
+### 3.资源包打包
+
+[Mac下VN打包](desktop/vn-package)
 
 ### 4.配置工程
 
@@ -42,3 +54,7 @@ vn->getVNApp("97", "{apppath}/Resources/vnapp_output/97", &g_app);
 g_app->startApp(nullptr, "vn://index/index");
 
 ```
+
+### 7.其他接口文档和示例
+
+《待补充》  
