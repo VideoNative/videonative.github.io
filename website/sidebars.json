@@ -26,10 +26,10 @@
     "VNDesktop": [
       "desktop/home"
     ],
-    "配置": [
+    "VNDesktop 配置文档": [
       "desktop/api-pageconfigs"
     ],
-    "接口相关": [
+    "VNDesktop UI接口文档": [
       "desktop/api-ui",
       "desktop/api-common-event",
       "desktop/api-common-property",
@@ -49,6 +49,7 @@
       "desktop/api-js-animation"
     ],
     "VN开发周边": [
+      "desktop/vn-interface",
       "desktop/vn-package",
       "desktop/vn-build",
       "desktop/vn-debug"
