@@ -32,4 +32,4 @@ title: 使用Visual Studio Code
 
 * 下载地址
 
-    [立即下载](https://github.com/VideoNative/VideoNative/blob/master/Resouce/vnappTypings.zip?raw=true)    
+    [立即下载](../file/vnappTypings.zip)
