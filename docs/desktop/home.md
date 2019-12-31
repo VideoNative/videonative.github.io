@@ -19,9 +19,9 @@ https://git.code.oa.com/VideoNative/VideoNativeDesktop
 ---
 ## 体验VNDesktop
 
-* Windows端基于GF内核demo： http://videonative.io/file/vngf_demo_win.7z
-* Windows端基于Views内核demo： http://videonative.io/file/vnviews_demo_win.7z
-* Mac端基于Views内核demo： http://videonative.io/file/vnviews_demo_mac.zip
+* Windows端基于GF内核demo： https://videonative.github.io/VideoNative/file/vngf_demo_win.7z
+* Windows端基于Views内核demo： https://videonative.github.io/VideoNative/file/vnviews_demo_win.7z
+* Mac端基于Views内核demo： https://videonative.github.io/VideoNative/file/vnviews_demo_mac.zip
 
 ---
 ## 框架设计相关
