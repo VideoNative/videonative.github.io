@@ -39,8 +39,8 @@ const users = [
 const siteConfig = {
   title: 'Video Native', // Title for your website.
   tagline: 'Video Native Official Website',
-  url: 'https://videonative.github.io/VideoNative', // Your website URL
-  baseUrl: '/', // Base URL for your project */
+  url: 'https://videonative.github.io', // Your website URL
+  baseUrl: '/VideoNative/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',

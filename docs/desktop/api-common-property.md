@@ -47,7 +47,7 @@ Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属
 ```html
 <!--Flexbox.vnml-->
     <view width="100%" height="auto" flex-direction="row" align-items="center">
-    <image width="200rpx" aspect-ratio="1" src="https://videonative.io/video-native.png" position="relative"/>
+    <image width="200rpx" aspect-ratio="1" src="/img/video-native.png" position="relative"/>
     <text height="200rpx" width="auto" flex-grow="1" font-size="30rpx" background-color="gray">
         FlexBox
     </text>

@@ -16,8 +16,8 @@ title: VN checkbox
 
 ```json
 {
-    "check": "http://videonative.io/img/checkbox_yes.png",
-    "uncheck": "http://videonative.io/img/checkbox_no.png",
+    "check": "/img/checkbox_yes.png",
+    "uncheck": "/img/checkbox_no.png",
     "selected": true,
     "position": 10
 }

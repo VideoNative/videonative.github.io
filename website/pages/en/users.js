@@ -18,7 +18,7 @@ class Users extends React.Component {
       return null;
     }
 
-    const editUrl = `https://videonative.io/blob/master/website/siteConfig.js`;
+    const editUrl = `/blob/master/website/siteConfig.js`;
     const showcase = siteConfig.users.map(user => (
       <a href={user.infoLink} key={user.infoLink}>
         <img src={user.image} alt={user.caption} title={user.caption} />
