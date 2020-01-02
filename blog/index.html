@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Blog · Video Native</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Video Native Official Website"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Blog · Video Native"/><meta property="og:type" content="website"/><meta property="og:url" content="https://videonative.github.io/"/><meta property="og:description" content="Video Native Official Website"/><meta property="og:image" content="https://videonative.github.io/img/video_native.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://videonative.github.io/img/video_native.png"/><link rel="shortcut icon" href="/img/video_native.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://videonative.github.io/blog/atom.xml" title="Video Native Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://videonative.github.io/blog/feed.xml" title="Video Native Blog RSS Feed"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="blog"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/video_native.png" alt="Video Native"/><h2 class="headerTitleWithLogo">Video Native</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/getting-started-basis" target="_self">Getting Started</a></li><li class=""><a href="/docs/api-ui-controls" target="_self">API</a></li><li class=""><a href="/docs/desktop/home" target="_self">API-Desktop</a></li><li class=""><a href="/docs/playground-index" target="_self">Playground</a></li><li class=""><a href="/docs/version-index" target="_self">Versions</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Recent Posts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Recent Posts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/blog/2018/12/10/expression-design-imp">表达式设计与实现</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer postContainer blogContainer"><div class="wrapper"><div class="posts"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2018/12/10/expression-design-imp">表达式设计与实现</a></h1><p class="post-meta">December 10, 2018</p><div class="authorBlock"><p class="post-authorName"><a href="https://connorlu.vip" target="_blank" rel="noreferrer noopener">Connor Lu</a></p><div class="authorPhoto"><a href="https://connorlu.vip" target="_blank" rel="noreferrer noopener"><img src="https://graph.facebook.com/100008235998299/picture/?height=200&amp;width=200" alt="Connor Lu"/></a></div></div></header><article class="post-content"><div><span><h2><a class="anchor" aria-hidden="true" id="概述"></a><a href="#概述" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>概述</h2>
+<p>VN的表达式引擎使用胡子语法（Mustache）。Mustache 是一个 logic-less（轻逻辑）模板解析引擎，它是为了使用户界面与业务数据（内容）分离而产生的。比如 vnml 中的代码：<code>{{userInfo.nickName}}</code>，这里的<code>{{</code>与<code>}}</code>包含的内容就是 Mustache的语法。</p>
+<h2><a class="anchor" aria-hidden="true" id="能力"></a><a href="#能力" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>能力</h2>
+<p>目前VN的表达式语法支持主流的数据表示方法，各种基本的运算符还支持函数。具体内容如下：</p>
+<h3><a class="anchor" aria-hidden="true" id="数据表示"></a><a href="#数据表示" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>数据表示</h3>
+<table>
+<thead>
+<tr><th>数据类型</th><th>样例</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Boolean</td><td>true,false</td></tr>
+<tr><td>Integer</td><td>1,5</td></tr>
+<tr><td>Long</td><td>1L,5l</td></tr>
+<tr><td>Double</td><td>1d,5D</td></tr>
+<tr><td>String</td><td>'Hello',&quot;World&quot;</td></tr>
+<tr><td>ID</td><td>dataArray[5],dataObj.name</td><td>标识符在运算时从页面的数据中获取实际值</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="运算符"></a><a href="#运算符" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>运算符</h3>
+<table>
+<thead>
+<tr><th>运算类型</th><th>样例</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>+,-,*,/,%</td><td>1+2</td><td>算数运算符支持数字类型的数据运算</td></tr>
+<tr><td>(,)</td><td>(1+2)*3</td><td>用于提高运算优先级</td></tr>
+<tr><td>&lt;,&lt;=,&gt;,&gt;=,==,!=,&amp;&amp;</td><td>2&lt;5</td><td>逻辑运算符,运算结果是Boolean类型</td></tr>
+<tr><td>&amp;,~,^</td><td>2&amp;5</td><td>位运算符</td></tr>
+<tr><td>: ?</td><td>2&gt;3 ? 2:3</td><td>三元运算符</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="函数"></a><a href="#函数" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>函数</h3>
+<table>
+<thead>
+<tr><th>函数类型</th><th>样例</th><th>入参</th><th>返回值</th></tr>
+</thead>
+<tbody>
+<tr><td>max</td><td>max(1,2)</td><td>数值类型</td><td>返回其中最大的一个</td></tr>
+<tr><td>min</td><td>min(1,2)</td><td>数值类型</td><td>返回其中最小的一个</td></tr>
+<tr><td>trim</td><td>trim(&quot;   Hello World   &quot;)</td><td>一个字符串</td><td>返回去掉两端空格后的字符串</td></tr>
+<tr><td>toRpx</td><td>toRpx(&quot;15pt&quot;)</td><td>单位字符串</td><td>返回转化为RPX单位的float值</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="主流程"></a><a href="#主流程" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>主流程</h2>
+<p><img src="/img/blog-img/expression-design-imp-p1.png" alt="VN表达式引擎的流程图"></p>
+<h3><a class="anchor" aria-hidden="true" id="token解析"></a><a href="#token解析" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Token解析</h3>
+<p>Token解析的第一步是将表达式字符串转化为操作符，标识符，数字，字符串这四类Token。因为大部分Token解析的过程不需要依赖上下文所以处理过程比较简单。这里唯一特殊的就是对函数的处理，如果连续两个Token为标识符和左括号那么就记为方法的开始，当收到下一个右括号的时候记为方法的结束。</p>
+<ol>
+<li>操作符：算数运算符，位运算符，逻辑运算符，其他（<code>’.’运算符, ‘[ ]’运算符,’,’运算符,’(’运算符,’)’运算符等</code>）</li>
+<li>标识符：变量，函数名，函数参数名称等</li>
+<li>数字：Long，Int，Double，Float</li>
+<li>字符串</li>
+</ol>
+<p>识别出四种Token之后需要根据上下文做一些简单的处理：</p>
+<ol>
+<li>区分负号和减号操作符，方法是看前一个操作符是否为数字</li>
+<li>区分函数名，函数参数和变量，函数名是方法开始前面的那个标识符，函数参数是方法开始到方法结束中间的标识符，其余标识符都是变量。</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="调度场算法"></a><a href="#调度场算法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>调度场算法</h3>
+<p>解析完Token之后下一步就是将符合人类习惯的中缀表达式转换为计算机更好处理的后缀表达式（逆波兰表达式）的过程了。它的特点有：</p>
+<ul>
+<li>操作符置于被操作数的后面；</li>
+<li>不需要括号，也不需要定义优先级，只需从左到右依次计算即可。</li>
+</ul>
+<p>调度场算法具体的执行过程如下：</p>
+<p>读入一个Token，直到无Token可读</p>
+<p>        如果Token是操作数（标识符，字符串，数字），则加入输出队列</p>
+<p>        如果Token是操作符，记作 Oc</p>
+<p>                若Oc的优先级低于栈顶或Oc的优先级等于栈顶且Oc有左结合性，则弹栈入列，直到条件被打破 <strong>*</strong></p>
+<p>                否则，Oc 压栈</p>
+<p>        如果Token是左括号，则压栈</p>
+<p>        如果Token是右括号，则</p>
+<p>                弹栈入列，直到遇见左括号</p>
+<p>                弹栈，丢弃左括号</p>
+<p>                若遇见左括号之前，栈为空，则括号不匹配（右括号多）</p>
+<p>无Token可读时</p>
+<p>        弹栈入列，直至栈空</p>
+<p>        若栈空之前遇见左括号，则括号不匹配（左括号多）</p>
+<p><strong>注</strong>：对条件运算符（即'? :'这个三元运算符）我们要进行一些特殊处理。具体方法是:条件运算符优先级很低，只比’，’操作符的优先级高，’?’与':'操作符满足右结合性， 在标记为'<strong>*</strong>'的那个步骤中当 ‘:’操作符匹配了一个’？’将其出栈并停止循环。</p>
+<p>下面我用一个特殊的例子说明一下：</p>
+<pre><code class="hljs"><span class="hljs-symbol">1 </span>+ <span class="hljs-number">2</span> * <span class="hljs-number">3</span> &gt; <span class="hljs-number">4</span> ? <span class="hljs-number">5</span> : <span class="hljs-number">6</span> &gt; <span class="hljs-number">7</span> ? <span class="hljs-number">8</span> : <span class="hljs-number">9</span>
+</code></pre>
+<p>整个调度场算法的执行过程梳理如下：</p>
+<table>
+<thead>
+<tr><th style="text-align:left">输入</th><th style="text-align:left">动作</th><th style="text-align:left">输出</th><th style="text-align:left">操作符栈</th><th style="text-align:left">说明</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">1</td><td style="text-align:left">将操作数加入输出队列</td><td style="text-align:left">1</td><td style="text-align:left"></td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">+</td><td style="text-align:left">操作符压栈</td><td style="text-align:left">1</td><td style="text-align:left">+</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">2</td><td style="text-align:left">将操作数加入输出队列</td><td style="text-align:left">12</td><td style="text-align:left">+</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">*</td><td style="text-align:left">操作符压栈</td><td style="text-align:left">12</td><td style="text-align:left">+*</td><td style="text-align:left">当前操作符优先级高于栈顶</td></tr>
+<tr><td style="text-align:left">3</td><td style="text-align:left">将操作数加入输出队列</td><td style="text-align:left">123</td><td style="text-align:left">+*</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">&gt;</td><td style="text-align:left">操作符弹栈入列</td><td style="text-align:left">123*</td><td style="text-align:left">+</td><td style="text-align:left">当前操作符优先级低于栈顶</td></tr>
+<tr><td style="text-align:left">同上</td><td style="text-align:left">操作符弹栈入列</td><td style="text-align:left">123*+</td><td style="text-align:left"></td><td style="text-align:left">当前操作符优先级低于栈顶</td></tr>
+<tr><td style="text-align:left">同上</td><td style="text-align:left">操作符压栈</td><td style="text-align:left">123*+</td><td style="text-align:left">&gt;</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">4</td><td style="text-align:left">将操作数加入输出队列</td><td style="text-align:left">123*+4</td><td style="text-align:left">&gt;</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">?</td><td style="text-align:left">操作符弹栈入列</td><td style="text-align:left">123*+4&gt;</td><td style="text-align:left"></td><td style="text-align:left">当前操作符优先级低于栈顶</td></tr>
+<tr><td style="text-align:left">同上</td><td style="text-align:left">操作符压栈</td><td style="text-align:left">123*+4&gt;</td><td style="text-align:left">?</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">5</td><td style="text-align:left">将操作数加入输出队列</td><td style="text-align:left">123*+4&gt;5</td><td style="text-align:left">?</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">:</td><td style="text-align:left">操作符弹栈入列</td><td style="text-align:left">123*+4&gt;5?</td><td style="text-align:left"></td><td style="text-align:left">':'操作符匹配了栈顶的'?'操作符</td></tr>
+<tr><td style="text-align:left">同上</td><td style="text-align:left">操作符压栈</td><td style="text-align:left">123*+4&gt;5?</td><td style="text-align:left">:</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">6</td><td style="text-align:left">将操作数加入输出队列</td><td style="text-align:left">123*+4&gt;5?6</td><td style="text-align:left">:</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">&gt;</td><td style="text-align:left">操作符压栈</td><td style="text-align:left">123*+4&gt;5?6</td><td style="text-align:left">:&gt;</td><td style="text-align:left">当前操作符优先级高于栈顶</td></tr>
+<tr><td style="text-align:left">7</td><td style="text-align:left">将操作数加入输出队列</td><td style="text-align:left">123*+4&gt;5?67</td><td style="text-align:left">:&gt;</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">?</td><td style="text-align:left">将操作符弹栈入列</td><td style="text-align:left">123*+4&gt;5?67&gt;</td><td style="text-align:left">:</td><td style="text-align:left">当前操作符优先级低于栈顶</td></tr>
+<tr><td style="text-align:left">同上</td><td style="text-align:left">操作符压栈</td><td style="text-align:left">123*+4&gt;5?67&gt;</td><td style="text-align:left">:?</td><td style="text-align:left">'?'与':'操作符的优先级相同，且右结合所以压栈</td></tr>
+<tr><td style="text-align:left">8</td><td style="text-align:left">将操作数加入输出队列</td><td style="text-align:left">123*+4&gt;5?67&gt;8</td><td style="text-align:left">:?</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">:</td><td style="text-align:left">操作符弹栈入列</td><td style="text-align:left">123*+4&gt;5?67&gt;8?</td><td style="text-align:left">:</td><td style="text-align:left">':'操作符匹配了栈顶的'?'操作符</td></tr>
+<tr><td style="text-align:left">同上</td><td style="text-align:left">操作符压栈</td><td style="text-align:left">123*+4&gt;5?67&gt;8?</td><td style="text-align:left">::</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">9</td><td style="text-align:left">将操作数加入输出队列</td><td style="text-align:left">123*+4&gt;5?67&gt;8?9</td><td style="text-align:left">::</td><td style="text-align:left"></td></tr>
+<tr><td style="text-align:left">EOL</td><td style="text-align:left">操作符弹栈入列至栈空</td><td style="text-align:left">123*+4&gt;5?67&gt;8?9::</td><td style="text-align:left"></td><td style="text-align:left">操作符弹栈入列至栈空</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="生成操作树"></a><a href="#生成操作树" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>生成操作树</h3>
+<p>生成操作树的过程需要将后缀表达式转化为一个有操作符和操作数作为节点的树。转化的过程如下：</p>
+<p>读入一个Token，直到无Token可读
+        如果该Token为操作数直接入栈；
+        如果该Token为操作符pop操作符对应的参数个数作为操作符的孩子节点再入栈。</p>
+<p>最终如果表达式合法的话栈中应该会只有一个操作符元素，改元素就是操作树的根。</p>
+<p>这里举一个简单一些的例子：</p>
+<pre><code class="hljs"><span class="hljs-number">1</span>+<span class="hljs-number">2</span>*<span class="hljs-number">3</span>
+</code></pre>
+<p>它的后缀表达式的形式为</p>
+<pre><code class="hljs"><span class="hljs-number">123</span>*+
+</code></pre>
+<p>生成的操作树为如下
+<img src="/img/blog-img/expression-design-imp-p2.png" alt="生成的操作树"></p>
+<h3><a class="anchor" aria-hidden="true" id="计算与结果输出"></a><a href="#计算与结果输出" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>计算与结果输出</h3>
+<p>计算和结果输出比较简单，这里需要注意的就是表达式中允许变量的出现，我们在实现的时候通过接口注入的方法在运行表达式的时候实时获取变量的值。另外，就是我们大部分的操作符都会兼容不同的数据类型在实施操作之前将两个操作数（对于二元运算符）转化为相同的类型再运算。</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Tencent Inc</section></footer></div></body></html>
