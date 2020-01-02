@@ -21,4 +21,4 @@ script:
 
 branches:
   only:
-    - Source  #只有master分支作为部署需要的分支
+    - source  #只有master分支作为部署需要的分支
