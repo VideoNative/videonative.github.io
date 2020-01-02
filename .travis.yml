@@ -15,9 +15,8 @@ script:
   - git config --global user.name "${GH_AUTHOR}"
   - git config --global user.email "${GH_EMAIL}"
   - echo "machine github.com login ${GH_NAME} password ${GH_TOKEN}" > ~/.netrc
-  - git add .
-  - git commit -m "Travis Auto Update"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+  - cd website && npm install && yarn run publish-gh-pages
+
 
 branches:
   only:
