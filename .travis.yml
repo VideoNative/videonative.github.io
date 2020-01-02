@@ -22,3 +22,7 @@ script:
 branches:
   only:
     - source  #只有master分支作为部署需要的分支
+
+env:
+ global:
+   - GH_REF: github.com/VideoNative/VideoNative.github.io.git  #设置GH_REF，注意更改yourname
