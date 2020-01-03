@@ -143,15 +143,6 @@ Object | 数据或者null
 feature | String | 是 | 媒体查询条件
 value | String | 是 | 媒体查询的值
 
-+ **String getMaxUiSizeType()** *(since 0.9)*
-
-获取当前设备支持的最大屏幕尺寸类型
-
-**返回参数说明:**
-
-类型 | 说明
---- |  ---
-String | 返回以下四个值之一：regular, large, huge, max
 
 ## vn.dom
 
