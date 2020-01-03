@@ -10,7 +10,7 @@ title: 版本发布信息
 
 + CSS: 支持常量。新增函数 var() 和 calc()
 + 组件: 新增流式布局容器 flow-list
-+ JSAPI: 新增 vn.updateMediaQuery()
++ JSAPI: 新增 vn.updateMediaQuery(), vn.getMaxUiSizeType()
 + 数据: 支持通过 vn.data 查询和监听媒体查询条件
 + 数据: KeyPath支持在方括号中填字符串，如: list['one key']
 

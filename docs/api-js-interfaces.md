@@ -132,6 +132,27 @@ key | String | 是 | key
 --- |  ---
 Object | 数据或者null
 
++ **void updateMediaQuery(String feature, String value)** *(since 0.9)*
+
+更新媒体查询的值（仅对当前页面有效；不支持更新 width 和 height）
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+feature | String | 是 | 媒体查询条件
+value | String | 是 | 媒体查询的值
+
++ **String getMaxUiSizeType()** *(since 0.9)*
+
+获取当前设备支持的最大屏幕尺寸类型
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+String | 返回以下四个值之一：regular, large, huge, max
+
 ## vn.dom
 
 + **Object getElementById(String id)**
