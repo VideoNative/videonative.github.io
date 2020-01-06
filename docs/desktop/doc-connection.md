@@ -27,7 +27,7 @@ title: VNDesktop Js跟Native交互框架设计
 包括下面三个方案按优先级加载   
 
 ##### 框架设计图   
-![](https://videonative.io/img/framework_commonjs.png)   
+![](https://videonative.github.io/img/framework_commonjs.png)   
 
 #### * CommonJS requireJsModule   
 
@@ -36,10 +36,10 @@ title: VNDesktop Js跟Native交互框架设计
 
 #### * CommonJS requireXPComModule   
 
-![](https://videonative.io/img/framework_requireNative.png)   
+![](https://videonative.github.io/img/framework_requireNative.png)   
 
 #### * CommonJS requireNodejsModule   
 
 一个比较简单外挂nodejs API的方案，跑两个js运行时环境，nodejs的运行时环境只干接口提供   
-![](https://videonative.io/img/framework_requirenodejs.png)   
-![](https://videonative.io/img/framework_requirenodejs2.png)   
+![](https://videonative.github.io/img/framework_requirenodejs.png)   
+![](https://videonative.github.io/img/framework_requirenodejs2.png)   

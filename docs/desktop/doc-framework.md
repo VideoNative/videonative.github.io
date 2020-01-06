@@ -53,7 +53,7 @@ VNViews      |    Linux	            |	V8	        |            ChromeViews       
 
 ### VNDesktop框架设计
 
-![](https://videonative.io/img/framework_2.png)
+![](https://videonative.github.io/img/framework_2.png)
 
 ---
 
@@ -67,8 +67,8 @@ VNViews      |    Linux	            |	V8	        |            ChromeViews       
 
 ### VNDesktop性能优势
 
-![](https://videonative.io/img/framework_0.png)
-![](https://videonative.io/img/framework_1.png)
+![](https://videonative.github.io/img/framework_0.png)
+![](https://videonative.github.io/img/framework_1.png)
 
 * VN致力于高性能，设计上规避了Weex/RN框架的性能瓶颈，将所有的实现尽可能的放在Native实现。包括：数据的解析和绑定、Dom的构建、表达式计算、CSS的解析和匹配、 Yoga布局、RenderTree构建、ViewTree构建等。
 * 相同的计算量下，Native比JS执行效率更高。
@@ -82,7 +82,7 @@ VNViews      |    Linux	            |	V8	        |            ChromeViews       
 * 完整绘制：客户端皮肤浏览窗口在XXX*XXX下的所有可见元素全部重绘一次
 * 最大帧率测试：开启1ms的高帧率定时器，重绘最外层窗口，每一帧做完整绘制，测试极限相应帧率（1000次平均）
 
-![](https://videonative.io/img/framework_3.png)
+![](https://videonative.github.io/img/framework_3.png)
 
 * VNDesktop比Native在首次启动耗时快2倍左右，再次启动耗时快35%左右。说明VNDesktop的界面解析更加精简，内部Yoga排布、CSS的解析、控件重绘次数等优化，大大精简了原Native布局层次，减少了界面解析和各类冗余排布和冗余绘制耗时，加快了启动速度。
 * VNDesktop启动耗时整体比页面快2-3倍左右。
