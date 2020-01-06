@@ -1337,9 +1337,13 @@ page({
 <tbody>
 <tr><td>Property</td><td>main-length</td><td>String</td><td>&quot;1/1&quot;</td><td>cell在固定轴方向的长度，字符串，只支持分数形式，如：&quot;1/4&quot;<br /><strong>注：位于同一个section的所有cell的main-length的分母必须为相同的数字</strong></td></tr>
 <tr><td>Property</td><td>cross-length</td><td>[rpx pt px dp auto]</td><td>auto</td><td>cell在滚动轴方向的长度</td></tr>
+<tr><td>Property</td><td>margin-leading</td><td>[rpx pt px dp]</td><td>0px</td><td>cell在滚动轴方向的前边距</td></tr>
+<tr><td>Property</td><td>margin-trailing</td><td>[rpx pt px dp]</td><td>0px</td><td>cell在滚动轴方向的后边距</td></tr>
+<tr><td>Property</td><td>optional</td><td>Boolean</td><td>false</td><td>该cell是否为可选项。即如果固定轴剩余空间无法摆放下该cell时，忽略该cell的渲染</td></tr>
+<tr><td>Property</td><td>line-break</td><td>Boolean</td><td>false</td><td>该cell的下一个cell是否强制换行</td></tr>
 </tbody>
 </table>
-<p><strong>注：width 和 height 对 cell 无效。滚动轴方向的⾼度即可以通过设置 cross-length，也可以通过设置 aspect-ratio 来实现</strong></p>
+<p><strong>注：width、height、margin 对 cell 无效。滚动轴方向的⾼度可以通过设置 cross-length 或者设置 aspect-ratio 来实现，边距可以通过 margin-leading 和 margin-trailing 来实现</strong></p>
 <h2><a class="anchor" aria-hidden="true" id="scroll-view"></a><a href="#scroll-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>scroll-view</h2>
 <p>这是一个可滚动的容器类。支持横向或纵向滚动。</p>
 <ul>
