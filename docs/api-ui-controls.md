@@ -1300,8 +1300,13 @@ Property | line-error | [rpx pt px dp] | 0 | 滚动轴上的换行误差（不�
 --- | --- | --- | --- | ---
 Property | main-length | String | "1/1" | cell在固定轴方向的长度，字符串，只支持分数形式，如："1/4"<br />**注：位于同一个section的所有cell的main-length的分母必须为相同的数字**
 Property | cross-length | [rpx pt px dp auto] | auto | cell在滚动轴方向的长度
+Property | margin-leading | [rpx pt px dp] | 0px | cell在滚动轴方向的前边距
+Property | margin-trailing | [rpx pt px dp] | 0px | cell在滚动轴方向的后边距
+Property | optional | Boolean | false | 该cell是否为可选项。即如果固定轴剩余空间无法摆放下该cell时，忽略该cell的渲染
+Property | line-break | Boolean | false | 该cell的下一个cell是否强制换行
 
-__注：width 和 height 对 cell 无效。滚动轴方向的⾼度即可以通过设置 cross-length，也可以通过设置 aspect-ratio 来实现__
+
+__注：width、height、margin 对 cell 无效。滚动轴方向的⾼度可以通过设置 cross-length 或者设置 aspect-ratio 来实现，边距可以通过 margin-leading 和 margin-trailing 来实现__
 
 ## scroll-view
 这是一个可滚动的容器类。支持横向或纵向滚动。
