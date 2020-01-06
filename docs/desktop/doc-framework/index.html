@@ -102,7 +102,7 @@
 </table>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="vndesktop框架设计"></a><a href="#vndesktop框架设计" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VNDesktop框架设计</h3>
-<p><img src="https://videonative.io/img/framework_2.png" alt=""></p>
+<p><img src="https://videonative.github.io/img/framework_2.png" alt=""></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="vndesktop低维护优势"></a><a href="#vndesktop低维护优势" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VNDesktop低维护优势</h3>
 <ul>
@@ -113,8 +113,8 @@
 </ul>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="vndesktop性能优势"></a><a href="#vndesktop性能优势" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VNDesktop性能优势</h3>
-<p><img src="https://videonative.io/img/framework_0.png" alt="">
-<img src="https://videonative.io/img/framework_1.png" alt=""></p>
+<p><img src="https://videonative.github.io/img/framework_0.png" alt="">
+<img src="https://videonative.github.io/img/framework_1.png" alt=""></p>
 <ul>
 <li>VN致力于高性能，设计上规避了Weex/RN框架的性能瓶颈，将所有的实现尽可能的放在Native实现。包括：数据的解析和绑定、Dom的构建、表达式计算、CSS的解析和匹配、 Yoga布局、RenderTree构建、ViewTree构建等。</li>
 <li>相同的计算量下，Native比JS执行效率更高。</li>
@@ -129,7 +129,7 @@
 <li>完整绘制：客户端皮肤浏览窗口在XXX*XXX下的所有可见元素全部重绘一次</li>
 <li>最大帧率测试：开启1ms的高帧率定时器，重绘最外层窗口，每一帧做完整绘制，测试极限相应帧率（1000次平均）</li>
 </ul>
-<p><img src="https://videonative.io/img/framework_3.png" alt=""></p>
+<p><img src="https://videonative.github.io/img/framework_3.png" alt=""></p>
 <ul>
 <li>VNDesktop比Native在首次启动耗时快2倍左右，再次启动耗时快35%左右。说明VNDesktop的界面解析更加精简，内部Yoga排布、CSS的解析、控件重绘次数等优化，大大精简了原Native布局层次，减少了界面解析和各类冗余排布和冗余绘制耗时，加快了启动速度。</li>
 <li>VNDesktop启动耗时整体比页面快2-3倍左右。</li>
