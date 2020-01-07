@@ -111,27 +111,6 @@ vn.window	|isVisible()		                  | --- | ---
 
 ## vn
 
-+ **void scanCode(Object object)**
-
-开启二维码扫描
-
-iOS 请务必在 Native 侧的 info.plist 中声明相机的权限
-
-
-**object内的参数说明:**
-
-参数 | 类型 | 必填 | 说明
---- | --- | --- | ---
-success | Function | 是 | 接口调用的回调函数
-fail | Function | 否 | 接口调用失败的回调函数，没有参数
-complete | Function | 否 | 接口调用结束的回调函数（调用成功、失败都会执行），没有参数
-
-**success回调函数接收一个Object参数；它的成员属性如下:**
-
-属性 | 类型 | 说明
---- | --- |  ---
-result | String | 扫描得到的结果
-
 
 + **Float toRpx(String value)**
 
