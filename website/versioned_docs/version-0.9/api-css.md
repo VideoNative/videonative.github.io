@@ -1,6 +1,7 @@
 ---
-id: api-css
+id: version-0.9-api-css
 title: CSS
+original_id: api-css
 ---
 
 ## VNSS

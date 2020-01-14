@@ -1,6 +1,7 @@
 ---
-id: api-ui-controls
+id: version-0.2-api-ui-controls
 title: 控件
+original_id: api-ui-controls
 ---
 
 ## 总览
@@ -35,7 +36,7 @@ onOrientationChange(Object param) |  当前页面方向改变 | 页面 | param.o
 
 参数名 | 备注 | 参数类型 | 取值范围 | 备注
 --- | --- | --- | --- | --- 
-type | 事件名称 | String | - | 只返回事件名称，不包含事件阶段。如原先的bindTap，现在改为tap  
+type | 事件名称 | String | - | -   
 timestamp | 事件发生时间戳(毫秒) | Number | - | -  
 target | 事件触发的DOM对象 | Object | - | -  
 dataset | 事件触发的DOM对象数据集 | Object | - | -  
@@ -43,16 +44,13 @@ event | 事件对象 | Object | - | 存放事件的其它参数
 
 2. 事件种类：
 
-名称 | 动作 | 适用场景 | 其它参数 | 捕获与冒泡 | 备注
---- | --- | --- | --- | --- | ---
-tap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
-longpress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - | 支持 | -
-touchstart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | 新增参数event.changedTouches 
-touchmove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | 新增参数event.changedTouches 
-touchend | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) | 支持 | 新增参数event.changedTouches 
-fullscreenchange | 全屏状态变化 | 当一个组件进入或退出全屏模式时，会收到该事件回调 | - | 不支持 | -
-fullscreenerror | 进入全屏失败 | 当一个组件无法进入全屏模式时，会收到该事件回调 | - | 不支持 | -
-resize | 控件尺寸变化 | 当一个组件的尺寸发生变化时，会发送该事件 | event.width: Number (组件宽度)<br/>  event.height: Number (组件高度) | 不支持 | 注：这个事件在组件布局完毕之后通知
+名称 | 动作 | 适用场景 | 其它参数
+--- | --- | --- | --- 
+tap | 点击 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - 
+longpress | 长按 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | - 
+touchstart | 触摸开始 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) 
+touchmove | 触摸移动 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) 
+touchend | 触摸结束 | 除了滑动控件(scroll-view,list,view-pager等)之外的所有控件 | event.x: Number (触发事件时的横坐标)<br/>  event.y: Number (触发事件时的纵坐标) 
 
 3. 代码示例：
 
@@ -95,173 +93,6 @@ page ({
         console.log('页面加载完成')
     }
 });
-```
-
-### 捕获与冒泡 
-
-1. 事件阶段
-
-+ **捕获阶段：**  
-触发事件后，从页面根标签开始，逐层往下传递该事件（期间可以进行中断），一直到事件触发标签结束（假设期间都没中断的情况）
-
-+ **冒泡阶段：**  
-触发事件后，从事件触发标签开始，逐层往上传递该事件（期间可以进行中断），一直到页面根标签结束（假设期间都没中断的情况）
-
-```text
-注意：
-1. 回调顺序：事件捕获 -> 事件监听 -> 事件冒泡。同时，各个阶段独立执行，如果当前阶段没声明监听则跳过，再进入下一阶段
-2. 中断调用：事件监听调用中断方法无实际意义，事件捕获、冒泡调用中断方法只会影响当前阶段传递
-3. 实际应用：事件监听可用于事件响应，事件捕获可用于事件拦截，事件冒泡可用于事件统计（子标签负责事件处理，父标签负责事件统计）
-4. 传递界限：页面和自定义组件都支持事件捕获与冒泡，但事件不能跨越自定义组件
-```
-
-2. 注册监听
-
-+ **监听捕获：** `capture:event`
-+ **监听冒泡：** `on:event`
-+ **支持种类：** `tap、longpress、touchstart、touchmove、touchend`
-
-```html
-<!--event-capture-bubble.vnml-->
-<view id="d1"
-    capture:tap="captureHandle" 
-    bindtap="bindHandle" 
-    on:tap="bubbleHandle" />
-```
-
-3. 中断传递
-
-+ **调用方法：** `e.stopPropagation();`
-
-```js
-<!--event-capture-bubble.js-->
-captureHandle: function (e) {
-    if (e.currentTarget.getId() === 'd1') {
-        //在d1标签时，中断捕获事件传递
-        e.stopPropagation();
-    }
-},
-bindHandle: function (e) {
-    //监听事件方法会正常回调，不受捕获或者冒泡阶段的中断操作影响
-    ...
-},
-bubbleHandle: function (e) {
-    if (e.currentTarget.getId() === 'd1') {
-        //在d1标签时，中断冒泡事件传递
-        e.stopPropagation();
-    }
-}
-```
-
-4. 其它参数(基于公共参数)
-
-参数名称 | 参数类型 | 参数说明 | 取值范围 | 备注
---- | --- | --- | --- | --- 
-currentTarget | Object | 当前的DOM对象 | - | - 
-phase | Number | 事件对象-事件阶段 | 0 ~ 3 |  0：事件处于响应阶段(bind)<br/>  1：事件处于捕获阶段(capture)<br/>  2：事件到达target结点(capture / on)<br/>  3：事件处于冒泡阶段(on)<br/>  
-event.changedTouches | Array | 坐标值发生改变的触摸手指 | - | 该参数目前仅限于touchstart、touchmove、touchend事件才会返回，并且只返回单个触摸手指 
-
-changedTouches 数组项对象
-
-参数名称 | 参数类型 | 参数说明 | 取值范围 | 备注
---- | --- | --- | --- | --- 
-identifier | Number | 触摸手指编号 | 0 | 目前只返回单个触摸手指 
-currentX | Number | 触摸点相对于当前标签的横坐标 | - | - 
-currentY | Number | 触摸点相对于当前标签的纵坐标 | - | - 
-screenX | Number | 触摸点相对于屏幕的横坐标 | - | - 
-screenY | Number | 触摸点相对于屏幕的纵坐标 | - | - 
-
-5. 代码示例
-
-```html
-<!--event-capture-bubble.vnml-->
-<view id="d1" class="d1"
-    capture:tap="captureHandle" 
-    bindtap="bindHandle" 
-    on:tap="bubbleHandle">
-    
-    <view id="d2" class="d2"
-        capture:tap="captureHandle" 
-        bindtap="bindHandle" 
-        on:tap="bubbleHandle">
-        
-        <view id="d3" class="d3"
-            capture:tap="captureHandle" 
-            bindtap="bindHandle" 
-            on:tap="bubbleHandle"/>
-        
-    </view>
-    
-</view>
-```
-
-```css
-<!--event-capture-bubble.css-->
-.d1 {
-   width: 300rpx;
-   height: 300rpx;
-   background-color: #7a1b9b;
-   flex-direction:column;
-   justify-content:flex-start;
-   align-items:flex-start;
-}
-
-.d2 {
-   width: 200rpx;
-   height: 200rpx;
-   background-color: #9b7a1b;
-   flex-direction:column;
-   justify-content:flex-start;
-   align-items:flex-start;
-}
-
-.d3 {
-   width: 100rpx;
-   height: 100rpx;
-   background-color: #7a9b1b;
-   flex-direction:column;
-   justify-content:flex-start;
-   align-items:flex-start;
-}
-```
-
-```js
-<!--event-capture-bubble.js-->
-captureHandle: function (e) {
-    if (e.currentTarget.getId() === 'd2') {
-        //在d2标签时，中断捕获事件传递
-        e.stopPropagation();
-    }
-},
-bindHandle: function (e) {
-    //监听事件方法会正常回调，不受捕获或者冒泡阶段的中断操作影响
-    ...
-},
-bubbleHandle: function (e) {
-    if (e.currentTarget.getId() === 'd3') {
-        //在d3标签时，中断冒泡事件传递
-        e.stopPropagation();
-    }
-}
-```
-
-点击视图区域后的回调情况：
-
-```
-点击d1区域：  
-捕获阶段：d1  
-事件监听：d1  
-冒泡阶段：d1
-
-点击d2区域：  
-捕获阶段：d1 -> d2  
-事件监听：d2  
-冒泡阶段：d2 -> d1
-
-点击d3区域：  
-捕获阶段：d1 -> d2  
-事件监听：d3  
-冒泡阶段：d3
 ```
 
 ## 通用属性
@@ -311,14 +142,6 @@ overflow | [visible hidden] | hidden | 当内容溢出元素框时发生的事�
 border-color | color | #00000000 | 设置四条边框的颜色。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值
 border-width | [rpx pt dp px] | 0rpx | 设置边框的宽度。目前除了 View 标签能支持4个边框设置不同的值，其他标签只支持4个边框设置相同的值
 border-radius | [rpx pt dp px] | 0rpx | 设置边框的圆角属性。目前除了 View 标签能支持4个角设置不同的值，其他标签只支持4个角设置相同的值
-report-page-id | String | | 页面的上报ID。只应该在页面根view设置这个属性。
-report-page-params | Object, String | |  页面的上报参数。只应该在页面根view设置这个属性。值类型可以为对象；或者JSON字符串；或者URL查询字符串，如：report-page-params="key1=1&key2=2"
-report-page-policy | String | | 页面的自动上报策略，具体可用值依赖于上报框架接入层的定义
-report-id | String | | 元素的上报ID
-report-params | Object, String | |  元素的上报参数。值类型可以为对象；或者JSON字符串；或者URL查询字符串，如：report-params="key1=1&key2=2"
-report-policy | String | | 元素的自动上报策略，具体可用值依赖于上报框架接入层的定义
-aria-label | String | | 无障碍辅助标签，应用于系统屏幕阅读
-tint-color | color | | 设置渲染颜色，当为空为 #00000000 时，恢复原来的颜色；取值格式为#RGB，#RRGGBB #RRGGBBAA，RRGGBBAA
 
 ## Flexbox 布局属性
 Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属性和子节点相关的属性。容器属性和子节点属性相互影响，配合生效。
@@ -548,7 +371,6 @@ Property | mode | Enum | fit-xy | focus-crop/center-crop/center-inside/center/fi
 Property | foucs-point-x | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | foucs-point-y | Float(0~1) | 0.5 | 重心裁剪功能，仅在 mode 为 focus-crop 时生效
 Property | shape | Enum | normal | normal/circle
-Property | filter | | | 滤镜参数，目前只支持: blur; 注：1、不支持动图模糊；2、超过25px会导致渲染性能下降可能导致卡顿。3、blur 的单位只能为 "px" 例子：filter="blur(1px)" 
 EventHandler | bindload | function(Object params) | | 当src指定的图片被显示时触发这个事件。图片的宽、高通过事件参数返回：params.event = {width: 50.3, height:30.02 }，单位为rpx。
 EventHandler | binderror | function(Object params) | | 当src指定的图片加载失败时触发这个事件。无event属性。
 
@@ -831,9 +653,6 @@ Property | vn:for-item | String | "item" |
 Property | vn:switch | String | "case" |
 Property | direction | Enum | column | column/row，滚动方向
 EventHandler | bindItemTap | function(Object params) | | 列表 Item 点击，位置参数为 params.event.position
-EventHandler | bindItemLoad | function(Object params) | | 列表 Item 与数据绑定时回调，在Item重用时还会回调。params.event = { position:位置, cell:cell节点 } 注：此时cell节点还未上屏，对它的操作可能返回非预期的结果。
-EventHandler | bindItemAttach | function(Object params) | | 列表 Item 上屏时回调。params.event = { position:位置, cell:cell节点  }
-EventHandler | bindItemDetach | function(Object params) | | 列表 Item 下屏时回调。params.event = { position:位置, cell:cell节点 } 注：此时cell节点已经下屏，对它的操作可能返回非预期的结果。
 EventHandler | bindHeaderRefreshing | function(Object params) | | 列表发生了下拉刷新
 EventHandler | bindFooterRefreshing | function(Object params) | | 列表发生了上拉加载
 EventHandler | bindScroll | function(Object params) | | 列表滚动，params.event = { deltaX : 0, deltaY : 0 }; deltaX 和 deltaY（正数为下滑，负数为上滑）
@@ -1207,106 +1026,7 @@ page({
 });
 ```
 
-## flow-list  
-+ `<flow-list>` 是提供自适应容器宽度并自动布局功能的列表组件。
-+ 使用方法:
-    + `<flow-list>` 标签使用 `vn:for` 属性和胡子语法绑定到数组类型的数据，该数组中的每⼀项对应一个 section 数据
-    + 在 `<flow-list>` 标签内使用若干个 `<section>` 标签来定义section模版。section模版用于指明数据内包含的分段的类型，使用 `vn:case` 属性来指定section的类型。`<section>` 标签可使用 `padding`, `item-space`, `line-error` 属性来指定块边距，元素间距和元素换行对齐参数
-    + `<flow-list>` 标签的 `vn:section-switch` 属性，用于定义section模板和数据之间的关联关系。定义数组元素中指明的字段名，它的默认值为 "case"
-    + `<flow-list>` 标签的 `vn:section-data` 属性，用于定义UI模板数据和section数据之间的关联关系。定义数组元素中指明的字段名，它的默认值为 "sectionData"
-    + 在 `<flow-list>` 标签内使用若干个 `<cell>` 标签来定义UI模板。每个 `<cell>` 代表着一种UI模板。
-    + `<flow-list>` 标签的 `vn:switch` 属性，用于定义UI模板和数据之间的关联关系。定义数组元素中指明 CellType 的字段名，它的默认值为 "case"
-    + `<cell>` 的 `fixedCellSize` 的属性，标识该类型的CELL的尺寸是否是固定不变的。如果是 true，则该类型的CELL的高度或宽度一旦计算完成后就不再随着内容的变化而变化，该值默认是 true。用于优化 iOS 的列表性能，在 Android 上被忽略
-    + 每个 `<cell>` 标签内应都有 `vn:case` 属性值用于指明 CellType
-    + `<cell>` 内的页面布局通过胡子语法，访问数组 item 里的属性作为数据填充
-    + 可为其中一个 `<cell>` 标签设置 `vn:default` 属性，表示这个Cell是默认类型，当数据中的ViewType找不到匹配的Cell时，会展示这种Cell。
 
-+ 代码示例如下：
-
-```html
-<!--flow-list.vnml-->
-<flow-list direction="column" width="100%" height="100%" vn:for="{{listData}}" vn:section-data="views" vn:switch="cellType" bindItemTap="onItemClick">
-    <section vn:case="section1" item-space="5dp" />
-    <cell vn:case="text">
-        <text font-size="50rpx">{{index}}: {{item.text}}</text>
-    </cell>
-</flow-list>
-```
-
-```json
-{
-  "listData": [
-    {
-      "case": "section1",
-      "views": [
-        {
-          "cellType": "text",
-          "text": "A",
-          "color": "white",
-          "background": "#1AAD19"
-        },
-        {
-          "cellType": "text",
-          "text": "B",
-          "color": "white",
-          "background": "#2782D8"
-        }
-      ]
-    }
-  ]
-}
-```
-
-类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
---- | --- | --- | --- | ---
-Property | vn:for | 胡子语句 | | section数据源，必填项
-Property | vn:section-switch | String | "case" | section数据项中和section模版对应关系的属性名
-Property | vn:section-index | String | "sectionIndex" |
-Property | vn:section-item | String | "sectionItem" |
-Property | vn:section-data | String | "sectionData" | UI数据数组在section数据项中的属性名
-Property | vn:for-index | String | "index" |
-Property | vn:switch | String | "case" |
-Property | direction | Enum | column | 滚动方向（只支持竖直方向）
-EventHandler | bindItemTap | function(Object params) | | 列表 Item 点击，params.event = { section:分段位置, position:cell位置 }
-EventHandler | bindItemLoad | function(Object params) | | 列表 Item 与数据绑定时回调，在Item重用时还会回调。params.event = { section:分段位置, position:cell位置, cell:cell节点 } 注：此时cell节点还未上屏，对它的操作可能返回非预期的结果。
-EventHandler | bindItemAttach | function(Object params) | | 列表 Item 上屏时回调。params.event = { section:分段位置, position:cell位置, cell:cell节点 }
-EventHandler | bindItemDetach | function(Object params) | | 列表 Item 下屏时回调。params.event = { section:分段位置, position:cell位置, cell:cell节点 } 注：此时cell节点已经下屏，对它的操作可能返回非预期的结果。
-EventHandler | bindHeaderRefreshing | function(Object params) | | 列表发生了下拉刷新
-EventHandler | bindFooterRefreshing | function(Object params) | | 列表发生了上拉加载
-EventHandler | bindScroll | function(Object params) | | 列表滚动，params.event = { deltaX : 0, deltaY : 0 }; deltaX 和 deltaY（正数为下滑，负数为上滑）
-EventHandler | bindScrollStateChange | function(Object params) | | 列表滚动状态切换，新状态为 params.event.newState。取值说明： 0:空闲;1:拖拽;2:滑动;
-Method | void scrollToPosition(Integer section, Integer position, Integer mode) |  |  | list滚动到指定的位置，section代表分段位置，从0开始；position 代表 cell 的下标，从0开始。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间；2：滚动到可视区域的顶部
-Method | void smoothScrollToPosition(Integer section, Integer position, Integer mode) |  |  | 有动画的滚动到指定的位置。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间；2：滚动到可视区域的顶部
-Method | void setFooterRefreshingEnabled(Boolean enable) |  |  | 是否允许上拉加载更多
-Method | void setHeaderRefreshingEnabled(Boolean enable) |  |  | 是否允许下拉刷新
-Method | void setHeaderRefreshing(Boolean enable) |  |  | 下拉刷新是否开始，如果已经开始刷新可以靠这个值结束刷新，若果没有刷新也可以通过代码触发，前提是setHeaderRefreshingEnabled(true)
-Method | void setFooterRefreshing(Boolean enable) |  |  | 上拉刷新是否开始，如果已经开始刷新可以靠这个值结束刷新，若果没有刷新也可以通过代码触发，前提是setFooterRefreshingEnabled(true)
-Method | void invalidateLayout() |  |  | 使 flow-list 布局失效， 会导致重新刷新布局，计算每个 cell 的宽高，只对 iOS 平台生效
-Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
-
-### header, footer, pull-footer
-
-flow-list 也支持 header、footer 和 pull-footer，具体用法参考 list 组件部分
-
-
-### section
-类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
---- | --- | --- | --- | ---
-Property | item-space | [rpx pt px dp] | 0 | 固定轴上cell之间的间距
-Property | line-error | [rpx pt px dp] | 0 | 滚动轴上的换行误差（不能为负值，值越小越容易产生换行）
-
-### cell
-类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
---- | --- | --- | --- | ---
-Property | main-length | String | "1/1" | cell在固定轴方向的长度，字符串，只支持分数形式，如："1/4"<br />**注：位于同一个section的所有cell的main-length的分母必须为相同的数字**
-Property | cross-length | [rpx pt px dp auto] | auto | cell在滚动轴方向的长度
-Property | margin-leading | [rpx pt px dp] | 0px | cell在滚动轴方向的前边距
-Property | margin-trailing | [rpx pt px dp] | 0px | cell在滚动轴方向的后边距
-Property | optional | Boolean | false | 该cell是否为可选项。即如果固定轴剩余空间无法摆放下该cell时，忽略该cell的渲染
-Property | line-break | Boolean | false | 该cell的下一个cell是否强制换行
-
-
-__注：width、height、margin 对 cell 无效。滚动轴方向的⾼度可以通过设置 cross-length 或者设置 aspect-ratio 来实现，边距可以通过 margin-leading 和 margin-trailing 来实现__
 
 
 ## scroll-view
@@ -1489,9 +1209,6 @@ Property | interval | Number | 5000 | 自动滚动的间隔时间，单位：毫
 EventHandler | bindScroll | function(Float delta, Float offset, Float offsetPercent, Integer scrollState, Integer pageIndex) | | 滚动时触发， delta, offset, offsetPercent, scrollState, pageIndex
 EventHandler | bindScrollStateChange | function(int scrollState) | | 0:空闲;1:拖拽;2:滑动
 EventHandler | bindPageChange | function(int pageIndex) | | 滑动停止时指向的分页，pageIndex
-EventHandler | bindItemAttach | function(Object params) | | 页面上屏时回调。params.event = { position:位置, cell:cell节点 }
-EventHandler | bindItemDetach | function(Object params) | | 页面下屏时回调。params.event = { position:位置, cell:cell节点 } 注：此时cell节点已经下屏，对它的操作可能返回非预期的结果。
-Method | void setPageIndex(Integer index, Boolean smooth) | Integer | | 设置当前的分页编号 （注： 增加第二参数smooth用于控制是否平滑滚动，缺省值为true）
 Method | Integer getPageIndex() | | | 获取当前的分页编号
 
 ## video
@@ -1516,7 +1233,6 @@ Property | objectfit | Enum | contain | contain/fill/cover
 Property | initial-time | Integer | 0 | 指定视频初始播放位置，时长单位为毫秒
 Property | autoplay | Boolean | false | 是否自动播放
 Property | loop | Boolean | false | 是否循环播放
-Property | muted | Boolean | false | 是否无声播放 
 EventHandler | bindPlay | function() | | 当开始/继续播放时触发play事件
 EventHandler | bindPause | function() | | 当暂停播放时触发 pause 事件
 EventHandler | bindEnded | function() | | 当播放到末尾时触发 ended 事件

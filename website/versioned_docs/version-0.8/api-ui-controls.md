@@ -1,6 +1,7 @@
 ---
-id: api-ui-controls
+id: version-0.8-api-ui-controls
 title: 控件
+original_id: api-ui-controls
 ---
 
 ## 总览
@@ -318,7 +319,6 @@ report-id | String | | 元素的上报ID
 report-params | Object, String | |  元素的上报参数。值类型可以为对象；或者JSON字符串；或者URL查询字符串，如：report-params="key1=1&key2=2"
 report-policy | String | | 元素的自动上报策略，具体可用值依赖于上报框架接入层的定义
 aria-label | String | | 无障碍辅助标签，应用于系统屏幕阅读
-tint-color | color | | 设置渲染颜色，当为空为 #00000000 时，恢复原来的颜色；取值格式为#RGB，#RRGGBB #RRGGBBAA，RRGGBBAA
 
 ## Flexbox 布局属性
 Flexbox 布局属性用于页面排版布局，它分为容器节点相关的属性和子节点相关的属性。容器属性和子节点属性相互影响，配合生效。
@@ -1207,106 +1207,7 @@ page({
 });
 ```
 
-## flow-list  
-+ `<flow-list>` 是提供自适应容器宽度并自动布局功能的列表组件。
-+ 使用方法:
-    + `<flow-list>` 标签使用 `vn:for` 属性和胡子语法绑定到数组类型的数据，该数组中的每⼀项对应一个 section 数据
-    + 在 `<flow-list>` 标签内使用若干个 `<section>` 标签来定义section模版。section模版用于指明数据内包含的分段的类型，使用 `vn:case` 属性来指定section的类型。`<section>` 标签可使用 `padding`, `item-space`, `line-error` 属性来指定块边距，元素间距和元素换行对齐参数
-    + `<flow-list>` 标签的 `vn:section-switch` 属性，用于定义section模板和数据之间的关联关系。定义数组元素中指明的字段名，它的默认值为 "case"
-    + `<flow-list>` 标签的 `vn:section-data` 属性，用于定义UI模板数据和section数据之间的关联关系。定义数组元素中指明的字段名，它的默认值为 "sectionData"
-    + 在 `<flow-list>` 标签内使用若干个 `<cell>` 标签来定义UI模板。每个 `<cell>` 代表着一种UI模板。
-    + `<flow-list>` 标签的 `vn:switch` 属性，用于定义UI模板和数据之间的关联关系。定义数组元素中指明 CellType 的字段名，它的默认值为 "case"
-    + `<cell>` 的 `fixedCellSize` 的属性，标识该类型的CELL的尺寸是否是固定不变的。如果是 true，则该类型的CELL的高度或宽度一旦计算完成后就不再随着内容的变化而变化，该值默认是 true。用于优化 iOS 的列表性能，在 Android 上被忽略
-    + 每个 `<cell>` 标签内应都有 `vn:case` 属性值用于指明 CellType
-    + `<cell>` 内的页面布局通过胡子语法，访问数组 item 里的属性作为数据填充
-    + 可为其中一个 `<cell>` 标签设置 `vn:default` 属性，表示这个Cell是默认类型，当数据中的ViewType找不到匹配的Cell时，会展示这种Cell。
 
-+ 代码示例如下：
-
-```html
-<!--flow-list.vnml-->
-<flow-list direction="column" width="100%" height="100%" vn:for="{{listData}}" vn:section-data="views" vn:switch="cellType" bindItemTap="onItemClick">
-    <section vn:case="section1" item-space="5dp" />
-    <cell vn:case="text">
-        <text font-size="50rpx">{{index}}: {{item.text}}</text>
-    </cell>
-</flow-list>
-```
-
-```json
-{
-  "listData": [
-    {
-      "case": "section1",
-      "views": [
-        {
-          "cellType": "text",
-          "text": "A",
-          "color": "white",
-          "background": "#1AAD19"
-        },
-        {
-          "cellType": "text",
-          "text": "B",
-          "color": "white",
-          "background": "#2782D8"
-        }
-      ]
-    }
-  ]
-}
-```
-
-类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
---- | --- | --- | --- | ---
-Property | vn:for | 胡子语句 | | section数据源，必填项
-Property | vn:section-switch | String | "case" | section数据项中和section模版对应关系的属性名
-Property | vn:section-index | String | "sectionIndex" |
-Property | vn:section-item | String | "sectionItem" |
-Property | vn:section-data | String | "sectionData" | UI数据数组在section数据项中的属性名
-Property | vn:for-index | String | "index" |
-Property | vn:switch | String | "case" |
-Property | direction | Enum | column | 滚动方向（只支持竖直方向）
-EventHandler | bindItemTap | function(Object params) | | 列表 Item 点击，params.event = { section:分段位置, position:cell位置 }
-EventHandler | bindItemLoad | function(Object params) | | 列表 Item 与数据绑定时回调，在Item重用时还会回调。params.event = { section:分段位置, position:cell位置, cell:cell节点 } 注：此时cell节点还未上屏，对它的操作可能返回非预期的结果。
-EventHandler | bindItemAttach | function(Object params) | | 列表 Item 上屏时回调。params.event = { section:分段位置, position:cell位置, cell:cell节点 }
-EventHandler | bindItemDetach | function(Object params) | | 列表 Item 下屏时回调。params.event = { section:分段位置, position:cell位置, cell:cell节点 } 注：此时cell节点已经下屏，对它的操作可能返回非预期的结果。
-EventHandler | bindHeaderRefreshing | function(Object params) | | 列表发生了下拉刷新
-EventHandler | bindFooterRefreshing | function(Object params) | | 列表发生了上拉加载
-EventHandler | bindScroll | function(Object params) | | 列表滚动，params.event = { deltaX : 0, deltaY : 0 }; deltaX 和 deltaY（正数为下滑，负数为上滑）
-EventHandler | bindScrollStateChange | function(Object params) | | 列表滚动状态切换，新状态为 params.event.newState。取值说明： 0:空闲;1:拖拽;2:滑动;
-Method | void scrollToPosition(Integer section, Integer position, Integer mode) |  |  | list滚动到指定的位置，section代表分段位置，从0开始；position 代表 cell 的下标，从0开始。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间；2：滚动到可视区域的顶部
-Method | void smoothScrollToPosition(Integer section, Integer position, Integer mode) |  |  | 有动画的滚动到指定的位置。mode取值为，0:默认，以最短距离滚动到可视区域；1：滚动到可视区域的中间；2：滚动到可视区域的顶部
-Method | void setFooterRefreshingEnabled(Boolean enable) |  |  | 是否允许上拉加载更多
-Method | void setHeaderRefreshingEnabled(Boolean enable) |  |  | 是否允许下拉刷新
-Method | void setHeaderRefreshing(Boolean enable) |  |  | 下拉刷新是否开始，如果已经开始刷新可以靠这个值结束刷新，若果没有刷新也可以通过代码触发，前提是setHeaderRefreshingEnabled(true)
-Method | void setFooterRefreshing(Boolean enable) |  |  | 上拉刷新是否开始，如果已经开始刷新可以靠这个值结束刷新，若果没有刷新也可以通过代码触发，前提是setFooterRefreshingEnabled(true)
-Method | void invalidateLayout() |  |  | 使 flow-list 布局失效， 会导致重新刷新布局，计算每个 cell 的宽高，只对 iOS 平台生效
-Method | Float getScrollOffset() | | | 获取当前的偏移，单位为rpx
-
-### header, footer, pull-footer
-
-flow-list 也支持 header、footer 和 pull-footer，具体用法参考 list 组件部分
-
-
-### section
-类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
---- | --- | --- | --- | ---
-Property | item-space | [rpx pt px dp] | 0 | 固定轴上cell之间的间距
-Property | line-error | [rpx pt px dp] | 0 | 滚动轴上的换行误差（不能为负值，值越小越容易产生换行）
-
-### cell
-类型 | 属性/事件/方法名 | 参数类型 | 参数默认值 | 说明
---- | --- | --- | --- | ---
-Property | main-length | String | "1/1" | cell在固定轴方向的长度，字符串，只支持分数形式，如："1/4"<br />**注：位于同一个section的所有cell的main-length的分母必须为相同的数字**
-Property | cross-length | [rpx pt px dp auto] | auto | cell在滚动轴方向的长度
-Property | margin-leading | [rpx pt px dp] | 0px | cell在滚动轴方向的前边距
-Property | margin-trailing | [rpx pt px dp] | 0px | cell在滚动轴方向的后边距
-Property | optional | Boolean | false | 该cell是否为可选项。即如果固定轴剩余空间无法摆放下该cell时，忽略该cell的渲染
-Property | line-break | Boolean | false | 该cell的下一个cell是否强制换行
-
-
-__注：width、height、margin 对 cell 无效。滚动轴方向的⾼度可以通过设置 cross-length 或者设置 aspect-ratio 来实现，边距可以通过 margin-leading 和 margin-trailing 来实现__
 
 
 ## scroll-view

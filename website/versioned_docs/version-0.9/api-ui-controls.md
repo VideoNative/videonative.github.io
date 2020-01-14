@@ -1,6 +1,7 @@
 ---
-id: api-ui-controls
+id: version-0.9-api-ui-controls
 title: 控件
+original_id: api-ui-controls
 ---
 
 ## 总览

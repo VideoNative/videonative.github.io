@@ -1,0 +1,68 @@
+{
+  "version-0.1-Getting Started": {
+    "基础概念": [
+      "version-0.1-getting-started-basis"
+    ],
+    "Native接入": [
+      "version-0.1-getting-started-android",
+      "version-0.1-getting-started-ios",
+      "version-0.1-getting-started-windows",
+      "version-0.1-getting-started-mac"
+    ],
+    "VNCode接入": [
+      "version-0.1-getting-started-vscode"
+    ],
+    "开发建议": [
+      "version-0.1-develop-suggestions"
+    ]
+  },
+  "version-0.1-API": {
+    "API": [
+      "version-0.1-api-ui-controls",
+      "version-0.1-api-js-interfaces",
+      "version-0.1-api-css",
+      "version-0.1-api-usage",
+      "version-0.1-api-expression",
+      "version-0.1-api-custom-component",
+      "version-0.1-api-native-component",
+      "version-0.1-api-js-module"
+    ]
+  },
+  "version-0.1-API-Desktop": {
+    "VNDesktop": [
+      "version-0.1-desktop/home"
+    ],
+    "VNDesktop 配置文档": [
+      "version-0.1-desktop/api-pageconfigs"
+    ],
+    "VNDesktop UI接口文档": [
+      "version-0.1-desktop/api-ui",
+      "version-0.1-desktop/api-common-event",
+      "version-0.1-desktop/api-common-property",
+      "version-0.1-desktop/api-css",
+      "version-0.1-desktop/api-expression",
+      "version-0.1-desktop/api-control-view",
+      "version-0.1-desktop/api-control-text",
+      "version-0.1-desktop/api-control-button",
+      "version-0.1-desktop/api-control-checkbox",
+      "version-0.1-desktop/api-control-image",
+      "version-0.1-desktop/api-control-input",
+      "version-0.1-desktop/api-control-textarea",
+      "version-0.1-desktop/api-control-scroll-view"
+    ],
+    "JS API": [
+      "version-0.1-desktop/api-js-interfaces",
+      "version-0.1-desktop/api-js-animation"
+    ],
+    "VN开发周边": [
+      "version-0.1-desktop/vn-interface",
+      "version-0.1-desktop/vn-package",
+      "version-0.1-desktop/vn-build",
+      "version-0.1-desktop/vn-debug"
+    ],
+    "VN桌面端技术文档": [
+      "version-0.1-desktop/doc-framework",
+      "version-0.1-desktop/doc-connection"
+    ]
+  }
+}
