@@ -1,5 +1,5 @@
 ---
-id: version-0.1-api-js-interfaces
+id: version-0.8-api-js-interfaces
 title: JS API
 original_id: api-js-interfaces
 ---
@@ -46,6 +46,39 @@ value | String | 是 | 形如："10pt","10px","10rpx"的字符串
 --- | ---
 Float | 数字类型的rpx值
 
++ **Var toUnit(String value, String unit)** 
+
+通用长度转换函数。<br />
+将输入的长度字符串，转换为指定单位的数字。如果输入参数不合法，则返回undefined。
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+value | String | 是 | 形如："10pt","10px","10rpx", "10dp" 等带长度单位的字符串
+unit | String | 是 | 长度单位。有效值为："rpx", "pt", "px", "dp"
+
+**返回参数说明:**
+
+类型 | 说明
+--- | ---
+Var | 如果输入参数合法，则返回换算后的数字。如果输入不合法，则返回undefined
+
++ **void reportEvent(String event, Object params)** 
+
+上报自定义事件
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+event | String | 是 | 自定义事件名
+params | Object | 否 | 自定义事件参数的JSON对象，可缺省
+
++ **void traverseExposure()** 
+
+遍历当前页面可见元素并做曝光上报。注：之前已曝光元素不会重复上报。
+
 + **void getSystemInfo(Object object)**
 
 获取系统信息
@@ -73,6 +106,35 @@ model | String | 设备型号，如：iPhone 8
 --- | --- |  ---
 error | String | 错误信息
 
++ **void setGlobalShareData(String key, Object value)** 
+
+设置全局共享的内存数据
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | String | 是 | key
+value | Object | 否 | value，为null的时候会清除已有数据
+
++ **Object getGlobalShareData(String key)** 
+
+获取之前调用setGlobalShareData设置的内存数据。
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+key | String | 是 | key
+
+**返回参数说明:**
+
+类型 | 说明
+--- |  ---
+Object | 数据或者null
+
+
+
 ## vn.dom
 
 + **Object getElementById(String id)**
@@ -90,6 +152,14 @@ id | String | 是 | DOM对象的id
 类型 | 说明
 --- | ---
 Object | DOM对象，或者null
+
++ **fullscreenElement** 
+
+属性。用于获取当前处于全屏模式的DOM节点。如果没有全屏元素，则为null
+
++ **exitFullscreen()** 
+
+调用该方法来退出全屏模式
 
 ## DOM对象
 
@@ -378,6 +448,21 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 + **setRotationY(Float)**
 
 设置y轴旋转的角度
+
++ **requestFullscreen()** 
+
+将其他正处于全屏模式的节点恢复，并将当前DOM元素设置为全屏模式。如果进入全屏失败，当前节点会收到 fullscreenerror 回调。
+
++ **track(String eventName, Object extraParams)** 
+
+组件用来上报自定义事件，上报时会收集组件的上下文信息
+
+**参数说明:**
+
+参数 | 类型 | 必填 | 说明
+--- | --- | --- | ---
+eventName | String | 是 | 自定义事件名
+extraParams | Object | 否 | 额外的事件参数的JSON对象，可缺省
 
 ## vn.window
 

@@ -1,5 +1,5 @@
 ---
-id: version-0.1-api-js-interfaces
+id: version-0.4-api-js-interfaces
 title: JS API
 original_id: api-js-interfaces
 ---
@@ -90,6 +90,14 @@ id | String | 是 | DOM对象的id
 类型 | 说明
 --- | ---
 Object | DOM对象，或者null
+
++ **fullscreenElement** 
+
+属性。用于获取当前处于全屏模式的DOM节点。如果没有全屏元素，则为null
+
++ **exitFullscreen()** 
+
+调用该方法来退出全屏模式
 
 ## DOM对象
 
@@ -378,6 +386,10 @@ cubic-bezier(x1, y1, x2, y2) | 在 cubic-bezier 函数中定义自己的值。�
 + **setRotationY(Float)**
 
 设置y轴旋转的角度
+
++ **requestFullscreen()** 
+
+将其他正处于全屏模式的节点恢复，并将当前DOM元素设置为全屏模式。如果进入全屏失败，当前节点会收到 fullscreenerror 回调。
 
 ## vn.window
 
