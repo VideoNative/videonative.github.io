@@ -24,8 +24,7 @@
       "version-0.1-api-usage",
       "version-0.1-api-expression",
       "version-0.1-api-custom-component",
-      "version-0.1-api-native-component",
-      "version-0.1-api-js-module"
+      "version-0.1-api-native-component"
     ]
   },
   "version-0.1-API-Desktop": {
