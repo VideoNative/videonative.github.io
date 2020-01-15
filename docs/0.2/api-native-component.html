@@ -1,0 +1,443 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Native 组件 · Video Native</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Native Component 使用指南（iOS 篇）"/><meta name="docsearch:version" content="0.2"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Native 组件 · Video Native"/><meta property="og:type" content="website"/><meta property="og:url" content="https://videonative.github.io/"/><meta property="og:description" content="## Native Component 使用指南（iOS 篇）"/><meta property="og:image" content="https://videonative.github.io/img/video_native.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://videonative.github.io/img/video_native.png"/><link rel="shortcut icon" href="/img/video_native.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://videonative.github.io/blog/atom.xml" title="Video Native Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://videonative.github.io/blog/feed.xml" title="Video Native Blog RSS Feed"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/video_native.png" alt="Video Native"/><h2 class="headerTitleWithLogo">Video Native</h2></a><a href="/versions"><h3>0.2</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/0.2/getting-started-basis" target="_self">Getting Started</a></li><li class="siteNavGroupActive"><a href="/docs/0.2/api-ui-controls" target="_self">API</a></li><li class=""><a href="/docs/0.2/desktop/home" target="_self">API-Desktop</a></li><li class=""><a href="/docs/0.2/playground-index" target="_self">Playground</a></li><li class=""><a href="/docs/0.2/version-index" target="_self">Versions</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.2/api-ui-controls">控件</a></li><li class="navListItem"><a class="navItem" href="/docs/0.2/api-js-interfaces">JS API</a></li><li class="navListItem"><a class="navItem" href="/docs/0.2/api-css">CSS</a></li><li class="navListItem"><a class="navItem" href="/docs/0.2/api-usage">用法</a></li><li class="navListItem"><a class="navItem" href="/docs/0.2/api-expression">VN 表达式</a></li><li class="navListItem"><a class="navItem" href="/docs/0.2/api-custom-component">VN 组件</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/0.2/api-native-component">Native 组件</a></li><li class="navListItem"><a class="navItem" href="/docs/0.2/api-js-module">JS模块</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Native 组件</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="native-component-使用指南（ios-篇）"></a><a href="#native-component-使用指南（ios-篇）" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Native Component 使用指南（iOS 篇）</h2>
+<h3><a class="anchor" aria-hidden="true" id="注册一个-native-widget"></a><a href="#注册一个-native-widget" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>注册一个 Native Widget</h3>
+<p>开发者需要创建一个类，继承自 QVNNativeWidget，比如 MyWidget，然后注册</p>
+<pre><code class="hljs css language-objc">[[QVNVideoNative sharedInstance] registerWidget:<span class="hljs-string">@"my-widget"</span> widgetClassName:<span class="hljs-string">@"MyWidget"</span>];
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="native-widget-生命周期的回调"></a><a href="#native-widget-生命周期的回调" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Native Widget 生命周期的回调</h3>
+<pre><code class="hljs css language-objc"><span class="hljs-comment">/**
+ 初始化方法
+*/</span>
+- (<span class="hljs-keyword">instancetype</span>)initWithCustomWidget:(<span class="hljs-keyword">void</span> *)customWidget;
+
+<span class="hljs-comment">/**
+ 创建的时候被调用
+ */</span>
+- (<span class="hljs-keyword">void</span>)onCreate;
+
+<span class="hljs-comment">/**
+ 析构的时候被调用
+ */</span>
+- (<span class="hljs-keyword">void</span>)onDestroy;
+
+<span class="hljs-comment">/**
+ View 被添加
+ */</span>
+- (<span class="hljs-keyword">void</span>)onViewAttached:(<span class="hljs-built_in">UIView</span> *)view;
+
+<span class="hljs-comment">/**
+ View 被移除
+ */</span>
+- (<span class="hljs-keyword">void</span>)onViewDetached:(<span class="hljs-built_in">UIView</span> *)view;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="返回需要-vn-渲染的-view"></a><a href="#返回需要-vn-渲染的-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回需要 VN 渲染的 View</h3>
+<p>开发者可以自定义返回的 View，用于 VN 进行渲染</p>
+<pre><code class="hljs css language-objc"><span class="hljs-comment">/**
+ 返回自定义的视图
+ */</span>
+- (<span class="hljs-built_in">UIView</span> *)onCreateView;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="widget-与-js-的互操作"></a><a href="#widget-与-js-的互操作" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Widget 与 JS 的互操作</h3>
+<pre><code class="hljs css language-objc"><span class="hljs-comment">/**
+ 调用页面js对象的函数
+ 请务必在主线程调用该函数
+ 其中 id 可为基本数据类型、数组和字典
+ */</span>
+- (JSValue *)callJsFunction:(<span class="hljs-built_in">NSString</span> *)funName param:(<span class="hljs-keyword">id</span>)param;
+
+<span class="hljs-comment">/**
+ 往页面 js 对象注册 native 接口，方法会被注入到 name 空间下，使用 vn.name 来访问，name 为用户自定义的值
+ */</span>
+- (<span class="hljs-keyword">void</span>)addJavascriptInterface:(<span class="hljs-built_in">NSString</span> *)name fun:(JSValue *(^)(<span class="hljs-built_in">NSArray</span> &lt;JSValue *&gt; *args, JSContext *context))fun;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="自定义-widget-属性"></a><a href="#自定义-widget-属性" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>自定义 Widget 属性</h3>
+<p>开发者可以自定义属性，VN 框架会在属性变化的时候通知到 Native 组件，Native 组件可以捕捉到这个事件做相应的处理</p>
+<pre><code class="hljs css language-objc"><span class="hljs-comment">/**
+ 属性更新的回调，包括 VN 自带的属性和开发者自定义的属性。开发者可以在这里处理自定义属性的值变化
+ */</span>
+- (<span class="hljs-keyword">void</span>)onPropertyUpdate:(<span class="hljs-built_in">NSString</span> *)propertyKey propertyValue:(<span class="hljs-built_in">NSString</span> *)propertyValue;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="native-component-使用指南（android-篇）"></a><a href="#native-component-使用指南（android-篇）" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Native Component 使用指南（Android 篇）</h2>
+<h3><a class="anchor" aria-hidden="true" id="注册一个native-widget"></a><a href="#注册一个native-widget" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>注册一个Native Widget</h3>
+<pre><code class="hljs css language-java">VideoNative.registerWidget(<span class="hljs-string">"my-widget"</span>, MyWidget<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="native-widget-生命周期的回调-1"></a><a href="#native-widget-生命周期的回调-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Native Widget 生命周期的回调</h3>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyWidget</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">VNCustomWidget</span> </span>{
+    <span class="hljs-meta">@NonNull</span>
+
+    <span class="hljs-comment">//当widget创建时调用</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">()</span></span>{}
+
+    <span class="hljs-comment">//将视图add到父视图时调用</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onViewAttached</span><span class="hljs-params">(View view)</span></span>{}
+
+    <span class="hljs-comment">//将视图从父视图remove时调用</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onViewDetached</span><span class="hljs-params">(View view)</span></span>{}
+
+    <span class="hljs-comment">//当widget即将被销毁时调用</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDestory</span><span class="hljs-params">()</span></span>{}
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="返回需要-vn-渲染的-view-1"></a><a href="#返回需要-vn-渲染的-view-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>返回需要 VN 渲染的 View</h3>
+<p>仅需实现public View createView(Context context)接口，返回是Android的View。</p>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(Context context)</span> </span>{
+    mView = <span class="hljs-keyword">new</span> MyView(context);
+    mView.setGestureListener(<span class="hljs-keyword">new</span> GestureListener());
+    <span class="hljs-keyword">return</span> mView;
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="widget-与-js-的互操作-1"></a><a href="#widget-与-js-的互操作-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Widget 与 JS 的互操作</h3>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@android</span>.webkit.<span class="hljs-function">JavascriptInterface
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">callNative</span><span class="hljs-params">(String value)</span> </span>{
+    System.out.println(<span class="hljs-string">"js call native:"</span> + value);
+}
+
+<span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GestureListener</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">GestureDetector</span>.<span class="hljs-title">SimpleOnGestureListener</span> </span>{
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onDown</span><span class="hljs-params">(MotionEvent e)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onDoubleTap</span><span class="hljs-params">(MotionEvent e)</span> </span>{
+        V8Object params = newV8Object();
+        params.add(<span class="hljs-string">"customKey"</span>, <span class="hljs-string">"customValue"</span>);
+        triggerEvent(<span class="hljs-string">"callJs"</span>, params);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="自定义-widget-属性-1"></a><a href="#自定义-widget-属性-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>自定义 Widget 属性</h3>
+<pre><code class="hljs css language-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPropertyUpdate</span><span class="hljs-params">(@NonNull String propertyKey, @NonNull Object propertyValue)</span> </span>{
+    <span class="hljs-keyword">super</span>.onPropertyUpdate(propertyKey, propertyValue);
+
+    String propertyValueStr = String.valueOf(propertyValue);
+
+    <span class="hljs-keyword">switch</span> (propertyKey) {
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"my-value"</span>:
+            mMyValue = <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">try</span> {
+                mMyValue = Integer.parseInt(propertyValueStr);
+            } <span class="hljs-keyword">catch</span> (NumberFormatException e) {
+            }
+            <span class="hljs-keyword">break</span>;
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="处理混淆"></a><a href="#处理混淆" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>处理混淆</h3>
+<p>因为Widget通过反射构造所以需要处理混淆</p>
+<p>-keep class com.tencent.test.MyWidget{*;}</p>
+<h2><a class="anchor" aria-hidden="true" id="代码示例"></a><a href="#代码示例" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>代码示例</h2>
+<p>这个例子实现了一个 NativeWidget，NativeWidget 返回了一个自定义的 View</p>
+<p>该 View 在 Native 侧监听了双击事件，通过双击可以调用 Js 的接口，这个接口被声明在 vnml 里</p>
+<p>声明方式是 <code>bind</code>+自定义方法名称，如下例中的 bindCallJs，则 Native 调用的方法名称是 callJs，支持自定义参数（<strong>这个方法不区分大小写</strong>）</p>
+<p>Js 侧也可以调用 Native 的方法，如下例中的 callNative，这个方法被声明在 Native 侧，iOS 通过注册的方式声明，Android 通过重写的方式声明</p>
+<p>开发者在 vnml 里面自定义了一个 myValue 的属性，这个属性不被 VN 框架所理解，但是这个值的更新会通知到 Native 侧进行处理（<strong>这个自定义变量区分大小写</strong>）</p>
+<p>例子中的 Js 侧通过单击触发更新 myValue 的值，NativeWidget 在 myValue 更改时会收到相应的回调，并做相应的操作</p>
+<h3><a class="anchor" aria-hidden="true" id="脚本示例"></a><a href="#脚本示例" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>脚本示例</h3>
+<pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">my-widget</span> <span class="hljs-attr">bindCallJs</span>=<span class="hljs-string">"onNativeCallJs"</span> <span class="hljs-attr">bindTap</span>=<span class="hljs-string">"onClick"</span> <span class="hljs-attr">my-value</span>=<span class="hljs-string">"{{value}}"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:50%;height:150rpx;background-color: red"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-widget</span>&gt;</span>
+</code></pre>
+<pre><code class="hljs css language-js">page({
+    <span class="hljs-attr">onNativeCallJs</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">jsonObject</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"onNativeCallJs :"</span> + <span class="hljs-built_in">JSON</span>.stringify(jsonObject.event))
+        <span class="hljs-keyword">var</span> success = jsonObject.target.callNative(<span class="hljs-string">"Hello Native"</span>);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Success "</span> + success);
+    },
+
+    <span class="hljs-attr">onClick</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">params</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"onClick"</span>);
+        vn.data.update(<span class="hljs-string">"value"</span>, <span class="hljs-number">99</span>);
+    }
+});
+</code></pre>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"value"</span>:<span class="hljs-number">1</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="ios-示例"></a><a href="#ios-示例" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iOS 示例</h3>
+<p>MyWidget.h</p>
+<pre><code class="hljs css language-objc"><span class="hljs-meta">#import <span class="hljs-meta-string">"QVNNativeWidget.h"</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">MyWidget</span> : <span class="hljs-title">QVNNativeWidget</span></span>
+<span class="hljs-keyword">@end</span>
+</code></pre>
+<p>MyWidget.m</p>
+<pre><code class="hljs css language-objc"><span class="hljs-meta">#import <span class="hljs-meta-string">"MyWidget.h"</span></span>
+<span class="hljs-meta">#import <span class="hljs-meta-string">&lt;JavaScriptCore/JavaScriptCore.h&gt;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> DECLARE_WEAK_SELF __typeof(&amp;*self) __weak weakSelf = self</span>
+
+<span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">MyWidget</span> ()</span>
+<span class="hljs-keyword">@property</span> (<span class="hljs-keyword">nonatomic</span>, <span class="hljs-keyword">assign</span>) <span class="hljs-built_in">NSInteger</span> myValue;
+<span class="hljs-keyword">@property</span> (<span class="hljs-keyword">nonatomic</span>, <span class="hljs-keyword">strong</span>) <span class="hljs-built_in">UIView</span> *myView;
+<span class="hljs-keyword">@end</span>
+
+<span class="hljs-class"><span class="hljs-keyword">@implementation</span> <span class="hljs-title">MyWidget</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> mark - Life Cycle</span>
+- (<span class="hljs-keyword">instancetype</span>)initWithCustomWidget:(<span class="hljs-keyword">void</span> *)customWidget
+{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">self</span> = [<span class="hljs-keyword">super</span> initWithCustomWidget:customWidget])
+    {
+        <span class="hljs-comment">// 请用弱引用</span>
+        DECLARE_WEAK_SELF;
+        [<span class="hljs-keyword">self</span> addJavascriptInterface:<span class="hljs-string">@"callNative"</span> fun:^JSValue *(<span class="hljs-built_in">NSArray</span>&lt;JSValue *&gt; *args, JSContext *context) {
+            <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"This is Native: %@, args: %@"</span>, args, weakSelf);
+            <span class="hljs-keyword">return</span> [JSValue valueWithBool:<span class="hljs-literal">YES</span> inContext:context];
+        }];
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>;
+}
+
+- (<span class="hljs-keyword">void</span>)onCreate
+{
+    [<span class="hljs-keyword">super</span> onCreate];
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"QVNNativeWidget onCreate"</span>);
+}
+
+- (<span class="hljs-keyword">void</span>)onDestroy
+{
+    [<span class="hljs-keyword">super</span> onDestroy];
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"QVNNativeWidget onDestroy"</span>);
+}
+
+- (<span class="hljs-keyword">void</span>)onViewAttached:(<span class="hljs-built_in">UIView</span> *)view
+{
+    [<span class="hljs-keyword">super</span> onViewAttached:view];
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"QVNNativeWidget onViewAttached"</span>);
+}
+
+- (<span class="hljs-keyword">void</span>)onViewDetached:(<span class="hljs-built_in">UIView</span> *)view
+{
+    [<span class="hljs-keyword">super</span> onViewDetached:view];
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"QVNNativeWidget onViewDetached"</span>);
+}
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> mark - 自定义属性</span>
+- (<span class="hljs-keyword">void</span>)onPropertyUpdate:(<span class="hljs-built_in">NSString</span> *)propertyKey propertyValue:(<span class="hljs-built_in">NSString</span> *)propertyValue
+{
+    [<span class="hljs-keyword">super</span> onPropertyUpdate:propertyKey propertyValue:propertyValue];
+    <span class="hljs-keyword">if</span> ([propertyKey isEqualToString:<span class="hljs-string">@"my-value"</span>])
+    {
+        <span class="hljs-keyword">self</span>.myValue = [propertyValue integerValue];
+    }
+}
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> mark - 需要 VN 渲染的 View</span>
+- (<span class="hljs-built_in">UIView</span> *)onCreateView
+{
+    <span class="hljs-keyword">self</span>.myView = [[<span class="hljs-built_in">UIView</span> alloc] init];
+    <span class="hljs-built_in">UITapGestureRecognizer</span> *gesture = [[<span class="hljs-built_in">UITapGestureRecognizer</span> alloc] initWithTarget:<span class="hljs-keyword">self</span> action:<span class="hljs-keyword">@selector</span>(didDoubleTap)];
+    gesture.numberOfTapsRequired = <span class="hljs-number">2</span>;
+    [<span class="hljs-keyword">self</span>.myView addGestureRecognizer:gesture];
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.myView;
+}
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">pragma</span> mark - Call Js</span>
+- (<span class="hljs-keyword">void</span>)didDoubleTap
+{
+    [<span class="hljs-keyword">self</span> callJsFunction:<span class="hljs-string">@"callJs"</span> param:@{<span class="hljs-string">@"CustomKey"</span>:<span class="hljs-string">@"CustomParams"</span>}];
+}
+
+<span class="hljs-keyword">@end</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="java-示例"></a><a href="#java-示例" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Java 示例</h3>
+<pre><code class="hljs css language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyWidget</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">VNCustomWidget</span></span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String TAG = <span class="hljs-string">"MyWidget"</span>;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> mMyValue;   <span class="hljs-comment">//用户自定义的属性</span>
+    <span class="hljs-keyword">private</span> MyView mView;   <span class="hljs-comment">//用户自定义的视图</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyWidget</span><span class="hljs-params">(VNContext vnContext, VNForContext vnForContext, String type)</span> </span>{
+        <span class="hljs-keyword">super</span>(vnContext, vnForContext, type);
+    }
+
+    <span class="hljs-comment">///////////////////////////////////////////////////////////////////////////</span>
+    <span class="hljs-comment">// Native组件生命周期</span>
+    <span class="hljs-comment">///////////////////////////////////////////////////////////////////////////</span>
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">super</span>.onCreate();
+        Log.d(TAG, <span class="hljs-string">"onCreate"</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onViewAttached</span><span class="hljs-params">(View view)</span> </span>{
+        <span class="hljs-keyword">super</span>.onViewAttached(view);
+        Log.d(TAG, <span class="hljs-string">"onViewAttached"</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onViewDetached</span><span class="hljs-params">(View view)</span> </span>{
+        <span class="hljs-keyword">super</span>.onViewDetached(view);
+        Log.d(TAG, <span class="hljs-string">"onViewDetached"</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDestroy</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">super</span>.onDestroy();
+        Log.d(TAG, <span class="hljs-string">"onDestroy"</span>);
+    }
+
+    <span class="hljs-comment">///////////////////////////////////////////////////////////////////////////</span>
+    <span class="hljs-comment">// Native组件JS Native互相调用</span>
+    <span class="hljs-comment">///////////////////////////////////////////////////////////////////////////</span>
+
+
+    <span class="hljs-meta">@android</span>.webkit.<span class="hljs-function">JavascriptInterface
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">callNative</span><span class="hljs-params">(String value)</span> </span>{
+        System.out.println(<span class="hljs-string">"js call native:"</span> + value);
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GestureListener</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">GestureDetector</span>.<span class="hljs-title">SimpleOnGestureListener</span> </span>{
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onDown</span><span class="hljs-params">(MotionEvent e)</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onDoubleTap</span><span class="hljs-params">(MotionEvent e)</span> </span>{
+            V8Object params = newV8Object();
+            params.add(<span class="hljs-string">"customKey"</span>, <span class="hljs-string">"customValue"</span>);
+            triggerEvent(<span class="hljs-string">"callJs"</span>, params);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+
+    }
+
+    <span class="hljs-comment">///////////////////////////////////////////////////////////////////////////</span>
+    <span class="hljs-comment">// Native组件自定义属性</span>
+    <span class="hljs-comment">///////////////////////////////////////////////////////////////////////////</span>
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPropertyUpdate</span><span class="hljs-params">(@NonNull String propertyKey, @NonNull Object propertyValue)</span> </span>{
+        <span class="hljs-keyword">super</span>.onPropertyUpdate(propertyKey, propertyValue);
+
+        String propertyValueStr = String.valueOf(propertyValue);
+
+        <span class="hljs-keyword">switch</span> (propertyKey) {
+            <span class="hljs-keyword">case</span> <span class="hljs-string">"my-value"</span>:
+                mMyValue = <span class="hljs-number">0</span>;
+                <span class="hljs-keyword">try</span> {
+                    mMyValue = Integer.parseInt(propertyValueStr);
+                } <span class="hljs-keyword">catch</span> (NumberFormatException e) {
+                }
+                <span class="hljs-keyword">break</span>;
+        }
+    }
+
+    <span class="hljs-comment">///////////////////////////////////////////////////////////////////////////</span>
+    <span class="hljs-comment">// Native组件自定义视图</span>
+    <span class="hljs-comment">///////////////////////////////////////////////////////////////////////////</span>
+
+    <span class="hljs-meta">@NonNull</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(Context context)</span> </span>{
+        mView = <span class="hljs-keyword">new</span> MyView(context);
+        mView.setGestureListener(<span class="hljs-keyword">new</span> GestureListener());
+        <span class="hljs-keyword">return</span> mView;
+    }
+
+    <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">View</span> </span>{
+
+        <span class="hljs-keyword">private</span> GestureDetector mGestureDetector;
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyView</span><span class="hljs-params">(Context context)</span> </span>{
+            <span class="hljs-keyword">super</span>(context);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyView</span><span class="hljs-params">(Context context, @Nullable AttributeSet attrs)</span> </span>{
+            <span class="hljs-keyword">super</span>(context, attrs);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyView</span><span class="hljs-params">(Context context, @Nullable AttributeSet attrs, <span class="hljs-keyword">int</span> defStyleAttr)</span> </span>{
+            <span class="hljs-keyword">super</span>(context, attrs, defStyleAttr);
+
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setGestureListener</span><span class="hljs-params">(GestureListener gestureListener)</span> </span>{
+            <span class="hljs-keyword">if</span> (gestureListener != <span class="hljs-keyword">null</span>) {
+                mGestureDetector = <span class="hljs-keyword">new</span> GestureDetector(<span class="hljs-keyword">this</span>.getContext(), gestureListener);
+            } <span class="hljs-keyword">else</span> {
+                mGestureDetector = <span class="hljs-keyword">null</span>;
+            }
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onTouchEvent</span><span class="hljs-params">(MotionEvent e)</span> </span>{
+            <span class="hljs-keyword">if</span> (mGestureDetector != <span class="hljs-keyword">null</span>) {
+                <span class="hljs-keyword">return</span> mGestureDetector.onTouchEvent(e);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.onTouchEvent(e);
+            }
+
+        }
+    }
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/0.2/api-custom-component"><span class="arrow-prev">← </span><span>VN 组件</span></a><a class="docs-next button" href="/docs/0.2/api-js-module"><span>JS模块</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#native-component-使用指南（ios-篇）">Native Component 使用指南（iOS 篇）</a><ul class="toc-headings"><li><a href="#注册一个-native-widget">注册一个 Native Widget</a></li><li><a href="#native-widget-生命周期的回调">Native Widget 生命周期的回调</a></li><li><a href="#返回需要-vn-渲染的-view">返回需要 VN 渲染的 View</a></li><li><a href="#widget-与-js-的互操作">Widget 与 JS 的互操作</a></li><li><a href="#自定义-widget-属性">自定义 Widget 属性</a></li></ul></li><li><a href="#native-component-使用指南（android-篇）">Native Component 使用指南（Android 篇）</a><ul class="toc-headings"><li><a href="#注册一个native-widget">注册一个Native Widget</a></li><li><a href="#native-widget-生命周期的回调-1">Native Widget 生命周期的回调</a></li><li><a href="#返回需要-vn-渲染的-view-1">返回需要 VN 渲染的 View</a></li><li><a href="#widget-与-js-的互操作-1">Widget 与 JS 的互操作</a></li><li><a href="#自定义-widget-属性-1">自定义 Widget 属性</a></li><li><a href="#处理混淆">处理混淆</a></li></ul></li><li><a href="#代码示例">代码示例</a><ul class="toc-headings"><li><a href="#脚本示例">脚本示例</a></li><li><a href="#ios-示例">iOS 示例</a></li><li><a href="#java-示例">Java 示例</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Tencent Inc</section></footer></div></body></html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>开始一个新的工程（Mac） · Video Native</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="### Git下完整demo示例工程：   "/><meta name="docsearch:version" content="0.1"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="开始一个新的工程（Mac） · Video Native"/><meta property="og:type" content="website"/><meta property="og:url" content="https://videonative.github.io/"/><meta property="og:description" content="### Git下完整demo示例工程：   "/><meta property="og:image" content="https://videonative.github.io/img/video_native.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://videonative.github.io/img/video_native.png"/><link rel="shortcut icon" href="/img/video_native.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://videonative.github.io/blog/atom.xml" title="Video Native Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://videonative.github.io/blog/feed.xml" title="Video Native Blog RSS Feed"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/video_native.png" alt="Video Native"/><h2 class="headerTitleWithLogo">Video Native</h2></a><a href="/versions"><h3>0.1</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/0.1/getting-started-basis" target="_self">Getting Started</a></li><li class=""><a href="/docs/0.1/api-ui-controls" target="_self">API</a></li><li class=""><a href="/docs/0.1/desktop/home" target="_self">API-Desktop</a></li><li class=""><a href="/docs/0.1/playground-index" target="_self">Playground</a></li><li class=""><a href="/docs/0.1/version-index" target="_self">Versions</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Native接入</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">基础概念</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.1/getting-started-basis">Video Native开发基本概念</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Native接入</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.1/getting-started-android">开始一个新的工程（Android）</a></li><li class="navListItem"><a class="navItem" href="/docs/0.1/getting-started-ios">开始一个新的工程（iOS）</a></li><li class="navListItem"><a class="navItem" href="/docs/0.1/getting-started-windows">开始一个新的工程（Windows）</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/0.1/getting-started-mac">开始一个新的工程（Mac）</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">VNCode接入</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.1/getting-started-vscode">使用Visual Studio Code</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">开发建议</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.1/develop-suggestions">开发建议</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">开始一个新的工程（Mac）</h1></header><article><div><span><h3><a class="anchor" aria-hidden="true" id="git下完整demo示例工程："></a><a href="#git下完整demo示例工程：" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Git下完整demo示例工程：</h3>
+<p>全部demo示例：<br>
+<a href="https://git.code.oa.com/VideoNative/VideoNativeDesktop/tree/master/VideoNativeDesktop/DemoForViews">https://git.code.oa.com/VideoNative/VideoNativeDesktop/tree/master/VideoNativeDesktop/DemoForViews</a><br>
+动态链接示例demo：<br>
+<a href="https://git.code.oa.com/VideoNative/VideoNativeDesktop/tree/master/VideoNativeDesktop/DemoForViewsMac">https://git.code.oa.com/VideoNative/VideoNativeDesktop/tree/master/VideoNativeDesktop/DemoForViewsMac</a><br>
+macapp包的测试demo：<br>
+<a href="https://git.code.oa.com/VideoNative/VideoNativeDesktop/tree/master/VideoNativeDesktop/demo_macapp">https://git.code.oa.com/VideoNative/VideoNativeDesktop/tree/master/VideoNativeDesktop/demo_macapp</a></p>
+<h3><a class="anchor" aria-hidden="true" id="1拉取代码"></a><a href="#1拉取代码" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.拉取代码</h3>
+<p><a href="https://git.code.oa.com/VideoNative/VideoNativeDesktop">https://git.code.oa.com/VideoNative/VideoNativeDesktop</a></p>
+<h3><a class="anchor" aria-hidden="true" id="2工程编译和依赖"></a><a href="#2工程编译和依赖" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.工程编译和依赖</h3>
+<p><a href="desktop/vn-build">Mac下编译VN</a></p>
+<h3><a class="anchor" aria-hidden="true" id="3资源包打包"></a><a href="#3资源包打包" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.资源包打包</h3>
+<p><a href="desktop/vn-package">Mac下VN打包</a></p>
+<h3><a class="anchor" aria-hidden="true" id="4新建工程并配置工程环境"></a><a href="#4新建工程并配置工程环境" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.新建工程并配置工程环境</h3>
+<pre><code class="hljs css language-groovy">* 头文件目录：   
+VideoNativeDesktop\Interface   
+
+* 依赖文件：   
+libVideoNative.dylib;   
+natives_blob.bin;   
+snapshot_blob.bin;   
+icudtl.dat;   
+ui_test.pak;   
+content_resources.pak;   
+
+* Header Search Paths   
+<span class="hljs-string">"$(SRCROOT)/../Interface"</span>   
+<span class="hljs-string">"$(SRCROOT)/../Interface/cross_platform"</span>   
+<span class="hljs-string">"$(SRCROOT)/../Interface/VideoNative"</span>   
+<span class="hljs-string">"$(SRCROOT)/../Interface/VideoNative/Input"</span>   
+
+* Library Search Paths   
+<span class="hljs-string">"$(SRCROOT)/../Output/Release"</span>   
+
+* Preprocessor Macros   
+VN_USE_VIEWS    
+
+* Link Binary With Libraries   
+libVideoNative.dylib   
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="5添加初始化代码"></a><a href="#5添加初始化代码" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.添加初始化代码</h3>
+<pre><code class="hljs css language-groovy">#include "LoadVideoNativeDll.h"
+#pragma comment(lib, "VideoNative.lib")
+
+CComPtr&lt;IQVNVideoNative&gt; vn;
+VN_GetQVNVideoNative(&amp;vn);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="6打开一个页面"></a><a href="#6打开一个页面" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.打开一个页面</h3>
+<pre><code class="hljs css language-groovy">CComPtr&lt;IQVNApp&gt;  g_app;
+vn-&gt;getVNApp(<span class="hljs-string">"97"</span>, <span class="hljs-string">"{apppath}/Resources/vnapp_output/97"</span>, &amp;g_app);
+g_app-&gt;startApp(nullptr, <span class="hljs-string">"vn://index/index"</span>);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="7其他接口文档和示例"></a><a href="#7其他接口文档和示例" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7.其他接口文档和示例</h3>
+<p><a href="desktop/vn-interface">VNDesktop 接口文档</a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/0.1/getting-started-windows"><span class="arrow-prev">← </span><span>开始一个新的工程（Windows）</span></a><a class="docs-next button" href="/docs/0.1/getting-started-vscode"><span>使用Visual Studio Code</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Tencent Inc</section></footer></div></body></html>

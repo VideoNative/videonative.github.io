@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>版本发布信息 · Video Native</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 0.9"/><meta name="docsearch:version" content="0.2"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="版本发布信息 · Video Native"/><meta property="og:type" content="website"/><meta property="og:url" content="https://videonative.github.io/"/><meta property="og:description" content="## 0.9"/><meta property="og:image" content="https://videonative.github.io/img/video_native.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://videonative.github.io/img/video_native.png"/><link rel="shortcut icon" href="/img/video_native.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://videonative.github.io/blog/atom.xml" title="Video Native Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://videonative.github.io/blog/feed.xml" title="Video Native Blog RSS Feed"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/video_native.png" alt="Video Native"/><h2 class="headerTitleWithLogo">Video Native</h2></a><a href="/versions"><h3>0.2</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/0.2/getting-started-basis" target="_self">Getting Started</a></li><li class=""><a href="/docs/0.2/api-ui-controls" target="_self">API</a></li><li class=""><a href="/docs/0.2/desktop/home" target="_self">API-Desktop</a></li><li class=""><a href="/docs/0.2/playground-index" target="_self">Playground</a></li><li class="siteNavItemActive"><a href="/docs/0.2/version-index" target="_self">Versions</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">版本发布信息</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="09"></a><a href="#09" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.9</h2>
+<p>发布日期：开发中<br/></p>
+<p>新增功能：</p>
+<ul>
+<li>CSS: 支持常量。新增函数 var() 和 calc()</li>
+<li>组件: 新增流式布局容器 flow-list</li>
+<li>JSAPI: 新增 vn.updateMediaQuery()</li>
+<li>数据: 支持通过 vn.data 查询和监听媒体查询条件</li>
+<li>数据: KeyPath支持在方括号中填字符串，如: list['one key']</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="08"></a><a href="#08" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.8</h2>
+<p>发布日期：2019-11-21<br/></p>
+<p>新增功能：</p>
+<ul>
+<li>组件属性现在支持数据双向穿透，支持子组件内对属性的修改可同步到父容器</li>
+<li>增加通用属性 aria-label 以支持无障碍访问</li>
+<li>增加通用事件 resize，当元素实际尺寸发生变化时回调该事件</li>
+<li>增加通用属性和API以支持接入外部上报框架，如腾讯视频VideoReporter</li>
+<li>CSS增加 @media 媒体查询</li>
+<li>CSS现在支持书写顺序覆盖</li>
+<li>JSAPI: 增加 vn.toUnit() 函数用于长度单位转换; 增加 vn.reportEvent() 用于上报自定义事件</li>
+<li>DOM: 增加 track() 用于组件上报自定义事件</li>
+<li>0.8.5版本开始支持Android的V8 so离线下载</li>
+</ul>
+<p>调整：</p>
+<blockquote>
+<ul>
+<li>启用新的离线包文件结构和管理后台</li>
+<li>启用新的打包工具Assembler2</li>
+</ul>
+</blockquote>
+<p>业务场景：腾讯视频v7.7.1</p>
+<h2><a class="anchor" aria-hidden="true" id="07"></a><a href="#07" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.7</h2>
+<p>发布日期：2019-9-17<br/></p>
+<p>新增功能：</p>
+<ul>
+<li>新增长度单位：dp（等同于Android上的dp和iOS上的point)</li>
+</ul>
+<p>调整：</p>
+<blockquote>
+<ul>
+<li>rpx长度单位调整：从之前版本的 (1rpx = 屏幕短边宽度 / 750) 修改为 (1rpx = 页面宽度 / 750)。rpx变为页面宽度(1/750)的比例单位。当横竖屏翻转或者页面分屏时，rpx会根据新宽度重新计算和布局。</li>
+</ul>
+</blockquote>
+<p>问题修复：</p>
+<blockquote>
+<p>Android</p>
+<ul>
+<li>修复循环view-pager的setPageIndex在边界时时候的显示异常问题</li>
+<li>修复在Android 8.0上会抛&quot;only fullscreen opaque activities can request orientation portrait&quot;异常的问题</li>
+</ul>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="06"></a><a href="#06" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.6</h2>
+<p>发布日期：2019-8-29 <br/></p>
+<p>新增功能：</p>
+<ul>
+<li>加入JS模块化的原生支持：同时支持 CommonJS 和 AMD 两种语法</li>
+<li>优化了list滚动和vn:for节点复用的性能</li>
+<li>增加Native接口用于预加载.page文件和.js文件以提高页面加载性能</li>
+</ul>
+<p>业务场景：腾讯视频v7.5.0</p>
+<h2><a class="anchor" aria-hidden="true" id="05"></a><a href="#05" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.5</h2>
+<p>发布日期：2019-7-23 <br/></p>
+<p>新增功能：</p>
+<ul>
+<li>单页面现在也会应用 info.json 里的组件相关设置</li>
+<li>video：增加muted属性；增加userinfo自定义属性</li>
+<li>image：增加filter属性以支持blur高斯模糊</li>
+<li>text：支持baseline对齐方式</li>
+<li>list：滚动导致cell上下屏时，增加了cell的dom对象参数；增加对padding的支持</li>
+<li>console.log支持打印object和error</li>
+</ul>
+<blockquote>
+<p>Android</p>
+<ul>
+<li>增加对arm64, x86, x86_64的支持</li>
+<li>text的html格式支持color带透明度</li>
+<li>对list的下拉和上拉加入阻尼效果</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>iOS</p>
+<ul>
+<li>text的html格式增加<code>&lt;u&gt;</code>、<code>&lt;s&gt;</code>，以及color属性支持RGBA颜色</li>
+</ul>
+</blockquote>
+<p>问题修复：</p>
+<blockquote>
+<ul>
+<li>修复组件内部的vn:if节点没有更新的问题</li>
+<li>修复图片有时候边缘被裁剪的问题</li>
+<li>修复video的体验问题</li>
+<li>修复view-pager循环模式时更新数据导致当前页面索引值不对的问题</li>
+<li>表达式 == 和 !=，增加了数据类型的强转逻辑</li>
+<li>优化了vn:for语法在list的cell里时的性能问题</li>
+<li>优化了部分代码逻辑的性能</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Android</p>
+<ul>
+<li>修复页面退出时调用gc()导致的ANR问题</li>
+<li>修复多倍图缩放系数计算错误的问题</li>
+<li>修复CSS多选择器不支持多行的问题</li>
+<li>修复在某些手机上无法调试的问题</li>
+<li>修复同方向嵌套view-pager时内部那个无法滑动的问题</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>iOS</p>
+<ul>
+<li>修复textarea当max-lines=0时没有自动高度的问题</li>
+<li>修复vn.window.isDialog()返回值错误的问题</li>
+<li>修复了由于新发布iPad设备导致的PPI无法识别从而导致的PT单位的显示问题</li>
+<li>修复text的html标签不能嵌套的问题</li>
+<li>修复更新数据的时候，新增的节点被数据更新两次的问题</li>
+<li>修复scroll-view和list停止滚动后，再次滚动时 deltaX 和 deltaY 变得很大的问题</li>
+</ul>
+</blockquote>
+<p>调整：</p>
+<blockquote>
+<p>Android</p>
+<ul>
+<li>list、scroll-view、view-pager：取消滑动到头之后的动画效果</li>
+</ul>
+</blockquote>
+<p>业务场景：腾讯视频v7.3.0</p>
+<h2><a class="anchor" aria-hidden="true" id="04"></a><a href="#04" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.4</h2>
+<p>发布日期：2019-4-9 <br/></p>
+<p>新增功能：</p>
+<ul>
+<li>增加Fullscreen API：组件增加 requestFullscreen() 接口；新增 vn.dom.exitFullscreen()、vn.dom.fullscreenElement</li>
+<li>增加touch、tap、longpress事件的冒泡和捕获的能力</li>
+<li>优化了自定义组件数据传递的性能</li>
+</ul>
+<p>问题修复：</p>
+<blockquote>
+<p>Android</p>
+<ul>
+<li>修复快速转屏导致安全区高度错乱的问题</li>
+<li>修复footer和pull-footer的高度计算不正确的问题</li>
+<li>修复5.0系统上偶现view未渲染的问题</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>iOS</p>
+<ul>
+<li>修复text文本行数和实际高度不对应的问题</li>
+<li>修复list动态切换滚动方向时cell显示错乱的问题</li>
+<li>修复增删数据时list显示异常的问题</li>
+<li>修复slot没有指定名字时不展示的问题</li>
+<li>修复list.setFooterRefreshingEnabled(false)之后无法再设置为true的问题</li>
+</ul>
+</blockquote>
+<p>已知问题：</p>
+<ul>
+<li>安全区尺寸在转屏后可能不正确 (iOS)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="03"></a><a href="#03" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.3</h2>
+<p>发布日期：2019-3-4 <br/>
+Android版本：0.3.0 <br/>
+iOS版本：0.3.0</p>
+<p>新增功能：</p>
+<ul>
+<li>表达式：数组运算符内允许子表达式和字符串。如：array[idx1 + idx2]、array['name']</li>
+<li>组件: 增加 touch_move 事件的支持</li>
+<li>vn: 增加 vn.getSystemInfo() 接口</li>
+<li>增强了vnapp的js引擎销毁机制</li>
+</ul>
+<p>问题修复：</p>
+<blockquote>
+<p>Android</p>
+<ul>
+<li>优化属性设置的性能</li>
+<li>完善camera的角度旋转算法</li>
+<li>修复text某些场景下折行不符合预期的问题</li>
+<li>优化了权限申请提示框</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>iOS</p>
+<ul>
+<li>修复某些动画场景导致的crash</li>
+<li>修复html文本的颜色没有生效的问题</li>
+<li>NativeWidget增加路径转换接口</li>
+</ul>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="02"></a><a href="#02" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.2</h2>
+<p>发布日期：2019-1-16 <br/>
+Android版本：0.2.5 <br/>
+iOS版本：0.2.2</p>
+<p>新增功能：</p>
+<ul>
+<li>image：增加binderror事件</li>
+<li>camera: 新增camera组件和拍照、录视频API</li>
+<li>DOM: 增加 isAttachedToWindow() 方法用于判断DOM对象是否绑定到了系统View树上</li>
+<li>vn.data: 现在允许 insert() 方法往数组中间插入数据</li>
+<li>vn.navigate: navigateTo() 和 navigateBack() 支持animate参数，允许禁用页面切换的动画效果</li>
+</ul>
+<p>问题修复：</p>
+<blockquote>
+<p>双平台</p>
+<ul>
+<li>修复footer在Anroid、iOS上的表现不一致的问题</li>
+<li>修复了list滑动cell复用时过多数据通知的问题</li>
+<li>完善胡子语法内表达式的类型转换</li>
+<li>修复了KeyPath中包含字符 '-' 时解析错误的问题</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Android</p>
+<ul>
+<li>修复大部分UnsatisfiedLinkException异常</li>
+<li>修复页面隐藏时自动暂停视频的问题</li>
+<li>修复vn.data.query()有时无法返回对象的问题</li>
+<li>修复沉浸式页面状态栏颜色错误的问题</li>
+<li>修复设置任一边的border会被应用到四边的问题</li>
+<li>修复了vn:for指向的数组内子元素不是object时的crash问题</li>
+<li>修复页面原始JSON数据中包含的null值无法查询的问题</li>
+<li>修复了navigateBack()不返回非字符串型的数据的问题</li>
+<li>修复了Native组件为ViewGroup时，其子View没有被正确布局的问题</li>
+<li>修复屏幕不断旋转之后会导致不再响应的问题</li>
+<li>修复 vn.window.getScreenHeight() 返回值不精确的问题</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>iOS</p>
+<ul>
+<li>修复某些动画场景导致的crash</li>
+<li>修复某些场景下 text 的 line-height、max-lines 等属性渲染错误的问题</li>
+<li>修复 ViewPager 偶现尺寸为0的问题</li>
+<li>修复表达式处理的一些缺陷</li>
+<li>修复 footer/header 被禁用之后还能继续刷新的问题</li>
+<li>修复 list 的 cell 复用问题</li>
+<li>修复用户设置超大圆角的时候，图片不能正常展示的问题</li>
+<li>修复 scroll-view 在析构之后仍会回调 scroll 事件导致 crash 的问题</li>
+<li>修复 background-stretch-param 参数没有生效的问题</li>
+</ul>
+</blockquote>
+<p>版本变更：</p>
+<ul>
+<li>现在不能通过 list.setFooterRefreshingEnabled(true) 使 footer 进入空闲状态，而必须通过 list.setFooterRefreshing(false) 才能使 footer 进入空闲状态</li>
+<li>现在vn.data.update() 不能往数组中不存在的索引更新数据</li>
+<li>现在dom.getChildElements()只会返回绑定到系统View树上的孩子节点</li>
+</ul>
+<p>已知问题：</p>
+<ul>
+<li>view-pager未根据cellType进行复用，当vn:for数据发生变更后会导致显示不正确</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="01"></a><a href="#01" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>0.1</h2>
+<p>发布日期： 2018-12-17</p>
+<p>新增功能：</p>
+<ul>
+<li>list：支持横向模式下的header和footer。增加pull-footer标签支持拉动刷新模式。scrollToPosition和smoothScrollToPosition增加mode参数。</li>
+<li>image：宽、高支持auto模式。增加bindload事件。</li>
+</ul>
+<p>业务场景：腾讯视频v6.5.0；腾讯视频国际版v1.1.0</p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#09">0.9</a></li><li><a href="#08">0.8</a></li><li><a href="#07">0.7</a></li><li><a href="#06">0.6</a></li><li><a href="#05">0.5</a></li><li><a href="#04">0.4</a></li><li><a href="#03">0.3</a></li><li><a href="#02">0.2</a></li><li><a href="#01">0.1</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Tencent Inc</section></footer></div></body></html>

@@ -1,0 +1,1277 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>JS API · Video Native</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="对象 | 接口 | 支持 | 说明"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="JS API · Video Native"/><meta property="og:type" content="website"/><meta property="og:url" content="https://videonative.github.io/"/><meta property="og:description" content="对象 | 接口 | 支持 | 说明"/><meta property="og:image" content="https://videonative.github.io/img/video_native.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://videonative.github.io/img/video_native.png"/><link rel="shortcut icon" href="/img/video_native.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://videonative.github.io/blog/atom.xml" title="Video Native Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://videonative.github.io/blog/feed.xml" title="Video Native Blog RSS Feed"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/video_native.png" alt="Video Native"/><h2 class="headerTitleWithLogo">Video Native</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/next/getting-started-basis" target="_self">Getting Started</a></li><li class=""><a href="/docs/next/api-ui-controls" target="_self">API</a></li><li class="siteNavGroupActive"><a href="/docs/next/desktop/home" target="_self">API-Desktop</a></li><li class=""><a href="/docs/next/playground-index" target="_self">Playground</a></li><li class=""><a href="/docs/next/version-index" target="_self">Versions</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>JS API</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">VNDesktop</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/desktop/home">简介</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">VNDesktop 配置文档</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-pageconfigs">VN pageconfigs配置</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">VNDesktop UI接口文档</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-ui">VN 控件属性和事件</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-common-event">VN 事件</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-common-property">VN 属性</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-css">VN CSS</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-expression">VN 表达式</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-control-text">VN text</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-control-button">VN button</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-control-checkbox">VN checkbox</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-control-image">VN image</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-control-input">VN input</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-control-textarea">VN textarea</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-control-scroll-view">VN scroll-view</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS API</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/next/desktop/api-js-interfaces">JS API</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/api-js-animation">JS animation API</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">VN开发周边</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/desktop/vn-interface">VNDesktop 接入接口文档</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/vn-package">VN 打包</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/vn-build">VNDesktop 编译</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/vn-debug">VNDesktop 调试</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">VN桌面端技术文档</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/desktop/doc-framework">框架实现</a></li><li class="navListItem"><a class="navItem" href="/docs/next/desktop/doc-connection">VNDesktop Js跟Native交互框架设计</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">JS API</h1></header><article><div><span><table>
+<thead>
+<tr><th>对象</th><th>接口</th><th>支持</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>vn</td><td>void scanCode(Object object)</td><td>不支持</td><td>---</td></tr>
+<tr><td>---</td><td>Float toRpx(String value)</td><td>不支持</td><td>---</td></tr>
+<tr><td>---</td><td>void getSystemInfo(Object object)</td><td>不支持</td><td>---</td></tr>
+<tr><td>vn.dom</td><td>Object getElementById(String id)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>fullscreenElement()</td><td>不支持</td><td>---</td></tr>
+<tr><td>---</td><td>exitFullscreen()</td><td>不支持</td><td>---</td></tr>
+<tr><td>DOM对象</td><td>Object getParentElement()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Array getChildElements()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Array getVisibleChildElements()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>String getId()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Array getClasses()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>String getType()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Array getPropertyKeyList()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setEnabled(boolean enable)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>boolean isEnabled()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Object getElementById(String id)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setProperty(String propertyKey, var propertyValue)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>String getProperty(String propertyKey)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Object getDataSet()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Array getPositionRect()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Object getBoundingClientRect()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>boolean isAttachedToWindow()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>startAnimation(Object obj)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>stopAnimation()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Float getTranslationX()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Float getTranslationY()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setTranslationX(String)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setTranslationY(String)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Float getScaleX()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Float getScaleY()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setScaleX(String)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setScaleY(String)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Float getAlpha()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setAlpha(Float)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Float getRotation()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setRotation(Float)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Float getRotationX()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setRotationX(Float)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Float getRotationY()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setRotationY(Float)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>requestFullscreen()</td><td>不支持</td><td>---</td></tr>
+<tr><td>vn.window</td><td>Float getScreenWidth()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Float getScreenHeight()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>String getOrientationSetting()</td><td>不支持</td><td>---</td></tr>
+<tr><td>---</td><td>String getCurOrientation()</td><td>不支持</td><td>---</td></tr>
+<tr><td>---</td><td>setOrientation(String orientation)</td><td>不支持</td><td>---</td></tr>
+<tr><td>---</td><td>Boolean isDialog()</td><td>---</td><td>---</td></tr>
+<tr><td>console</td><td>log(Object message)</td><td>---</td><td>---</td></tr>
+<tr><td>vn.data</td><td>Object query(String keyPath)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Boolean insert(String keyPath, Object data)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Boolean delete(String keyPath)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Boolean update(String keyPath, Object data)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Boolean append(String keyPath, Object dataA, Object dataB, ...)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Boolean remove(String keyPath, Number index, Number count)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>void watch(String keyPath, Function callback)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Boolean unwatch(String keyPath, Function callback)</td><td>---</td><td>---</td></tr>
+<tr><td>vn.request</td><td>Integer request(Object requestOrigin)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>cancel(Integer requstId)</td><td>---</td><td>---</td></tr>
+<tr><td>vn.storage</td><td>setStorage(Object object)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>getStorage(Object object)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>removeStorage(Object obect)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>clearStorage(Object obect)</td><td>---</td><td>---</td></tr>
+<tr><td>vn.navigate</td><td>navigateTo(Object obj)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>redirectTo(Object obj)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>navigateBack(Object obj)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>relaunch(Object obj)</td><td>---</td><td>---</td></tr>
+<tr><td>vn.app</td><td>String getSDKVersionName()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Integer getSDKVersionCode()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Integer getAppVersion()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>void setShareData(String key, Object value)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>Object getShareData(String key)</td><td>---</td><td>---</td></tr>
+<tr><td>vn.window</td><td>isVisible()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>show(bool IsActive)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>hide()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>close()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>getWindowLeft</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>getWindowTop</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>move(x, y)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>getWindowWidth</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>getWindowHeight</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>resize(wt, ht)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setCaptionArea(x, y, wt, ht, bClearBefore)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>maximize()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>restore()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>minimize()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>isIconic()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>isZoomed()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>isNormal()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setTitle(title)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>bringToTop()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>getLayered()</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setLayered(bool layered)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setMinSize(wt, ht)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setMaxSize(wt, ht)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>getAlpha</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setAlpha(alpha)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setFixSize(bool value)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setFixPosition(bool value)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setTopmost(bool value)</td><td>---</td><td>---</td></tr>
+<tr><td>---</td><td>setToolWindow(bool value)</td><td>---</td><td>---</td></tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注意，以下 JS 方法都需要确保在主线程调用，否则可能发生不可预见的错误</strong></p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="vn"></a><a href="#vn" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn</h2>
+<ul>
+<li><strong>Float toRpx(String value)</strong></li>
+</ul>
+<p><em>注: 0.8版本后请使用toUnit()</em> <br />
+将输入字符串转换为数字型的rpx值。例如：&quot;10pt&quot;、&quot;10px&quot;、&quot;10rpx&quot;</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>value</td><td>String</td><td>是</td><td>形如：&quot;10pt&quot;,&quot;10px&quot;,&quot;10rpx&quot;的字符串</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Float</td><td>数字类型的rpx值</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Var toUnit(String value, String unit)</strong> <em>(since 0.8)</em></li>
+</ul>
+<p>通用长度转换函数。<br />
+将输入的长度字符串，转换为指定单位的数字。如果输入参数不合法，则返回undefined。</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>value</td><td>String</td><td>是</td><td>形如：&quot;10pt&quot;,&quot;10px&quot;,&quot;10rpx&quot;, &quot;10dp&quot; 等带长度单位的字符串</td></tr>
+<tr><td>unit</td><td>String</td><td>是</td><td>长度单位。有效值为：&quot;rpx&quot;, &quot;pt&quot;, &quot;px&quot;, &quot;dp&quot;</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Var</td><td>如果输入参数合法，则返回换算后的数字。如果输入不合法，则返回undefined</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>void reportEvent(String event, Object params)</strong> <em>(since 0.8)</em></li>
+</ul>
+<p>上报自定义事件</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>event</td><td>String</td><td>是</td><td>自定义事件名</td></tr>
+<tr><td>params</td><td>Object</td><td>否</td><td>自定义事件参数的JSON对象，可缺省</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>void traverseExposure()</strong> <em>(since 0.8)</em></li>
+</ul>
+<p>遍历当前页面可见元素并做曝光上报。注：之前已曝光元素不会重复上报。</p>
+<ul>
+<li><strong>void getSystemInfo(Object object)</strong></li>
+</ul>
+<p>获取系统信息</p>
+<p><strong>object内的参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>success</td><td>Function</td><td>是</td><td>接口调用的回调函数</td></tr>
+<tr><td>fail</td><td>Function</td><td>否</td><td>接口调用失败的回调函数</td></tr>
+</tbody>
+</table>
+<p><strong>success回调函数接收一个Object参数；它的成员属性如下:</strong></p>
+<table>
+<thead>
+<tr><th>属性</th><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>language</td><td>String</td><td>系统语言，如：zh_CN</td></tr>
+<tr><td>platform</td><td>String</td><td>系统平台，如：ios</td></tr>
+<tr><td>system</td><td>String</td><td>操作系统和版本号，如：iOS 12.1.2</td></tr>
+<tr><td>brand</td><td>String</td><td>设备品牌，如：iPhone</td></tr>
+<tr><td>model</td><td>String</td><td>设备型号，如：iPhone 8</td></tr>
+</tbody>
+</table>
+<p><strong>fail回调函数接收一个Object参数；它的成员属性如下:</strong></p>
+<table>
+<thead>
+<tr><th>属性</th><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>error</td><td>String</td><td>错误信息</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>void setGlobalShareData(String key, Object value)</strong> <em>(since 0.8)</em></li>
+</ul>
+<p>设置全局共享的内存数据</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>key</td><td>String</td><td>是</td><td>key</td></tr>
+<tr><td>value</td><td>Object</td><td>否</td><td>value，为null的时候会清除已有数据</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Object getGlobalShareData(String key)</strong> <em>(since 0.8)</em></li>
+</ul>
+<p>获取之前调用setGlobalShareData设置的内存数据。</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>key</td><td>String</td><td>是</td><td>key</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Object</td><td>数据或者null</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="vndom"></a><a href="#vndom" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn.dom</h2>
+<ul>
+<li><strong>Object getElementById(String id)</strong></li>
+</ul>
+<p>在DOM树中逐级查找并返回第一个id相符的DOM对象。如果找不到则返回null</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>String</td><td>是</td><td>DOM对象的id</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Object</td><td>DOM对象，或者null</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>fullscreenElement</strong> <em>(since 0.4)</em></li>
+</ul>
+<p>属性。用于获取当前处于全屏模式的DOM节点。如果没有全屏元素，则为null</p>
+<ul>
+<li><strong>exitFullscreen()</strong> <em>(since 0.4)</em></li>
+</ul>
+<p>调用该方法来退出全屏模式</p>
+<h2><a class="anchor" aria-hidden="true" id="dom对象"></a><a href="#dom对象" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DOM对象</h2>
+<ul>
+<li><strong>Object getParentElement()</strong></li>
+</ul>
+<p>获取父DOM对象；如果没有父DOM对象，则返回null</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Object</td><td>父DOM对象；或者null</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Array getChildElements()</strong></li>
+</ul>
+<p>获取包含子DOM对象的数组</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Array</td><td>包含子DOM对象的数组</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Array getVisibleChildElements()</strong></li>
+</ul>
+<p>获取屏幕可见的子DOM对象的数组</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Array</td><td>子DOM对象的数组</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>String getId()</strong></li>
+</ul>
+<p>获取DOM对象的Id属性</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>String</td><td>Id属性</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Array getClasses()</strong></li>
+</ul>
+<p>获取DOM对象的class属性中定义的类选择器的字符串数组</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Array</td><td>class属性的字符串数组</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>String getType()</strong></li>
+</ul>
+<p>获取DOM对象的标签类型</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>String</td><td>DOM的标签类型，例如:&quot;text&quot;</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Array getPropertyKeyList()</strong></li>
+</ul>
+<p>获取DOM对象的标签中定义的所有属性的名称的字符粗数组</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Array</td><td>属性名称列表如：[&quot;margin-left&quot;,&quot;margin-top&quot;,&quot;background-color&quot;]</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>setEnabled(boolean enable)</strong></li>
+</ul>
+<p>设置DOM对象是否可用</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>enable</td><td>boolean</td><td>是</td><td>DOM节点对象是否可用</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>boolean isEnabled()</strong></li>
+</ul>
+<p>返回DOM节点对象是否可用</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>boolean</td><td>DOM节点是否可用</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Object getElementById(String id)</strong></li>
+</ul>
+<p>从该DOM节点开始逐级查找子节点，并返回第一个id相符的DOM节点。如果未找到，则返回null</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>String</td><td>是</td><td>DOM对象的id</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Object</td><td>DOM对象；或者null</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>setProperty(String propertyKey, String propertyValue)</strong></li>
+</ul>
+<p>设置DOM对象的属性</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>propertyKey</td><td>String</td><td>是</td><td>CSS的属性名称如：&quot;margin-left&quot;</td></tr>
+<tr><td>propertyValue</td><td>String</td><td>是</td><td>新的属性值，必须是基本数据类型：number、string、bool</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>String getProperty(String propertyKey)</strong></li>
+</ul>
+<p>获取DOM对象的属性；如果该DOM没有设置该属性，则返回null</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>propertyKey</td><td>String</td><td>是</td><td>CSS的属性名称如：&quot;margin-left&quot;</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>String</td><td>DOM对象的属性值如：&quot;15rpx&quot;</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Object getDataSet()</strong></li>
+</ul>
+<p>获取DOM节点的所有名为 data- 开头的属性，例如：data-name=&quot;test&quot;</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Object</td><td>所有名为 data- 开头的属性都会在返回的对象的属性中。如：属性是data-index=&quot;3&quot;，则返回的对象为：{ index : &quot;3&quot; }</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Array getPositionRect()</strong></li>
+</ul>
+<p>获取DOM节点相对于父节点的位置信息，类型为rpx数值。位置顺序如下：[top, right, bottom, left]</p>
+<p>请配合 isAttachedToWindow  使用</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Array</td><td>返回值格式如：[0, 0, 50.2, 50.2] //4个值的顺序是上，右，下，左，单位是 rpx</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Object getBoundingClientRect()</strong></li>
+</ul>
+<p>获取DOM节点相对于屏幕的位置属性</p>
+<p>请配合 isAttachedToWindow  使用</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Object</td><td>参照 W3C 的 <a href="https://developer.mozilla.org/zh-CN/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIDOMClientRect">nsIDOMClientRect</a></td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>boolean isAttachedToWindow()</strong></li>
+</ul>
+<p>返回DOM节点对象是否在屏幕上（比如 Cell 滚出屏幕、或者 View不在视图层级上，都会返回 false）</p>
+<p>如果该方法返回 false，则 getPositionRect 和 getBoundingClientRect 的位置信息是不准的</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>boolean</td><td>DOM节点对象是否在屏幕上</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>startAnimation(Object obj)</strong></li>
+</ul>
+<p>对当前DOM对象开启动画。传入参数obj对象包含了动画的属性，如动画操作的属性、动画时长、时间函数、回调函数等。具体的属性定义如下</p>
+<table>
+<thead>
+<tr><th>参数</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>alpha</td><td>数字。取值范围 0.0 ~ 1.0。  0=完全透明; 1=完全不透明</td></tr>
+<tr><td>background_color</td><td>字符串。取值和通用属性background-color相同</td></tr>
+<tr><td>rotate_x</td><td>数字。表示在x轴上的旋转角度</td></tr>
+<tr><td>rotate_y</td><td>数字。表示在y轴上的旋转角度</td></tr>
+<tr><td>rotation</td><td>数字。表示旋转的角度。和rotate_x、rotate_y不同的是，rotation是围绕pivot点做旋转，而rotate_x是x轴围绕pivot_x旋转，rotate_y围绕pivot_y旋转。</td></tr>
+<tr><td>scale_x</td><td>数字。在x轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数</td></tr>
+<tr><td>scale_y</td><td>数字。在y轴上的缩放比例。取值范围 0.0 ~ 任意正浮点数</td></tr>
+<tr><td>translate_x</td><td>字符串。在x轴上的偏移。支持的单位：rpx,pt,px,%</td></tr>
+<tr><td>translate_y</td><td>字符串。在y轴上的偏移。支持的单位：rpx,pt,px,%</td></tr>
+<tr><td>delay</td><td>动画延迟开始的时间，毫秒，正整数</td></tr>
+<tr><td>duration</td><td>动画的时长，毫秒，正整数</td></tr>
+<tr><td>pivot_x</td><td>字符串。旋转和缩放的中心点x坐标。支持的单位：rpx,pt,px,%</td></tr>
+<tr><td>pivot_y</td><td>字符串。旋转和缩放的中心点y坐标。支持的单位：rpx,pt,px,%</td></tr>
+<tr><td>repeat_count</td><td>表示动画的重复执行次数，整数类型。默认值为0，表示不重复。-1表示无限循环。</td></tr>
+<tr><td>complete</td><td>回调函数。当动画结束时会回调该方法，没有参数</td></tr>
+<tr><td>timingFunction</td><td>字符串。动画的时间函数。支持下面几种取值：</td></tr>
+</tbody>
+</table>
+<p>timingFunction 的取值如下</p>
+<table>
+<thead>
+<tr><th>参数</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>linear</td><td>规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）</td></tr>
+<tr><td>ease</td><td>规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）</td></tr>
+<tr><td>ease-in</td><td>规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）</td></tr>
+<tr><td>ease-out</td><td>规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）</td></tr>
+<tr><td>ease-in-out</td><td>规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）</td></tr>
+<tr><td>cubic-bezier(x1, y1, x2, y2)</td><td>在 cubic-bezier 函数中定义自己的值。值为 0 至 1 之间的数值</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>stopAnimation()</strong></li>
+</ul>
+<p>停止该DOM对象上的动画</p>
+<blockquote>
+<p><strong>说明：当开始新动画时，未完成的动画自动停止。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>注意：对于list、viewpager，由于其cell会被复用，针对cell或者其子view做的动画，会在cell被复用时复位，不会保留最终状态。</strong></p>
+</blockquote>
+<ul>
+<li><strong>Float getTranslationX()</strong></li>
+</ul>
+<p>当前位置的 x 偏移，单位 rpx</p>
+<ul>
+<li><strong>Float getTranslationY()</strong></li>
+</ul>
+<p>当前位置的 y 偏移，单位 rpx</p>
+<ul>
+<li><strong>setTranslationX(String)</strong></li>
+</ul>
+<p>设置 x 偏移</p>
+<ul>
+<li><strong>setTranslationY(String)</strong></li>
+</ul>
+<p>设置 y 的偏移</p>
+<ul>
+<li><strong>Float getScaleX()</strong></li>
+</ul>
+<p>获取 x 轴上的缩放，单位 rpx</p>
+<ul>
+<li><strong>Float getScaleY()</strong></li>
+</ul>
+<p>获取 y 轴上的缩放，单位 rpx</p>
+<ul>
+<li><strong>setScaleX(String)</strong></li>
+</ul>
+<p>设置 x 轴上的缩放</p>
+<ul>
+<li><strong>setScaleY(String)</strong></li>
+</ul>
+<p>设置 y 轴上的缩放</p>
+<ul>
+<li><strong>Float getAlpha()</strong></li>
+</ul>
+<p>获取当前透明度</p>
+<ul>
+<li><strong>setAlpha(Float)</strong></li>
+</ul>
+<p>设置透明度，范围: 0 ~ 1</p>
+<ul>
+<li><strong>Float getRotation()</strong></li>
+</ul>
+<p>获取当前旋转角度</p>
+<ul>
+<li><strong>setRotation(Float)</strong></li>
+</ul>
+<p>设置旋转的角度</p>
+<ul>
+<li><strong>Float getRotationX()</strong></li>
+</ul>
+<p>获取当前x轴旋转角度</p>
+<ul>
+<li><strong>setRotationX(Float)</strong></li>
+</ul>
+<p>设置x轴旋转的角度</p>
+<ul>
+<li><strong>Float getRotationY()</strong></li>
+</ul>
+<p>获取当前y轴旋转角度</p>
+<ul>
+<li><strong>setRotationY(Float)</strong></li>
+</ul>
+<p>设置y轴旋转的角度</p>
+<ul>
+<li><strong>requestFullscreen()</strong> <em>(since 0.4)</em></li>
+</ul>
+<p>将其他正处于全屏模式的节点恢复，并将当前DOM元素设置为全屏模式。如果进入全屏失败，当前节点会收到 fullscreenerror 回调。</p>
+<ul>
+<li><strong>track(String eventName, Object extraParams)</strong> <em>(since 0.8)</em></li>
+</ul>
+<p>组件用来上报自定义事件，上报时会收集组件的上下文信息</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>eventName</td><td>String</td><td>是</td><td>自定义事件名</td></tr>
+<tr><td>extraParams</td><td>Object</td><td>否</td><td>额外的事件参数的JSON对象，可缺省</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="vnwindow"></a><a href="#vnwindow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn.window</h2>
+<ul>
+<li><strong>Float getScreenWidth()</strong></li>
+</ul>
+<p>获取屏幕的宽度，单位rpx</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Float</td><td>屏幕的物理宽度，单位是 rpx</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Float getScreenHeight()</strong></li>
+</ul>
+<p>获取屏幕的高度，单位rpx</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Float</td><td>屏幕的物理高度，单位是 rpx</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>String getOrientationSetting()</strong></li>
+</ul>
+<p>获取屏幕方向设置</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>String</td><td>获取屏幕方向，可能的值：&quot;portrait&quot;:竖向，&quot;landscape&quot;:横向，&quot;reverse-landscape&quot;:逆横向，&quot;auto&quot;:根据屏幕位置自动旋转</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>String getCurOrientation()</strong></li>
+</ul>
+<p>获取当前屏幕方向</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>String</td><td>获取屏幕方向。可能的值为：&quot;portrait&quot;:竖向， &quot;landscape&quot;:横向， &quot;reverse-landscape&quot;:逆横向</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>setOrientation(String orientation)</strong></li>
+</ul>
+<p>设置屏幕方向。可用的值：&quot;portrait&quot;:竖向，&quot;landscape&quot;:横向，&quot;reverse-landscape&quot;:逆横向，&quot;auto&quot;:根据屏幕位置自动旋转</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>orientation</td><td>String</td><td>是</td><td>屏幕方向</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Boolean isDialog()</strong></li>
+</ul>
+<p>当前页面是否为弹框样式</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Boolean</td><td>当前页面是否为弹框样式</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="console"></a><a href="#console" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>console</h2>
+<ul>
+<li><strong>log(Object message)</strong></li>
+</ul>
+<p>打印日志</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>message</td><td>Object</td><td>是</td><td>日志的内容</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="vndata"></a><a href="#vndata" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn.data</h2>
+<ul>
+<li><strong>Object query(String keyPath)</strong></li>
+</ul>
+<p>查询数据</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>keyPath</td><td>String</td><td>是</td><td>内存中数据存储的路径</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Object</td><td>查询获取的数据</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Boolean insert(String keyPath, Object data)</strong></li>
+</ul>
+<p>插入新数据</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>keyPath</td><td>String</td><td>是</td><td>内存中数据存储的路径</td></tr>
+<tr><td>data</td><td>Object</td><td>是</td><td>新数据</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>boolean</td><td>插入是否成功</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Boolean delete(String keyPath)</strong></li>
+</ul>
+<p>删除数据</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>keyPath</td><td>String</td><td>是</td><td>内存中数据存储的路径</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>boolean</td><td>删除是否成功</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Boolean update(String keyPath, Object data)</strong></li>
+</ul>
+<p>更新数据</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>keyPath</td><td>String</td><td>是</td><td>内存中数据存储的路径</td></tr>
+<tr><td>data</td><td>Object</td><td>是</td><td>新数据</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>boolean</td><td>更新是否成功</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Boolean append(String keyPath, Object dataA, Object dataB, ...)</strong></li>
+</ul>
+<p>往数组尾部批量添加数据，keyPath需指向到一个Array，如果该数组不存在，会自动创建。如果keyPath指向的对象已经存在并且不是数组类型，则失败并返回false。</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>keyPath</td><td>String</td><td>是</td><td>数据路径指向到一个Array</td></tr>
+<tr><td>dataA</td><td>Object</td><td>是</td><td>新数据</td></tr>
+<tr><td>dataB</td><td>Object</td><td>是</td><td>新数据</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>boolean</td><td>更新是否成功</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Boolean remove(String keyPath, Number index, Number count)</strong></li>
+</ul>
+<p>批量移除数组中的数据。keyPath需指向到一个Array。如果该对象不存在，则返回false。</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>keyPath</td><td>String</td><td>是</td><td>数据路径指向到一个Array</td></tr>
+<tr><td>index</td><td>Number</td><td>是</td><td>待删除数据的起始位置，取值范围为 0 ~ array.length-1</td></tr>
+<tr><td>count</td><td>Number</td><td>是</td><td>待删除数据的数量，正整数</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>boolean</td><td>更新是否成功</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>void watch(String keyPath, Function callback)</strong></li>
+</ul>
+<p>注册对keyPath的监听，当指定路径的数据发生变化时，回调指定的callback函数。callback会接收到一个对象，包含通知的keypath和更新类型。</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>keyPath</td><td>String</td><td>是</td><td>内存中数据存储的路径</td></tr>
+<tr><td>callback</td><td>Function</td><td>是</td><td>回调处理函数</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Boolean unwatch(String keyPath, Function callback)</strong></li>
+</ul>
+<p>反注册之前通过watch注册的监听。参数callback必须为上次调用watch时传入的函数。</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>keyPath</td><td>String</td><td>是</td><td>内存中数据存储的路径</td></tr>
+<tr><td>callback</td><td>Function</td><td>是</td><td>回调处理函数</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>boolean</td><td>更新是否成功</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="vnrequest"></a><a href="#vnrequest" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn.request</h2>
+<ul>
+<li><strong>Integer request(Object requestOrigin)</strong></li>
+</ul>
+<p>请求网络数据</p>
+<p><strong>Object内的参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>url</td><td>String</td><td>是</td><td>请求url</td></tr>
+<tr><td>data</td><td>Object/String</td><td>否</td><td>请求的参数</td></tr>
+<tr><td>header</td><td>Object</td><td>否</td><td>设置请求的 header</td></tr>
+<tr><td>method</td><td>String</td><td>否</td><td>（需大写）有效值：OPTIONS, GET(默认), HEAD, POST, PUT, DELETE, TRACE, CONNECT</td></tr>
+<tr><td>dataType</td><td>String</td><td>否</td><td>如果设为json(默认)，会尝试对返回的数据做一次 JSON.parse，有效值：json，text</td></tr>
+<tr><td>requestType</td><td>String</td><td>否</td><td>application/json或text/plain</td></tr>
+<tr><td>success</td><td>Function</td><td>否</td><td>收到开发者服务成功返回的回调函数</td></tr>
+<tr><td>fail</td><td>Function</td><td>否</td><td>接口调用失败的回调函数</td></tr>
+<tr><td>complete</td><td>Function</td><td>否</td><td>接口调用结束的回调函数（调用成功、失败都会执行），没有参数</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Integer</td><td>requestId，可用于取消请求</td></tr>
+</tbody>
+</table>
+<p><strong>success返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>data</td><td>Object/String</td><td>开发者服务器返回的数据</td></tr>
+</tbody>
+</table>
+<p><strong>fail返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Integer</td><td>错误码</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>cancel(Integer requstId)</strong></li>
+</ul>
+<p>取消之前的request，传入参数requestId为request调用时的返回值</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>requstId</td><td>Integer</td><td>是</td><td>要取消的请求id</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="vnstorage"></a><a href="#vnstorage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn.storage</h2>
+<ul>
+<li><strong>setStorage(Object object)</strong></li>
+</ul>
+<p>将数据存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个异步接口。</p>
+<p><strong>object内的参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>key</td><td>String</td><td>是</td><td>本地缓存中的指定的key</td></tr>
+<tr><td>data</td><td>Object/String</td><td>是</td><td>需要存储的内容</td></tr>
+<tr><td>success</td><td>Function</td><td>否</td><td>接口调用成功的回调函数，没有参数</td></tr>
+<tr><td>fail</td><td>Function</td><td>否</td><td>接口调用失败的回调函数</td></tr>
+<tr><td>complete</td><td>Function</td><td>否</td><td>接口调用结束的回调函数（调用成功、失败都会执行），没有参数</td></tr>
+<tr><td>expires</td><td>Long</td><td>否</td><td>存储过期时间，单位为毫秒</td></tr>
+</tbody>
+</table>
+<p><strong>fail返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Integer</td><td>错误码</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>getStorage(Object object)</strong></li>
+</ul>
+<p>从本地缓存中异步获取指定 key 对应的内容。</p>
+<p><strong>object内的参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>key</td><td>String</td><td>是</td><td>本地缓存中的指定的key</td></tr>
+<tr><td>success</td><td>Function</td><td>否</td><td>接口调用成功的回调函数</td></tr>
+<tr><td>fail</td><td>Function</td><td>否</td><td>接口调用失败的回调函数</td></tr>
+<tr><td>complete</td><td>Function</td><td>否</td><td>接口调用结束的回调函数（调用成功、失败都会执行），没有参数</td></tr>
+</tbody>
+</table>
+<p><strong>success返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>data</td><td>Object/String</td><td>key对应的内容</td></tr>
+</tbody>
+</table>
+<p><strong>fail返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Integer</td><td>错误码</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>removeStorage(Object obect)</strong></li>
+</ul>
+<p>从本地缓存中异步移除指定 key 。</p>
+<p><strong>object内的参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>key</td><td>String</td><td>是</td><td>本地缓存中的指定的 key</td></tr>
+<tr><td>success</td><td>Function</td><td>是</td><td>接口调用的回调函数，没有参数</td></tr>
+<tr><td>fail</td><td>Function</td><td>否</td><td>接口调用失败的回调函数</td></tr>
+<tr><td>complete</td><td>Function</td><td>否</td><td>接口调用结束的回调函数（调用成功、失败都会执行），没有参数</td></tr>
+</tbody>
+</table>
+<p><strong>fail返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Integer</td><td>错误码</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>clearStorage(Object obect)</strong></li>
+</ul>
+<p>清理本地数据缓存。参数非必填。</p>
+<p><strong>object内的参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>success</td><td>Function</td><td>否</td><td>接口调用成功的回调函数，没有参数</td></tr>
+<tr><td>fail</td><td>Function</td><td>否</td><td>接口调用失败的回调函数</td></tr>
+<tr><td>complete</td><td>Function</td><td>否</td><td>接口调用结束的回调函数（调用成功、失败都会执行），没有参数</td></tr>
+</tbody>
+</table>
+<p><strong>fail返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Integer</td><td>错误码</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="vnnavigate"></a><a href="#vnnavigate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn.navigate</h2>
+<ul>
+<li><strong>navigateTo(Object obj)</strong></li>
+</ul>
+<p>新页面打开对应的Url。</p>
+<p><strong>obj的内部参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>pageUrl</td><td>String</td><td>是</td><td>页面Url</td></tr>
+<tr><td>params</td><td>Object</td><td>否</td><td>页面传递的参数</td></tr>
+<tr><td>animate</td><td>boolean</td><td>是</td><td>页面跳转动画（0.2.0 版本开始支持）</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>redirectTo(Object obj)</strong></li>
+</ul>
+<p>当前页面刷新URL。</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>pageUrl</td><td>String</td><td>是</td><td>页面Url</td></tr>
+<tr><td>params</td><td>Object</td><td>否</td><td>页面传递的参数</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>navigateBack(Object obj)</strong></li>
+</ul>
+<p>回退URL。</p>
+<p><strong>obj的内部参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>deltaLevel</td><td>Integer</td><td>否</td><td>回退的页面个数，默认为1</td></tr>
+<tr><td>params</td><td>Object</td><td>否</td><td>页面传递的参数</td></tr>
+<tr><td>animate</td><td>boolean</td><td>是</td><td>页面跳转动画（0.2.0 版本开始支持）</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>relaunch(Object obj)</strong></li>
+</ul>
+<p>关闭当前APP所有页面，再打开一个新页面。</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>pageUrl</td><td>String</td><td>是</td><td>页面Url，只能为绝对路径</td></tr>
+<tr><td>params</td><td>Object</td><td>否</td><td>页面传递的参数</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="vnapp"></a><a href="#vnapp" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn.app</h2>
+<ul>
+<li><strong>String getSDKVersionName()</strong></li>
+</ul>
+<p>获取SDK版本名称。</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>String</td><td>SDK版本名称如:&quot;1.0.0&quot;</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Integer getSDKVersionCode()</strong></li>
+</ul>
+<p>获取SDK版本号。</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Integer</td><td>SDK版本号，从1开始不断增加。如:1</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Integer getAppVersion()</strong></li>
+</ul>
+<p>获取app版本号。如果当前页面不是以app方式接入，则返回0</p>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Integer</td><td>app版本号</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>void setShareData(String key, Object value)</strong></li>
+</ul>
+<p>设置app内共享的内存数据</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>key</td><td>String</td><td>是</td><td>key</td></tr>
+<tr><td>value</td><td>Object</td><td>否</td><td>value，为null的时候相当于清除数据</td></tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Object getShareData(String key)</strong></li>
+</ul>
+<p>获取之前调用setShareData设置的内存数据。</p>
+<p><strong>参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>key</td><td>String</td><td>是</td><td>key</td></tr>
+</tbody>
+</table>
+<p><strong>返回参数说明:</strong></p>
+<table>
+<thead>
+<tr><th>类型</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td>Object</td><td>数据对象，或者null</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/desktop/api-control-scroll-view"><span class="arrow-prev">← </span><span>VN scroll-view</span></a><a class="docs-next button" href="/docs/next/desktop/api-js-animation"><span>JS animation API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#vn">vn</a></li><li><a href="#vndom">vn.dom</a></li><li><a href="#dom对象">DOM对象</a></li><li><a href="#vnwindow">vn.window</a></li><li><a href="#console">console</a></li><li><a href="#vndata">vn.data</a></li><li><a href="#vnrequest">vn.request</a></li><li><a href="#vnstorage">vn.storage</a></li><li><a href="#vnnavigate">vn.navigate</a></li><li><a href="#vnapp">vn.app</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Tencent Inc</section></footer></div></body></html>

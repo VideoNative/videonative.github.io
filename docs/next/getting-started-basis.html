@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Video Native开发基本概念 · Video Native</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 页面和文件"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Video Native开发基本概念 · Video Native"/><meta property="og:type" content="website"/><meta property="og:url" content="https://videonative.github.io/"/><meta property="og:description" content="## 页面和文件"/><meta property="og:image" content="https://videonative.github.io/img/video_native.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://videonative.github.io/img/video_native.png"/><link rel="shortcut icon" href="/img/video_native.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://videonative.github.io/blog/atom.xml" title="Video Native Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://videonative.github.io/blog/feed.xml" title="Video Native Blog RSS Feed"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/video_native.png" alt="Video Native"/><h2 class="headerTitleWithLogo">Video Native</h2></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/next/getting-started-basis" target="_self">Getting Started</a></li><li class=""><a href="/docs/next/api-ui-controls" target="_self">API</a></li><li class=""><a href="/docs/next/desktop/home" target="_self">API-Desktop</a></li><li class=""><a href="/docs/next/playground-index" target="_self">Playground</a></li><li class=""><a href="/docs/next/version-index" target="_self">Versions</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>基础概念</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">基础概念</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/next/getting-started-basis">Video Native开发基本概念</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Native接入</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/getting-started-android">开始一个新的工程（Android）</a></li><li class="navListItem"><a class="navItem" href="/docs/next/getting-started-ios">开始一个新的工程（iOS）</a></li><li class="navListItem"><a class="navItem" href="/docs/next/getting-started-windows">开始一个新的工程（Windows）</a></li><li class="navListItem"><a class="navItem" href="/docs/next/getting-started-mac">开始一个新的工程（Mac）</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">VNCode接入</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/getting-started-vscode">使用Visual Studio Code</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">开发建议</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/develop-suggestions">开发建议</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Video Native开发基本概念</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="页面和文件"></a><a href="#页面和文件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>页面和文件</h2>
+<ol>
+<li><p>VideoNative 的每一个页面由1~4个同名但扩展名不同的文件组成，其中:</p>
+<ul>
+<li>vnml 文件是必需的，用于描述页面节点结构，基于 XML 文件格式</li>
+<li>json 文件为可选，用于存储页面初始化数据，基于 JSON 文件格式</li>
+<li>vnss 文件为可选，用于存储页面CSS规则，基于 CSS 文件格式</li>
+<li>js 文件为可选，用于存储页面相关的JS脚本，基于 JS 文件格式</li>
+</ul></li>
+<li><p>页面文件可以放在任意层次的目录里，但每个页面的4个文件需要处于相同的目录。最终通过编译打包后，通过与目录相对应的 pageUrl 作为来访问</p>
+<blockquote>
+<p>举例说明，页面文件路径是: <code>/vn_demo/index/index.*</code>，则最终对应的 pageUrl 就是: <code>vn://vn_demo/index/index</code></p>
+</blockquote></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="脚本示例"></a><a href="#脚本示例" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>脚本示例</h2>
+<ol>
+<li><p>先来看一个简单的Demo示例</p>
+<pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--Demo.vnml--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"auto"</span> <span class="hljs-attr">bindTap</span>=<span class="hljs-string">"onTextTap"</span>&gt;</span>{{userInfo.content}}<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
+</code></pre>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"userInfo"</span>:
+    {
+           <span class="hljs-attr">"content"</span>: <span class="hljs-string">"Hello World!"</span>
+    }
+}
+</code></pre>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/** Demo.vnss **/</span>
+<span class="hljs-selector-class">.container</span>
+{
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">flex-direction</span>: column;
+    <span class="hljs-attribute">justify-content</span>: center;
+}
+
+<span class="hljs-selector-tag">text</span> 
+{
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">50</span>rpx;
+    <span class="hljs-attribute">text-align</span>:center;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#DDDDDD</span>;
+}
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-comment">/** Demo.js **/</span>
+page ({
+    <span class="hljs-attr">onTextTap</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">params</span>) </span>{
+        <span class="hljs-keyword">var</span> clickStr = <span class="hljs-string">"文本被点击"</span>;
+        <span class="hljs-built_in">console</span>.log(clickStr);
+    }
+});
+</code></pre></li>
+<li><p>简单说明如下：</p>
+<ul>
+<li><code>vnml</code>文件中的view节点通过属性<code>class</code>声明使用了<code>vnss</code>文件中<code>container</code>规则</li>
+<li><code>vnml</code>文件中的text节点通过<code>{{userInfo.nickName}}</code>的胡子语法访问<code>json</code>文件中的文本<code>Video</code></li>
+<li><code>vnml</code>文件中的text节点通过属性<code>bindTap</code>绑定点击事件监听，关联到<code>js</code>文件中的<code>onTextTap</code>函数</li>
+</ul></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="vnml-页面脚本"></a><a href="#vnml-页面脚本" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vnml 页面脚本</h2>
+<ol>
+<li>vnml 用于定义标签节点，定义相关的属性，以及事件绑定。当前支持的组件标签可参见<a href="https://videonative.github.io/VideoNative/#/Controls">控件</a>:</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="json-数据脚本"></a><a href="#json-数据脚本" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>json 数据脚本</h2>
+<ol>
+<li><p>json 存放了页面的初始化数据:</p>
+<ul>
+<li>数据基于 JSON 文本格式</li>
+<li>数据中的 KEY 只能是字母、数字、下划线组成，且只能以字母开头</li>
+<li>页面组件可以通过胡子语句访问数据</li>
+</ul></li>
+<li><p>胡子语句简介：</p>
+<ul>
+<li>胡子语句是为了使界面与数据分离而产生的</li>
+<li>胡子语句的基本格式是<code>{{***}}</code></li>
+<li>胡子语句主要有两个功能：UI与数据绑定，表达式计算</li>
+<li>举例说明：</li>
+</ul>
+<pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!-- MustacheDemo.vnml --&gt;</span>
+<span class="hljs-comment">&lt;!-- showIndex从json中查询得到的值为0，则当前文本颜色为选中态："#FF8D33FF" --&gt;</span>
+<span class="hljs-comment">&lt;!-- showIndex如果被js代码修改为1时，则当前文本颜色变为正常态："#979797FF"，产生动态效果 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"{{showIndex == 0 ? selectedColor : normalColor}}"</span>&gt;</span>
+    颜色变化
+<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
+</code></pre>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/** MustacheDemo.vnss **/</span>
+<span class="hljs-selector-tag">text</span> 
+{
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100</span>rpx;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">50</span>rpx;
+    <span class="hljs-attribute">text-align</span>:center;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#DDDDDD</span>;
+}
+</code></pre>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"showIndex"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">"selectedColor"</span>: <span class="hljs-string">"#FF8D33FF"</span>,
+    <span class="hljs-attr">"normalColor"</span>: <span class="hljs-string">"#979797FF"</span>
+}
+</code></pre></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="控制语句"></a><a href="#控制语句" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>控制语句</h3>
+<h4><a class="anchor" aria-hidden="true" id="vnfor语句"></a><a href="#vnfor语句" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn:for语句</h4>
+<ul>
+<li>在组件标签上使用 <code>vn:for</code> 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件</li>
+<li>默认情况下，数组的当前项下标变量名为 <code>index</code>，数组当前项的变量名为 <code>item</code></li>
+<li>使用 <code>vn:for-index</code> 可以指定数组当前下标的变量名</li>
+<li>使用 <code>vn:for-item</code> 可以指定数组当前元素的变量名</li>
+<li>脚本示例:</li>
+</ul>
+<pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--ForDemo.vnml--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">vn:for</span>=<span class="hljs-string">"{{array}}"</span>&gt;</span>
+    {{index}}: {{item.message}} 
+<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">vn:for</span>=<span class="hljs-string">"{{array}}"</span> <span class="hljs-attr">vn:for-index</span>=<span class="hljs-string">"idx"</span> <span class="hljs-attr">vn:for-item</span>=<span class="hljs-string">"itemName"</span>&gt;</span>
+    {{idx}}: {{itemName.message}} 
+<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
+</code></pre>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/** ForDemo.vnss **/</span>
+<span class="hljs-selector-tag">text</span> 
+{
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100</span>rpx;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">50</span>rpx;
+    <span class="hljs-attribute">text-align</span>:center;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#DDDDDD</span>;
+}
+</code></pre>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"array"</span>: [ 
+        {<span class="hljs-attr">"message"</span>: <span class="hljs-string">"foo"</span> },
+        {<span class="hljs-attr">"message"</span>: <span class="hljs-string">"bar"</span>}
+    ]
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="vnif语句"></a><a href="#vnif语句" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn:if语句</h4>
+<ul>
+<li><code>vn:if</code> 条件语句用于判断当前组件标签是否需要渲染</li>
+<li>也可以用 <code>vn:elif</code> 或 <code>vn:else</code> 来添加 else 块</li>
+<li>脚本示例:</li>
+</ul>
+<pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--IfDemo.vnml--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">vn:if</span>=<span class="hljs-string">"{{length &gt; 5}}"</span>&gt;</span> 1 <span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span> 
+<span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">vn:elif</span>=<span class="hljs-string">"{{length &gt; 2}}"</span>&gt;</span> 2 <span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span> 
+<span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">vn:else</span>&gt;</span> 3 <span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
+</code></pre>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/** IfDemo.vnss **/</span>
+<span class="hljs-selector-tag">text</span> 
+{
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100</span>rpx;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">50</span>rpx;
+    <span class="hljs-attribute">text-align</span>:center;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#DDDDDD</span>;
+}
+</code></pre>
+<pre><code class="hljs css language-json">{<span class="hljs-attr">"length"</span>: <span class="hljs-number">4</span>}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="vnfor-与-vnif"></a><a href="#vnfor-与-vnif" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn:for 与 vn:if</h4>
+<ul>
+<li>当 <code>vn:if</code> 和 <code>vn:for</code> 同时存在于一个标签内时，<code>vn:if</code> 会被优先处理</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="vnss-样式"></a><a href="#vnss-样式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vnss 样式</h2>
+<ol>
+<li><p>vnss文件可定义若干个规则集，用于定义页面布局和组件属性，页面组件有多种方式匹配定义好的规则集</p></li>
+<li><p>各组件的属性会各不相同。详情请参见控件页</p></li>
+<li><p>样式表的匹配方式有：标签选择器，类选择器，ID选择器，后代选择器，伪类选择器，通配符选择器。详细说明如下：</p>
+<ul>
+<li>类选择器示例：</li>
+</ul>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/** ClassSelector.vnss **/</span>
+<span class="hljs-comment">/* 匹配class="title"的标签 */</span>
+<span class="hljs-selector-class">.title</span> {
+    <span class="hljs-attribute">font-size</span>:<span class="hljs-number">35</span>rpx;
+    <span class="hljs-attribute">color</span>:<span class="hljs-number">#222222FF</span>;
+}
+</code></pre>
+<pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--ClassSelector.vnml--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"title"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"auto"</span>&gt;</span>匹配文本<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
+</code></pre>
+<ul>
+<li>标签选择器示例：</li>
+</ul>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/** TypeSelector.vnss **/</span>
+<span class="hljs-comment">/* 匹配布局中所有的text标签 */</span>
+<span class="hljs-selector-tag">text</span> {
+    <span class="hljs-attribute">font-size</span>:<span class="hljs-number">35</span>rpx;
+    <span class="hljs-attribute">color</span>:<span class="hljs-number">#222222FF</span>;
+}
+</code></pre>
+<pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--TypeSelector.vnml--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"auto"</span>&gt;</span>匹配文本1<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"auto"</span>&gt;</span>匹配文本2<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
+</code></pre>
+<ul>
+<li>ID选择器示例：</li>
+</ul>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/** IDSelector.vnss **/</span>
+<span class="hljs-comment">/* 匹配id="container"的标签 */</span>
+<span class="hljs-selector-id">#container</span> {
+    <span class="hljs-attribute">width</span>:<span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>:<span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">flex-direction</span>:column;
+    <span class="hljs-attribute">background-color</span>:<span class="hljs-number">#FFFFFFFF</span>;
+}
+</code></pre>
+<pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--IDSelector.vnml--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mainContainer"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"posterImg"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"{{imageUrl}}"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
+</code></pre>
+<ul>
+<li>后代选择器示例：</li>
+</ul>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/** DescendantSelector.vnss **/</span>
+<span class="hljs-comment">/* 匹配id="container"的标签下的文本标签 */</span>
+<span class="hljs-selector-id">#container</span> <span class="hljs-selector-tag">text</span> {
+    <span class="hljs-attribute">width</span>:<span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>:auto;
+    <span class="hljs-attribute">font-size</span>:<span class="hljs-number">20</span>rpx;
+    <span class="hljs-attribute">color</span>:<span class="hljs-number">#FFFFFFFF</span>;
+}
+</code></pre>
+<ul>
+<li>伪类选择器示例：</li>
+</ul>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/** PseudoSelector.vnss **/</span>
+<span class="hljs-comment">/* 匹配id="container"的标签下的被用户点击的文本标签 */</span>
+<span class="hljs-selector-id">#container</span> <span class="hljs-selector-tag">text</span><span class="hljs-selector-pseudo">:active</span> {
+    <span class="hljs-attribute">width</span>:<span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>:auto;
+    <span class="hljs-attribute">font-size</span>:<span class="hljs-number">20</span>rpx;
+    <span class="hljs-attribute">color</span>:<span class="hljs-number">#FFFFFFFF</span>;
+}
+</code></pre>
+<ul>
+<li>通配符选择器示例：</li>
+</ul>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/** UniversalSelector.vnss **/</span>
+<span class="hljs-comment">/* 匹配所有标签 */</span>
+    * {
+        <span class="hljs-attribute">width</span>:<span class="hljs-number">100%</span>;
+        <span class="hljs-attribute">height</span>:<span class="hljs-number">200</span>rpx;
+        <span class="hljs-attribute">font-size</span>:<span class="hljs-number">50</span>rpx;
+        <span class="hljs-attribute">background-color</span>:green;
+    }
+</code></pre>
+<pre><code class="hljs css language-html"><span class="hljs-comment">&lt;!--UniversalSelector.vnml--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mainContainer"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">text</span>&gt;</span>匹配文本<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">text</span>&gt;</span>不匹配文本<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span>
+</code></pre></li>
+<li><p>尺寸单位：rpx(responsive pixel)。根据屏幕宽度进行自适应。默认规定屏幕宽为 750rpx</p>
+<blockquote>
+<p>如在 iPhone6 上，屏幕宽度为 375px，共有 750 个物理像素，则 750rpx = 375px = 750 物理像素，1rpx = 0.5px = 1 物理像素</p>
+</blockquote></li>
+</ol>
+<table>
+<thead>
+<tr><th>设备</th><th>rpx 换算 px（屏幕宽度/750）</th><th>px 换算 rpx（750/屏幕宽度）</th></tr>
+</thead>
+<tbody>
+<tr><td>iPhone5</td><td>1rpx=0.42px</td><td>1px=2.34rpx</td></tr>
+<tr><td>iPhone6</td><td>1rpx=0.5px</td><td>1px=2rpx</td></tr>
+<tr><td>iPhone6 Plus</td><td>1rpx=0.552px</td><td>1px=1.81rpx</td></tr>
+</tbody>
+</table>
+<p><strong>注：</strong>关于css更加详细的说明参看<a href="https://videonative.github.io/VideoNative/#/CSS">CSS</a></p>
+<h2><a class="anchor" aria-hidden="true" id="js-文件脚本"></a><a href="#js-文件脚本" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>js 文件脚本</h2>
+<p>JS文件用于定义页面业务相关的处理逻辑和数据，也用于定义页面生命周期回调函数。在JS脚本中，可以调用VN框架提供的API，具体参见<a href="https://videonative.github.io/VideoNative/#/API">API</a></p>
+<p>JS脚本文件通过调用page函数来传入对象，用于处理页面事件。具体页面事件参见<a href="https://videonative.github.io/VideoNative/#/Controls?id=%E9%80%9A%E7%94%A8%E4%BA%8B%E4%BB%B6">API</a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/next/getting-started-android"><span>开始一个新的工程（Android）</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#页面和文件">页面和文件</a></li><li><a href="#脚本示例">脚本示例</a></li><li><a href="#vnml-页面脚本">vnml 页面脚本</a></li><li><a href="#json-数据脚本">json 数据脚本</a><ul class="toc-headings"><li><a href="#控制语句">控制语句</a></li></ul></li><li><a href="#vnss-样式">vnss 样式</a></li><li><a href="#js-文件脚本">js 文件脚本</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Tencent Inc</section></footer></div></body></html>
