@@ -107,7 +107,7 @@
 </tbody>
 </table>
 <ul>
-<li><strong>Var toUnit(String value, String unit)</strong> <em>(since 0.8)</em></li>
+<li><strong>Var toUnit(String value, String unit)</strong></li>
 </ul>
 <p>通用长度转换函数。<br />
 将输入的长度字符串，转换为指定单位的数字。如果输入参数不合法，则返回undefined。</p>
@@ -131,7 +131,7 @@
 </tbody>
 </table>
 <ul>
-<li><strong>void reportEvent(String event, Object params)</strong> <em>(since 0.8)</em></li>
+<li><strong>void reportEvent(String event, Object params)</strong></li>
 </ul>
 <p>上报自定义事件</p>
 <p><strong>参数说明:</strong></p>
@@ -145,7 +145,7 @@
 </tbody>
 </table>
 <ul>
-<li><strong>void traverseExposure()</strong> <em>(since 0.8)</em></li>
+<li><strong>void traverseExposure()</strong></li>
 </ul>
 <p>遍历当前页面可见元素并做曝光上报。注：之前已曝光元素不会重复上报。</p>
 <ul>
@@ -185,7 +185,7 @@
 </tbody>
 </table>
 <ul>
-<li><strong>void setGlobalShareData(String key, Object value)</strong> <em>(since 0.8)</em></li>
+<li><strong>void setGlobalShareData(String key, Object value)</strong></li>
 </ul>
 <p>设置全局共享的内存数据</p>
 <p><strong>参数说明:</strong></p>
@@ -199,7 +199,7 @@
 </tbody>
 </table>
 <ul>
-<li><strong>Object getGlobalShareData(String key)</strong> <em>(since 0.8)</em></li>
+<li><strong>Object getGlobalShareData(String key)</strong></li>
 </ul>
 <p>获取之前调用setGlobalShareData设置的内存数据。</p>
 <p><strong>参数说明:</strong></p>
@@ -218,20 +218,6 @@
 </thead>
 <tbody>
 <tr><td>Object</td><td>数据或者null</td></tr>
-</tbody>
-</table>
-<ul>
-<li><strong>void updateMediaQuery(String feature, String value)</strong> <em>(since 0.9)</em></li>
-</ul>
-<p>更新媒体查询的值（仅对当前页面有效；不支持更新 width 和 height）</p>
-<p><strong>参数说明:</strong></p>
-<table>
-<thead>
-<tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
-</thead>
-<tbody>
-<tr><td>feature</td><td>String</td><td>是</td><td>媒体查询条件</td></tr>
-<tr><td>value</td><td>String</td><td>是</td><td>媒体查询的值</td></tr>
 </tbody>
 </table>
 <h2><a class="anchor" aria-hidden="true" id="vndom"></a><a href="#vndom" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vn.dom</h2>
@@ -258,11 +244,11 @@
 </tbody>
 </table>
 <ul>
-<li><strong>fullscreenElement</strong> <em>(since 0.4)</em></li>
+<li><strong>fullscreenElement</strong></li>
 </ul>
 <p>属性。用于获取当前处于全屏模式的DOM节点。如果没有全屏元素，则为null</p>
 <ul>
-<li><strong>exitFullscreen()</strong> <em>(since 0.4)</em></li>
+<li><strong>exitFullscreen()</strong></li>
 </ul>
 <p>调用该方法来退出全屏模式</p>
 <h2><a class="anchor" aria-hidden="true" id="dom对象"></a><a href="#dom对象" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DOM对象</h2>
@@ -612,11 +598,11 @@
 </ul>
 <p>设置y轴旋转的角度</p>
 <ul>
-<li><strong>requestFullscreen()</strong> <em>(since 0.4)</em></li>
+<li><strong>requestFullscreen()</strong></li>
 </ul>
 <p>将其他正处于全屏模式的节点恢复，并将当前DOM元素设置为全屏模式。如果进入全屏失败，当前节点会收到 fullscreenerror 回调。</p>
 <ul>
-<li><strong>track(String eventName, Object extraParams)</strong> <em>(since 0.8)</em></li>
+<li><strong>track(String eventName, Object extraParams)</strong></li>
 </ul>
 <p>组件用来上报自定义事件，上报时会收集组件的上下文信息</p>
 <p><strong>参数说明:</strong></p>
