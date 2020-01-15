@@ -3,35 +3,48 @@ id: vn-interface
 title: VNDesktop 接入接口文档
 ---
 
-## LoadVideoNativeDll.h
-### 代码接口
-https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/LoadVideoNativeDll.h   
+## VideoNative加载层
+代码接口[LoadVideoNativeDll.h](https://git.code.oa.com/VideoNative/VideoNativeDesktop/blob/master/VideoNativeDesktop/Interface/LoadVideoNativeDll.h)
+   
 
-### 主要接口
-```groovy 
-void VN_InitViewsContentClient(int argc, const char** argv, void (*pMain)(), void *app_delegate);   
-void VN_InitHybridViewsContentClient(int argc, const char** argv, void (*pMain)());   
-bool VN_GetQVNVideoNative(IQVNVideoNative **pQVNVideoNative);   
-void VN_InitPictureDataManager(LPCWSTR sqliteDBPath, LPCWSTR tableName);   
-void VN_SetCookieFilePath(const char *cookieFilePath); // utf8 coding   
-void VN_InitVNStorage(const char *sqliteDBPath, const char* storageTable); // utf8 coding   
-bool VN_CreateDataBuffer(IDataBuffer** ppBuffer);   
-void VN_SetExternalDataFetcher(const char* key, ExternalDataCallback callback); // utf8 coding   
-BOOL VN_GetExternalManager(IVNExternalManager** pExternalManager);   
-```
+### VN_SetVideoNativeCachePath Function
 
-### 接口和示例
-#### bool VN_GetQVNVideoNative(IQVNVideoNative **pQVNVideoNative);   
-This function should be called on the main application thread when the application start.    
-It will initialize and return a global IQVNVideoNative instance object,    
-and use this global instance to load and close VideoNative page or app.   
-
+**Syntax**
+Set VideoNative cache path
 ```groovy
-#include "LoadVideoNativeDll.h"
-#pragma comment(lib, "VideoNative.lib")
-CComPtr<IQVNVideoNative> vn;
-VN_GetQVNVideoNative(&vn);
+VIDEONATIVE_API void VIDEONATIVE_API_CALLTYPE VN_SetVideoNativeCachePath(const char* path);
 ```
+**Parameters**
+path(utf8 encode): Target cache path
+
+**Remark**
+The method MUST be called in main thread and before VN_InitializeEnvironment.
+It is same to call SetConfigValue("VideoNativeCachePath", path).
+
+### VN_InitializeEnvironment Function
+**Syntax**
+Initialize VN Environment
+```groovy
+VIDEONATIVE_API void VIDEONATIVE_API_CALLTYPE VN_InitializeEnvironment();
+```
+
+**Remark**
+The method MUST be called in main thread and before VN_GetQVNVideoNative.
+It will initialize VideoNative environment. Include thread pool and something necessray component.
+
+
+### VN_GetQVNVideoNative Function
+**Syntax**
+Get the global QVNVideoNative factory instance
+```groovy
+VIDEONATIVE_API bool VIDEONATIVE_API_CALLTYPE VN_GetQVNVideoNative(IQVNVideoNative** pQVNVideoNative);
+```
+**Parameters**
+[out] pQVNVideoNative: The global QVNVideoNative instance
+
+**Remark**
+The method MUST be called in main thread.
+It will return a global QVNVideoNative instance object, and you can use this instance to load and close VideoNative page or app.
 
 ---
 

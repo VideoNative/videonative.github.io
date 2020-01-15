@@ -34,7 +34,7 @@ Google Pixel 2 | 1rpx = 1.44px | 1px = 0.69rpx
 
 -**dp**（Density Independence Pixel）: 屏幕密度无关像素单位。以160dpi为基准，在160dpi设备上1dp=1px，在240dpi设备上1dp=1.5px，以此类推。等同于Android上的dp、dip；也等同于iOS上的point。
 
-**建议：** 设计师可以用 iPhone6 作为视觉稿的标准，这样屏幕宽度是375点，点和dp的换算关系为 1dp = 1点；点和rpx之间的换算关系为 1rpx = 2点；点和pt的换算关系为 1pt = 0.4425点
+**建议：** 设计师可以用 iPhone6 作为视觉稿的标准，这样屏幕宽度是375点，点和dp的换算关系为 1dp = 1点；点和rpx之间的换算关系为 1rpx = 0.5点；点和pt的换算关系为 1pt = 0.4425点
 
 ## 内联样式
 
