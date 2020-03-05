@@ -4,8 +4,16 @@ title: 版本发布信息
 original_id: version-index
 ---
 
-## 0.9
+## 0.10
 发布日期：开发中<br/>
+
+新增功能：
+
++ 腾讯视频：1、支持vnapp离线包更新之后的热刷新已打开页面；2、支持动态下发VNView
+
+
+## 0.9
+发布日期：2020-01-10<br/>
 
 新增功能：
 
@@ -14,6 +22,8 @@ original_id: version-index
 + JSAPI: 新增 vn.updateMediaQuery()
 + 数据: 支持通过 vn.data 查询和监听媒体查询条件
 + 数据: KeyPath支持在方括号中填字符串，如: list['one key']
+
+业务场景：腾讯视频v7.8.8
 
 
 ## 0.8
