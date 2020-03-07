@@ -52,33 +52,6 @@ function Versions(props) {
               </tr>
             </tbody>
           </table>
-//          <p>
-//            {/* This is the version that is configured automatically when you first
-//            install this project. */}
-//            建议您升级到此版本.
-//          </p>
-//          <h3 id="rc">预发布版本</h3>
-//          <table className="versions">
-//            <tbody>
-//              <tr>
-//                <th>master</th>
-//                <td>
-//                  {/* You are supposed to change this href where appropriate
-//                        Example: href="<baseUrl>/docs(/:language)/next/:id" */}
-//                  <a
-//                    href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
-//                      props.language ? props.language + '/' : ''
-//                    }next/${apiDocPath}`}>
-//                    Documentation
-//                  </a>
-//                </td>
-//                <td>
-//                  <a href={repoUrl}>Source Code</a>
-//                </td>
-//              </tr>
-//            </tbody>
-//          </table>
-//          <p>您可在此预览即将发布的版本所支持的新特性.</p>
           <h3 id="archive">历史版本</h3>
           <p>您可在此查看曾经发布的历史版本.</p>
           <table className="versions">
