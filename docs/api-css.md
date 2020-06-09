@@ -17,7 +17,7 @@ VNSS 用来决定 VNML 的组件应该怎么显示。
 
 -**rpx**（Responsive Pixel）: 根据页面宽度自适应的长度单位。规定页面宽度为750rpx。如一个全屏页面在 iPhone6 上，其宽度为375 point(iOS布局单位)，共有750个物理像素，则750rpx = 375point = 750物理像素，1rpx = 0.5point = 1物理像素。*从0.7版本开始，rpx的参照宽度从 屏幕短边 调整为 页面宽度*
 
-设备 | rpx换算px (屏幕宽度/750) |px 换算rpx (750/屏幕宽度)
+设备 | rpx换算px (屏幕宽度/750) | px换算rpx (750/屏幕宽度)
 --- | --- | ---
 iPhone5 | 1rpx = 0.85px | 1px = 1.17rpx
 iPhone6 | 1rpx = 1px | 1px = 1rpx
