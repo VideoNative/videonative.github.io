@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>开发建议 · Video Native</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="1. 长列表应使用list，避免用scroll-view &lt;br /&gt;"/><meta name="docsearch:version" content="0.9"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="开发建议 · Video Native"/><meta property="og:type" content="website"/><meta property="og:url" content="https://videonative.github.io/"/><meta property="og:description" content="1. 长列表应使用list，避免用scroll-view &lt;br /&gt;"/><meta property="og:image" content="https://videonative.github.io/img/video_native.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://videonative.github.io/img/video_native.png"/><link rel="shortcut icon" href="/img/video_native.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://videonative.github.io/blog/atom.xml" title="Video Native Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://videonative.github.io/blog/feed.xml" title="Video Native Blog RSS Feed"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/video_native.png" alt="Video Native"/><h2 class="headerTitleWithLogo">Video Native</h2></a><a href="/versions"><h3>0.9</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/0.9/getting-started-basis" target="_self">Getting Started</a></li><li class=""><a href="/docs/0.9/api-ui-controls" target="_self">API</a></li><li class=""><a href="/docs/0.9/desktop/home" target="_self">API-Desktop</a></li><li class=""><a href="/docs/0.9/playground-index" target="_self">Playground</a></li><li class=""><a href="/docs/0.9/version-index" target="_self">Versions</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>开发建议</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">基础概念</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.9/getting-started-basis">Video Native开发基本概念</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Native接入</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.9/getting-started-android">开始一个新的工程（Android）</a></li><li class="navListItem"><a class="navItem" href="/docs/0.9/getting-started-ios">开始一个新的工程（iOS）</a></li><li class="navListItem"><a class="navItem" href="/docs/0.9/getting-started-windows">开始一个新的工程（Windows）</a></li><li class="navListItem"><a class="navItem" href="/docs/0.9/getting-started-mac">开始一个新的工程（Mac）</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">VNCode接入</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.9/getting-started-vscode">使用Visual Studio Code</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">开发建议</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/0.9/develop-suggestions">开发建议</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">开发建议</h1></header><article><div><span><ol>
+<li><p>长列表应使用list，避免用scroll-view <br />
+原因：scroll-view会一次性创建和渲染所有的子节点；孩子数量越多，首次渲染越慢。而list只会创建可见区域的孩子节点，首次渲染耗时较少。</p></li>
+<li><p>list的子节点应避免使用动态class和动态id <br />
+动态class和动态id就是类似 <code>class=&quot;cls{{index}}&quot;</code>、<code>id=&quot;{{item.id}}&quot;</code> 这种通过胡子语法赋值给class属性或id属性的写法 <br />
+原因：list的cell会被复用。当list滚动时，已经下屏的cell会根据类型被复用在新位置上，并刷新cell对象的属性数据和UI。由于class和id的更新会涉及到CSS规则集重新选择匹配和应用，并导致重新渲染，很容易导致严重的滑动卡顿。</p></li>
+<li><p>避免在 list 的 bindscroll 事件中做耗时操作 <br />
+原因：在list滑动的时候，稍许的延时就会看起来卡顿，所以应该避免在 bindscroll 中做耗时操作。例如：遍历DOM树、上报、耗时运算、变更class或者id、大量的数据操作等</p></li>
+<li><p>list的数据建议预处理 <br />
+建议提供给list的数据就是明确的ViewModel，并严格的区分cellType，可以极大的优化list的性能。应该避免同一种cellType，由于数据的不同而增删子节点。 <br />
+原因：cell是被回收和复用的，如果在复用时cell内的子节点数量发生变化，会导致cell自身被重新测量和布局，会降低滑动流畅度。</p></li>
+<li><p>避免在list的cell内使用 vn:if，并且判断条件会随着索引不同而变化 <br />
+原因：list滑动时cell被复用，如果数据导致 vn:if 判断条件变化的话，会导致cell的子节点发生销毁和重建。子节点的创建是很耗时的操作，对滑动流畅度有极大的影响。</p></li>
+<li><p>避免在list里使用自定义组件，同时又在自定义组件中使用 <code>vn.data.watch()</code> 监听和加工数据 <br />
+原因：list的cell复用导致自定义组件会经常收到数据变更通知（每一次复用就会通知一次数据变更）。组件数据当前是 copy-on-write 的模式，加工数据会导致数据copy耗时操作。建议增加list的数据预处理，一次性处理好整个list和子节点的数据。（注：0.8版本开始支持组件数据双向穿透的方案，加工数据可以避免拷贝，这样可以把数据加工逻辑放在组件内部，优化开发体验）</p></li>
+<li><p>尽量减少view层级和数量，可以提高渲染性能</p></li>
+<li><p>尽量减少半透明、圆角、阴影、Border的使用量，尽量用图片替代，可以提高性能</p></li>
+<li><p>尽量减少半透明的使用量，可以提高渲染性能</p></li>
+<li><p>优化JSAPI的性能 <br />
+原因：所有JS逻辑都是在UI线程中运行，包括JSAPI。所以应尽量优化JSAPI的性能。另外，JSAPI的参数和返回值应尽量减少冗余数据，因为所有数据都需要经过序列化传递，冗余数据会导致性能浪费。</p></li>
+<li><p>尽量减少使用webpack、rollup等打包工具处理的JS入口文件数量 <br />
+原因：webpack会把所有的依赖模块源码都添加到JS入口文件里，会导致JS源代码变大导致加载变慢。建议使用一到两个JS文件包含所有的外部依赖（npm模块），让webpack仅处理这几个JS文件；而剩下的JS文件可以通过require这几个JS文件的方式引用外部模块。</p></li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/0.9/getting-started-vscode"><span class="arrow-prev">← </span><span>使用Visual Studio Code</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/video_native.png" alt="Video Native" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started-basis.html">Getting Started</a><a href="/docs/en/playground-index.html">Playground</a><a href="/docs/en/api-ui-controls.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/VideoNative/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://code.facebook.com/projects/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Tencent Inc</section></footer></div></body></html>
